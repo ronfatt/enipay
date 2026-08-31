@@ -1,7 +1,7 @@
 /**
- * ENIPay Web3 Presentation Engine (Full-Screen Slide Show Edition)
+ * ENIPay Web3 Presentation Engine (Octane 3D HUD Edition)
  * Features: Three.js 3D Background, Motion Choreography, Counter Tickers,
- * Interactive Calculators, Web Audio HUD sound synthesis, Speaker Notes Sync.
+ * 3D Holographic Card Interactions, Web Audio HUD sound synthesis, Speaker Notes Sync.
  */
 
 // Sound Synthesizer (Zero asset dependencies, Web Audio API)
@@ -69,35 +69,35 @@ function initThreeScene() {
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-  // 1. Cyber Ring / Torus Core
-  const torusGeo = new THREE.TorusKnotGeometry(10, 2.4, 140, 28, 2, 3);
+  // 1. Cyber Ring / Torus Core (Neon Green / Cyan Glow)
+  const torusGeo = new THREE.TorusKnotGeometry(11, 2.5, 150, 30, 2, 3);
   const torusMat = new THREE.MeshBasicMaterial({
-    color: 0x00f2fe,
+    color: 0x00ffb2,
     wireframe: true,
     transparent: true,
-    opacity: 0.16
+    opacity: 0.18
   });
   const torus = new THREE.Mesh(torusGeo, torusMat);
   scene.add(torus);
 
   // 2. Floating Cyan Particle Field
-  const particleCount = 320;
+  const particleCount = 380;
   const positions = new Float32Array(particleCount * 3);
 
   for (let i = 0; i < particleCount * 3; i += 3) {
-    positions[i] = (Math.random() - 0.5) * 90;
-    positions[i + 1] = (Math.random() - 0.5) * 70;
-    positions[i + 2] = (Math.random() - 0.5) * 50;
+    positions[i] = (Math.random() - 0.5) * 100;
+    positions[i + 1] = (Math.random() - 0.5) * 80;
+    positions[i + 2] = (Math.random() - 0.5) * 60;
   }
 
   const particleGeo = new THREE.BufferGeometry();
   particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
   
   const particleMat = new THREE.PointsMaterial({
-    color: 0x00c9e8,
+    color: 0x00f2fe,
     size: 0.45,
     transparent: true,
-    opacity: 0.4,
+    opacity: 0.55,
     blending: THREE.AdditiveBlending
   });
   const particles = new THREE.Points(particleGeo, particleMat);
@@ -146,7 +146,7 @@ const state = {
 };
 
 const slideNotes = {
-  1: "【Slide 1 封面演说点】\n各位投资人与生态伙伴，欢迎来到 Enipay 全球推介会。今天我们呈现的不仅仅是一个数字钱包，而是由日本五年实力公链 ENI Chain 驱动，由 100% 币安托管背书，面向 AI Agent、稳定币与十万亿 Web3 商业的下一代全球支付入口！",
+  1: "【Slide 1 封面演说点】\n各位投资人与生态伙伴，欢迎来到 Enipay 全球推介会。今天我们呈现的不仅是一个数字钱包，而是由日本五年实力公链 ENI Chain 驱动，由 100% 币安第三方托管背书，面向 AI Agent、稳定币与十万亿 Web3 商业的下一代全球支付入口！",
   2: "【Slide 2 赛道与痛点】\nVisa 6700亿，Mastercard 4000亿，但它们只统治了传统法币。全球数十万亿美元加密资产与稳定币急需合规出入金通道。RedotPay 仅凭单卡三年做到了 120 亿美金流水与 1.8 亿净利！而 Enipay 是全矩阵+AI赋能的升级体，估值想象空间极其巨大！",
   3: "【Slide 3 公链底座支撑】\n我们绝不是空气项目！底层 ENI 公链总部位于日本东京，已平稳运行整整 5 年，拥有 400 万+独立地址与 2400 万笔链上交易。实测 12,500 TPS，延迟降低 85%，获日本最大通信巨头 NTT 深度认可，Certik 评分高达 82.19 A级安全认证！",
   4: "【Slide 4 三层架构与全矩阵】\n我们的核心在于三层金字塔架构与落地场景：双币四方扫码打通微信/支付宝/MoMo；极速海外合规扫码出入金彻底解决买U卖U冻卡痛点；实体/虚拟三色 U 卡 + 链上免税美股与全球出行生态！",
@@ -243,7 +243,7 @@ function goToSlide(num) {
 
 // 3D Card Interactive Tilt & Depth Hover
 function setup3DCardTilt() {
-  document.querySelectorAll('.grid-box-modular, .panel-dark-anchor').forEach(card => {
+  document.querySelectorAll('.octane-glass-panel, .octane-card-hud').forEach(card => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -253,7 +253,7 @@ function setup3DCardTilt() {
       const rotateX = ((y - centerY) / centerY) * -5;
       const rotateY = ((x - centerX) / centerX) * 5;
 
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-3px)`;
     });
 
     card.addEventListener('mouseleave', () => {
