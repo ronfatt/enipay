@@ -215,37 +215,73 @@ body {
     display: none !important;
   }
 
-  .mobile-bottom-nav {
+  /* Web3 App Mobile Glassmorphism Dock */
+  .mobile-app-dock {
     position: fixed;
-    bottom: 16px;
+    bottom: 12px;
     left: 50%;
     transform: translateX(-50%);
+    width: min(94%, 400px);
+    height: 56px;
     z-index: 999 !important;
     display: flex;
     align-items: center;
-    gap: 12px;
-    background: rgba(7, 10, 15, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(0, 255, 178, 0.5);
-    padding: 8px 18px;
-    border-radius: 9999px;
-    box-shadow: 0 10px 35px rgba(0,0,0,0.85), 0 0 15px rgba(0,255,178,0.25);
+    justify-content: space-around;
+    padding: 0 6px;
+    background: rgba(7, 10, 15, 0.90);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(0, 255, 178, 0.4);
+    border-radius: 20px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.95), 0 0 20px rgba(0, 255, 178, 0.2);
   }
 
-  .mobile-bottom-nav button {
-    background: transparent;
-    border: none;
-    color: #00ffb2;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 4px 10px;
-    cursor: pointer;
-    min-height: 36px;
-    min-width: 36px;
+  .dock-item {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    flex: 1;
+    height: 100%;
+    color: #94a3b8;
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    padding: 2px 0;
+    white-space: nowrap;
+  }
+
+  .dock-item:active {
+    transform: scale(0.92);
+  }
+
+  .dock-item:hover, .dock-item.active {
+    color: #00ffb2;
+  }
+
+  .dock-item .dock-icon {
+    font-size: 17px;
+    line-height: 1;
+    margin-bottom: 2px;
+    transition: transform 0.2s ease;
+  }
+
+  .dock-item:hover .dock-icon {
+    transform: translateY(-2px);
+  }
+
+  .dock-item-highlight {
+    background: linear-gradient(135deg, rgba(0, 255, 178, 0.18), rgba(0, 242, 254, 0.18));
+    border: 1px solid rgba(0, 255, 178, 0.5);
+    border-radius: 14px;
+    color: #00ffb2;
+    padding: 4px 6px;
+    box-shadow: 0 0 14px rgba(0, 255, 178, 0.25);
   }
 
   .octane-glass-panel, .octane-card-hud, .phase-card-tier {

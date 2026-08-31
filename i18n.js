@@ -20,6 +20,13 @@ const translations = {
     certik_audit_btn: "🛡️ 查看 CertiK 报告 ↗",
     eni_chain_btn: "🌐 ENI 公链官网 ↗",
 
+    // Web3 Mobile App Bottom Dock
+    dock_home: "首页",
+    dock_hub: "资料库",
+    dock_app: "下载App",
+    dock_chain: "公链官网",
+    dock_x: "官方X",
+
     // Nav Dots (13 Slides Sequence)
     nav_01: "01 三层架构体系",
     nav_02: "02 艾米公链底座",
@@ -366,6 +373,13 @@ const translations = {
     certik_audit_btn: "🛡️ View CertiK Report ↗",
     eni_chain_btn: "🌐 ENI Chain Official ↗",
 
+    // Web3 Mobile App Bottom Dock
+    dock_home: "Home",
+    dock_hub: "Hub",
+    dock_app: "Get App",
+    dock_chain: "Chain",
+    dock_x: "Official X",
+
     nav_01: "01 3-Layer Architecture",
     nav_02: "02 ENI Chain L1 Base",
     nav_03: "03 Global Clearing Giants",
@@ -697,6 +711,13 @@ const translations = {
     verify_bscscan: "BscScanでオンチェーン検証 ↗",
     certik_audit_btn: "🛡️ CertiK 監査レポート ↗",
     eni_chain_btn: "🌐 ENI 公式サイト ↗",
+
+    // Web3 Mobile App Bottom Dock
+    dock_home: "ホーム",
+    dock_hub: "資料庫",
+    dock_app: "アプリ",
+    dock_chain: "公式チェーン",
+    dock_x: "公式X",
 
     nav_01: "01 3層構造システム",
     nav_02: "02 ENI チェーン基盤",
@@ -1030,6 +1051,13 @@ const translations = {
     certik_audit_btn: "🛡️ CertiK 감사 보고서 ↗",
     eni_chain_btn: "🌐 ENI 공식 웹사이트 ↗",
 
+    // Web3 Mobile App Bottom Dock
+    dock_home: "홈",
+    dock_hub: "자료실",
+    dock_app: "앱 다운로드",
+    dock_chain: "메인넷",
+    dock_x: "공식 X",
+
     nav_01: "01 3계층 아키텍처",
     nav_02: "02 ENI 체인 L1",
     nav_03: "03 글로벌 결제 거두 시총",
@@ -1361,6 +1389,13 @@ const translations = {
     verify_bscscan: "Xác minh trên BscScan ↗",
     certik_audit_btn: "🛡️ Báo cáo CertiK ↗",
     eni_chain_btn: "🌐 Trang chủ ENI ↗",
+
+    // Web3 Mobile App Bottom Dock
+    dock_home: "Trang chủ",
+    dock_hub: "Kho tài liệu",
+    dock_app: "Tải App",
+    dock_chain: "Trang Chuỗi",
+    dock_x: "X Chính thức",
 
     nav_01: "01 Kiến trúc 3 tầng",
     nav_02: "02 Hạ tầng ENI Chain L1",

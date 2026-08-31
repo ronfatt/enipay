@@ -131,9 +131,38 @@
     <div class="hud-dot" data-slide="13" onclick="goToSlide(13)"><span class="hud-tooltip" data-i18n="nav_13">13 黄金内测 · 加入未来</span></div>
   </nav>
 
+  <!-- Web3 App Mobile Glassmorphism Bottom Dock (< 768px) -->
+  <nav class="mobile-app-dock md:hidden">
+    <!-- Tab 1: 首页 / 置顶 -->
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="dock-item" title="回到顶部">
+      <span class="dock-icon">⚡</span>
+      <span data-i18n="dock_home">首页</span>
+    </button>
 
+    <!-- Tab 2: 资料库 -->
+    <a href="./resources.html" class="dock-item" title="官方资料库">
+      <span class="dock-icon">📚</span>
+      <span data-i18n="dock_hub">资料库</span>
+    </a>
 
-  <!-- Presenter Speaker Notes Drawer -->
+    <!-- Tab 3: 下载 App (Highlight) -->
+    <a href="https://apps.apple.com/us/app/eni-pay/id6768398848" target="_blank" rel="noopener noreferrer" class="dock-item dock-item-highlight" title="下载客户端">
+      <span class="dock-icon">📲</span>
+      <span data-i18n="dock_app">下载App</span>
+    </a>
+
+    <!-- Tab 4: ENI 官网 -->
+    <a href="https://eni.top" target="_blank" rel="noopener noreferrer" class="dock-item" title="ENI 公链官网">
+      <span class="dock-icon">🌐</span>
+      <span data-i18n="dock_chain">公链官网</span>
+    </a>
+
+    <!-- Tab 5: 官方 X / 社区 -->
+    <a href="https://x.com/ENIPAY_NET" target="_blank" rel="noopener noreferrer" class="dock-item" title="官方 Twitter / X">
+      <span class="dock-icon">🐦</span>
+      <span data-i18n="dock_x">官方X</span>
+    </a>
+  </nav>
   <aside id="notes-drawer" class="notes-drawer p-6 overflow-y-auto">
     <div class="flex items-center justify-between pb-4 border-b border-slate-800">
       <div class="flex items-center gap-2">
