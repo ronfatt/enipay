@@ -409,12 +409,17 @@
     <div class="slide-stage-16-9">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch h-full">
         
-        <!-- Left Dark Anchor Column (5 cols) -->
+        <!-- Left Dark Anchor Column (5 cols) with Rich Interactive Links -->
         <div class="lg:col-span-5 octane-glass-panel p-6 lg:p-8" data-motion="left" data-delay="1">
           <div>
-            <div class="cyber-pill mb-4" data-motion data-delay="2">
-              <span class="cyber-bullet"></span>
-              <span>L1 INFRASTRUCTURE // 003</span>
+            <div class="flex items-center justify-between mb-3">
+              <div class="cyber-pill">
+                <span class="cyber-bullet"></span>
+                <span>L1 INFRASTRUCTURE // 003</span>
+              </div>
+              <a href="https://www.enipay.net" target="_blank" rel="noopener noreferrer" class="link-cyber-badge text-[10px] py-0.5 px-2">
+                <span>ENI CHAIN 官网 ↗</span>
+              </a>
             </div>
             
             <h2 class="section-headline text-3xl lg:text-5xl font-extrabold text-white mb-2 leading-tight" data-motion data-delay="3">
@@ -423,28 +428,56 @@
               强大安全底座
             </h2>
 
-            <p class="text-xs lg:text-sm text-slate-200 leading-relaxed mt-3 mb-5" data-motion data-delay="4">
+            <p class="text-xs lg:text-sm text-slate-200 leading-relaxed mt-2 mb-4" data-motion data-delay="4">
               总部位于日本东京 · 企业级模块化 L1 公链 · 已稳健运行第 5 个年头
             </p>
 
-            <div class="space-y-3 font-mono text-xs lg:text-sm" data-motion data-delay="5">
-              <a href="https://group.ntt/" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between hover:border-cyan-neon transition-colors">
-                <span class="text-slate-300">🏢 日本通信巨头合作</span>
-                <span class="text-cyan-neon font-bold flex items-center gap-1">NTT 官方高度评价 <span class="text-xs">↗</span></span>
+            <!-- 3 Clickable Endorsement Badges with Direct Query Links -->
+            <div class="space-y-2.5 font-mono text-xs lg:text-sm" data-motion data-delay="5">
+              <a href="https://group.ntt/" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between hover:border-cyan-neon hover:bg-slate-900 transition-all shadow-sm group" title="点击访问日本 NTT 集团官方">
+                <span class="text-slate-300 group-hover:text-white flex items-center gap-2">
+                  <span>🏢</span> 日本通信巨头合作
+                </span>
+                <span class="text-cyan-neon font-bold flex items-center gap-1">
+                  NTT 官方高度评价 <span class="text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+                </span>
               </a>
-              <a href="https://www.certik.com" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between hover:border-cyan-bright transition-colors">
-                <span class="text-slate-300">🛡️ CertiK 权威审计</span>
-                <span class="text-cyan-bright font-bold flex items-center gap-1">82.19分 · A 级认证 <span class="text-xs">↗</span></span>
+              
+              <a href="https://www.certik.com" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between hover:border-cyan-bright hover:bg-slate-900 transition-all shadow-sm group" title="点击查看 CertiK 官方安全审计报告">
+                <span class="text-slate-300 group-hover:text-white flex items-center gap-2">
+                  <span>🛡️</span> CertiK 权威审计
+                </span>
+                <span class="text-cyan-bright font-bold flex items-center gap-1">
+                  82.19分 · A 级认证 <span class="text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+                </span>
               </a>
-              <a href="https://cryptolenz.com" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between hover:border-gold-400 transition-colors">
-                <span class="text-slate-300">📈 CryptoLenz 链上 TVL</span>
-                <span class="text-gold-400 font-bold flex items-center gap-1">全网增长排名前三 <span class="text-xs">↗</span></span>
+              
+              <a href="https://cryptolenz.com" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between hover:border-gold-400 hover:bg-slate-900 transition-all shadow-sm group" title="点击查看 CryptoLenz 链上 TVL 榜单">
+                <span class="text-slate-300 group-hover:text-white flex items-center gap-2">
+                  <span>📈</span> CryptoLenz 链上 TVL
+                </span>
+                <span class="text-gold-400 font-bold flex items-center gap-1">
+                  全网增长排名前三 <span class="text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+                </span>
               </a>
             </div>
           </div>
 
-          <div class="text-xs font-mono text-slate-400 mt-5 pt-4 border-t border-slate-800" data-motion data-delay="6">
-            支持“无感上链”与“一键发链”模块化企业级架构设计
+          <!-- Bottom Action Buttons for External Verification -->
+          <div class="pt-4 border-t border-slate-800" data-motion data-delay="6">
+            <div class="text-[11px] font-mono text-slate-400 mb-2">
+              支持“无感上链”与“一键发链”模块化企业级架构设计
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+              <a href="https://www.enipay.net" target="_blank" rel="noopener noreferrer" class="link-cyber-badge text-xs py-1.5 px-3">
+                <span>🌐 ENI 公链主网</span>
+                <span class="text-xs">↗</span>
+              </a>
+              <a href="https://www.certik.com" target="_blank" rel="noopener noreferrer" class="link-cyber-badge text-xs py-1.5 px-3 text-cyan-bright border-cyan-bright/50">
+                <span>🛡️ 查看 CertiK 报告</span>
+                <span class="text-xs">↗</span>
+              </a>
+            </div>
           </div>
         </div>
 
