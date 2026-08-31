@@ -1,6 +1,6 @@
 /**
- * ENIPay Web3 Presentation Engine
- * Features: Three.js 3D Background, Intersection Navigation, GSAP-driven counters,
+ * ENIPay Web3 Presentation Engine (Full-Screen Slide Show Edition)
+ * Features: Three.js 3D Background, Motion Choreography, Counter Tickers,
  * Interactive Calculators, Web Audio HUD sound synthesis, Speaker Notes Sync.
  */
 
@@ -63,33 +63,31 @@ function initThreeScene() {
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-  camera.position.z = 30;
+  camera.position.z = 28;
 
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
   // 1. Cyber Ring / Torus Core
-  const torusGeo = new THREE.TorusKnotGeometry(9, 2.2, 120, 24, 2, 3);
+  const torusGeo = new THREE.TorusKnotGeometry(10, 2.4, 140, 28, 2, 3);
   const torusMat = new THREE.MeshBasicMaterial({
     color: 0x00f2fe,
     wireframe: true,
     transparent: true,
-    opacity: 0.18
+    opacity: 0.16
   });
   const torus = new THREE.Mesh(torusGeo, torusMat);
   scene.add(torus);
 
   // 2. Floating Cyan Particle Field
-  const particleCount = 280;
+  const particleCount = 320;
   const positions = new Float32Array(particleCount * 3);
-  const scales = new Float32Array(particleCount);
 
   for (let i = 0; i < particleCount * 3; i += 3) {
-    positions[i] = (Math.random() - 0.5) * 80;
-    positions[i + 1] = (Math.random() - 0.5) * 60;
-    positions[i + 2] = (Math.random() - 0.5) * 40;
-    scales[i / 3] = Math.random() * 1.5 + 0.5;
+    positions[i] = (Math.random() - 0.5) * 90;
+    positions[i + 1] = (Math.random() - 0.5) * 70;
+    positions[i + 2] = (Math.random() - 0.5) * 50;
   }
 
   const particleGeo = new THREE.BufferGeometry();
@@ -99,16 +97,14 @@ function initThreeScene() {
     color: 0x00c9e8,
     size: 0.45,
     transparent: true,
-    opacity: 0.45,
+    opacity: 0.4,
     blending: THREE.AdditiveBlending
   });
   const particles = new THREE.Points(particleGeo, particleMat);
   scene.add(particles);
 
-  // Mouse & Scroll Parallax
   let mouseX = 0, mouseY = 0;
   let targetX = 0, targetY = 0;
-  let scrollProgress = 0;
 
   window.addEventListener('mousemove', (e) => {
     mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
@@ -127,13 +123,13 @@ function initThreeScene() {
     targetX += (mouseX * 4 - targetX) * 0.05;
     targetY += (mouseY * 4 - targetY) * 0.05;
 
-    torus.rotation.x += 0.003;
-    torus.rotation.y += 0.005;
-    torus.position.x = targetX * 1.2;
-    torus.position.y = -targetY * 1.2 + Math.sin(Date.now() * 0.001) * 0.8;
+    torus.rotation.x += 0.0025;
+    torus.rotation.y += 0.004;
+    torus.position.x = targetX * 1.5;
+    torus.position.y = -targetY * 1.5 + Math.sin(Date.now() * 0.001) * 0.8;
 
-    particles.rotation.y += 0.0008;
-    particles.rotation.x += 0.0004;
+    particles.rotation.y += 0.0006;
+    particles.rotation.x += 0.0003;
 
     renderer.render(scene, camera);
   }
@@ -141,7 +137,7 @@ function initThreeScene() {
   animate();
 }
 
-// Presentation Logic & Navigation
+// Presentation State
 const state = {
   currentSlide: 1,
   totalSlides: 11,
@@ -163,6 +159,40 @@ const slideNotes = {
   11: "【Slide 11 尾页号召与顶峰相见】\n各位，补贴最狠的永远是前三个月的黄金内测期！完整版 APP Q4 正式爆发，现在入场享受 3.5 倍高速出局与每日 1% 极速红利。立刻扫码注册激活，拿满 100 代，共创万倍价值未来！顶峰相见！"
 };
 
+// Counter Up Animation Engine
+function animateValue(obj, start, end, duration, prefix = '', suffix = '') {
+  if (!obj) return;
+  let startTimestamp = null;
+  const step = (timestamp) => {
+    if (!startTimestamp) startTimestamp = timestamp;
+    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+    const easeOutQuad = 1 - (1 - progress) * (1 - progress);
+    const current = Math.floor(easeOutQuad * (end - start) + start);
+    obj.innerText = `${prefix}${current.toLocaleString()}${suffix}`;
+    if (progress < 1) {
+      window.requestAnimationFrame(step);
+    } else {
+      obj.innerText = `${prefix}${end.toLocaleString()}${suffix}`;
+    }
+  };
+  window.requestAnimationFrame(step);
+}
+
+function triggerSlideMotion(slideNum) {
+  const currentSection = document.getElementById(`slide-${slideNum}`);
+  if (!currentSection) return;
+
+  // Add active state to trigger CSS motion
+  document.querySelectorAll('.slide-section').forEach(sec => sec.classList.remove('slide-active'));
+  currentSection.classList.add('slide-active');
+
+  // Trigger custom counters for specific slides
+  if (slideNum === 3) {
+    const tpsEl = currentSection.querySelector('[data-counter="12500"]');
+    if (tpsEl) animateValue(tpsEl, 0, 12500, 1200, '', ' TPS');
+  }
+}
+
 function updatePresenterUI(slideNum) {
   state.currentSlide = slideNum;
   
@@ -174,7 +204,7 @@ function updatePresenterUI(slideNum) {
   // HUD Indicator
   const counter = document.getElementById('slide-counter-badge');
   if (counter) {
-    counter.textContent = `${String(slideNum).padStart(2, '0')} / ${String(state.totalSlides).padStart(2, '0')}`;
+    counter.textContent = `SLIDE ${String(slideNum).padStart(2, '0')} / ${String(state.totalSlides).padStart(2, '0')}`;
   }
 
   // Dots
@@ -187,7 +217,7 @@ function updatePresenterUI(slideNum) {
     }
   });
 
-  // Notes Drawer Sync
+  // Notes Sync
   const notesContent = document.getElementById('notes-text-area');
   const notesTitle = document.getElementById('notes-slide-title');
   if (notesContent && slideNotes[slideNum]) {
@@ -196,6 +226,9 @@ function updatePresenterUI(slideNum) {
   if (notesTitle) {
     notesTitle.innerText = `SLIDE ${String(slideNum).padStart(2, '0')} 讲师提词稿`;
   }
+
+  // Trigger motion
+  triggerSlideMotion(slideNum);
 }
 
 function goToSlide(num) {
@@ -208,17 +241,17 @@ function goToSlide(num) {
   }
 }
 
-// 3D Card Interactive Tilt
+// 3D Card Interactive Tilt & Depth Hover
 function setup3DCardTilt() {
-  document.querySelectorAll('.glass-card-3d').forEach(card => {
+  document.querySelectorAll('.grid-box-modular, .panel-dark-anchor').forEach(card => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
-      const rotateX = ((y - centerY) / centerY) * -7;
-      const rotateY = ((x - centerX) / centerX) * 7;
+      const rotateX = ((y - centerY) / centerY) * -5;
+      const rotateY = ((x - centerX) / centerX) * 5;
 
       card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
     });
@@ -233,14 +266,12 @@ function setup3DCardTilt() {
 function setupTeamCalculator() {
   const investInput = document.getElementById('calc-invest');
   const rateInput = document.getElementById('calc-rate');
-  const directInput = document.getElementById('calc-direct');
 
   if (!investInput || !rateInput) return;
 
   function calculate() {
     const invest = parseFloat(investInput.value) || 300;
     const rate = (parseFloat(rateInput.value) || 1.0) / 100;
-    const directCount = parseInt(directInput ? directInput.value : 9) || 9;
 
     const tiers = [
       { gen: 1, count: 9, pct: 0.05 },
@@ -275,7 +306,6 @@ function setupTeamCalculator() {
 
   investInput.addEventListener('input', calculate);
   rateInput.addEventListener('input', calculate);
-  if (directInput) directInput.addEventListener('input', calculate);
 }
 
 // Copy to Clipboard Utility
@@ -283,7 +313,7 @@ function copyAddress(text, btnElement) {
   navigator.clipboard.writeText(text).then(() => {
     audio.playChime();
     const original = btnElement.innerHTML;
-    btnElement.innerHTML = `<span class="text-emerald-500 font-bold">✓ 已复制到剪贴板</span>`;
+    btnElement.innerHTML = `<span>✓ 已复制</span>`;
     setTimeout(() => {
       btnElement.innerHTML = original;
     }, 2000);
@@ -300,7 +330,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('.slide-section');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting && entry.intersectionRatio >= 0.4) {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.35) {
         const slideId = entry.target.getAttribute('id');
         if (slideId && slideId.startsWith('slide-')) {
           const num = parseInt(slideId.replace('slide-', ''));
@@ -308,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     });
-  }, { threshold: [0.4, 0.7] });
+  }, { threshold: [0.35, 0.65] });
 
   sections.forEach(sec => observer.observe(sec));
 
@@ -374,7 +404,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!audio.muted) audio.playClick();
   };
 
-  // Global window functions for button clicks
+  // Global window functions
   window.goToSlide = goToSlide;
   window.copyAddress = copyAddress;
 
