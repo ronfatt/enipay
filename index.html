@@ -765,7 +765,7 @@
     </div>
   </section>
 
-  <!-- ==================== SLIDE 6: 币安第三方资金托管 ==================== -->
+  <!-- ==================== SLIDE 6: 币安第三方资金托管 (动态流动管道 + 放大底部卡片) ==================== -->
   <section id="slide-6" class="slide-section">
     <div class="slide-stage-16-9">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch h-full">
@@ -784,7 +784,7 @@
               第三方资金托管
             </h2>
 
-            <p class="text-xs lg:text-sm text-slate-200 leading-relaxed mt-4" data-motion data-delay="4">
+            <p class="text-sm lg:text-base text-slate-200 leading-relaxed mt-4" data-motion data-delay="4">
               彻底终结行业“资金池爆雷、平台卷款跑路”隐患。所有质押资金不存留 Enipay 私钥钱包，全部质押在币安官方第三方账户！
             </p>
           </div>
@@ -794,49 +794,90 @@
           </div>
         </div>
 
-        <!-- Right Light Pipeline (7 cols) -->
+        <!-- Right Side: Flowing Pipeline + Substantially Enlarged Bottom Cards (7 cols) -->
         <div class="lg:col-span-7 flex flex-col justify-between space-y-4 h-full" data-motion="right" data-delay="2">
-          <div class="octane-card-hud p-6 flex-1" data-motion data-delay="3">
-            <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-800">
-              <div class="cyber-pill">
+          
+          <!-- Compact Pipeline Box with Flowing Animated Laser Cable -->
+          <div class="octane-card-hud p-5" data-motion data-delay="3">
+            <div class="flex items-center justify-between pb-2 mb-3 border-b border-slate-800">
+              <div class="cyber-pill text-xs py-0.5 px-2.5">
                 <span class="cyber-bullet"></span>
                 <span>ATOMIC SETTLEMENT PIPELINE</span>
               </div>
-              <a href="https://www.binance.com/en/vip-institutional-services" target="_blank" rel="noopener noreferrer" class="link-cyber-badge text-[10px]">
-                <span>BINANCE CUSTODY 官方认证</span>
-                <span class="text-xs">↗</span>
+              <a href="https://www.binance.com/en/vip-institutional-services" target="_blank" rel="noopener noreferrer" class="link-cyber-badge text-xs py-0.5 px-2.5">
+                <span>BINANCE CUSTODY 官方认证 ↗</span>
               </a>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-center my-auto">
-              <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800">
-                <div class="text-3xl mb-1.5">👤</div>
-                <div class="font-bold text-white text-sm lg:text-base">用户质押充值</div>
-                <div class="text-xs text-cyan-neon font-mono mt-1">USDT / USDC</div>
+            <!-- 3 Nodes with Flowing Laser Connection Cable -->
+            <div class="pipeline-flow-container my-1">
+              <!-- Animated Glowing Laser Line with Traveling Particle -->
+              <div class="flow-laser-line hidden md:block">
+                <div class="flow-laser-particle"></div>
               </div>
-              <div class="p-4 rounded-2xl bg-gold-400/10 border border-gold-400/40">
-                <div class="text-3xl mb-1.5">🏦</div>
-                <div class="font-bold text-gold-400 text-sm lg:text-base">币安第三方托管</div>
-                <div class="text-xs text-gold-400 font-mono mt-1 font-bold">BINANCE LOCKED</div>
-              </div>
-              <div class="p-4 rounded-2xl bg-cyan-neon/10 border border-cyan-neon/40">
-                <div class="text-3xl mb-1.5">🏪</div>
-                <div class="font-bold text-cyan-neon text-sm lg:text-base">线下消费秒出款</div>
-                <div class="text-xs text-cyan-neon font-mono mt-1 font-bold">INSTANT FIAT</div>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-center relative z-10">
+                <!-- Step 1 -->
+                <div class="p-3.5 rounded-2xl bg-slate-900/95 border border-slate-700/80 shadow-md">
+                  <div class="text-2xl mb-1">👤</div>
+                  <div class="font-bold text-white text-sm">1. 用户质押充值</div>
+                  <div class="text-xs text-cyan-neon font-mono mt-0.5 font-bold">USDT / USDC</div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="p-3.5 rounded-2xl bg-slate-900/95 border border-gold-400/60 shadow-lg shadow-gold-400/10">
+                  <div class="text-2xl mb-1">🏦</div>
+                  <div class="font-bold text-gold-400 text-sm">2. 币安第三方托管</div>
+                  <div class="text-xs text-gold-400 font-mono mt-0.5 font-bold">100% 锁定零沉淀</div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="p-3.5 rounded-2xl bg-slate-900/95 border border-cyan-neon/60 shadow-lg shadow-cyan-neon/10">
+                  <div class="text-2xl mb-1">🏪</div>
+                  <div class="font-bold text-cyan-neon text-sm">3. 线下消费秒出款</div>
+                  <div class="text-xs text-cyan-neon font-mono mt-0.5 font-bold">毫秒原子划拨</div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="octane-card-hud p-5 border-l-4 border-l-cyan-neon" data-motion data-delay="4">
-              <h5 class="font-bold text-white text-sm lg:text-base mb-1">平台零资金沉淀</h5>
-              <p class="text-xs text-slate-300">资金 100% 锁定在币安官方账户，Enipay 无任何权限挪用。</p>
+          <!-- Enlarged Bottom 2 Key Security Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 flex-1">
+            <!-- Card 1: 平台零资金沉淀 -->
+            <div class="octane-card-hud p-6 border-l-4 border-l-cyan-neon flex flex-col justify-between" data-motion="slide-left" data-delay="4">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <div class="cyber-pill text-xs py-0.5 px-2.5">SECURITY 01</div>
+                  <span class="text-2xl">🛡️</span>
+                </div>
+                <h5 class="font-black text-white text-xl lg:text-2xl tracking-tight mb-2">平台零资金沉淀</h5>
+                <p class="text-sm lg:text-base text-slate-200 leading-relaxed">
+                  资金 100% 锁定在币安官方第三方账户，Enipay 仅作为去中心化协议接口，无任何私钥权限挪用一分钱。
+                </p>
+              </div>
+              <div class="pt-3 mt-3 border-t border-slate-800/80 text-xs font-mono text-cyan-neon font-bold">
+                ✓ 物理隔离 · 杜绝卷款跑路风险
+              </div>
             </div>
-            <div class="octane-card-hud p-5 border-l-4 border-l-cyan-bright" data-motion data-delay="5">
-              <h5 class="font-bold text-white text-sm lg:text-base mb-1">毫秒级原子划转</h5>
-              <p class="text-xs text-slate-300">当且仅当线下刷卡消费那一瞬间智能合约才触发划拨出款。</p>
+
+            <!-- Card 2: 毫秒级原子划转 -->
+            <div class="octane-card-hud p-6 border-l-4 border-l-cyan-bright flex flex-col justify-between" data-motion="slide-right" data-delay="5">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <div class="cyber-pill text-xs py-0.5 px-2.5">SETTLEMENT 02</div>
+                  <span class="text-2xl">⚡</span>
+                </div>
+                <h5 class="font-black text-white text-xl lg:text-2xl tracking-tight mb-2">毫秒级原子划转</h5>
+                <p class="text-sm lg:text-base text-slate-200 leading-relaxed">
+                  当且仅当用户在线下或线上刷卡消费的那一瞬间，智能合约才会毫秒级触发划拨与法币清结算出款。
+                </p>
+              </div>
+              <div class="pt-3 mt-3 border-t border-slate-800/80 text-xs font-mono text-cyan-bright font-bold">
+                ✓ 智能合约驱动 · 毫秒瞬时放行
+              </div>
             </div>
           </div>
+
         </div>
 
       </div>
