@@ -326,35 +326,33 @@ function setup3DCardTilt() {
   });
 }
 
-// Mobile Touch Swipe Gesture Support
+// Mobile Touch Swipe Gesture Support (Horizontal Only - Never hijack vertical scrolling)
 function setupMobileTouchSwipe() {
-  let touchStartY = 0;
   let touchStartX = 0;
-  let touchEndY = 0;
+  let touchStartY = 0;
   let touchEndX = 0;
+  let touchEndY = 0;
 
   window.addEventListener('touchstart', (e) => {
-    touchStartY = e.changedTouches[0].screenY;
     touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
   }, { passive: true });
 
   window.addEventListener('touchend', (e) => {
-    touchEndY = e.changedTouches[0].screenY;
     touchEndX = e.changedTouches[0].screenX;
+    touchEndY = e.changedTouches[0].screenY;
     
-    const diffY = touchStartY - touchEndY;
     const diffX = touchStartX - touchEndX;
+    const diffY = touchStartY - touchEndY;
 
-    if (Math.abs(diffY) > 45 && Math.abs(diffY) > Math.abs(diffX)) {
-      if (diffY > 0) {
-        goToSlide(state.currentSlide + 1);
-      } else {
-        goToSlide(state.currentSlide - 1);
-      }
-    } else if (Math.abs(diffX) > 45 && Math.abs(diffX) > Math.abs(diffY)) {
+    // Only trigger slide jump on explicit HORIZONTAL swipe (Left/Right)
+    // Never hijack vertical scrolling so user can freely scroll up and down
+    if (Math.abs(diffX) > 65 && Math.abs(diffX) > Math.abs(diffY) * 2) {
       if (diffX > 0) {
+        // Swiped Left -> Next Slide
         goToSlide(state.currentSlide + 1);
       } else {
+        // Swiped Right -> Prev Slide
         goToSlide(state.currentSlide - 1);
       }
     }
