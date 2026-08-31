@@ -675,6 +675,43 @@
                 <div class="text-[10px] text-slate-400" data-i18n="s1_kpi3_lbl">自主授权</div>
               </div>
             </div>
+
+            <!-- Official Store Download Card (Apple App Store & Google Play Store) -->
+            <div class="p-3 rounded-2xl bg-slate-950/90 border border-cyan-neon/40 hover:border-cyan-neon transition-all mt-3" data-motion="scale-in" data-delay="5">
+              <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center gap-1.5 text-xs font-bold text-white">
+                  <span class="w-2 h-2 rounded-full bg-cyan-neon animate-pulse"></span>
+                  <span data-i18n="s1_download_title">官方移动客户端即刻下载</span>
+                </div>
+                <span class="cyber-pill text-[10px] py-0.5 px-2 bg-cyan-neon/10 text-cyan-neon border-cyan-neon/30">OFFICIAL APP</span>
+              </div>
+              <div class="grid grid-cols-2 gap-2.5">
+                <!-- Apple App Store Button -->
+                <a href="https://apps.apple.com/us/app/eni-pay/id6768398848" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-black border border-slate-700/80 hover:border-cyan-neon hover:bg-slate-900 transition-all group shadow-md">
+                  <svg class="w-5 h-5 fill-current text-white group-hover:text-cyan-neon transition-colors" viewBox="0 0 24 24">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 1.01-2.87-.95.04-2.09.64-2.73 1.39-.57.65-.99 1.73-.93 2.76 1.06.08 2.03-.53 2.65-1.28z"/>
+                  </svg>
+                  <div class="text-left">
+                    <div class="text-[9px] text-slate-400 font-mono leading-none">Download on</div>
+                    <div class="text-xs font-bold text-white leading-tight group-hover:text-cyan-neon transition-colors">App Store</div>
+                  </div>
+                </a>
+
+                <!-- Google Play Store Button -->
+                <a href="https://play.google.com/store/apps/details?id=com.enipay.mobileapp.prod" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-black border border-slate-700/80 hover:border-cyan-bright hover:bg-slate-900 transition-all group shadow-md">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24">
+                    <path fill="#4285F4" d="M3.609 1.814L13.792 12 3.61 22.186c-.333-.362-.53-.88-.53-1.516V3.33c0-.636.197-1.154.53-1.516z"/>
+                    <path fill="#FBBC04" d="M17.218 8.574l-3.426 3.426 3.426 3.426 3.896-2.227c1.11-.635 1.11-1.664 0-2.3l-3.896-2.325z"/>
+                    <path fill="#EA4335" d="M13.792 12L3.609 1.814c.48-.523 1.258-.6 2.05-.147l11.559 6.607-3.426 3.726z"/>
+                    <path fill="#34A853" d="M13.792 12l3.426 3.726L5.659 22.333c-.792.453-1.57.376-2.05-.147L13.792 12z"/>
+                  </svg>
+                  <div class="text-left">
+                    <div class="text-[9px] text-slate-400 font-mono leading-none">GET IT ON</div>
+                    <div class="text-xs font-bold text-white leading-tight group-hover:text-cyan-bright transition-colors">Google Play</div>
+                  </div>
+                </a>
+              </div>
+            </div>
           </div>
 
           <!-- Right Column: 3 Settlement Cards + 10 Partner Grid (6 cols) -->
