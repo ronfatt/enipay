@@ -57,38 +57,49 @@ class CyberAudio {
 
 const audio = new CyberAudio();
 
-// Three.js 3D Cyber Background Scene
+// Three.js 3D Cyber Background Scene with Vivid Dual-Mesh Dynamic Motion
 function initThreeScene() {
   const canvas = document.getElementById('bg-canvas');
   if (!canvas || typeof THREE === 'undefined') return;
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-  camera.position.z = 28;
+  camera.position.z = 26;
 
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-  // 1. Cyber Ring / Torus Core (Neon Green / Cyan Glow)
-  const torusGeo = new THREE.TorusKnotGeometry(11, 2.5, 150, 30, 2, 3);
+  // 1. Primary 3D Torus Knot Wireframe (Neon Cyber Green)
+  const torusGeo = new THREE.TorusKnotGeometry(10, 2.6, 160, 32, 2, 3);
   const torusMat = new THREE.MeshBasicMaterial({
     color: 0x00ffb2,
     wireframe: true,
     transparent: true,
-    opacity: 0.18
+    opacity: 0.42
   });
   const torus = new THREE.Mesh(torusGeo, torusMat);
   scene.add(torus);
 
-  // 2. Floating Cyan Particle Field
-  const particleCount = 380;
+  // 2. Secondary Inner Cyber Geo (Cyan Bright)
+  const innerGeo = new THREE.IcosahedronGeometry(7, 2);
+  const innerMat = new THREE.MeshBasicMaterial({
+    color: 0x00f2fe,
+    wireframe: true,
+    transparent: true,
+    opacity: 0.28
+  });
+  const innerMesh = new THREE.Mesh(innerGeo, innerMat);
+  scene.add(innerMesh);
+
+  // 3. Floating Neon Particle Field (Enhanced)
+  const particleCount = 450;
   const positions = new Float32Array(particleCount * 3);
 
   for (let i = 0; i < particleCount * 3; i += 3) {
-    positions[i] = (Math.random() - 0.5) * 100;
-    positions[i + 1] = (Math.random() - 0.5) * 80;
-    positions[i + 2] = (Math.random() - 0.5) * 60;
+    positions[i] = (Math.random() - 0.5) * 110;
+    positions[i + 1] = (Math.random() - 0.5) * 90;
+    positions[i + 2] = (Math.random() - 0.5) * 70;
   }
 
   const particleGeo = new THREE.BufferGeometry();
@@ -96,9 +107,9 @@ function initThreeScene() {
   
   const particleMat = new THREE.PointsMaterial({
     color: 0x00f2fe,
-    size: 0.45,
+    size: 0.6,
     transparent: true,
-    opacity: 0.55,
+    opacity: 0.75,
     blending: THREE.AdditiveBlending
   });
   const particles = new THREE.Points(particleGeo, particleMat);
@@ -112,6 +123,13 @@ function initThreeScene() {
     mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
   });
 
+  window.addEventListener('touchmove', (e) => {
+    if (e.touches.length > 0) {
+      mouseX = (e.touches[0].clientX / window.innerWidth - 0.5) * 1.5;
+      mouseY = (e.touches[0].clientY / window.innerHeight - 0.5) * 1.5;
+    }
+  }, { passive: true });
+
   window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
@@ -121,16 +139,23 @@ function initThreeScene() {
   function animate() {
     requestAnimationFrame(animate);
 
-    targetX += (mouseX * 4 - targetX) * 0.05;
-    targetY += (mouseY * 4 - targetY) * 0.05;
+    targetX += (mouseX * 3 - targetX) * 0.05;
+    targetY += (mouseY * 3 - targetY) * 0.05;
 
-    torus.rotation.x += 0.0025;
-    torus.rotation.y += 0.004;
+    // Continuous dynamic 3D rotation & floating oscillation
+    torus.rotation.x += 0.004;
+    torus.rotation.y += 0.006;
+    torus.rotation.z += 0.002;
     torus.position.x = targetX * 1.5;
-    torus.position.y = -targetY * 1.5 + Math.sin(Date.now() * 0.001) * 0.8;
+    torus.position.y = -targetY * 1.5 + Math.sin(Date.now() * 0.0012) * 1.2;
 
-    particles.rotation.y += 0.0006;
-    particles.rotation.x += 0.0003;
+    innerMesh.rotation.x -= 0.005;
+    innerMesh.rotation.y += 0.004;
+    innerMesh.position.x = torus.position.x;
+    innerMesh.position.y = torus.position.y;
+
+    particles.rotation.y += 0.0008;
+    particles.rotation.x += 0.0004;
 
     renderer.render(scene, camera);
   }
