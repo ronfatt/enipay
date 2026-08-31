@@ -68,15 +68,15 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 66px 3.5vw 20px;
+  padding: 64px 3.5vw 20px;
   box-sizing: border-box;
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }
 
 .slide-stage-16-9 {
-  width: min(calc(100vw - 64px), calc((100vh - 90px) * 16 / 9));
-  height: min(calc(100vh - 90px), calc((100vw - 64px) * 9 / 16));
+  width: min(calc(100vw - 64px), calc((100vh - 88px) * 16 / 9));
+  height: min(calc(100vh - 88px), calc((100vw - 64px) * 9 / 16));
   aspect-ratio: 16 / 9;
   position: relative;
   z-index: 10;
@@ -113,7 +113,7 @@ body {
     0 0 60px rgba(0, 255, 178, 0.35),
     inset 0 1px 3px rgba(255, 255, 255, 0.6),
     inset 0 0 30px rgba(0, 255, 178, 0.15);
-  transform: translateY(-6px) scale(1.01);
+  transform: translateY(-5px) scale(1.01);
 }
 
 .octane-card-hud {
@@ -152,6 +152,35 @@ body {
 .icon-bounce {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
   display: inline-block;
+}
+
+/* ==================== Slide 7 5-Phase Growth Progression Stepper ==================== */
+.phase-card-tier {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 20px;
+  background: rgba(13, 20, 36, 0.85);
+  border: 1.5px solid rgba(0, 255, 178, 0.3);
+}
+
+.phase-card-tier:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 255, 178, 0.35);
+  border-color: #00ffb2;
+}
+
+.phase-card-ipo {
+  background: linear-gradient(160deg, rgba(13, 20, 36, 0.95) 0%, rgba(26, 20, 8, 0.95) 100%);
+  border: 1.5px solid rgba(250, 204, 21, 0.6);
+  box-shadow: 0 15px 40px rgba(250, 204, 21, 0.15);
+}
+
+.phase-card-ipo:hover {
+  border-color: #facc15;
+  box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.8), 0 0 50px rgba(250, 204, 21, 0.45);
 }
 
 /* ==================== Slide 6 Pipeline Flowing Laser Animation ==================== */
