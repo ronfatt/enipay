@@ -16,7 +16,7 @@ const translations = {
     explore_btn: "立即前往",
     copy_btn: "复制",
     copied_btn: "✓ 已复制",
-    verify_bscscan: "在 BscScan 链上核验 ↗",
+    verify_bscscan: "EniScan 链上核验 ↗",
     certik_audit_btn: "🛡️ 查看 CertiK 报告 ↗",
     eni_chain_btn: "🌐 ENI 公链官网 ↗",
 
@@ -371,7 +371,7 @@ const translations = {
     explore_btn: "Explore",
     copy_btn: "Copy",
     copied_btn: "✓ Copied",
-    verify_bscscan: "Verify on BscScan ↗",
+    verify_bscscan: "Verify on EniScan ↗",
     certik_audit_btn: "🛡️ View CertiK Report ↗",
     eni_chain_btn: "🌐 ENI Chain Official ↗",
 
@@ -712,7 +712,7 @@ const translations = {
     explore_btn: "今すぐアクセス",
     copy_btn: "コピー",
     copied_btn: "✓ コピー完了",
-    verify_bscscan: "BscScanでオンチェーン検証 ↗",
+    verify_bscscan: "EniScanでオンチェーン検証 ↗",
     certik_audit_btn: "🛡️ CertiK 監査レポート ↗",
     eni_chain_btn: "🌐 ENI 公式サイト ↗",
 
@@ -1053,7 +1053,7 @@ const translations = {
     explore_btn: "바로가기",
     copy_btn: "복사",
     copied_btn: "✓ 복사 완료",
-    verify_bscscan: "BscScan에서 온체인 검증 ↗",
+    verify_bscscan: "EniScan에서 온체인 검증 ↗",
     certik_audit_btn: "🛡️ CertiK 감사 보고서 ↗",
     eni_chain_btn: "🌐 ENI 공식 웹사이트 ↗",
 
@@ -1394,7 +1394,7 @@ const translations = {
     explore_btn: "Khám phá",
     copy_btn: "Sao chép",
     copied_btn: "✓ Đã sao chép",
-    verify_bscscan: "Xác minh trên BscScan ↗",
+    verify_bscscan: "Xác minh trên EniScan ↗",
     certik_audit_btn: "🛡️ Báo cáo CertiK ↗",
     eni_chain_btn: "🌐 Trang chủ ENI ↗",
 
