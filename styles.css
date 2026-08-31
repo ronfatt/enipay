@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+  --bg-main: #f8fafc;
+  --cyan-primary: #00f2fe;
+  --cyan-bright: #00e5ff;
+  --cyan-deep: #0891b2;
+  --cyan-dark: #0e7490;
+  --cyan-glow: rgba(0, 242, 254, 0.35);
+  --cyan-soft: rgba(0, 242, 254, 0.08);
+  --cyan-border: rgba(0, 229, 255, 0.3);
+  --card-bg: rgba(255, 255, 255, 0.82);
+  --card-border: rgba(226, 232, 240, 0.85);
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  position: relative;
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(0, 242, 254, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(6, 182, 212, 0.06) 0%, transparent 40%),
+    linear-gradient(to right, rgba(226, 232, 240, 0.35) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(226, 232, 240, 0.35) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+}
+
+/* 3D Glassmorphism Cards */
+.glass-card-3d {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--card-border);
+  box-shadow: 
+    0 10px 30px -10px rgba(0, 0, 0, 0.04),
+    0 20px 40px -15px rgba(0, 229, 255, 0.1),
+    inset 0 1px 1px rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.glass-card-3d:hover {
+  border-color: var(--cyan-border);
+  box-shadow: 
+    0 20px 40px -10px rgba(0, 0, 0, 0.06),
+    0 25px 50px -10px rgba(0, 229, 255, 0.25),
+    inset 0 1px 2px rgba(255, 255, 255, 1);
+  transform: translateY(-4px) rotateX(1.5deg) rotateY(-1.5deg);
+}
+
+.glass-card-active {
+  border-color: rgba(0, 242, 254, 0.6) !important;
+  box-shadow: 
+    0 20px 50px -10px rgba(0, 242, 254, 0.25),
+    inset 0 0 20px rgba(0, 242, 254, 0.05) !important;
+}
+
+/* Cyan Glows & Gradients */
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #0f172a 20%, #0891b2 60%, #00e5ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-bright {
+  background: linear-gradient(135deg, #0284c7 0%, #00e5ff 60%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.badge-cyan {
+  background: rgba(0, 242, 254, 0.12);
+  border: 1px solid rgba(0, 229, 255, 0.4);
+  color: #0891b2;
+  font-family: var(--font-mono);
+}
+
+.cyan-halo {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Cyber Scroller Section */
+.slide-section {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 88px 28px 60px;
+  box-sizing: border-box;
+  scroll-snap-align: start;
+}
+
+.slides-container {
+  scroll-snap-type: y mandatory;
+}
+
+/* 3D Model Canvas Background */
+#bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.slide-content-wrap {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+/* HUD Navigation */
+.hud-nav {
+  position: fixed;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hud-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(148, 163, 184, 0.4);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.hud-dot:hover {
+  background: var(--cyan-bright);
+  transform: scale(1.3);
+}
+
+.hud-dot.active {
+  height: 28px;
+  border-radius: 8px;
+  background: linear-gradient(to bottom, #00f2fe, #0891b2);
+  box-shadow: 0 0 14px rgba(0, 242, 254, 0.6);
+}
+
+.hud-dot .hud-tooltip {
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: var(--font-mono);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+  border: 1px solid rgba(0, 242, 254, 0.3);
+}
+
+.hud-dot:hover .hud-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Fixed Top Bar & Progress */
+.top-hud-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.progress-bar-cyan {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00f2fe, #0284c7, #3b82f6);
+  box-shadow: 0 0 10px rgba(0, 242, 254, 0.8);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+/* Hologram Card */
+.holo-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(240,253,254,0.75) 100%);
+  border: 1px solid rgba(0, 229, 255, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.holo-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0,242,254,0.12) 0%, transparent 60%);
+  animation: rotateGlow 12s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotateGlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Notes Drawer */
+.notes-drawer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  top: 64px;
+  width: 420px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(24px);
+  border-left: 1px solid rgba(0, 242, 254, 0.3);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.08);
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 120;
+  display: flex;
+  flex-direction: column;
+}
+
+.notes-drawer.open {
+  transform: translateX(0);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0891b2;
+}
+
+/* Pulse badge */
+.live-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00f2fe;
+  box-shadow: 0 0 10px #00f2fe;
+  animation: pulseCyan 2s infinite;
+}
+
+@keyframes pulseCyan {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.7); }
+  70% { transform: scale(1.2); box-shadow: 0 0 0 8px rgba(0, 242, 254, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 242, 254, 0); }
+}
+
+/* Partner Logo hover */
+.partner-logo-item {
+  transition: all 0.3s ease;
+  filter: grayscale(100%) opacity(70%);
+}
+.partner-logo-item:hover {
+  filter: grayscale(0%) opacity(100%);
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* 3D Visual Flow Pipeline */
+.flow-node {
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+.flow-node:hover {
+  transform: scale(1.04);
+  box-shadow: 0 10px 25px rgba(0, 242, 254, 0.3);
+}
+
+.flow-connector {
+  position: relative;
+  height: 3px;
+  background: #e2e8f0;
+  overflow: hidden;
+}
+.flow-connector::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #00f2fe, transparent);
+  animation: pulseFlow 2s linear infinite;
+}
+
+@keyframes pulseFlow {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
