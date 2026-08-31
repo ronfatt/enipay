@@ -69,6 +69,9 @@ const translations = {
     s3_m3_lbl: "实测最高并发 · 传输延迟直降 85%",
     s3_m4_val: "300 万 ENI",
     s3_m4_lbl: "累计消耗燃料费 · 真实通缩持续进行中",
+    s3_link_eni: "ENI 官网 ↗",
+    s3_link_node: "节点连接 ↗",
+    s3_link_terms: "Enipay安全条款 ↗",
 
     // Slide 3: 2b 四大传统支付巨头市值
     s2b_tag: "GLOBAL CLEARING GIANTS // 003",
@@ -347,6 +350,9 @@ const translations = {
     s3_m3_lbl: "Stress-tested peak throughput · 85% transmission latency reduction",
     s3_m4_val: "3M ENI",
     s3_m4_lbl: "Cumulative gas fee burned · Continuous on-chain deflation",
+    s3_link_eni: "ENI Official ↗",
+    s3_link_node: "Node Connect ↗",
+    s3_link_terms: "Security Terms ↗",
 
     s2b_tag: "GLOBAL CLEARING GIANTS // 003",
     s2b_title: "Traditional Payment Giants <span class=\"text-gradient-hero\">\"Trillion-Dollar Market Cap\"</span> Benchmark",
@@ -614,6 +620,9 @@ const translations = {
     s3_m3_lbl: "実測ピーク並行処理 · 遅延 85% 削減",
     s3_m4_val: "300 万 ENI",
     s3_m4_lbl: "累積ガス消費焼却 · デフレが継続中",
+    s3_link_eni: "ENI 公式 ↗",
+    s3_link_node: "ノード接続 ↗",
+    s3_link_terms: "セキュリティ規約 ↗",
 
     s2b_tag: "GLOBAL CLEARING GIANTS // 003",
     s2b_title: "世界的決済大手 <span class=\"text-gradient-hero\">「兆ドル時価総額」</span> の指標と示唆",
@@ -881,6 +890,9 @@ const translations = {
     s3_m3_lbl: "실측 최고 처리속도 · 전송 지연 85% 감소",
     s3_m4_val: "300만 ENI",
     s3_m4_lbl: "누적 가스비 소각 · 지속적인 디플레이션 진행 중",
+    s3_link_eni: "ENI 공식 ↗",
+    s3_link_node: "노드 연결 ↗",
+    s3_link_terms: "보안 약관 ↗",
 
     s2b_tag: "GLOBAL CLEARING GIANTS // 003",
     s2b_title: "전통 결제 거두들의 <span class=\"text-gradient-hero\">\"수조 달러 시가총액\"</span> 벤치마크",
@@ -1148,6 +1160,9 @@ const translations = {
     s3_m3_lbl: "Xử lý đồng thời cao nhất · Giảm 85% độ trễ truyền tải",
     s3_m4_val: "3 Triệu ENI",
     s3_m4_lbl: "Tổng phí Gas đã đốt · Quá trình giảm phát liên tục",
+    s3_link_eni: "ENI Trang chủ ↗",
+    s3_link_node: "Kết nối Node ↗",
+    s3_link_terms: "Điều khoản bảo mật ↗",
 
     s2b_tag: "GLOBAL CLEARING GIANTS // 003",
     s2b_title: "Các Gã khổng lồ Thanh toán <span class=\"text-gradient-hero\">\"Vốn hóa Nghìn tỷ Đô la\"</span> Đối sánh",
