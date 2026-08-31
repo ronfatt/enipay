@@ -49,38 +49,38 @@
 
   <!-- Fixed Top HUD Bar (Octane 3D FinTech Style) -->
   <header class="top-hud-bar">
-    <div class="flex items-center space-x-3">
-      <div class="w-8 h-8 rounded-lg bg-slate-950 border border-cyan-neon/60 flex items-center justify-center shadow-lg shadow-cyan-neon/20 text-cyan-neon font-mono font-black text-sm">
+    <div class="flex items-center space-x-3.5">
+      <div class="w-9 h-9 rounded-xl bg-slate-950 border border-cyan-neon/60 flex items-center justify-center shadow-lg shadow-cyan-neon/20 text-cyan-neon font-mono font-black text-base">
         E
       </div>
       <div>
-        <div class="text-xs md:text-sm font-extrabold tracking-tight text-white flex items-center gap-2">
-          ENIPAY <span class="cyber-pill text-[9px] py-0.5 px-2"><span class="cyber-bullet"></span>SYSTEM v2.0</span>
+        <div class="text-sm md:text-base font-extrabold tracking-tight text-white flex items-center gap-2.5">
+          ENIPAY <span class="cyber-pill text-[10px] py-0.5 px-2.5"><span class="cyber-bullet"></span>SYSTEM v2.0</span>
         </div>
-        <div class="text-[9px] text-slate-400 font-mono tracking-wider">ENI CHAIN × BINANCE CUSTODY × AI AGENT</div>
+        <div class="text-[10px] text-slate-400 font-mono tracking-wider">ENI CHAIN × BINANCE CUSTODY × AI AGENT</div>
       </div>
     </div>
 
     <!-- HUD Center Indicator -->
     <div class="hidden md:flex items-center space-x-3">
-      <div class="cyber-pill bg-slate-900/90 border-cyan-neon/30 py-0.5 px-3">
+      <div class="cyber-pill bg-slate-900/90 border-cyan-neon/40 py-1 px-4 text-xs">
         <span class="cyber-bullet"></span>
-        <span id="slide-counter-badge" class="font-mono font-bold text-white text-[11px]">SLIDE 01 / 11</span>
+        <span id="slide-counter-badge" class="font-mono font-bold text-white">SLIDE 01 / 11</span>
         <span class="text-slate-500">·</span>
-        <span class="text-cyan-neon font-medium text-[11px]">OCTANE 3D HUD</span>
+        <span class="text-cyan-neon font-medium">OCTANE 3D HUD</span>
       </div>
     </div>
 
     <!-- Presenter Controls -->
-    <div class="flex items-center space-x-2">
-      <button onclick="toggleSound()" id="sound-toggle-btn" title="切换声音反馈" class="p-1.5 rounded-full border border-slate-700 bg-slate-900 text-xs hover:border-cyan-neon transition-all shadow-sm">
+    <div class="flex items-center space-x-2.5">
+      <button onclick="toggleSound()" id="sound-toggle-btn" title="切换声音反馈" class="p-2 rounded-full border border-slate-700 bg-slate-900 text-sm hover:border-cyan-neon transition-all shadow-sm">
         🔊
       </button>
-      <button onclick="toggleNotes()" class="badge-chamfer py-1 px-3 text-[10px] text-cyan-neon border-cyan-neon/40 shadow-sm cursor-pointer">
+      <button onclick="toggleNotes()" class="badge-chamfer py-1.5 px-3.5 text-xs text-cyan-neon border-cyan-neon/40 shadow-sm cursor-pointer">
         <span>提词</span>
-        <kbd class="font-mono text-[8px] bg-slate-800 px-1 rounded ml-1 text-slate-300">N</kbd>
+        <kbd class="font-mono text-[9px] bg-slate-800 px-1 rounded ml-1 text-slate-300">N</kbd>
       </button>
-      <button onclick="toggleFullscreen()" class="badge-chamfer py-1 px-3 text-[10px] bg-cyan-neon/15 border-cyan-neon text-cyan-neon font-bold shadow-sm cursor-pointer">
+      <button onclick="toggleFullscreen()" class="badge-chamfer py-1.5 px-3.5 text-xs bg-cyan-neon/20 border-cyan-neon text-cyan-neon font-bold shadow-sm cursor-pointer">
         <span>全屏</span>
         <span class="ml-1 text-xs">↗</span>
       </button>
@@ -106,20 +106,20 @@
   </nav>
 
   <!-- Presenter Speaker Notes Drawer -->
-  <aside id="notes-drawer" class="notes-drawer p-5 overflow-y-auto">
-    <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+  <aside id="notes-drawer" class="notes-drawer p-6 overflow-y-auto">
+    <div class="flex items-center justify-between pb-4 border-b border-slate-800">
       <div class="flex items-center gap-2">
         <span class="cyber-bullet"></span>
-        <h3 id="notes-slide-title" class="font-bold text-xs text-white font-mono">SLIDE 01 讲师提词稿</h3>
+        <h3 id="notes-slide-title" class="font-bold text-sm text-white font-mono">SLIDE 01 讲师提词稿</h3>
       </div>
-      <button onclick="toggleNotes()" class="text-slate-400 hover:text-white text-base">✕</button>
+      <button onclick="toggleNotes()" class="text-slate-400 hover:text-white text-lg">✕</button>
     </div>
-    <div class="mt-3">
+    <div class="mt-4">
       <div class="text-xs font-mono text-cyan-neon mb-2 font-semibold">📢 演讲重点与逐字提示：</div>
-      <div id="notes-text-area" class="text-xs text-slate-300 leading-relaxed whitespace-pre-line bg-slate-900/90 p-3.5 rounded-xl border border-slate-800 font-sans">
+      <div id="notes-text-area" class="text-sm text-slate-200 leading-relaxed whitespace-pre-line bg-slate-900/90 p-4 rounded-xl border border-slate-800 font-sans">
         正在加载提词内容...
       </div>
-      <div class="mt-4 pt-3 border-t border-slate-800 text-[10px] text-slate-500 font-mono">
+      <div class="mt-5 pt-4 border-t border-slate-800 text-xs text-slate-500 font-mono">
         快捷键提示：[↑/↓/Space] 切页 · [N] 开关提词 · [F] 全屏
       </div>
     </div>
@@ -128,10 +128,10 @@
   <!-- ==================== SLIDE 1: 封面页 (全息视觉中心 + 3D HUD 组件) ==================== -->
   <section id="slide-1" class="slide-section slide-active">
     <div class="slide-stage-16-9">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch h-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch h-full">
         
         <!-- Left Main Panel: 全息视觉中心 (6 cols) -->
-        <div class="lg:col-span-6 octane-glass-panel p-6 lg:p-7" data-motion="left" data-delay="1">
+        <div class="lg:col-span-6 octane-glass-panel p-6 lg:p-8" data-motion="left" data-delay="1">
           <!-- Upper Header Area -->
           <div>
             <div class="flex items-center justify-between mb-3">
@@ -139,15 +139,17 @@
                 <span class="cyber-bullet"></span>
                 <span>SYSTEM v2.0 // LAUNCH 2026</span>
               </div>
-              <span class="text-[10px] font-mono text-slate-400">WEB3 FINTECH CORE</span>
+              <span class="text-xs font-mono text-cyan-neon/80 font-bold">WEB3 FINTECH CORE</span>
             </div>
             
             <h1 class="section-headline text-3xl lg:text-5xl font-black text-white mb-2 leading-tight">
               Enipay <span class="text-gradient-hero">(ENIPAY)</span>
             </h1>
-            <div class="text-sm font-extrabold text-cyan-bright tracking-wide mb-2">全球数字支付聚合平台</div>
+            <div class="text-base lg:text-lg font-extrabold text-cyan-bright tracking-wide mb-3">
+              全球数字支付聚合平台
+            </div>
 
-            <p class="text-xs text-slate-300 leading-relaxed max-w-lg">
+            <p class="text-xs lg:text-sm text-slate-200 leading-relaxed max-w-xl">
               <span class="text-cyan-neon font-bold">ENI 公链</span> × 
               <span class="text-cyan-bright font-bold">ENIPAY 支付网络</span> × 
               <span class="text-gold-400 font-bold">EPAY 社区增长层</span><br>
@@ -155,17 +157,17 @@
             </p>
           </div>
 
-          <!-- Middle: 3D Holographic Chip Payment Card (突破网格质感) -->
-          <div class="holo-3d-card-wrap my-2" data-motion="scale" data-delay="3">
+          <!-- Middle: 3D Holographic Chip Payment Card -->
+          <div class="holo-3d-card-wrap my-auto" data-motion="scale" data-delay="3">
             <div class="holo-3d-card">
               <div class="flex items-center justify-between">
                 <div class="card-chip"></div>
-                <div class="text-[10px] font-mono text-cyan-neon tracking-widest uppercase font-bold">ENIPAY WEB3 CARD</div>
+                <div class="text-xs font-mono text-cyan-neon tracking-widest uppercase font-bold">ENIPAY WEB3 CARD</div>
               </div>
-              <div class="font-mono text-sm tracking-widest text-slate-200 font-bold my-1">
+              <div class="font-mono text-lg tracking-widest text-white font-black my-2 text-shadow">
                 1234 5712 9679 1099
               </div>
-              <div class="flex items-center justify-between text-[9px] font-mono text-slate-400">
+              <div class="flex items-center justify-between text-xs font-mono text-slate-300">
                 <span>VALID 08/28</span>
                 <span class="text-cyan-bright font-bold">AI AGENT COMPATIBLE</span>
               </div>
@@ -173,94 +175,94 @@
           </div>
 
           <!-- Bottom HUD KPI Metrics -->
-          <div class="grid grid-cols-3 gap-2 pt-3 border-t border-slate-800" data-motion data-delay="5">
-            <div class="p-2 rounded-xl bg-slate-900/60 border border-slate-800 text-center">
-              <div class="text-xs font-mono font-black text-cyan-neon">0.02s</div>
-              <div class="text-[9px] text-slate-400 mt-0.5">清结算时延</div>
+          <div class="grid grid-cols-3 gap-3 pt-4 border-t border-slate-800" data-motion data-delay="5">
+            <div class="p-3 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
+              <div class="text-base lg:text-lg font-mono font-black text-cyan-neon">0.02s</div>
+              <div class="text-xs text-slate-300 mt-0.5">清结算时延</div>
             </div>
-            <div class="p-2 rounded-xl bg-slate-900/60 border border-slate-800 text-center">
-              <div class="text-xs font-mono font-black text-cyan-bright">100%</div>
-              <div class="text-[9px] text-slate-400 mt-0.5">链上资产隔离</div>
+            <div class="p-3 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
+              <div class="text-base lg:text-lg font-mono font-black text-cyan-bright">100%</div>
+              <div class="text-xs text-slate-300 mt-0.5">链上资产隔离</div>
             </div>
-            <div class="p-2 rounded-xl bg-slate-900/60 border border-slate-800 text-center">
-              <div class="text-xs font-mono font-black text-gold-400">MULTI-AGENT</div>
-              <div class="text-[9px] text-slate-400 mt-0.5">自主授权</div>
+            <div class="p-3 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
+              <div class="text-base lg:text-lg font-mono font-black text-gold-400">MULTI-AGENT</div>
+              <div class="text-xs text-slate-300 mt-0.5">自主授权</div>
             </div>
           </div>
         </div>
 
         <!-- Right 3 Micro 3D HUD Components (6 cols) -->
-        <div class="lg:col-span-6 flex flex-col justify-between space-y-3 h-full" data-motion="right" data-delay="2">
+        <div class="lg:col-span-6 flex flex-col justify-between space-y-3.5 h-full" data-motion="right" data-delay="2">
           
           <!-- Card 001 // 实时结算 -->
-          <div class="octane-card-hud p-4 flex-1" data-motion data-delay="3">
-            <div class="flex items-center justify-between mb-1">
-              <span class="text-[11px] font-mono text-cyan-neon font-bold tracking-wider">01 // SETTLEMENT</span>
-              <span class="text-[9px] font-mono text-slate-500">LIGHTNING FLOW</span>
+          <div class="octane-card-hud p-5 flex-1" data-motion data-delay="3">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-mono text-cyan-neon font-bold tracking-wider">01 // SETTLEMENT</span>
+              <span class="text-xs font-mono text-slate-400">LIGHTNING FLOW</span>
             </div>
-            <div class="flex items-center gap-4 my-auto">
+            <div class="flex items-center gap-5 my-auto">
               <div class="lightning-core flex-shrink-0">
                 <span class="lightning-bolt">⚡</span>
               </div>
               <div>
-                <h4 class="font-extrabold text-white text-sm lg:text-base mb-1">秒级全球清结算</h4>
-                <p class="text-[11px] text-slate-400 leading-relaxed">双币实时归集，智能路由最低滑点与全球加密/法币双向合规通道。</p>
+                <h4 class="font-extrabold text-white text-base lg:text-lg mb-1">秒级全球清结算</h4>
+                <p class="text-xs lg:text-sm text-slate-300 leading-relaxed">双币实时归集，智能路由最低滑点与全球加密/法币双向合规通道。</p>
               </div>
             </div>
           </div>
 
           <!-- Card 002 // AI 智能卡 -->
-          <div class="octane-card-hud p-4 flex-1" data-motion data-delay="4">
-            <div class="flex items-center justify-between mb-1">
-              <span class="text-[11px] font-mono text-cyan-blue font-bold tracking-wider">02 // AI AGENT</span>
-              <span class="text-[9px] font-mono text-slate-500">BIOMETRIC ORB</span>
+          <div class="octane-card-hud p-5 flex-1" data-motion data-delay="4">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-mono text-cyan-blue font-bold tracking-wider">02 // AI AGENT</span>
+              <span class="text-xs font-mono text-slate-400">BIOMETRIC ORB</span>
             </div>
-            <div class="flex items-center gap-4 my-auto">
+            <div class="flex items-center gap-5 my-auto">
               <div class="ai-orb-wrap flex-shrink-0">
                 <div class="ai-orb-core"></div>
                 <div class="ai-orb-ring"></div>
               </div>
               <div>
-                <h4 class="font-extrabold text-white text-sm lg:text-base mb-1">AI Agent 智能卡</h4>
-                <p class="text-[11px] text-slate-400 leading-relaxed">面向自主智能体的小额即时授权、自主量化套利理财与自动化微支付。</p>
+                <h4 class="font-extrabold text-white text-base lg:text-lg mb-1">AI Agent 智能卡</h4>
+                <p class="text-xs lg:text-sm text-slate-300 leading-relaxed">面向自主智能体的小额即时授权、自主量化套利理财与自动化微支付。</p>
               </div>
             </div>
           </div>
 
           <!-- Card 003 // 资产安全 -->
-          <div class="octane-card-hud p-4 flex-1 border-gold-500/30" data-motion data-delay="5">
-            <div class="flex items-center justify-between mb-1">
-              <span class="text-[11px] font-mono text-gold-400 font-bold tracking-wider">03 // CUSTODY</span>
-              <span class="text-[9px] font-mono text-slate-500">BINANCE MULTI-SIG</span>
+          <div class="octane-card-hud p-5 flex-1 border-gold-500/40" data-motion data-delay="5">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-mono text-gold-400 font-bold tracking-wider">03 // CUSTODY</span>
+              <span class="text-xs font-mono text-slate-400">BINANCE MULTI-SIG</span>
             </div>
-            <div class="flex items-center gap-4 my-auto">
+            <div class="flex items-center gap-5 my-auto">
               <div class="shield-wrap flex-shrink-0">
                 <span class="shield-core">🛡️</span>
               </div>
               <div>
-                <h4 class="font-extrabold text-white text-sm lg:text-base mb-1">100% 币安第三方托管</h4>
-                <p class="text-[11px] text-slate-400 leading-relaxed">零资金池沉淀风险，全额锁定币安官方账户，物理隔离与 MPC 冷重多签防护。</p>
+                <h4 class="font-extrabold text-white text-base lg:text-lg mb-1">100% 币安第三方托管</h4>
+                <p class="text-xs lg:text-sm text-slate-300 leading-relaxed">零资金池沉淀风险，全额锁定币安官方账户，物理隔离与 MPC 冷重多签防护。</p>
               </div>
             </div>
           </div>
 
           <!-- Bottom Chamfered Strategic Partners Bar -->
-          <div class="octane-glass-panel p-3" data-motion data-delay="6">
-            <div class="flex items-center justify-between pb-1.5 mb-1.5 border-b border-slate-800">
-              <span class="text-[9px] font-mono text-slate-400 uppercase tracking-widest">STRATEGIC PARTNERS & AUDIT ECOSYSTEM</span>
-              <span class="text-[9px] font-mono text-cyan-neon font-bold">10 GLOBAL LEADERS</span>
+          <div class="octane-glass-panel p-4" data-motion data-delay="6">
+            <div class="flex items-center justify-between pb-2 mb-2.5 border-b border-slate-800">
+              <span class="text-xs font-mono text-slate-300 uppercase tracking-widest font-bold">STRATEGIC PARTNERS & AUDIT ECOSYSTEM</span>
+              <span class="text-xs font-mono text-cyan-neon font-bold">10 GLOBAL LEADERS</span>
             </div>
-            <div class="grid grid-cols-5 gap-1.5 font-mono text-[10px]">
-              <div class="badge-chamfer">CertiK</div>
-              <div class="badge-chamfer">Binance</div>
-              <div class="badge-chamfer">OKX</div>
-              <div class="badge-chamfer">Bybit</div>
-              <div class="badge-chamfer">Coinbase</div>
-              <div class="badge-chamfer">ZPN</div>
-              <div class="badge-chamfer">Bridge</div>
-              <div class="badge-chamfer">Chainlink</div>
-              <div class="badge-chamfer">Fireblocks</div>
-              <div class="badge-chamfer">AWS Cloud</div>
+            <div class="grid grid-cols-5 gap-2 font-mono text-xs">
+              <div class="badge-chamfer">🛡️ CertiK</div>
+              <div class="badge-chamfer">🪙 Binance</div>
+              <div class="badge-chamfer">⬛ OKX</div>
+              <div class="badge-chamfer">⚡ Bybit</div>
+              <div class="badge-chamfer">🔵 Coinbase</div>
+              <div class="badge-chamfer">🌐 ZPN</div>
+              <div class="badge-chamfer">🌉 Bridge</div>
+              <div class="badge-chamfer">🔗 Chainlink</div>
+              <div class="badge-chamfer">🔥 Fireblocks</div>
+              <div class="badge-chamfer">☁️ AWS Cloud</div>
             </div>
           </div>
 
@@ -273,88 +275,88 @@
   <!-- ==================== SLIDE 2: 痛点与先例 ==================== -->
   <section id="slide-2" class="slide-section">
     <div class="slide-stage-16-9">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch h-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch h-full">
         
         <!-- Left Dark Anchor Column (5 cols) -->
-        <div class="lg:col-span-5 octane-glass-panel p-6 lg:p-7" data-motion="left" data-delay="1">
+        <div class="lg:col-span-5 octane-glass-panel p-6 lg:p-8" data-motion="left" data-delay="1">
           <div>
             <div class="cyber-pill mb-4" data-motion data-delay="2">
               <span class="cyber-bullet"></span>
               <span>MARKET OPPORTUNITY // 002</span>
             </div>
             
-            <h2 class="section-headline text-2xl lg:text-4xl font-extrabold text-white mb-2 leading-tight" data-motion data-delay="3">
+            <h2 class="section-headline text-3xl lg:text-5xl font-extrabold text-white mb-3 leading-tight" data-motion data-delay="3">
               Web3 支付赛道<br>
               <span class="text-gradient-hero">“万亿美金痛点”</span><br>
               与巨头先例
             </h2>
 
-            <div class="space-y-3 my-4" data-motion data-delay="4">
-              <div class="p-4 rounded-xl bg-slate-900/80 border border-cyan-neon/30">
-                <div class="text-[11px] font-mono text-cyan-neon font-bold">先例案例 · REDOTPAY 爆发奇迹</div>
-                <div class="text-2xl font-black font-mono text-gradient-gold mt-1">$120 亿+ 流水</div>
-                <div class="text-[11px] text-slate-300 mt-0.5">三年覆盖 100+ 国家 · 800 万实名用户 · 年利润 1.8 亿美元 · 估值 50 亿美元！</div>
+            <div class="space-y-4 my-5" data-motion data-delay="4">
+              <div class="p-5 rounded-2xl bg-slate-900/90 border border-cyan-neon/40">
+                <div class="text-xs font-mono text-cyan-neon font-bold">先例案例 · REDOTPAY 爆发奇迹</div>
+                <div class="text-3xl lg:text-4xl font-black font-mono text-gradient-gold mt-1.5">$120 亿+ 流水</div>
+                <div class="text-xs lg:text-sm text-slate-200 mt-2 leading-relaxed">三年覆盖 100+ 国家 · 800 万实名用户 · 年利润 1.8 亿美元 · 估值 50 亿美元！</div>
               </div>
             </div>
           </div>
 
-          <div class="p-3 rounded-xl bg-rose-500/20 border border-rose-500/40 text-rose-200 text-[11px] leading-relaxed" data-motion data-delay="5">
+          <div class="p-4 rounded-2xl bg-rose-500/20 border border-rose-500/40 text-rose-200 text-xs lg:text-sm leading-relaxed" data-motion data-delay="5">
             ⚠️ <strong>传统痛点：</strong>Visa / Mastercard 仅解决法币，无法解决 Web3 时代数十万亿数字资产全球通道！
           </div>
         </div>
 
         <!-- Right Light 4-Grid (7 cols) -->
-        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 h-full" data-motion="right" data-delay="2">
-          <div class="octane-card-hud p-4" data-motion data-delay="3">
-            <div class="flex items-center justify-between mb-1">
-              <span class="text-base font-black text-cyan-bright font-mono">VISA</span>
-              <span class="cyber-pill text-[9px] py-0.5 px-2">FIAT #1</span>
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 h-full" data-motion="right" data-delay="2">
+          <div class="octane-card-hud p-5" data-motion data-delay="3">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-lg font-black text-cyan-bright font-mono">VISA</span>
+              <span class="cyber-pill text-[10px] py-0.5 px-2.5">FIAT #1</span>
             </div>
             <div>
-              <div class="text-2xl font-black text-white font-mono">$6,700 亿</div>
-              <div class="text-[10px] text-slate-400 mt-0.5">市值突破 6700 亿美元，统治法币半壁江山</div>
+              <div class="text-3xl lg:text-4xl font-black text-white font-mono">$6,700 亿</div>
+              <div class="text-xs lg:text-sm text-slate-300 mt-1">市值突破 6700 亿美元，统治法币半壁江山</div>
             </div>
           </div>
 
-          <div class="octane-card-hud p-4" data-motion data-delay="4">
-            <div class="flex items-center justify-between mb-1">
-              <span class="text-base font-black text-gold-400 font-mono">Mastercard</span>
-              <span class="cyber-pill text-[9px] py-0.5 px-2">SETTLE</span>
+          <div class="octane-card-hud p-5" data-motion data-delay="4">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-lg font-black text-gold-400 font-mono">Mastercard</span>
+              <span class="cyber-pill text-[10px] py-0.5 px-2.5">SETTLE</span>
             </div>
             <div>
-              <div class="text-2xl font-black text-white font-mono">~$4,000 亿</div>
-              <div class="text-[10px] text-slate-400 mt-0.5">市值约 4000 亿美元全球清算网络</div>
+              <div class="text-3xl lg:text-4xl font-black text-white font-mono">~$4,000 亿</div>
+              <div class="text-xs lg:text-sm text-slate-300 mt-1">市值约 4000 亿美元全球清算网络</div>
             </div>
           </div>
 
-          <div class="octane-card-hud p-4" data-motion data-delay="5">
-            <div class="flex items-center justify-between mb-1">
-              <span class="text-base font-black text-cyan-neon font-mono">AMEX</span>
-              <span class="cyber-pill text-[9px] py-0.5 px-2">PREMIUM</span>
+          <div class="octane-card-hud p-5" data-motion data-delay="5">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-lg font-black text-cyan-neon font-mono">AMEX</span>
+              <span class="cyber-pill text-[10px] py-0.5 px-2.5">PREMIUM</span>
             </div>
             <div>
-              <div class="text-2xl font-black text-white font-mono">$2,000 亿</div>
-              <div class="text-[10px] text-slate-400 mt-0.5">市值 2000 亿美元高端信用卡网络</div>
+              <div class="text-3xl lg:text-4xl font-black text-white font-mono">$2,000 亿</div>
+              <div class="text-xs lg:text-sm text-slate-300 mt-1">市值 2000 亿美元高端信用卡网络</div>
             </div>
           </div>
 
-          <div class="octane-card-hud p-4" data-motion data-delay="6">
-            <div class="flex items-center justify-between mb-1">
-              <span class="text-base font-black text-cyan-blue font-mono">PayPal</span>
-              <span class="cyber-pill text-[9px] py-0.5 px-2">E-PAY</span>
+          <div class="octane-card-hud p-5" data-motion data-delay="6">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-lg font-black text-cyan-blue font-mono">PayPal</span>
+              <span class="cyber-pill text-[10px] py-0.5 px-2.5">E-PAY</span>
             </div>
             <div>
-              <div class="text-2xl font-black text-white font-mono">$600~700 亿</div>
-              <div class="text-[10px] text-slate-400 mt-0.5">互联网时代最大的电子钱包龙头</div>
+              <div class="text-3xl lg:text-4xl font-black text-white font-mono">$600~700 亿</div>
+              <div class="text-xs lg:text-sm text-slate-300 mt-1">互联网时代最大的电子钱包龙头</div>
             </div>
           </div>
 
           <!-- Bottom Full-Width Takeaway -->
-          <div class="sm:col-span-2 octane-glass-panel p-3.5 border-cyan-neon/50 flex items-center justify-between" data-motion data-delay="7">
-            <span class="text-[11px] font-bold text-white">
+          <div class="sm:col-span-2 octane-glass-panel p-4 border-cyan-neon/60 flex items-center justify-between" data-motion data-delay="7">
+            <span class="text-xs lg:text-sm font-bold text-white">
               🚀 <strong>Enipay 破局：</strong>以公链底座 + 扫码/U卡/小程序 + AI支付 + 社区裂变，重构万亿级全球数字支付赛道！
             </span>
-            <span class="badge-chamfer text-[9px] py-1 px-3">EXPLORE</span>
+            <span class="badge-chamfer text-xs py-1.5 px-4 text-cyan-neon border-cyan-neon">EXPLORE</span>
           </div>
         </div>
 
@@ -365,90 +367,90 @@
   <!-- ==================== SLIDE 3: 艾米公链底层底座 ==================== -->
   <section id="slide-3" class="slide-section">
     <div class="slide-stage-16-9">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch h-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch h-full">
         
         <!-- Left Dark Anchor Column (5 cols) -->
-        <div class="lg:col-span-5 octane-glass-panel p-6 lg:p-7" data-motion="left" data-delay="1">
+        <div class="lg:col-span-5 octane-glass-panel p-6 lg:p-8" data-motion="left" data-delay="1">
           <div>
             <div class="cyber-pill mb-4" data-motion data-delay="2">
               <span class="cyber-bullet"></span>
               <span>L1 INFRASTRUCTURE // 003</span>
             </div>
             
-            <h2 class="section-headline text-2xl lg:text-4xl font-extrabold text-white mb-2 leading-tight" data-motion data-delay="3">
+            <h2 class="section-headline text-3xl lg:text-5xl font-extrabold text-white mb-2 leading-tight" data-motion data-delay="3">
               艾米公链<br>
               <span class="text-cyan-neon">ENI Chain</span><br>
               强大安全底座
             </h2>
 
-            <p class="text-xs text-slate-300 leading-relaxed mt-2 mb-4" data-motion data-delay="4">
+            <p class="text-xs lg:text-sm text-slate-200 leading-relaxed mt-3 mb-5" data-motion data-delay="4">
               总部位于日本东京 · 企业级模块化 L1 公链 · 已稳健运行第 5 个年头
             </p>
 
-            <div class="space-y-2 font-mono text-[11px]" data-motion data-delay="5">
-              <div class="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+            <div class="space-y-3 font-mono text-xs lg:text-sm" data-motion data-delay="5">
+              <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between">
                 <span class="text-slate-300">🏢 日本通信巨头合作</span>
                 <span class="text-cyan-neon font-bold">NTT 官方高度评价</span>
               </div>
-              <div class="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+              <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between">
                 <span class="text-slate-300">🛡️ CertiK 权威审计</span>
                 <span class="text-cyan-bright font-bold">82.19分 · A 级认证</span>
               </div>
-              <div class="p-2.5 rounded-lg bg-slate-900/80 border border-slate-800 flex items-center justify-between">
+              <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-between">
                 <span class="text-slate-300">📈 CryptoLenz 链上 TVL</span>
                 <span class="text-gold-400 font-bold">全网增长排名前三</span>
               </div>
             </div>
           </div>
 
-          <div class="text-[10px] font-mono text-slate-400 mt-4 pt-3 border-t border-slate-800" data-motion data-delay="6">
+          <div class="text-xs font-mono text-slate-400 mt-5 pt-4 border-t border-slate-800" data-motion data-delay="6">
             支持“无感上链”与“一键发链”模块化企业级架构设计
           </div>
         </div>
 
         <!-- Right Light 4 Metrics Grid (7 cols) -->
-        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 h-full" data-motion="right" data-delay="2">
-          <div class="octane-card-hud p-5" data-motion data-delay="3">
-            <div class="flex items-center justify-between mb-1">
-              <span class="cyber-pill text-[9px] py-0.5 px-2">ADDRESSES</span>
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 h-full" data-motion="right" data-delay="2">
+          <div class="octane-card-hud p-6" data-motion data-delay="3">
+            <div class="flex items-center justify-between mb-2">
+              <span class="cyber-pill text-[10px] py-0.5 px-2.5">ADDRESSES</span>
               <span class="text-xs font-mono text-slate-400">#01</span>
             </div>
             <div>
-              <div class="text-3xl font-black text-white font-mono my-1 text-gradient-hero">400 万+</div>
-              <div class="text-[11px] text-slate-400">累计独立持币地址，稳健分布于全球多国</div>
+              <div class="text-3xl lg:text-5xl font-black text-white font-mono my-2 text-gradient-hero">400 万+</div>
+              <div class="text-xs lg:text-sm text-slate-300">累计独立持币地址，稳健分布于全球多国</div>
             </div>
           </div>
 
-          <div class="octane-card-hud p-5" data-motion data-delay="4">
-            <div class="flex items-center justify-between mb-1">
-              <span class="cyber-pill text-[9px] py-0.5 px-2">TRANSACTIONS</span>
+          <div class="octane-card-hud p-6" data-motion data-delay="4">
+            <div class="flex items-center justify-between mb-2">
+              <span class="cyber-pill text-[10px] py-0.5 px-2.5">TRANSACTIONS</span>
               <span class="text-xs font-mono text-slate-400">#02</span>
             </div>
             <div>
-              <div class="text-3xl font-black text-white font-mono my-1 text-gradient-hero">2,400 万+</div>
-              <div class="text-[11px] text-slate-400">累计链上总交易笔数 · 日均 70,000 笔左右</div>
+              <div class="text-3xl lg:text-5xl font-black text-white font-mono my-2 text-gradient-hero">2,400 万+</div>
+              <div class="text-xs lg:text-sm text-slate-300">累计链上总交易笔数 · 日均 70,000 笔左右</div>
             </div>
           </div>
 
-          <div class="octane-card-hud p-5" data-motion data-delay="5">
-            <div class="flex items-center justify-between mb-1">
-              <span class="cyber-pill text-[9px] py-0.5 px-2">SPEED</span>
+          <div class="octane-card-hud p-6" data-motion data-delay="5">
+            <div class="flex items-center justify-between mb-2">
+              <span class="cyber-pill text-[10px] py-0.5 px-2.5">SPEED</span>
               <span class="text-xs font-mono text-slate-400">#03</span>
             </div>
             <div>
-              <div class="text-3xl font-black text-cyan-neon font-mono my-1" data-counter="12500">12,500 TPS</div>
-              <div class="text-[11px] text-slate-400">实测最高并发 · 传输延迟直降 85%</div>
+              <div class="text-3xl lg:text-5xl font-black text-cyan-neon font-mono my-2" data-counter="12500">12,500 TPS</div>
+              <div class="text-xs lg:text-sm text-slate-300">实测最高并发 · 传输延迟直降 85%</div>
             </div>
           </div>
 
-          <div class="octane-card-hud p-5" data-motion data-delay="6">
-            <div class="flex items-center justify-between mb-1">
-              <span class="cyber-pill text-[9px] py-0.5 px-2">DEFLATION</span>
+          <div class="octane-card-hud p-6" data-motion data-delay="6">
+            <div class="flex items-center justify-between mb-2">
+              <span class="cyber-pill text-[10px] py-0.5 px-2.5">DEFLATION</span>
               <span class="text-xs font-mono text-slate-400">#04</span>
             </div>
             <div>
-              <div class="text-3xl font-black text-gold-400 font-mono my-1">300 万 ENI</div>
-              <div class="text-[11px] text-slate-400">累计消耗燃料费 · 真实通缩持续进行中</div>
+              <div class="text-3xl lg:text-5xl font-black text-gold-400 font-mono my-2">300 万 ENI</div>
+              <div class="text-xs lg:text-sm text-slate-300">累计消耗燃料费 · 真实通缩持续进行中</div>
             </div>
           </div>
         </div>
@@ -462,69 +464,69 @@
     <div class="slide-stage-16-9">
       
       <!-- Top 3-Layer Step Architecture -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3 flex-1">
-        <div class="octane-card-hud p-4 border-t-2 border-t-slate-400" data-motion data-delay="1">
-          <div class="cyber-pill text-[9px] py-0.5 px-2 mb-1">LAYER 01 底座层</div>
-          <h4 class="font-extrabold text-white text-xs md:text-sm">ENI 公链基础设施</h4>
-          <p class="text-[10px] text-slate-400 mt-1 leading-relaxed">高性能 L1 结算、稳定币跨链流通、企业级商业承载底座</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 flex-1">
+        <div class="octane-card-hud p-5 border-t-2 border-t-slate-400" data-motion data-delay="1">
+          <div class="cyber-pill text-[10px] py-0.5 px-2.5 mb-2">LAYER 01 底座层</div>
+          <h4 class="font-extrabold text-white text-base lg:text-lg">ENI 公链基础设施</h4>
+          <p class="text-xs lg:text-sm text-slate-300 mt-2 leading-relaxed">高性能 L1 结算、稳定币跨链流通、企业级商业承载底座</p>
         </div>
-        <div class="octane-card-hud p-4 border-t-2 border-t-cyan-neon border-cyan-neon/40" data-motion data-delay="2">
-          <div class="cyber-pill text-[9px] py-0.5 px-2 mb-1"><span class="cyber-bullet"></span>LAYER 02 核心层</div>
-          <h4 class="font-extrabold text-white text-xs md:text-sm">ENIPAY 支付网络</h4>
-          <p class="text-[10px] text-slate-400 mt-1 leading-relaxed">稳定币即时清算、AI Agent 智能支付、全球链上与法币双向合规接入</p>
+        <div class="octane-card-hud p-5 border-t-2 border-t-cyan-neon border-cyan-neon/40" data-motion data-delay="2">
+          <div class="cyber-pill text-[10px] py-0.5 px-2.5 mb-2"><span class="cyber-bullet"></span>LAYER 02 核心层</div>
+          <h4 class="font-extrabold text-white text-base lg:text-lg">ENIPAY 支付网络</h4>
+          <p class="text-xs lg:text-sm text-slate-300 mt-2 leading-relaxed">稳定币即时清算、AI Agent 智能支付、全球链上与法币双向合规接入</p>
         </div>
-        <div class="octane-card-hud p-4 border-t-2 border-t-gold-400" data-motion data-delay="3">
-          <div class="cyber-pill text-[9px] py-0.5 px-2 mb-1">LAYER 03 增长层</div>
-          <h4 class="font-extrabold text-white text-xs md:text-sm">EPAY 社区增长层</h4>
-          <p class="text-[10px] text-slate-400 mt-1 leading-relaxed">用户裂变体系、生态高额补贴、链上数据沉淀打造上市资产</p>
+        <div class="octane-card-hud p-5 border-t-2 border-t-gold-400" data-motion data-delay="3">
+          <div class="cyber-pill text-[10px] py-0.5 px-2.5 mb-2">LAYER 03 增长层</div>
+          <h4 class="font-extrabold text-white text-base lg:text-lg">EPAY 社区增长层</h4>
+          <p class="text-xs lg:text-sm text-slate-300 mt-2 leading-relaxed">用户裂变体系、生态高额补贴、链上数据沉淀打造上市资产</p>
         </div>
       </div>
 
       <!-- Bottom 5-Product Matrix Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-5 gap-3 flex-1">
-        <div class="octane-card-hud p-3.5" data-motion data-delay="4">
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-3.5 flex-1">
+        <div class="octane-card-hud p-4" data-motion data-delay="4">
           <div>
-            <div class="text-xl mb-1 text-cyan-neon">📱</div>
-            <h5 class="font-bold text-white text-xs">双币扫码支付</h5>
-            <p class="text-[10px] text-slate-400 mt-1">亚太首家法币+稳定币四方清算，打通微信/支付宝/MoMoPay/C-Pay</p>
+            <div class="text-2xl mb-2 text-cyan-neon">📱</div>
+            <h5 class="font-bold text-white text-sm lg:text-base">双币扫码支付</h5>
+            <p class="text-xs text-slate-300 mt-1.5">亚太首家法币+稳定币四方清算，打通微信/支付宝/MoMoPay/C-Pay</p>
           </div>
-          <span class="text-[9px] font-mono text-cyan-neon font-bold mt-2">四方清算</span>
+          <span class="text-[10px] font-mono text-cyan-neon font-bold mt-3">四方清算</span>
         </div>
 
-        <div class="octane-card-hud p-3.5" data-motion data-delay="5">
+        <div class="octane-card-hud p-4" data-motion data-delay="5">
           <div>
-            <div class="text-xl mb-1 text-cyan-bright">⚡</div>
-            <h5 class="font-bold text-white text-xs">极速合规出入金</h5>
-            <p class="text-[10px] text-slate-400 mt-1">SWIFT/Wire 电汇 + 微信支付宝海外商铺扫码，彻底告别冻卡痛点</p>
+            <div class="text-2xl mb-2 text-cyan-bright">⚡</div>
+            <h5 class="font-bold text-white text-sm lg:text-base">极速合规出入金</h5>
+            <p class="text-xs text-slate-300 mt-1.5">SWIFT/Wire 电汇 + 微信支付宝海外商铺扫码，彻底告别冻卡痛点</p>
           </div>
-          <span class="text-[9px] font-mono text-cyan-bright font-bold mt-2">无冻卡风险</span>
+          <span class="text-[10px] font-mono text-cyan-bright font-bold mt-3">无冻卡风险</span>
         </div>
 
-        <div class="octane-card-hud p-3.5" data-motion data-delay="6">
+        <div class="octane-card-hud p-4" data-motion data-delay="6">
           <div>
-            <div class="text-xl mb-1 text-gold-400">💳</div>
-            <h5 class="font-bold text-white text-xs">Enipay 三色 U 卡</h5>
-            <p class="text-[10px] text-slate-400 mt-1">基础黑卡、极速绿卡、高端黑金卡。支持全球高额 ATM 提现与刷卡</p>
+            <div class="text-2xl mb-2 text-gold-400">💳</div>
+            <h5 class="font-bold text-white text-sm lg:text-base">Enipay 三色 U 卡</h5>
+            <p class="text-xs text-slate-300 mt-1.5">基础黑卡、极速绿卡、高端黑金卡。支持全球高额 ATM 提现与刷卡</p>
           </div>
-          <span class="text-[9px] font-mono text-gold-400 font-bold mt-2">实体卡 + 虚拟卡</span>
+          <span class="text-[10px] font-mono text-gold-400 font-bold mt-3">实体卡 + 虚拟卡</span>
         </div>
 
-        <div class="octane-card-hud p-3.5" data-motion data-delay="7">
+        <div class="octane-card-hud p-4" data-motion data-delay="7">
           <div>
-            <div class="text-xl mb-1 text-cyan-blue">✈️</div>
-            <h5 class="font-bold text-white text-xs">全球生态小程序</h5>
-            <p class="text-[10px] text-slate-400 mt-1">内置机票预订、全球酒店、打车、国际 SIM 卡，打通衣食住行</p>
+            <div class="text-2xl mb-2 text-cyan-blue">✈️</div>
+            <h5 class="font-bold text-white text-sm lg:text-base">全球生态小程序</h5>
+            <p class="text-xs text-slate-300 mt-1.5">内置机票预订、全球酒店、打车、国际 SIM 卡，打通衣食住行</p>
           </div>
-          <span class="text-[9px] font-mono text-cyan-blue font-bold mt-2">一站式出行</span>
+          <span class="text-[10px] font-mono text-cyan-blue font-bold mt-3">一站式出行</span>
         </div>
 
-        <div class="octane-card-hud p-3.5" data-motion data-delay="8">
+        <div class="octane-card-hud p-4" data-motion data-delay="8">
           <div>
-            <div class="text-xl mb-1 text-cyan-neon">📈</div>
-            <h5 class="font-bold text-white text-xs">链上美股市场</h5>
-            <p class="text-[10px] text-slate-400 mt-1">免繁琐开户、免高额税费，直接使用稳定币一键交易美股股票代币</p>
+            <div class="text-2xl mb-2 text-cyan-neon">📈</div>
+            <h5 class="font-bold text-white text-sm lg:text-base">链上美股市场</h5>
+            <p class="text-xs text-slate-300 mt-1.5">免繁琐开户、免高额税费，直接使用稳定币一键交易美股股票代币</p>
           </div>
-          <span class="text-[9px] font-mono text-cyan-neon font-bold mt-2">0 门槛美股</span>
+          <span class="text-[10px] font-mono text-cyan-neon font-bold mt-3">0 门槛美股</span>
         </div>
       </div>
 
@@ -534,69 +536,69 @@
   <!-- ==================== SLIDE 5: AI 支付 A-Card ==================== -->
   <section id="slide-5" class="slide-section">
     <div class="slide-stage-16-9">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch h-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch h-full">
         
         <!-- Left Dark Anchor Column (5 cols) -->
-        <div class="lg:col-span-5 octane-glass-panel p-6 lg:p-7" data-motion="left" data-delay="1">
+        <div class="lg:col-span-5 octane-glass-panel p-6 lg:p-8" data-motion="left" data-delay="1">
           <div>
             <div class="cyber-pill mb-4" data-motion data-delay="2">
               <span class="cyber-bullet"></span>
               <span>AI INNOVATION // 005</span>
             </div>
             
-            <h2 class="section-headline text-2xl lg:text-4xl font-extrabold text-white mb-2 leading-tight" data-motion data-delay="3">
+            <h2 class="section-headline text-3xl lg:text-5xl font-extrabold text-white mb-3 leading-tight" data-motion data-delay="3">
               AI 支付前沿突破<br>
               <span class="text-gradient-hero">Enipay A-Card</span><br>
               智能助手卡
             </h2>
 
-            <p class="text-xs text-slate-300 leading-relaxed mt-3" data-motion data-delay="4">
+            <p class="text-xs lg:text-sm text-slate-200 leading-relaxed mt-4" data-motion data-delay="4">
               构建人类与 AI Agent（人工智能体）共用的全球数字支付网络。未来 AI 将不仅是聊天工具，更是主动消费与链上交易的超级主体！
             </p>
           </div>
 
-          <div class="p-3.5 rounded-xl bg-cyan-neon/10 border border-cyan-neon/30 text-cyan-neon text-xs font-semibold" data-motion data-delay="5">
+          <div class="p-4 rounded-2xl bg-cyan-neon/10 border border-cyan-neon/35 text-cyan-neon text-xs lg:text-sm font-semibold" data-motion data-delay="5">
             🤖 <strong>人类与 AI 协作：</strong>小额自主托管 + 智能量化理财 + 多重签名安全边界！
           </div>
         </div>
 
         <!-- Right Light 3-Grid (7 cols) -->
-        <div class="lg:col-span-7 flex flex-col justify-between space-y-3 h-full" data-motion="right" data-delay="2">
-          <div class="octane-card-hud p-4 flex-1" data-motion data-delay="3">
+        <div class="lg:col-span-7 flex flex-col justify-between space-y-4 h-full" data-motion="right" data-delay="2">
+          <div class="octane-card-hud p-5 flex-1" data-motion data-delay="3">
             <div class="flex items-center justify-between mb-2">
-              <div class="flex items-center gap-2.5">
-                <span class="text-xl text-cyan-neon">🤖</span>
-                <h4 class="font-extrabold text-white text-xs md:text-sm">小额支付与自主消费托管</h4>
+              <div class="flex items-center gap-3">
+                <span class="text-2xl text-cyan-neon">🤖</span>
+                <h4 class="font-extrabold text-white text-base lg:text-lg">小额支付与自主消费托管</h4>
               </div>
-              <span class="cyber-pill text-[9px] py-0.5 px-2">FEATURE 01</span>
+              <span class="cyber-pill text-[10px] py-0.5 px-2.5">FEATURE 01</span>
             </div>
-            <p class="text-[11px] text-slate-400 leading-relaxed">
+            <p class="text-xs lg:text-sm text-slate-300 leading-relaxed">
               AI 代理可独立调用 API、购买算力服务、预订差旅机票。A-Card 提供可控小额额度与单次授权，由 AI 完成自动支付，防范过度超支。
             </p>
           </div>
 
-          <div class="octane-card-hud p-4 flex-1" data-motion data-delay="4">
+          <div class="octane-card-hud p-5 flex-1" data-motion data-delay="4">
             <div class="flex items-center justify-between mb-2">
-              <div class="flex items-center gap-2.5">
-                <span class="text-xl text-cyan-bright">📊</span>
-                <h4 class="font-extrabold text-white text-xs md:text-sm">AI 智能量化与链上理财</h4>
+              <div class="flex items-center gap-3">
+                <span class="text-2xl text-cyan-bright">📊</span>
+                <h4 class="font-extrabold text-white text-base lg:text-lg">AI 智能量化与链上理财</h4>
               </div>
-              <span class="cyber-pill text-[9px] py-0.5 px-2">FEATURE 02</span>
+              <span class="cyber-pill text-[10px] py-0.5 px-2.5">FEATURE 02</span>
             </div>
-            <p class="text-[11px] text-slate-400 leading-relaxed">
+            <p class="text-xs lg:text-sm text-slate-300 leading-relaxed">
               内置智能交易引擎。AI Agent 根据实时数据模型，代替人类执行套利交易与链上理财，实现 24/7 资产自动化增值。
             </p>
           </div>
 
-          <div class="octane-card-hud p-4 flex-1" data-motion data-delay="5">
+          <div class="octane-card-hud p-5 flex-1" data-motion data-delay="5">
             <div class="flex items-center justify-between mb-2">
-              <div class="flex items-center gap-2.5">
-                <span class="text-xl text-gold-400">🔐</span>
-                <h4 class="font-extrabold text-white text-xs md:text-sm">多签智能风控安全防线</h4>
+              <div class="flex items-center gap-3">
+                <span class="text-2xl text-gold-400">🔐</span>
+                <h4 class="font-extrabold text-white text-base lg:text-lg">多签智能风控安全防线</h4>
               </div>
-              <span class="cyber-pill text-[9px] py-0.5 px-2">FEATURE 03</span>
+              <span class="cyber-pill text-[10px] py-0.5 px-2.5">FEATURE 03</span>
             </div>
-            <p class="text-[11px] text-slate-400 leading-relaxed">
+            <p class="text-xs lg:text-sm text-slate-300 leading-relaxed">
               在 AI 代理与主资金账户之间建立多重签名与智能风控安全边界，大额资产划转需人类确认，确保万无一失。
             </p>
           </div>
@@ -609,70 +611,70 @@
   <!-- ==================== SLIDE 6: 币安第三方资金托管 ==================== -->
   <section id="slide-6" class="slide-section">
     <div class="slide-stage-16-9">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch h-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch h-full">
         
         <!-- Left Dark Anchor Column (5 cols) -->
-        <div class="lg:col-span-5 octane-glass-panel p-6 lg:p-7" data-motion="left" data-delay="1">
+        <div class="lg:col-span-5 octane-glass-panel p-6 lg:p-8" data-motion="left" data-delay="1">
           <div>
             <div class="cyber-pill mb-4" data-motion data-delay="2">
               <span class="cyber-bullet"></span>
               <span>100% CUSTODY // 006</span>
             </div>
             
-            <h2 class="section-headline text-2xl lg:text-4xl font-extrabold text-white mb-2 leading-tight" data-motion data-delay="3">
+            <h2 class="section-headline text-3xl lg:text-5xl font-extrabold text-white mb-3 leading-tight" data-motion data-delay="3">
               100% 资金安全<br>
               <span class="text-gold-400">币安 (Binance)</span><br>
               第三方资金托管
             </h2>
 
-            <p class="text-xs text-slate-300 leading-relaxed mt-3" data-motion data-delay="4">
+            <p class="text-xs lg:text-sm text-slate-200 leading-relaxed mt-4" data-motion data-delay="4">
               彻底终结行业“资金池爆雷、平台卷款跑路”隐患。所有质押资金不存留 Enipay 私钥钱包，全部质押在币安官方第三方账户！
             </p>
           </div>
 
-          <div class="p-3.5 rounded-xl bg-gold-400/10 border border-gold-400/30 text-gold-400 text-xs" data-motion data-delay="5">
+          <div class="p-4 rounded-2xl bg-gold-400/10 border border-gold-400/40 text-gold-400 text-xs lg:text-sm font-semibold" data-motion data-delay="5">
             🛡️ <strong>平台零资金沉淀：</strong>Enipay 仅作为去中心化金融基础设施，不碰一分钱，物理杜绝跑路风险！
           </div>
         </div>
 
         <!-- Right Light Pipeline (7 cols) -->
-        <div class="lg:col-span-7 flex flex-col justify-between space-y-3 h-full" data-motion="right" data-delay="2">
-          <div class="octane-card-hud p-5 flex-1" data-motion data-delay="3">
-            <div class="flex items-center justify-between pb-2 mb-3 border-b border-slate-800">
+        <div class="lg:col-span-7 flex flex-col justify-between space-y-4 h-full" data-motion="right" data-delay="2">
+          <div class="octane-card-hud p-6 flex-1" data-motion data-delay="3">
+            <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-800">
               <div class="cyber-pill">
                 <span class="cyber-bullet"></span>
                 <span>ATOMIC SETTLEMENT PIPELINE</span>
               </div>
-              <span class="text-[10px] font-mono text-slate-400">MILLISECONDS</span>
+              <span class="text-xs font-mono text-slate-400">MILLISECONDS</span>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5 text-center my-auto">
-              <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
-                <div class="text-2xl mb-1">👤</div>
-                <div class="font-bold text-white text-xs">用户质押充值</div>
-                <div class="text-[10px] text-cyan-neon font-mono mt-0.5">USDT / USDC</div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-center my-auto">
+              <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800">
+                <div class="text-3xl mb-1.5">👤</div>
+                <div class="font-bold text-white text-sm lg:text-base">用户质押充值</div>
+                <div class="text-xs text-cyan-neon font-mono mt-1">USDT / USDC</div>
               </div>
-              <div class="p-3.5 rounded-xl bg-gold-400/10 border border-gold-400/40">
-                <div class="text-2xl mb-1">🏦</div>
-                <div class="font-bold text-gold-400 text-xs">币安第三方托管</div>
-                <div class="text-[10px] text-gold-400 font-mono mt-0.5 font-bold">BINANCE LOCKED</div>
+              <div class="p-4 rounded-2xl bg-gold-400/10 border border-gold-400/40">
+                <div class="text-3xl mb-1.5">🏦</div>
+                <div class="font-bold text-gold-400 text-sm lg:text-base">币安第三方托管</div>
+                <div class="text-xs text-gold-400 font-mono mt-1 font-bold">BINANCE LOCKED</div>
               </div>
-              <div class="p-3.5 rounded-xl bg-cyan-neon/10 border border-cyan-neon/40">
-                <div class="text-2xl mb-1">🏪</div>
-                <div class="font-bold text-cyan-neon text-xs">线下消费秒出款</div>
-                <div class="text-[10px] text-cyan-neon font-mono mt-0.5 font-bold">INSTANT FIAT</div>
+              <div class="p-4 rounded-2xl bg-cyan-neon/10 border border-cyan-neon/40">
+                <div class="text-3xl mb-1.5">🏪</div>
+                <div class="font-bold text-cyan-neon text-sm lg:text-base">线下消费秒出款</div>
+                <div class="text-xs text-cyan-neon font-mono mt-1 font-bold">INSTANT FIAT</div>
               </div>
             </div>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <div class="octane-card-hud p-4 border-l-4 border-l-cyan-neon" data-motion data-delay="4">
-              <h5 class="font-bold text-white text-xs mb-1">平台零资金沉淀</h5>
-              <p class="text-[10px] text-slate-400">资金 100% 锁定在币安官方账户，Enipay 无任何权限挪用。</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="octane-card-hud p-5 border-l-4 border-l-cyan-neon" data-motion data-delay="4">
+              <h5 class="font-bold text-white text-sm lg:text-base mb-1">平台零资金沉淀</h5>
+              <p class="text-xs text-slate-300">资金 100% 锁定在币安官方账户，Enipay 无任何权限挪用。</p>
             </div>
-            <div class="octane-card-hud p-4 border-l-4 border-l-cyan-bright" data-motion data-delay="5">
-              <h5 class="font-bold text-white text-xs mb-1">毫秒级原子划转</h5>
-              <p class="text-[10px] text-slate-400">当且仅当线下刷卡消费那一瞬间智能合约才触发划拨出款。</p>
+            <div class="octane-card-hud p-5 border-l-4 border-l-cyan-bright" data-motion data-delay="5">
+              <h5 class="font-bold text-white text-sm lg:text-base mb-1">毫秒级原子划转</h5>
+              <p class="text-xs text-slate-300">当且仅当线下刷卡消费那一瞬间智能合约才触发划拨出款。</p>
             </div>
           </div>
         </div>
@@ -686,61 +688,61 @@
     <div class="slide-stage-16-9">
       
       <!-- Top Title Bar -->
-      <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-2 mb-3 border-b border-slate-800" data-motion="scale" data-delay="1">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-3 mb-4 border-b border-slate-800" data-motion="scale" data-delay="1">
         <div>
-          <div class="cyber-pill mb-1"><span class="cyber-bullet"></span>GROWTH ENGINE // 007</div>
-          <h2 class="section-headline text-xl md:text-3xl font-extrabold text-white">
+          <div class="cyber-pill mb-1.5"><span class="cyber-bullet"></span>GROWTH ENGINE // 007</div>
+          <h2 class="section-headline text-2xl md:text-4xl font-extrabold text-white">
             三年 5 亿美金 —— <span class="text-gradient-hero">五阶段全球生态增长与补贴池</span>
           </h2>
         </div>
-        <div class="text-[11px] text-slate-400 font-medium">效仿滴滴、美团经典玩法：高额补贴占领市场，打造网络效应</div>
+        <div class="text-xs lg:text-sm text-slate-300 font-medium">效仿滴滴、美团经典玩法：高额补贴占领市场，打造网络效应</div>
       </div>
 
       <!-- 5 Phases Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-5 gap-2.5 mb-3 flex-1">
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-3.5 mb-4 flex-1">
         <div class="octane-card-hud p-4 border-t-2 border-t-cyan-neon" data-motion data-delay="2">
-          <div class="text-[10px] font-mono text-cyan-neon font-bold">PHASE 1 // 启动</div>
-          <div class="text-xl font-black text-white font-mono my-1.5">2,000 万 U</div>
-          <div class="text-[10px] text-slate-400">初始流动性与出金补贴池</div>
+          <div class="text-xs font-mono text-cyan-neon font-bold">PHASE 1 // 启动</div>
+          <div class="text-2xl font-black text-white font-mono my-2">2,000 万 U</div>
+          <div class="text-xs text-slate-300">初始流动性与出金补贴池</div>
         </div>
         <div class="octane-card-hud p-4 border-t-2 border-t-cyan-bright" data-motion data-delay="3">
-          <div class="text-[10px] font-mono text-cyan-bright font-bold">PHASE 2 // 扩张</div>
-          <div class="text-xl font-black text-white font-mono my-1.5">3,000 万 U</div>
-          <div class="text-[10px] text-slate-400">全球社区扩张与增长池</div>
+          <div class="text-xs font-mono text-cyan-bright font-bold">PHASE 2 // 扩张</div>
+          <div class="text-2xl font-black text-white font-mono my-2">3,000 万 U</div>
+          <div class="text-xs text-slate-300">全球社区扩张与增长池</div>
         </div>
         <div class="octane-card-hud p-4 border-t-2 border-t-cyan-blue" data-motion data-delay="4">
-          <div class="text-[10px] font-mono text-cyan-blue font-bold">PHASE 3 // 应用</div>
-          <div class="text-xl font-black text-white font-mono my-1.5">5,000 万 U</div>
-          <div class="text-[10px] text-slate-400">支付应用与商户拓展池</div>
+          <div class="text-xs font-mono text-cyan-blue font-bold">PHASE 3 // 应用</div>
+          <div class="text-2xl font-black text-white font-mono my-2">5,000 万 U</div>
+          <div class="text-xs text-slate-300">支付应用与商户拓展池</div>
         </div>
         <div class="octane-card-hud p-4 border-t-2 border-t-gold-400" data-motion data-delay="5">
-          <div class="text-[10px] font-mono text-gold-400 font-bold">PHASE 4 // 合规</div>
-          <div class="text-xl font-black text-white font-mono my-1.5">1 亿 USDT</div>
-          <div class="text-[10px] text-slate-400">全球市场牌照与合规池</div>
+          <div class="text-xs font-mono text-gold-400 font-bold">PHASE 4 // 合规</div>
+          <div class="text-2xl font-black text-white font-mono my-2">1 亿 USDT</div>
+          <div class="text-xs text-slate-300">全球市场牌照与合规池</div>
         </div>
         <div class="octane-card-hud p-4 border-t-2 border-t-purple-400" data-motion data-delay="6">
-          <div class="text-[10px] font-mono text-purple-400 font-bold">PHASE 5 // 上市</div>
-          <div class="text-xl font-black text-white font-mono my-1.5">3 亿 USDT</div>
-          <div class="text-[10px] text-slate-400">上市前生态全速加速池</div>
+          <div class="text-xs font-mono text-purple-400 font-bold">PHASE 5 // 上市</div>
+          <div class="text-2xl font-black text-white font-mono my-2">3 亿 USDT</div>
+          <div class="text-xs text-slate-300">上市前生态全速加速池</div>
         </div>
       </div>
 
       <!-- Transparent Wallet & Refill Alert -->
-      <div class="octane-glass-panel p-4" data-motion data-delay="7">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-3">
+      <div class="octane-glass-panel p-5" data-motion data-delay="7">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
-            <div class="cyber-pill text-[9px] py-0.5 px-2 mb-1"><span class="cyber-bullet"></span>ON-CHAIN TRANSPARENT ADDRESS</div>
-            <div class="font-mono text-xs text-cyan-neon font-bold break-all bg-slate-900/90 px-3 py-1.5 rounded-lg border border-slate-800 mt-1">
+            <div class="cyber-pill text-[10px] py-0.5 px-2.5 mb-1.5"><span class="cyber-bullet"></span>ON-CHAIN TRANSPARENT ADDRESS</div>
+            <div class="font-mono text-xs md:text-sm text-cyan-neon font-bold break-all bg-slate-950 px-4 py-2 rounded-xl border border-slate-800 mt-1">
               0x11F9CA5E8d42Ea77A7cD88def920937B1096d1a7
             </div>
           </div>
-          <button onclick="copyAddress('0x11F9CA5E8d42Ea77A7cD88def920937B1096d1a7', this)" class="badge-chamfer text-cyan-neon border-cyan-neon">
+          <button onclick="copyAddress('0x11F9CA5E8d42Ea77A7cD88def920937B1096d1a7', this)" class="badge-chamfer text-cyan-neon border-cyan-neon text-xs py-2 px-4">
             <span>复制地址</span>
-            <span class="ml-1">↗</span>
+            <span class="ml-1.5">↗</span>
           </button>
         </div>
 
-        <div class="mt-2 pt-2 border-t border-slate-800 text-[10px] text-slate-400 flex items-center gap-1.5">
+        <div class="mt-3 pt-3 border-t border-slate-800 text-xs text-slate-300 flex items-center gap-2">
           <span>🔄</span>
           <span><strong>智能合约自动 Refill 机制：</strong>当第一期补贴资金消耗至 500 万 USDT 以下时，合约自动触发注入第二期 3,000 万 USDT，保障市场长效裂变！</span>
         </div>
@@ -754,44 +756,44 @@
     <div class="slide-stage-16-9">
       
       <!-- Top Title Bar -->
-      <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-2 mb-3 border-b border-slate-800" data-motion="scale" data-delay="1">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-3 mb-4 border-b border-slate-800" data-motion="scale" data-delay="1">
         <div>
-          <div class="cyber-pill mb-1"><span class="cyber-bullet"></span>STAKING PLAN // 008</div>
-          <h2 class="section-headline text-xl md:text-3xl font-extrabold text-white">
+          <div class="cyber-pill mb-1.5"><span class="cyber-bullet"></span>STAKING PLAN // 008</div>
+          <h2 class="section-headline text-2xl md:text-4xl font-extrabold text-white">
             静态收益 —— <span class="text-gradient-hero">质押投资与消费返利方案</span>
           </h2>
         </div>
-        <div class="text-[10px] text-slate-400 font-mono">运行于 ENI + BSC 双链 · 3.5倍封顶出局</div>
+        <div class="text-xs font-mono text-slate-300">运行于 ENI + BSC 双链 · 3.5倍封顶出局</div>
       </div>
 
       <!-- 3 Key Metric Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3 flex-1">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 flex-1">
         <div class="octane-card-hud p-6 text-center" data-motion data-delay="2">
-          <div class="cyber-pill text-[9px] py-0.5 px-2 mb-1">ENTRY TIER</div>
-          <div class="text-3xl lg:text-4xl font-black text-white font-mono my-2 text-gradient-hero">300 ~ 10,000 U</div>
-          <div class="text-[10px] text-slate-400">300 USDT 起步，单账户严禁超 10,000U</div>
+          <div class="cyber-pill text-[10px] py-0.5 px-2.5 mb-2">ENTRY TIER</div>
+          <div class="text-3xl lg:text-5xl font-black text-white font-mono my-3 text-gradient-hero">300 ~ 10,000 U</div>
+          <div class="text-xs lg:text-sm text-slate-300">300 USDT 起步，单账户严禁超 10,000U</div>
         </div>
 
-        <div class="octane-card-hud p-6 text-center border-cyan-neon/50 bg-cyan-neon/5" data-motion data-delay="3">
-          <div class="cyber-pill text-[9px] py-0.5 px-2 mb-1"><span class="cyber-bullet"></span>DAILY ROI</div>
-          <div class="text-3xl lg:text-4xl font-black text-cyan-neon font-mono my-2">0.8% ~ 1.2%</div>
-          <div class="text-[10px] text-cyan-neon font-bold">内测阶段固定每日 1.0%</div>
+        <div class="octane-card-hud p-6 text-center border-cyan-neon/60 bg-cyan-neon/10" data-motion data-delay="3">
+          <div class="cyber-pill text-[10px] py-0.5 px-2.5 mb-2"><span class="cyber-bullet"></span>DAILY ROI</div>
+          <div class="text-3xl lg:text-5xl font-black text-cyan-neon font-mono my-3">0.8% ~ 1.2%</div>
+          <div class="text-xs lg:text-sm text-cyan-neon font-bold">内测阶段固定每日 1.0%</div>
         </div>
 
         <div class="octane-card-hud p-6 text-center" data-motion data-delay="4">
-          <div class="cyber-pill text-[9px] py-0.5 px-2 mb-1">EXIT CAP</div>
-          <div class="text-3xl lg:text-4xl font-black text-gold-400 font-mono my-2">3.5 倍 封顶</div>
-          <div class="text-[10px] text-slate-400">约 350 天全额拿满 3.5 倍收益出局</div>
+          <div class="cyber-pill text-[10px] py-0.5 px-2.5 mb-2">EXIT CAP</div>
+          <div class="text-3xl lg:text-5xl font-black text-gold-400 font-mono my-3">3.5 倍 封顶</div>
+          <div class="text-xs lg:text-sm text-slate-300">约 350 天全额拿满 3.5 倍收益出局</div>
         </div>
       </div>
 
       <!-- Anti-Whale Callout -->
-      <div class="octane-glass-panel p-4 border-l-4 border-l-cyan-neon" data-motion data-delay="5">
-        <div class="flex items-start gap-3">
-          <div class="text-2xl">🐋</div>
+      <div class="octane-glass-panel p-5 border-l-4 border-l-cyan-neon" data-motion data-delay="5">
+        <div class="flex items-start gap-4">
+          <div class="text-3xl">🐋</div>
           <div>
-            <h4 class="text-xs font-extrabold text-white mb-0.5">为什么单账户严格封顶 10,000 USDT？</h4>
-            <p class="text-[10px] text-slate-400 leading-relaxed">
+            <h4 class="text-sm font-extrabold text-white mb-1">为什么单账户严格封顶 10,000 USDT？</h4>
+            <p class="text-xs lg:text-sm text-slate-300 leading-relaxed">
               防止单一巨鲸账户仅刷巨额流水，却无法产生大量真实的分布式“持卡人头与实体消费”。我们要的是：<strong>流水与流量齐飞，高流水 + 真实活跃的实体卡消费用户！</strong>
             </p>
           </div>
@@ -806,59 +808,59 @@
     <div class="slide-stage-16-9">
       
       <!-- Top Title Bar -->
-      <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-2 mb-2 border-b border-slate-800" data-motion="scale" data-delay="1">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-3 mb-3 border-b border-slate-800" data-motion="scale" data-delay="1">
         <div>
           <div class="cyber-pill mb-1"><span class="cyber-bullet"></span>REFERRAL MATRIX // 009</div>
-          <h2 class="section-headline text-xl md:text-2xl font-extrabold text-white">
+          <h2 class="section-headline text-2xl md:text-3xl font-extrabold text-white">
             动态收益 —— <span class="text-gradient-hero">无可匹敌的“100 代”裂变奖金机制</span>
           </h2>
         </div>
-        <div class="text-[10px] text-slate-400 font-mono">无大小区对碰 · 无大象腿限制 · 无平级超越</div>
+        <div class="text-xs text-slate-300 font-mono">无大小区对碰 · 无大象腿限制 · 无平级超越</div>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-3 items-stretch flex-1">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch flex-1">
         <!-- Direct Referral Rules (5 cols) -->
-        <div class="lg:col-span-5 octane-glass-panel p-4 flex flex-col justify-between" data-motion="left" data-delay="2">
+        <div class="lg:col-span-5 octane-glass-panel p-5 flex flex-col justify-between" data-motion="left" data-delay="2">
           <div>
-            <div class="flex items-center justify-between pb-1.5 mb-1.5 border-b border-slate-800">
-              <span class="text-xs font-extrabold text-white">直推人数与代数解锁机制</span>
-              <span class="cyber-pill text-[9px] py-0.5 px-1.5">9人通100代</span>
+            <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-800">
+              <span class="text-xs lg:text-sm font-extrabold text-white">直推人数与代数解锁机制</span>
+              <span class="cyber-pill text-[10px] py-0.5 px-2">9人通100代</span>
             </div>
 
-            <div class="space-y-1 text-[11px] font-mono">
-              <div class="flex justify-between p-1 rounded bg-slate-900">
-                <span class="text-slate-400">直推 1 人</span>
+            <div class="space-y-1.5 text-xs lg:text-sm font-mono">
+              <div class="flex justify-between p-1.5 rounded bg-slate-900">
+                <span class="text-slate-300">直推 1 人</span>
                 <span class="font-bold text-cyan-neon">第 1 代 5%</span>
               </div>
-              <div class="flex justify-between p-1 rounded bg-slate-900">
-                <span class="text-slate-400">直推 2 人</span>
+              <div class="flex justify-between p-1.5 rounded bg-slate-900">
+                <span class="text-slate-300">直推 2 人</span>
                 <span class="font-bold text-cyan-neon">第 2 代 6%</span>
               </div>
-              <div class="flex justify-between p-1 rounded bg-slate-900">
-                <span class="text-slate-400">直推 3 人</span>
+              <div class="flex justify-between p-1.5 rounded bg-slate-900">
+                <span class="text-slate-300">直推 3 人</span>
                 <span class="font-bold text-cyan-neon">第 3 代 7%</span>
               </div>
-              <div class="flex justify-between p-1 rounded bg-slate-900">
-                <span class="text-slate-400">直推 4 人</span>
+              <div class="flex justify-between p-1.5 rounded bg-slate-900">
+                <span class="text-slate-300">直推 4 人</span>
                 <span class="font-bold text-cyan-neon">第 4 代 8%</span>
               </div>
-              <div class="flex justify-between p-1 rounded bg-slate-900">
-                <span class="text-slate-400">直推 5 人</span>
+              <div class="flex justify-between p-1.5 rounded bg-slate-900">
+                <span class="text-slate-300">直推 5 人</span>
                 <span class="font-bold text-cyan-neon">第 5 代 9%</span>
               </div>
-              <div class="flex justify-between p-1 rounded bg-slate-900">
-                <span class="text-slate-400">直推 6 人</span>
+              <div class="flex justify-between p-1.5 rounded bg-slate-900">
+                <span class="text-slate-300">直推 6 人</span>
                 <span class="font-bold text-cyan-neon">第 6 代 10%</span>
               </div>
-              <div class="flex justify-between p-1 rounded bg-slate-900 border border-cyan-neon/30">
+              <div class="flex justify-between p-1.5 rounded bg-slate-900 border border-cyan-neon/30">
                 <span class="text-white font-bold">直推 7 人</span>
                 <span class="text-cyan-bright font-bold">7-20 代 3%</span>
               </div>
-              <div class="flex justify-between p-1 rounded bg-slate-900 border border-cyan-neon/30">
+              <div class="flex justify-between p-1.5 rounded bg-slate-900 border border-cyan-neon/30">
                 <span class="text-white font-bold">直推 8 人</span>
                 <span class="text-cyan-bright font-bold">21-30 代 2%</span>
               </div>
-              <div class="flex justify-between p-1 rounded bg-cyan-neon/15 border border-cyan-neon">
+              <div class="flex justify-between p-1.5 rounded bg-cyan-neon/20 border border-cyan-neon">
                 <span class="text-white font-black">直推 9 人 (直通车)</span>
                 <span class="text-cyan-neon font-black">31-100 代 0.5%</span>
               </div>
@@ -867,52 +869,52 @@
         </div>
 
         <!-- 9x6 Matrix Simulation (7 cols) -->
-        <div class="lg:col-span-7 octane-card-hud p-4 flex flex-col justify-between border-cyan-neon/40" data-motion="right" data-delay="3">
+        <div class="lg:col-span-7 octane-card-hud p-5 flex flex-col justify-between border-cyan-neon/50" data-motion="right" data-delay="3">
           <div>
-            <div class="flex items-center justify-between pb-1.5 mb-1.5 border-b border-slate-800">
-              <span class="text-xs font-extrabold text-white">黄金 “9 × 6” 裂变模型 (人均 300U · 日收益 1%)</span>
-              <span class="cyber-pill text-[9px] py-0.5 px-1.5"><span class="cyber-bullet"></span>CALCULATOR</span>
+            <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-800">
+              <span class="text-xs lg:text-sm font-extrabold text-white">黄金 “9 × 6” 裂变模型 (人均 300U · 日收益 1%)</span>
+              <span class="cyber-pill text-[10px] py-0.5 px-2"><span class="cyber-bullet"></span>CALCULATOR</span>
             </div>
 
             <!-- Dynamic Config Inputs -->
-            <div class="grid grid-cols-2 gap-2 mb-2 p-1.5 bg-slate-900 rounded-lg border border-slate-800 text-[10px]">
+            <div class="grid grid-cols-2 gap-3 mb-2.5 p-2 bg-slate-900 rounded-xl border border-slate-800 text-xs">
               <div>
-                <label class="text-slate-400 font-mono">人均投资 (USDT):</label>
-                <input id="calc-invest" type="number" value="300" class="w-full mt-0.5 px-1.5 py-0.5 rounded bg-slate-950 border border-slate-700 font-mono text-cyan-neon font-bold focus:border-cyan-neon outline-none">
+                <label class="text-slate-400 font-mono text-[11px]">人均投资 (USDT):</label>
+                <input id="calc-invest" type="number" value="300" class="w-full mt-1 px-2.5 py-1 rounded bg-slate-950 border border-slate-700 font-mono text-cyan-neon font-bold focus:border-cyan-neon outline-none">
               </div>
               <div>
-                <label class="text-slate-400 font-mono">日静态收益率 (%):</label>
-                <input id="calc-rate" type="number" step="0.1" value="1.0" class="w-full mt-0.5 px-1.5 py-0.5 rounded bg-slate-950 border border-slate-700 font-mono text-cyan-neon font-bold focus:border-cyan-neon outline-none">
+                <label class="text-slate-400 font-mono text-[11px]">日静态收益率 (%):</label>
+                <input id="calc-rate" type="number" step="0.1" value="1.0" class="w-full mt-1 px-2.5 py-1 rounded bg-slate-950 border border-slate-700 font-mono text-cyan-neon font-bold focus:border-cyan-neon outline-none">
               </div>
             </div>
 
-            <div class="space-y-0.5 text-[10px] font-mono">
-              <div class="flex justify-between items-center p-1 rounded bg-slate-900/60">
+            <div class="space-y-1 text-xs font-mono">
+              <div class="flex justify-between items-center p-1.5 rounded bg-slate-900/80">
                 <span>第 1 代：9 人</span>
                 <span id="calc-vol-1" class="text-slate-400">$2.7k U</span>
                 <span id="calc-earn-1" class="font-bold text-cyan-neon">$1.35 U / 日</span>
               </div>
-              <div class="flex justify-between items-center p-1 rounded bg-slate-900/60">
+              <div class="flex justify-between items-center p-1.5 rounded bg-slate-900/80">
                 <span>第 2 代：81 人</span>
                 <span id="calc-vol-2" class="text-slate-400">$24.3k U</span>
                 <span id="calc-earn-2" class="font-bold text-cyan-neon">$14.58 U / 日</span>
               </div>
-              <div class="flex justify-between items-center p-1 rounded bg-slate-900/60">
+              <div class="flex justify-between items-center p-1.5 rounded bg-slate-900/80">
                 <span>第 3 代：729 人</span>
                 <span id="calc-vol-3" class="text-slate-400">$218.7k U</span>
                 <span id="calc-earn-3" class="font-bold text-cyan-neon">$153.09 U / 日</span>
               </div>
-              <div class="flex justify-between items-center p-1 rounded bg-slate-900/60">
+              <div class="flex justify-between items-center p-1.5 rounded bg-slate-900/80">
                 <span>第 4 代：6,561 人</span>
                 <span id="calc-vol-4" class="text-slate-400">$1.9M U</span>
                 <span id="calc-earn-4" class="font-bold text-cyan-neon">$1,574.64 U / 日</span>
               </div>
-              <div class="flex justify-between items-center p-1 rounded bg-slate-900/60">
+              <div class="flex justify-between items-center p-1.5 rounded bg-slate-900/80">
                 <span>第 5 代：59,049 人</span>
                 <span id="calc-vol-5" class="text-slate-400">$17.7M U</span>
                 <span id="calc-earn-5" class="font-bold text-cyan-neon">$15,943.23 U / 日</span>
               </div>
-              <div class="flex justify-between items-center p-1 rounded bg-slate-900/60">
+              <div class="flex justify-between items-center p-1.5 rounded bg-slate-900/80">
                 <span>第 6 代：531,441 人</span>
                 <span id="calc-vol-6" class="text-slate-400">$159.4M U</span>
                 <span id="calc-earn-6" class="font-bold text-cyan-neon">$159,432.30 U / 日</span>
@@ -921,12 +923,12 @@
           </div>
 
           <!-- Total Highlight Box -->
-          <div class="mt-1.5 p-2 rounded-xl bg-slate-950 border border-cyan-neon/40 text-white flex items-center justify-between">
+          <div class="mt-2 p-3 rounded-2xl bg-slate-950 border border-cyan-neon/50 text-white flex items-center justify-between">
             <div>
-              <div class="text-[9px] text-cyan-bright font-mono uppercase">1 - 6 代总计每日收益</div>
-              <div id="calc-total-daily" class="text-sm md:text-base font-black font-mono text-cyan-neon">$177,119.19 USDT / 天</div>
+              <div class="text-[10px] text-cyan-bright font-mono uppercase">1 - 6 代总计每日收益</div>
+              <div id="calc-total-daily" class="text-base md:text-xl font-black font-mono text-cyan-neon">$177,119.19 USDT / 天</div>
             </div>
-            <div id="calc-total-cny" class="text-right text-[10px] md:text-xs font-bold text-gold-400 font-mono">
+            <div id="calc-total-cny" class="text-right text-xs md:text-sm font-bold text-gold-400 font-mono">
               ≈ ¥1,280,000+ 元 / 天
             </div>
           </div>
@@ -941,104 +943,104 @@
     <div class="slide-stage-16-9">
       
       <!-- Top Title Bar -->
-      <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-2 mb-3 border-b border-slate-800" data-motion="scale" data-delay="1">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-3 mb-4 border-b border-slate-800" data-motion="scale" data-delay="1">
         <div>
-          <div class="cyber-pill mb-1"><span class="cyber-bullet"></span>TOKENOMICS // 010</div>
-          <h2 class="section-headline text-xl md:text-3xl font-extrabold text-white">
+          <div class="cyber-pill mb-1.5"><span class="cyber-bullet"></span>TOKENOMICS // 010</div>
+          <h2 class="section-headline text-2xl md:text-4xl font-extrabold text-white">
             代币经济学 与 EPAY <span class="text-gradient-hero">“双通缩”财富闭环</span>
           </h2>
         </div>
-        <div class="text-[10px] text-slate-400 font-mono">总发行量 1 亿枚 · 单向通缩 · 100 天 200 倍增值</div>
+        <div class="text-xs font-mono text-slate-300">总发行量 1 亿枚 · 单向通缩 · 100 天 200 倍增值</div>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-3 items-stretch flex-1">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1">
         <!-- EPAY Token Distribution (5 cols) -->
-        <div class="lg:col-span-5 octane-glass-panel p-5 flex flex-col justify-between" data-motion="left" data-delay="2">
+        <div class="lg:col-span-5 octane-glass-panel p-6 flex flex-col justify-between" data-motion="left" data-delay="2">
           <div>
-            <h3 class="text-[11px] font-extrabold text-white uppercase tracking-wider mb-3">EPAY 代币分配机制 (总量 1 亿枚)</h3>
+            <h3 class="text-xs lg:text-sm font-extrabold text-white uppercase tracking-wider mb-4">EPAY 代币分配机制 (总量 1 亿枚)</h3>
             
-            <div class="space-y-2.5 font-mono text-[11px]">
+            <div class="space-y-3.5 font-mono text-xs lg:text-sm">
               <div>
-                <div class="flex justify-between mb-1">
-                  <span class="font-bold text-slate-300">80% 流动性池 (DEX)</span>
+                <div class="flex justify-between mb-1.5">
+                  <span class="font-bold text-slate-200">80% 流动性池 (DEX)</span>
                   <span class="text-rose-400 font-bold">永久黑洞销毁</span>
                 </div>
-                <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
                   <div class="w-4/5 h-full bg-rose-500"></div>
                 </div>
               </div>
 
               <div>
-                <div class="flex justify-between mb-1">
-                  <span class="font-bold text-slate-300">10% 社区建设奖励</span>
+                <div class="flex justify-between mb-1.5">
+                  <span class="font-bold text-slate-200">10% 社区建设奖励</span>
                   <span class="text-cyan-neon font-bold">1,000 万枚</span>
                 </div>
-                <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
                   <div class="w-1/10 h-full bg-cyan-neon"></div>
                 </div>
               </div>
 
               <div>
-                <div class="flex justify-between mb-1">
-                  <span class="font-bold text-slate-300">5% 入金空投</span>
+                <div class="flex justify-between mb-1.5">
+                  <span class="font-bold text-slate-200">5% 入金空投</span>
                   <span class="text-cyan-bright font-bold">500 万枚</span>
                 </div>
-                <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
                   <div class="w-1/20 h-full bg-cyan-bright"></div>
                 </div>
               </div>
 
               <div>
-                <div class="flex justify-between mb-1">
-                  <span class="font-bold text-slate-300">5% 基金会储备</span>
+                <div class="flex justify-between mb-1.5">
+                  <span class="font-bold text-slate-200">5% 基金会储备</span>
                   <span class="text-purple-400 font-bold">500 万枚</span>
                 </div>
-                <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
                   <div class="w-1/20 h-full bg-purple-400"></div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="mt-3 p-3 rounded-xl bg-slate-950 border border-slate-800 text-cyan-neon font-mono text-[10px]">
+          <div class="mt-4 p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-cyan-neon font-mono text-xs">
             🔥 <strong>EPAY 销毁死亡地址：</strong><br>
-            <span class="text-[9px] text-slate-400 break-all">0x8B5D6877E000332de0E46FFC4D0a111400c5f21c</span>
+            <span class="text-[11px] text-slate-400 break-all">0x8B5D6877E000332de0E46FFC4D0a111400c5f21c</span>
           </div>
         </div>
 
         <!-- Dual Token Loop (7 cols) -->
-        <div class="lg:col-span-7 octane-card-hud p-5 flex flex-col justify-between border-cyan-neon/30" data-motion="right" data-delay="3">
+        <div class="lg:col-span-7 octane-card-hud p-6 flex flex-col justify-between border-cyan-neon/40" data-motion="right" data-delay="3">
           <div>
-            <h3 class="text-[11px] font-extrabold text-white uppercase tracking-wider mb-2">收益结算规则 与 双代币赋能</h3>
+            <h3 class="text-xs lg:text-sm font-extrabold text-white uppercase tracking-wider mb-3">收益结算规则 与 双代币赋能</h3>
 
-            <div class="grid grid-cols-3 gap-2 text-center font-mono mb-3">
-              <div class="p-2.5 bg-slate-900 rounded-xl border border-slate-800">
-                <div class="text-xl font-black text-cyan-neon">90%</div>
-                <div class="text-[10px] text-slate-300 font-bold">USDT 提现</div>
+            <div class="grid grid-cols-3 gap-3 text-center font-mono mb-4">
+              <div class="p-3 bg-slate-900 rounded-xl border border-slate-800">
+                <div class="text-2xl font-black text-cyan-neon">90%</div>
+                <div class="text-xs text-slate-300 font-bold">USDT 提现</div>
               </div>
-              <div class="p-2.5 bg-slate-900 rounded-xl border border-slate-800">
-                <div class="text-xl font-black text-cyan-bright">5%</div>
-                <div class="text-[10px] text-slate-300 font-bold">主网初代 ENI</div>
+              <div class="p-3 bg-slate-900 rounded-xl border border-slate-800">
+                <div class="text-2xl font-black text-cyan-bright">5%</div>
+                <div class="text-xs text-slate-300 font-bold">主网初代 ENI</div>
               </div>
-              <div class="p-2.5 bg-slate-900 rounded-xl border border-slate-800">
-                <div class="text-xl font-black text-gold-400">5%</div>
-                <div class="text-[10px] text-slate-300 font-bold">社区 EPAY</div>
+              <div class="p-3 bg-slate-900 rounded-xl border border-slate-800">
+                <div class="text-2xl font-black text-gold-400">5%</div>
+                <div class="text-xs text-slate-300 font-bold">社区 EPAY</div>
               </div>
             </div>
 
-            <div class="space-y-2 text-[11px] text-slate-300 leading-relaxed">
-              <div class="p-2.5 rounded-xl bg-slate-900/80 border border-slate-800">
+            <div class="space-y-2.5 text-xs lg:text-sm text-slate-200 leading-relaxed">
+              <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
                 <strong class="text-cyan-bright">💎 ENI 主网初代币：</strong>
                 总产出仅 5% 由此产出，极度稀缺！2026 年下半年首发登陆币安、OKX、Coinbase 等 45 家主流交易所，<strong>初始上架定价：20 USDT / 枚</strong>。
               </div>
-              <div class="p-2.5 rounded-xl bg-slate-900/80 border border-slate-800">
+              <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
                 <strong class="text-cyan-neon">🔥 EPAY 极致强制通缩：</strong>
                 提现加收 5% 手续费。智能合约将 5% 手续费在 DEX 底池<strong>全部强制买入 EPAY 并 100% 打入黑洞销毁</strong>，过去 100 天已飙升 200 倍！
               </div>
             </div>
           </div>
 
-          <div class="mt-2 p-2.5 rounded-xl bg-gold-400/10 border border-gold-400/30 text-gold-400 text-[10px] font-bold">
+          <div class="mt-3 p-3 rounded-xl bg-gold-400/10 border border-gold-400/40 text-gold-400 text-xs font-bold">
             ⚡ <strong>财富指令：</strong>拿到 ENI 与 EPAY 除非必要切勿轻易卖掉！紧握筹码，静待主网上线与疯狂销毁带来的百倍、千倍资本奇迹！
           </div>
         </div>
@@ -1050,53 +1052,53 @@
   <!-- ==================== SLIDE 11: 尾页与行动号召 ==================== -->
   <section id="slide-11" class="slide-section">
     <div class="slide-stage-16-9">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch h-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch h-full">
         
         <!-- Left Dark Anchor Column (5 cols) -->
-        <div class="lg:col-span-5 octane-glass-panel p-6 lg:p-7" data-motion="left" data-delay="1">
+        <div class="lg:col-span-5 panel-dark-anchor p-6 lg:p-8" data-motion="left" data-delay="1">
           <div>
             <div class="cyber-pill mb-4" data-motion data-delay="2">
               <span class="cyber-bullet"></span>
               <span>GET INVOLVED // 011</span>
             </div>
             
-            <h2 class="section-headline text-2xl lg:text-4xl font-extrabold text-white mb-2 leading-tight" data-motion data-delay="3">
+            <h2 class="section-headline text-3xl lg:text-5xl font-extrabold text-white mb-3 leading-tight" data-motion data-delay="3">
               连接全球<br>
               <span class="text-gradient-hero">赋能未来</span><br>
               抢占万亿红利
             </h2>
 
-            <p class="text-xs text-slate-300 leading-relaxed mt-3" data-motion data-delay="4">
+            <p class="text-xs lg:text-sm text-slate-200 leading-relaxed mt-4" data-motion data-delay="4">
               完整版 APP 预计于 <strong>2026 年 Q4</strong> 震撼上线！现在是最佳黄金内测期，入场即享 <strong>3.5 倍高速出局</strong> 与 <strong>每日 1% 稳定高补贴红利</strong>！
             </p>
           </div>
 
-          <div class="text-[11px] font-mono text-cyan-neon mt-4 pt-3 border-t border-slate-800" data-motion data-delay="5">
+          <div class="text-xs font-mono text-cyan-neon mt-5 pt-4 border-t border-slate-800" data-motion data-delay="5">
             抢占万亿 Web3 支付蓝海 · 把握 100 代裂变风口 · 我们顶峰相见！
           </div>
         </div>
 
         <!-- Right Light Action Grid (7 cols) -->
-        <div class="lg:col-span-7 flex flex-col justify-between space-y-3 h-full" data-motion="right" data-delay="2">
-          <div class="octane-glass-panel p-5 flex-1" data-motion data-delay="3">
-            <div class="cyber-pill text-[9px] py-0.5 px-2 mb-3"><span class="cyber-bullet"></span>OFFICIAL CHANNELS & SMART CONTRACTS</div>
+        <div class="lg:col-span-7 flex flex-col justify-between space-y-4 h-full" data-motion="right" data-delay="2">
+          <div class="octane-glass-panel p-6 flex-1" data-motion data-delay="3">
+            <div class="cyber-pill text-[10px] py-0.5 px-2.5 mb-3"><span class="cyber-bullet"></span>OFFICIAL CHANNELS & SMART CONTRACTS</div>
             
-            <div class="space-y-3 font-mono text-[11px]">
+            <div class="space-y-3.5 font-mono text-xs lg:text-sm">
               <div>
                 <div class="text-slate-400">ENIPAY 官方网址:</div>
-                <a href="https://www.enipay.net" target="_blank" class="text-cyan-neon font-bold hover:underline flex items-center gap-1 text-xs mt-0.5">
+                <a href="https://www.enipay.net" target="_blank" class="text-cyan-neon font-bold hover:underline flex items-center gap-1.5 text-sm mt-1">
                   <span>www.enipay.net</span>
-                  <span class="text-xs">↗</span>
+                  <span class="text-sm">↗</span>
                 </a>
               </div>
 
               <div>
                 <div class="text-slate-400">EPAY 代币合约地址:</div>
-                <div class="flex items-center gap-2 mt-0.5">
-                  <span class="text-slate-200 text-[10px] break-all bg-slate-900 p-2 rounded-lg border border-slate-800 font-medium">
+                <div class="flex items-center gap-2.5 mt-1">
+                  <span class="text-slate-200 text-xs break-all bg-slate-950 p-2.5 rounded-xl border border-slate-800 font-medium">
                     0x3c3f92085d368c638aa95b9f8c203ea9a5cd3830
                   </span>
-                  <button onclick="copyAddress('0x3c3f92085d368c638aa95b9f8c203ea9a5cd3830', this)" class="badge-chamfer py-1 px-2.5 text-[9px] text-cyan-neon">
+                  <button onclick="copyAddress('0x3c3f92085d368c638aa95b9f8c203ea9a5cd3830', this)" class="badge-chamfer py-1.5 px-3 text-xs text-cyan-neon">
                     复制
                   </button>
                 </div>
@@ -1104,11 +1106,11 @@
 
               <div>
                 <div class="text-slate-400">EPAY 销毁钱包 (死亡黑洞):</div>
-                <div class="flex items-center gap-2 mt-0.5">
-                  <span class="text-slate-200 text-[10px] break-all bg-slate-900 p-2 rounded-lg border border-slate-800 font-medium">
+                <div class="flex items-center gap-2.5 mt-1">
+                  <span class="text-slate-200 text-xs break-all bg-slate-950 p-2.5 rounded-xl border border-slate-800 font-medium">
                     0x8B5D6877E000332de0E46FFC4D0a111400c5f21c
                   </span>
-                  <button onclick="copyAddress('0x8B5D6877E000332de0E46FFC4D0a111400c5f21c', this)" class="badge-chamfer py-1 px-2.5 text-[9px] text-cyan-neon">
+                  <button onclick="copyAddress('0x8B5D6877E000332de0E46FFC4D0a111400c5f21c', this)" class="badge-chamfer py-1.5 px-3 text-xs text-cyan-neon">
                     复制
                   </button>
                 </div>
@@ -1117,19 +1119,19 @@
           </div>
 
           <!-- Bottom QR Code Action Box -->
-          <div class="octane-glass-panel p-4 border-cyan-neon/40 flex items-center justify-between" data-motion data-delay="4">
-            <div class="flex items-center gap-3">
-              <div class="w-16 h-16 bg-white p-1 rounded-xl border border-cyan-neon shadow-lg shadow-cyan-neon/20 flex items-center justify-center flex-shrink-0">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.enipay.net" alt="Enipay QR Code" class="w-full h-full object-contain">
+          <div class="octane-glass-panel p-5 border-cyan-neon/50 flex items-center justify-between" data-motion data-delay="4">
+            <div class="flex items-center gap-4">
+              <div class="w-20 h-20 bg-white p-1.5 rounded-2xl border border-cyan-neon shadow-lg shadow-cyan-neon/30 flex items-center justify-center flex-shrink-0">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://www.enipay.net" alt="Enipay QR Code" class="w-full h-full object-contain">
               </div>
               <div>
-                <div class="text-xs font-bold text-white">立即扫码下载 Enipay 客户端</div>
-                <div class="text-[10px] text-slate-400 mt-0.5">注册激活 · 配置属于您的专属 U 卡与 AI A-Card</div>
+                <div class="text-sm lg:text-base font-bold text-white">立即扫码下载 Enipay 客户端</div>
+                <div class="text-xs text-slate-300 mt-1">注册激活 · 配置属于您的专属 U 卡与 AI A-Card</div>
               </div>
             </div>
-            <a href="https://www.enipay.net" target="_blank" class="badge-chamfer bg-cyan-neon/20 text-cyan-neon border-cyan-neon font-bold py-1.5 px-3 text-[10px]">
+            <a href="https://www.enipay.net" target="_blank" class="badge-chamfer bg-cyan-neon/25 text-cyan-neon border-cyan-neon font-bold py-2 px-4 text-xs">
               <span>立即前往</span>
-              <span class="ml-1">↗</span>
+              <span class="ml-1.5">↗</span>
             </a>
           </div>
         </div>
