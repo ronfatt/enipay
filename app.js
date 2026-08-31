@@ -57,49 +57,38 @@ class CyberAudio {
 
 const audio = new CyberAudio();
 
-// Three.js 3D Cyber Background Scene with Vivid Dual-Mesh Dynamic Motion
+// Three.js 3D Cyber Background Scene - Matching Wireframe Torus Knot & Floating Particle Flow
 function initThreeScene() {
   const canvas = document.getElementById('bg-canvas');
   if (!canvas || typeof THREE === 'undefined') return;
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-  camera.position.z = 26;
+  camera.position.z = 24;
 
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-  // 1. Primary 3D Torus Knot Wireframe (Neon Cyber Green)
-  const torusGeo = new THREE.TorusKnotGeometry(10, 2.6, 160, 32, 2, 3);
+  // 1. Signature Green Wireframe Torus Knot (Identical to user's reference)
+  const torusGeo = new THREE.TorusKnotGeometry(11, 2.8, 160, 32, 2, 3);
   const torusMat = new THREE.MeshBasicMaterial({
     color: 0x00ffb2,
     wireframe: true,
     transparent: true,
-    opacity: 0.42
+    opacity: 0.48
   });
   const torus = new THREE.Mesh(torusGeo, torusMat);
   scene.add(torus);
 
-  // 2. Secondary Inner Cyber Geo (Cyan Bright)
-  const innerGeo = new THREE.IcosahedronGeometry(7, 2);
-  const innerMat = new THREE.MeshBasicMaterial({
-    color: 0x00f2fe,
-    wireframe: true,
-    transparent: true,
-    opacity: 0.28
-  });
-  const innerMesh = new THREE.Mesh(innerGeo, innerMat);
-  scene.add(innerMesh);
-
-  // 3. Floating Neon Particle Field (Enhanced)
-  const particleCount = 450;
+  // 2. Floating Cyan & Green Cyber Square Particles
+  const particleCount = 420;
   const positions = new Float32Array(particleCount * 3);
 
   for (let i = 0; i < particleCount * 3; i += 3) {
-    positions[i] = (Math.random() - 0.5) * 110;
-    positions[i + 1] = (Math.random() - 0.5) * 90;
-    positions[i + 2] = (Math.random() - 0.5) * 70;
+    positions[i] = (Math.random() - 0.5) * 100;
+    positions[i + 1] = (Math.random() - 0.5) * 85;
+    positions[i + 2] = (Math.random() - 0.5) * 60;
   }
 
   const particleGeo = new THREE.BufferGeometry();
@@ -107,9 +96,9 @@ function initThreeScene() {
   
   const particleMat = new THREE.PointsMaterial({
     color: 0x00f2fe,
-    size: 0.6,
+    size: 0.65,
     transparent: true,
-    opacity: 0.75,
+    opacity: 0.8,
     blending: THREE.AdditiveBlending
   });
   const particles = new THREE.Points(particleGeo, particleMat);
@@ -124,17 +113,20 @@ function initThreeScene() {
   });
 
   window.addEventListener('touchmove', (e) => {
-    if (e.touches.length > 0) {
+    if (e.touches && e.touches.length > 0) {
       mouseX = (e.touches[0].clientX / window.innerWidth - 0.5) * 1.5;
       mouseY = (e.touches[0].clientY / window.innerHeight - 0.5) * 1.5;
     }
   }, { passive: true });
 
-  window.addEventListener('resize', () => {
+  function handleResize() {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
-  });
+  }
+
+  window.addEventListener('resize', handleResize);
+  window.addEventListener('orientationchange', handleResize);
 
   function animate() {
     requestAnimationFrame(animate);
@@ -142,20 +134,15 @@ function initThreeScene() {
     targetX += (mouseX * 3 - targetX) * 0.05;
     targetY += (mouseY * 3 - targetY) * 0.05;
 
-    // Continuous dynamic 3D rotation & floating oscillation
-    torus.rotation.x += 0.004;
-    torus.rotation.y += 0.006;
+    // Fluid continuous 3D rotation & gentle wave oscillation
+    torus.rotation.x += 0.0035;
+    torus.rotation.y += 0.0055;
     torus.rotation.z += 0.002;
     torus.position.x = targetX * 1.5;
-    torus.position.y = -targetY * 1.5 + Math.sin(Date.now() * 0.0012) * 1.2;
+    torus.position.y = -targetY * 1.5 + Math.sin(Date.now() * 0.001) * 1.0;
 
-    innerMesh.rotation.x -= 0.005;
-    innerMesh.rotation.y += 0.004;
-    innerMesh.position.x = torus.position.x;
-    innerMesh.position.y = torus.position.y;
-
-    particles.rotation.y += 0.0008;
-    particles.rotation.x += 0.0004;
+    particles.rotation.y += 0.0006;
+    particles.rotation.x += 0.0003;
 
     renderer.render(scene, camera);
   }
