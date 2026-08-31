@@ -1,11 +1,7 @@
 /**
  * ENIPay Web3 Multi-Language (i18n) Translation Engine
- * Supported Languages:
- * - zh: 简体中文 (Simplified Chinese)
- * - en: English
- * - ja: 日本語 (Japanese)
- * - ko: 한국어 (Korean)
- * - vi: Tiếng Việt (Vietnamese)
+ * Unified Typography Edition (Uniform Title Size & Color Scheme)
+ * Supported Languages: zh, en, ja, ko, vi
  */
 
 const translations = {
@@ -56,7 +52,7 @@ const translations = {
     // Slide 2: 3 艾米公链 ENI Chain
     s3_tag: "L1 INFRASTRUCTURE // 002",
     s3_block_lbl: "主网高度:",
-    s3_title: "艾米公链<br><span class=\"text-cyan-neon\">ENI Chain</span><br>强大安全底座",
+    s3_title: "艾米公链 <span class=\"text-gradient-hero\">ENI Chain</span> 强大安全底座",
     s3_subtitle: "总部位于日本东京 · 企业级模块化 L1 公链 · 已稳健运行第 5 个年头",
     s3_end1: "🏢 日本通信巨头合作",
     s3_end1_val: "NTT 官方高度评价",
@@ -76,7 +72,7 @@ const translations = {
 
     // Slide 3: 2b 四大传统支付巨头市值
     s2b_tag: "GLOBAL CLEARING GIANTS // 003",
-    s2b_title: "四大传统支付巨头<br><span class=\"text-gradient-hero\">“万亿美金市值”</span> 对标与启示",
+    s2b_title: "四大传统支付巨头 <span class=\"text-gradient-hero\">“万亿美金市值”</span> 对标与启示",
     s2b_subtitle: "全球万亿级清算市场孕育了数千亿美金市值的万亿商业帝国",
     s2_visa_mcap: "实时市值 $671.4B ↗",
     s2_visa_val: "$6,700 亿",
@@ -94,7 +90,8 @@ const translations = {
 
     // Slide 4: 2a Web3 支付赛道痛点 & RedotPay 标杆
     s2a_tag: "MARKET OPPORTUNITY // 004",
-    s2a_title: "Web3 支付赛道<br><span class=\"text-gradient-hero\">“万亿美金痛点”</span> 与 行业先例",
+    s2a_title: "Web3 支付赛道 <span class=\"text-gradient-hero\">“万亿美金痛点”</span> 与 行业先例",
+    s2a_subtitle: "传统跨境摩擦与冻卡痛点频发，数十万亿 Web3 资产亟待落地出口",
     s2_benchmark_tag: "先例案例 · REDOTPAY 爆发奇迹",
     s2_redot_vol: "$120 亿+ 流水",
     s2_redot_desc: "三年覆盖 100+ 国家 · 800 万实名用户 · 年利润 1.8 亿美元 · 估值暴涨至 50 亿美元！",
@@ -110,9 +107,9 @@ const translations = {
 
     // Slide 5: 1 Enipay 封面 · 全息视觉中心
     s1_tag: "SYSTEM v2.0 // LAUNCH 2026",
-    s1_title: "Enipay",
-    s1_subtitle: "全球数字支付聚合平台",
-    s1_desc: "ENI 公链 × ENIPAY 支付网络 × EPAY 社区增长层<br>构建面向 AI 智能体、稳定币结算与 Web3 商业的全球支付生态入口。",
+    s1_title: "<span class=\"text-gradient-hero\">Enipay</span> 全球数字支付聚合平台",
+    s1_subtitle: "ENI 公链 × ENIPAY 支付网络 × EPAY 社区增长层",
+    s1_desc: "构建面向 AI 智能体、稳定币结算与 Web3 商业的全球支付生态入口。",
     s1_kpi1_val: "0.02s",
     s1_kpi1_lbl: "清结算时延",
     s1_kpi2_val: "100%",
@@ -129,8 +126,8 @@ const translations = {
 
     // Slide 6: 6 币安第三方资金托管
     s6_tag: "100% CUSTODY // 006",
-    s6_title: "100% 资金安全<br><span class=\"text-gold-400\">币安 (Binance)</span><br>第三方资金托管",
-    s6_desc: "彻底终结行业“资金池爆雷、平台卷款跑路”隐患。所有质押资金不存留 Enipay 私钥钱包，全部质押在币安官方第三方账户！",
+    s6_title: "100% 资金安全 <span class=\"text-gradient-hero\">币安 (Binance)</span> 第三方资金托管",
+    s6_desc: "彻底终结行业“资金池爆雷、平台卷款跑路”隐患。所有质押资金 100% 锁定在币安官方第三方账户！",
     s6_highlight: "🛡️ 平台零资金沉淀：Enipay 仅作为去中心化金融基础设施，不碰一分钱，物理杜绝跑路风险！",
     s6_binance_btn: "BINANCE CUSTODY 官方认证 ↗",
     s6_step1_title: "1. 用户质押充值",
@@ -167,7 +164,7 @@ const translations = {
 
     // Slide 8: 5 AI 支付 A-Card
     s5_tag: "AI INNOVATION // 008",
-    s5_title: "AI 支付前沿突破<br><span class=\"text-gradient-hero\">Enipay A-Card</span><br>智能助手卡",
+    s5_title: "AI 支付前沿突破 <span class=\"text-gradient-hero\">Enipay A-Card</span> 智能助手卡",
     s5_desc: "构建人类与 AI Agent（人工智能体）共用的全球数字支付网络。未来 AI 将不仅是聊天工具，更是主动消费与链上交易的超级主体！",
     s5_highlight: "🤖 人类与 AI 协作：小额自主托管 + 智能量化理财 + 多重签名安全边界！",
     s5_f1_title: "小额支付与自主消费托管",
@@ -213,6 +210,7 @@ const translations = {
     // Slide 10: 8 静态收益
     s8_tag: "STAKING PLAN // 010",
     s8_title: "静态收益 —— <span class=\"text-gradient-hero\">质押投资与消费返利方案</span>",
+    s8_subtitle: "稳健日化收益、3.5倍封顶出局机制与防巨鲸真实消费沉淀",
     s8_countdown_lbl: "距今日收益结算:",
     s8_t1_val: "300 ~ 10,000 U",
     s8_t1_desc: "300 USDT 起步，单账户严禁超 10,000U",
@@ -250,6 +248,7 @@ const translations = {
     // Slide 12: 10 代币经济学
     s10_tag: "TOKENOMICS // 012",
     s10_title: "代币经济学 与 EPAY <span class=\"text-gradient-hero\">“双通缩”财富闭环</span>",
+    s10_subtitle: "80% 黑洞永久销毁 + 提现 5% 强制回购销毁 + ENI 主网初代币双赋能",
     s10_burn_lbl: "实时已销毁:",
     s10_dexscreener_btn: "DexScreener 实时行情 ↗",
     s10_dist_title: "EPAY 代币分配 (总量 1 亿枚)",
@@ -270,7 +269,7 @@ const translations = {
 
     // Slide 13: 11 黄金内测
     s11_tag: "GET INVOLVED // 013",
-    s11_title: "连接全球<br><span class=\"text-gradient-hero\">赋能未来</span><br>抢占万亿红利",
+    s11_title: "连接全球 <span class=\"text-gradient-hero\">赋能未来</span> 抢占万亿红利",
     s11_desc: "完整版 APP 预计于 2026 年 Q4 震撼上线！现在是最佳黄金内测期，入场即享 3.5 倍高速出局 与 每日 1% 稳定高补贴红利！",
     s11_tw_btn: "🐦 官方 Twitter / X ↗",
     s11_tg_btn: "✈️ 官方 Telegram 频道 ↗",
@@ -327,7 +326,7 @@ const translations = {
 
     s3_tag: "L1 INFRASTRUCTURE // 002",
     s3_block_lbl: "Mainnet Height:",
-    s3_title: "ENI Chain<br><span class=\"text-cyan-neon\">Layer 1 Base</span><br>Robust Security Core",
+    s3_title: "ENI Chain <span class=\"text-gradient-hero\">Layer 1 Base</span> Robust Security Core",
     s3_subtitle: "Headquartered in Tokyo, Japan · Enterprise Modular L1 · 5 Consecutive Years of Flawless Operation",
     s3_end1: "🏢 NTT Telecom Giant",
     s3_end1_val: "Highly Rated by NTT",
@@ -346,7 +345,7 @@ const translations = {
     s3_m4_lbl: "Cumulative gas fee burned · Continuous on-chain deflation",
 
     s2b_tag: "GLOBAL CLEARING GIANTS // 003",
-    s2b_title: "Traditional Payment Giants<br><span class=\"text-gradient-hero\">\"Trillion-Dollar Market Cap\"</span> Benchmark",
+    s2b_title: "Traditional Payment Giants <span class=\"text-gradient-hero\">\"Trillion-Dollar Market Cap\"</span> Benchmark",
     s2b_subtitle: "The global clearing market has created multi-hundred-billion dollar commercial empires",
     s2_visa_mcap: "Live MCap $671.4B ↗",
     s2_visa_val: "$670 Billion",
@@ -363,7 +362,8 @@ const translations = {
     s2_takeaway: "🚀 Enipay Solution: L1 Blockchain + QR/Crypto Cards/Mini-Apps + AI Pay + Viral Incentives = Trillion-Dollar Disruption!",
 
     s2a_tag: "MARKET OPPORTUNITY // 004",
-    s2a_title: "Web3 Payment Space<br><span class=\"text-gradient-hero\">\"Trillion-Dollar Pain Point\"</span> & Industry Pioneer",
+    s2a_title: "Web3 Payment Space <span class=\"text-gradient-hero\">\"Trillion-Dollar Pain Point\"</span> & Industry Pioneer",
+    s2a_subtitle: "Traditional cross-border friction & account freeze risks hinder tens of trillions in Web3 adoption",
     s2_benchmark_tag: "BENCHMARK CASE · REDOTPAY BREAKOUT",
     s2_redot_vol: "$12B+ Volume",
     s2_redot_desc: "100+ countries in 3 years · 8M KYC users · $180M net annual profit · Valuation skyrocketed to $5B!",
@@ -378,9 +378,9 @@ const translations = {
     s2a_pain3_desc: "Tens of trillions in crypto assets cannot be spent directly in daily commerce, retail, and travel.",
 
     s1_tag: "SYSTEM v2.0 // LAUNCH 2026",
-    s1_title: "Enipay",
-    s1_subtitle: "Global Digital Payment Aggregator",
-    s1_desc: "ENI Chain × ENIPAY Payment Network × EPAY Growth Layer<br>Building the global Web3 payment gateway for AI Agents, Stablecoins & Global Commerce.",
+    s1_title: "<span class=\"text-gradient-hero\">Enipay</span> Global Digital Payment Aggregator",
+    s1_subtitle: "ENI Chain × ENIPAY Payment Network × EPAY Growth Layer",
+    s1_desc: "Building the global Web3 payment gateway for AI Agents, Stablecoins & Global Commerce.",
     s1_kpi1_val: "0.02s",
     s1_kpi1_lbl: "Settlement Latency",
     s1_kpi2_val: "100%",
@@ -396,7 +396,7 @@ const translations = {
     s1_partners_lbl: "STRATEGIC PARTNERS & AUDIT ECOSYSTEM",
 
     s6_tag: "100% CUSTODY // 006",
-    s6_title: "100% Fund Security<br><span class=\"text-gold-400\">Binance Institutional</span><br>3rd-Party Custody",
+    s6_title: "100% Fund Security <span class=\"text-gradient-hero\">Binance Institutional</span> 3rd-Party Custody",
     s6_desc: "Completely eliminating platform rug-pull and liquidity collapse risks. All staked funds are locked in official Binance 3rd-party custody accounts!",
     s6_highlight: "🛡️ Zero Platform Capital Retention: Enipay acts strictly as decentralized infrastructure with zero access to private keys!",
     s6_binance_btn: "BINANCE CUSTODY Official Verification ↗",
@@ -432,7 +432,7 @@ const translations = {
     s4_p5_tag: "0-Barrier US Stock Tokens ↗",
 
     s5_tag: "AI INNOVATION // 008",
-    s5_title: "AI Payment Frontier<br><span class=\"text-gradient-hero\">Enipay A-Card</span><br>Smart Agent Card",
+    s5_title: "AI Payment Frontier <span class=\"text-gradient-hero\">Enipay A-Card</span> Smart Agent Card",
     s5_desc: "Building a global payment rail shared by humans and AI Agents. Future AI is not just a chat tool, but an autonomous consumer and on-chain transacting entity!",
     s5_highlight: "🤖 Human & AI Synergy: Micro-spending autonomy + automated quantitative yield + MPC multi-sig boundaries!",
     s5_f1_title: "Autonomous Micro-Payments & Quotas",
@@ -476,6 +476,7 @@ const translations = {
 
     s8_tag: "STAKING PLAN // 010",
     s8_title: "Passive Yield —— <span class=\"text-gradient-hero\">Staking & Cashback Rewards Model</span>",
+    s8_subtitle: "Consistent daily returns, 3.5x cap exit model, and real-world cardholder spending retention",
     s8_countdown_lbl: "Next Settlement In:",
     s8_t1_val: "300 ~ 10,000 U",
     s8_t1_desc: "Entry from 300 USDT, max cap strictly 10,000 USDT per account",
@@ -511,6 +512,7 @@ const translations = {
 
     s10_tag: "TOKENOMICS // 012",
     s10_title: "Tokenomics & EPAY <span class=\"text-gradient-hero\">\"Dual-Deflationary\" Wealth Loop</span>",
+    s10_subtitle: "80% black hole burn + 5% withdrawal buyback burn + Genesis ENI Coin native utilities",
     s10_burn_lbl: "Live Burned:",
     s10_dexscreener_btn: "DexScreener Chart ↗",
     s10_dist_title: "EPAY Token Allocation (100M Total)",
@@ -530,7 +532,7 @@ const translations = {
     s10_action: "⚡ Wealth Strategy: Hold your ENI and EPAY tight! Await the exponential wealth multiplier of mainnet launch and continuous black hole burns!",
 
     s11_tag: "GET INVOLVED // 013",
-    s11_title: "Connect World<br><span class=\"text-gradient-hero\">Empower Future</span><br>Seize Trillion-Dollar Web3 Rails",
+    s11_title: "Connect World <span class=\"text-gradient-hero\">Empower Future</span> Seize Trillion-Dollar Web3 Rails",
     s11_desc: "Full client app launching Q4 2026! Golden beta window is open now: enjoy 3.5x payout cap and 1% daily subsidy dividends!",
     s11_tw_btn: "🐦 Official Twitter / X ↗",
     s11_tg_btn: "✈️ Official Telegram Channel ↗",
@@ -587,7 +589,7 @@ const translations = {
 
     s3_tag: "L1 INFRASTRUCTURE // 002",
     s3_block_lbl: "メインネット高:",
-    s3_title: "アイミー公鎖<br><span class=\"text-cyan-neon\">ENI Chain</span><br>強固なセキュリティ基盤",
+    s3_title: "アイミー公鎖 <span class=\"text-gradient-hero\">ENI Chain</span> 強固なセキュリティ基盤",
     s3_subtitle: "日本・東京本社 · エンタープライズ向けモジュラー L1 · 5年連続の安定稼働実績",
     s3_end1: "🏢 日本通信大手との協業",
     s3_end1_val: "NTT公式が高評価",
@@ -606,7 +608,7 @@ const translations = {
     s3_m4_lbl: "累積ガス消費焼却 · デフレが継続中",
 
     s2b_tag: "GLOBAL CLEARING GIANTS // 003",
-    s2b_title: "世界的決済大手<br><span class=\"text-gradient-hero\">「兆ドル時価総額」</span> の指標と示唆",
+    s2b_title: "世界的決済大手 <span class=\"text-gradient-hero\">「兆ドル時価総額」</span> の指標と示唆",
     s2b_subtitle: "兆ドル規模の世界清算市場が数千億ドル規模の商業帝国を創出",
     s2_visa_mcap: "時価総額 $671.4B ↗",
     s2_visa_val: "$6,700 億",
@@ -623,7 +625,8 @@ const translations = {
     s2_takeaway: "🚀 Enipay の打破：L1基盤 + QRコード/Uカード/ミニアプリ + AI決済 + コミュニティ拡大で兆ドル市場を再定義！",
 
     s2a_tag: "MARKET OPPORTUNITY // 004",
-    s2a_title: "Web3 決済領域<br><span class=\"text-gradient-hero\">「兆ドル市場の課題」</span> と 先行事例",
+    s2a_title: "Web3 決済領域 <span class=\"text-gradient-hero\">「兆ドル市場の課題」</span> と 先行事例",
+    s2a_subtitle: "国境を越えた高額な摩擦コストと口座凍結リスクがWeb3普及を阻む",
     s2_benchmark_tag: "先行事例 · REDOTPAY の急成長",
     s2_redot_vol: "$120 億+ 流通総額",
     s2_redot_desc: "3年間で100カ国以上・実名ユーザー800万人・年間純利益1.8億ドル・企業評価額50億ドルへ急騰！",
@@ -638,9 +641,9 @@ const translations = {
     s2a_pain3_desc: "数兆ドルの暗号資産を日常のショッピングや旅行で直接秒速決済する手段が不足しています。",
 
     s1_tag: "SYSTEM v2.0 // LAUNCH 2026",
-    s1_title: "Enipay",
-    s1_subtitle: "グローバル・デジタル決済アグリゲーション・プラットフォーム",
-    s1_desc: "ENI パブリックチェーン × ENIPAY 決済ネットワーク × EPAY 成長層<br>AI エージェント、ステーブルコイン決済、Web3 コマース向け次世代決済ポータル。",
+    s1_title: "<span class=\"text-gradient-hero\">Enipay</span> グローバル・デジタル決済アグリゲーション",
+    s1_subtitle: "ENI パブリックチェーン × ENIPAY 決済ネットワーク × EPAY 成長層",
+    s1_desc: "AI エージェント、ステーブルコイン決済、Web3 コマース向け次世代決済ポータル。",
     s1_kpi1_val: "0.02秒",
     s1_kpi1_lbl: "即時清算レイテンシ",
     s1_kpi2_val: "100%",
@@ -656,7 +659,7 @@ const translations = {
     s1_partners_lbl: "戦略的パートナーおよび監査エコシステム",
 
     s6_tag: "100% CUSTODY // 006",
-    s6_title: "100% 資金安全<br><span class=\"text-gold-400\">バイナンス (Binance)</span><br>第三者資金カストディ",
+    s6_title: "100% 資金安全 <span class=\"text-gradient-hero\">バイナンス (Binance)</span> 第三者資金カストディ",
     s6_desc: "資金プール破綻や持ち逃げの不安を完全解消。全ステーキング資金はバイナンス公式機関口座に保管！",
     s6_highlight: "🛡️ プラットフォーム内資金プールゼロ：Enipay は非中央集権プロトコルとして機能し、資金を直接触りません！",
     s6_binance_btn: "BINANCE CUSTODY 公式認証 ↗",
@@ -692,7 +695,7 @@ const translations = {
     s4_p5_tag: "手軽な米国株取引 ↗",
 
     s5_tag: "AI INNOVATION // 008",
-    s5_title: "AI 決済のフロンティア<br><span class=\"text-gradient-hero\">Enipay A-Card</span><br>スマートアシスタントカード",
+    s5_title: "AI 決済のフロンティア <span class=\"text-gradient-hero\">Enipay A-Card</span> スマートアシスタントカード",
     s5_desc: "人間と AI Agent（人工知能エージェント）が共用する世界決済ネットワークを構築。AI は単なる対話ツールではなく、自律的消費と取引の主体へ！",
     s5_highlight: "🤖 人間と AI の協調：小額自律管理 + AI クオンツ運用 + マルチシグ安全防壁！",
     s5_f1_title: "小額決済と自律消費管理",
@@ -736,6 +739,7 @@ const translations = {
 
     s8_tag: "STAKING PLAN // 010",
     s8_title: "インカムゲイン —— <span class=\"text-gradient-hero\">ステーキングと還元プラン</span>",
+    s8_subtitle: "安定した日次収益、3.5倍上限満期設計、リアルユーザーの日常決済定着",
     s8_countdown_lbl: "本日の分配まで:",
     s8_t1_val: "300 ~ 10,000 U",
     s8_t1_desc: "300 USDTから開始、1アカウント最大10,000Uに厳格制限",
@@ -771,6 +775,7 @@ const translations = {
 
     s10_tag: "TOKENOMICS // 012",
     s10_title: "トークノミクスと EPAY <span class=\"text-gradient-hero\">「ダブルデフレ」資産ループ</span>",
+    s10_subtitle: "80% ブラックホール永久焼却 + 出金 5% 自動市場買い戻し焼却 + ENI 通貨価値",
     s10_burn_lbl: "リアルタイム焼却数:",
     s10_dexscreener_btn: "DexScreener チャート ↗",
     s10_dist_title: "EPAY 配分 (総発行量 1億枚)",
@@ -790,7 +795,7 @@ const translations = {
     s10_action: "⚡ 資産戦略：獲得した ENI と EPAY は安易に売却せずホールド！メインネット開設と継続的な焼却による爆発的成長を享受してください！",
 
     s11_tag: "GET INVOLVED // 013",
-    s11_title: "世界と繋がり<br><span class=\"text-gradient-hero\">未来を創る</span><br>兆ドル市場の先行者へ",
+    s11_title: "世界と繋がり <span class=\"text-gradient-hero\">未来を創る</span> 兆ドル市場の先行者へ",
     s11_desc: "アプリ製品版は2026年第4四半期にリリース予定！現在は最も有利な黄金テスト期間です。3.5倍の高速出局と毎日1%の高還元を獲得しましょう！",
     s11_tw_btn: "🐦 公式 Twitter / X ↗",
     s11_tg_btn: "✈️ 公式 Telegram チャンネル ↗",
@@ -847,7 +852,7 @@ const translations = {
 
     s3_tag: "L1 INFRASTRUCTURE // 002",
     s3_block_lbl: "메인넷 블록:",
-    s3_title: "에이미 체인<br><span class=\"text-cyan-neon\">ENI Chain</span><br>강력한 보안 레이어 1",
+    s3_title: "에이미 체인 <span class=\"text-gradient-hero\">ENI Chain</span> 강력한 보안 레이어 1",
     s3_subtitle: "일본 도쿄 본사 · 엔터프라이즈 모듈러 L1 · 5년 연속 무중단 안정 운영",
     s3_end1: "🏢 일본 최대 통신사 NTT",
     s3_end1_val: "NTT 공식 고평가",
@@ -866,7 +871,7 @@ const translations = {
     s3_m4_lbl: "누적 가스비 소각 · 지속적인 디플레이션 진행 중",
 
     s2b_tag: "GLOBAL CLEARING GIANTS // 003",
-    s2b_title: "전통 결제 거두들의<br><span class=\"text-gradient-hero\">\"수조 달러 시가총액\"</span> 벤치마크",
+    s2b_title: "전통 결제 거두들의 <span class=\"text-gradient-hero\">\"수조 달러 시가총액\"</span> 벤치마크",
     s2b_subtitle: "글로벌 수조 달러 청산 시장은 수천억 달러 규모의 거대 비즈니스 제국을 탄생시켰습니다",
     s2_visa_mcap: "실시간 시총 $671.4B ↗",
     s2_visa_val: "$6,700 억",
@@ -883,7 +888,8 @@ const translations = {
     s2_takeaway: "🚀 Enipay의 혁신: 레이어 1 블록체인 + QR/크립토 카드/미니앱 + AI 결제 + 커뮤니티 바이럴로 시장 재편!",
 
     s2a_tag: "MARKET OPPORTUNITY // 004",
-    s2a_title: "Web3 결제 시장<br><span class=\"text-gradient-hero\">\"수조 달러의 페인 포인트\"</span> 와 선례 기업",
+    s2a_title: "Web3 결제 시장 <span class=\"text-gradient-hero\">\"수조 달러의 페인 포인트\"</span> 와 선례 기업",
+    s2a_subtitle: "전통 금융의 국경 간 마찰과 계좌 동결 위험으로 수십조 Web3 자산 결제 난항",
     s2_benchmark_tag: "선례 사례 · REDOTPAY 폭발적 성장",
     s2_redot_vol: "$120억+ 거래량",
     s2_redot_desc: "3년 만에 100개국 진출 · 800만 실명 유저 · 연 순이익 1.8억 달러 · 기업가치 50억 달러 돌파!",
@@ -898,9 +904,9 @@ const translations = {
     s2a_pain3_desc: "수조 달러의 암호화폐 자산을 오프라인 쇼핑, 교통, 호텔 예약에 즉시 소비하기 어렵습니다.",
 
     s1_tag: "SYSTEM v2.0 // LAUNCH 2026",
-    s1_title: "Enipay",
-    s1_subtitle: "글로벌 디지털 결제 애그리게이터 플랫폼",
-    s1_desc: "ENI 메인넷 × ENIPAY 결제 네트워크 × EPAY 커뮤니티 성장 레이어<br>AI 에이전트, 스테이블코인 정산 및 Web3 커머스를 위한 차세대 글로벌 결제 게이트웨이.",
+    s1_title: "<span class=\"text-gradient-hero\">Enipay</span> 글로벌 디지털 결제 애그리게이터",
+    s1_subtitle: "ENI 메인넷 × ENIPAY 결제 네트워크 × EPAY 커뮤니티 성장 레이어",
+    s1_desc: "AI 에이전트, 스테이블코인 정산 및 Web3 커머스를 위한 차세대 글로벌 결제 게이트웨이.",
     s1_kpi1_val: "0.02초",
     s1_kpi1_lbl: "정산 지연 시간",
     s1_kpi2_val: "100%",
@@ -916,7 +922,7 @@ const translations = {
     s1_partners_lbl: "전략적 파트너 및 보안 감사 에코시스템",
 
     s6_tag: "100% CUSTODY // 006",
-    s6_title: "100% 자금 안전<br><span class=\"text-gold-400\">바이낸스 (Binance)</span><br>제3자 기관 자금 수탁",
+    s6_title: "100% 자금 안전 <span class=\"text-gradient-hero\">바이낸스 (Binance)</span> 제3자 기관 자금 수탁",
     s6_desc: "자금 풀 붕괴 및 먹튀 위험을 완전히 종식. 모든 스테이킹 자금은 바이낸스 공식 제3자 계좌에 보관!",
     s6_highlight: "🛡️ 플랫폼 자금 예치 제로: Enipay는 순수 탈중앙화 프로토콜로 자금을 절대 직접 만지지 않습니다!",
     s6_binance_btn: "BINANCE CUSTODY 공식 인증 ↗",
@@ -952,7 +958,7 @@ const translations = {
     s4_p5_tag: "진입장벽 없는 미국 주식 ↗",
 
     s5_tag: "AI INNOVATION // 008",
-    s5_title: "AI 결제의 새로운 지평<br><span class=\"text-gradient-hero\">Enipay A-Card</span><br>스마트 에이전트 카드",
+    s5_title: "AI 결제의 새로운 지평 <span class=\"text-gradient-hero\">Enipay A-Card</span> 스마트 에이전트 카드",
     s5_desc: "인간과 AI Agent가 함께 사용하는 글로벌 디지털 결제망 구축. 미래의 AI는 단순 대화 도구를 넘어 자율 소비와 거래의 슈퍼 주체가 됩니다!",
     s5_highlight: "🤖 인간과 AI의 시너지: 소액 자율 관리 + 스마트 퀀트 운용 + 멀티시그 보안 경계!",
     s5_f1_title: "소액 결제 및 자율 소비 관리",
@@ -996,6 +1002,7 @@ const translations = {
 
     s8_tag: "STAKING PLAN // 010",
     s8_title: "수동 소득 —— <span class=\"text-gradient-hero\">스테이킹 투자 및 캐시백 플랜</span>",
+    s8_subtitle: "안정적인 일일 수익, 3.5배 만기 설계 및 실물 카드 소비 유저 정착",
     s8_countdown_lbl: "오늘 정산까지:",
     s8_t1_val: "300 ~ 10,000 U",
     s8_t1_desc: "300 USDT부터 시작, 계정당 최대 10,000 USDT 엄격 제한",
@@ -1031,6 +1038,7 @@ const translations = {
 
     s10_tag: "TOKENOMICS // 012",
     s10_title: "토크노믹스 및 EPAY <span class=\"text-gradient-hero\">\"이중 디플레이션\" 자산 선순환</span>",
+    s10_subtitle: "80% 블랙홀 영구 소각 + 출금 5% 시장 매수 소각 + 메인넷 ENI 네이티브 가치",
     s10_burn_lbl: "실시간 소각량:",
     s10_dexscreener_btn: "DexScreener 차트 ↗",
     s10_dist_title: "EPAY 토큰 배분 (총 발행량 1억 개)",
@@ -1050,7 +1058,7 @@ const translations = {
     s10_action: "⚡ 자산 전략: 획득한 ENI와 EPAY는 절대 섣불리 매도하지 마세요! 메인넷 런칭과 지속적인 소각에 따른 엄청난 가치 상승을 누리세요!",
 
     s11_tag: "GET INVOLVED // 013",
-    s11_title: "세계를 연결하고<br><span class=\"text-gradient-hero\">미래를 열다</span><br>수조 달러 기회 선점",
+    s11_title: "세계를 연결하고 <span class=\"text-gradient-hero\">미래를 열다</span> 수조 달러 기회 선점",
     s11_desc: "정식 앱 2026년 4분기 전격 출시! 지금은 가장 유리한 골든 베타 기간입니다. 3.5배 빠른 한도 완주와 일 1% 안정적 보조금 혜택을 선점하세요!",
     s11_tw_btn: "🐦 공식 Twitter / X ↗",
     s11_tg_btn: "✈️ 공식 Telegram 채널 ↗",
@@ -1107,7 +1115,7 @@ const translations = {
 
     s3_tag: "L1 INFRASTRUCTURE // 002",
     s3_block_lbl: "Khối Mainnet:",
-    s3_title: "ENI Chain<br><span class=\"text-cyan-neon\">Layer 1 Base</span><br>Bệ Phóng Bảo Mật Vững Chắc",
+    s3_title: "ENI Chain <span class=\"text-gradient-hero\">Layer 1 Base</span> Bệ Phóng Bảo Mật Vững Chắc",
     s3_subtitle: "Trụ sở tại Tokyo, Nhật Bản · L1 Module Cấp Doanh Nghiệp · 5 Năm Vận Hành Ổn Định",
     s3_end1: "🏢 Tập đoàn Viễn thông NTT Nhật Bản",
     s3_end1_val: "NTT Đánh giá rất cao",
@@ -1126,7 +1134,7 @@ const translations = {
     s3_m4_lbl: "Tổng phí Gas đã đốt · Quá trình giảm phát liên tục",
 
     s2b_tag: "GLOBAL CLEARING GIANTS // 003",
-    s2b_title: "Các Gã khổng lồ Thanh toán<br><span class=\"text-gradient-hero\">\"Vốn hóa Nghìn tỷ Đô la\"</span> Đối sánh",
+    s2b_title: "Các Gã khổng lồ Thanh toán <span class=\"text-gradient-hero\">\"Vốn hóa Nghìn tỷ Đô la\"</span> Đối sánh",
     s2b_subtitle: "Thị trường thanh toán toàn cầu nghìn tỷ đô đã sản sinh ra những đế chế thương mại hàng trăm tỷ USD",
     s2_visa_mcap: "Vốn hóa $671.4B ↗",
     s2_visa_val: "670 Tỷ $",
@@ -1143,7 +1151,8 @@ const translations = {
     s2_takeaway: "🚀 Enipay Đột phá: Blockchain L1 + Mã QR/Thẻ U/Mini-App + AI Pay + Lan truyền cộng đồng tái cấu trúc ngành thanh toán nghìn tỷ đô!",
 
     s2a_tag: "MARKET OPPORTUNITY // 004",
-    s2a_title: "Ngành Thanh toán Web3<br><span class=\"text-gradient-hero\">\"Nỗi đau Nghìn tỷ Đô la\"</span> & Tiền lệ Tiên phong",
+    s2a_title: "Ngành Thanh toán Web3 <span class=\"text-gradient-hero\">\"Nỗi đau Nghìn tỷ Đô la\"</span> & Tiền lệ Tiên phong",
+    s2a_subtitle: "Chuyển tiền quốc tế chậm trễ và rủi ro đóng băng tài khoản cản trở Web3",
     s2_benchmark_tag: "TIỀN LỆ ĐỘT PHÁ · REDOTPAY",
     s2_redot_vol: "12+ Tỷ $ Doanh số",
     s2_redot_desc: "3 năm phủ sóng 100+ quốc gia · 8 triệu người dùng KYC · Lợi nhuận ròng 180 triệu $/năm · Định giá vọt lên 5 tỷ $!",
@@ -1158,9 +1167,9 @@ const translations = {
     s2a_pain3_desc: "Hàng chục nghìn tỷ tài sản tiền mã hóa khó có thể tiêu dùng trực tiếp trong đời sống hàng ngày.",
 
     s1_tag: "SYSTEM v2.0 // LAUNCH 2026",
-    s1_title: "Enipay",
-    s1_subtitle: "Nền Tảng Tổng Hợp Thanh Toán Kỹ Thuật Số Toàn Cầu",
-    s1_desc: "ENI Chain × Mạng Thanh Toán ENIPAY × Tầng Tăng Trưởng EPAY<br>Xây dựng cổng thanh toán toàn cầu cho AI Agent, Stablecoin & Thương mại Web3.",
+    s1_title: "<span class=\"text-gradient-hero\">Enipay</span> Nền Tảng Tổng Hợp Thanh Toán Toàn Cầu",
+    s1_subtitle: "ENI Chain × Mạng Thanh Toán ENIPAY × Tầng Tăng Trưởng EPAY",
+    s1_desc: "Xây dựng cổng thanh toán toàn cầu cho AI Agent, Stablecoin & Thương mại Web3.",
     s1_kpi1_val: "0.02s",
     s1_kpi1_lbl: "Độ trễ thanh toán",
     s1_kpi2_val: "100%",
@@ -1176,7 +1185,7 @@ const translations = {
     s1_partners_lbl: "ĐỐI TÁC CHIẾN LƯỢC & HỆ SINH THÁI KIỂM TOÁN",
 
     s6_tag: "100% CUSTODY // 006",
-    s6_title: "100% An toàn Tài sản<br><span class=\"text-gold-400\">Binance Institutional</span><br>Lưu ký Bên thứ 3",
+    s6_title: "100% An toàn Tài sản <span class=\"text-gradient-hero\">Binance Institutional</span> Lưu ký Bên thứ 3",
     s6_desc: "Chấm dứt hoàn toàn nguy cơ sập quỹ và dự án ôm tiền bỏ chạy. Toàn bộ tài sản được lưu ký tại tài khoản chính thức Binance!",
     s6_highlight: "🛡️ Không đọng quỹ tại nền tảng: Enipay đóng vai trò giao thức phi tập trung, không có quyền chạm vào tiền!",
     s6_binance_btn: "BINANCE CUSTODY Xác thực chính thức ↗",
@@ -1212,7 +1221,7 @@ const translations = {
     s4_p5_tag: "Giao dịch Cổ phiếu Mỹ 0 Rào cản ↗",
 
     s5_tag: "AI INNOVATION // 008",
-    s5_title: "Đột phá Thanh toán AI<br><span class=\"text-gradient-hero\">Enipay A-Card</span><br>Thẻ Trợ lý Thông minh",
+    s5_title: "Đột phá Thanh toán AI <span class=\"text-gradient-hero\">Enipay A-Card</span> Thẻ Trợ lý Thông minh",
     s5_desc: "Xây dựng mạng lưới thanh toán kỹ thuật số toàn cầu dùng chung cho con người và AI Agent. Tương lai AI không chỉ trò chuyện mà là chủ thể tiêu dùng và giao dịch tự trị!",
     s5_highlight: "🤖 Hợp tác Người & AI: Tự chủ chi tiêu nhỏ + Lượng tử hóa tài chính + Ranh giới bảo mật Multi-Sig!",
     s5_f1_title: "Thanh toán Vi mô & Quản lý Tự trị",
@@ -1256,6 +1265,7 @@ const translations = {
 
     s8_tag: "STAKING PLAN // 010",
     s8_title: "Thu nhập Thụ động —— <span class=\"text-gradient-hero\">Kế hoạch Staking & Hoàn tiền Tiêu dùng</span>",
+    s8_subtitle: "Lợi nhuận ngày ổn định, mô hình hoàn thành chu kỳ 3.5 lần và giữ chân người dùng thẻ thực tế",
     s8_countdown_lbl: "Đếm ngược nhận thưởng:",
     s8_t1_val: "300 ~ 10,000 U",
     s8_t1_desc: "Bắt đầu từ 300 USDT, giới hạn tối đa 10,000 USDT/tài khoản",
@@ -1291,6 +1301,7 @@ const translations = {
 
     s10_tag: "TOKENOMICS // 012",
     s10_title: "Kinh tế học Token & EPAY <span class=\"text-gradient-hero\">Vòng lặp \"Giảm phát Kép\"</span>",
+    s10_subtitle: "Đốt 80% hố đen + Phí rút 5% mua lại đốt + Giá trị gốc ENI Mainnet",
     s10_burn_lbl: "Đã đốt thực tế:",
     s10_dexscreener_btn: "Biểu đồ DexScreener ↗",
     s10_dist_title: "Phân bổ Token EPAY (Tổng cung 100 Triệu)",
@@ -1310,7 +1321,7 @@ const translations = {
     s10_action: "⚡ Chỉ thị tài chính: Nắm giữ chặt ENI và EPAY! Chờ đợi kỳ tích tài chính bùng nổ khi Mainnet ra mắt và cơ chế đốt liên tục!",
 
     s11_tag: "GET INVOLVED // 013",
-    s11_title: "Kết Nối Toàn Cầu<br><span class=\"text-gradient-hero\">Kiến Tạo Tương Lai</span><br>Đón Đầu Thị Trường Nghìn Tỷ",
+    s11_title: "Kết Nối Toàn Cầu <span class=\"text-gradient-hero\">Kiến Tạo Tương Lai</span> Đón Đầu Thị Trường Nghìn Tỷ",
     s11_desc: "Ứng dụng hoàn chỉnh sẽ ra mắt vào Quý 4/2026! Hiện là thời điểm Beta vàng tốt nhất: hưởng giới hạn x3.5 và lợi nhuận trợ cấp 1%/ngày!",
     s11_tw_btn: "🐦 Twitter / X Chính thức ↗",
     s11_tg_btn: "✈️ Kênh Telegram Chính thức ↗",
