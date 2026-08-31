@@ -2,8 +2,8 @@
 
 :root {
   --bg-obsidian: #070a0f;
-  --bg-dark-card: rgba(13, 20, 36, 0.88);
-  --bg-glass-card: rgba(15, 23, 42, 0.82);
+  --bg-dark-card: rgba(13, 20, 36, 0.90);
+  --bg-glass-card: rgba(15, 23, 42, 0.85);
   --cyan-primary: #00ffb2;
   --cyan-bright: #00f2fe;
   --cyan-blue: #00c8ff;
@@ -40,18 +40,31 @@ body {
   font-family: var(--font-sans);
   position: relative;
   background-image: 
-    radial-gradient(circle at 15% 15%, rgba(0, 255, 178, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 85% 85%, rgba(0, 200, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 15% 15%, rgba(0, 255, 178, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 85% 85%, rgba(0, 200, 255, 0.08) 0%, transparent 50%),
     radial-gradient(circle at 50% 50%, rgba(10, 18, 32, 0.85) 0%, transparent 85%),
-    linear-gradient(to right, rgba(0, 255, 178, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 255, 178, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(0, 255, 178, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 255, 178, 0.03) 1px, transparent 1px);
   background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+}
+
+/* ==================== Background 3D Canvas (Always STRICTLY in Background z-index: 0) ==================== */
+#bg-canvas {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  opacity: 0.55 !important;
 }
 
 /* ==================== Multi-Language Selector Dropdown ==================== */
 .lang-dropdown-wrap {
   position: relative;
   display: inline-block;
+  z-index: 1001;
 }
 
 .lang-dropdown-menu {
@@ -67,7 +80,7 @@ body {
   min-width: 150px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 255, 178, 0.2);
   display: none;
-  z-index: 1000;
+  z-index: 1002;
   flex-direction: column;
   gap: 4px;
 }
@@ -110,6 +123,8 @@ body {
     height: 100vh;
     width: 100vw;
     scroll-behavior: smooth;
+    position: relative;
+    z-index: 5;
   }
 
   .slide-section {
@@ -118,7 +133,8 @@ body {
     min-height: 100vh;
     max-height: 100vh;
     overflow: hidden;
-    position: relative;
+    position: relative !important;
+    z-index: 5 !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -156,6 +172,8 @@ body {
     height: auto !important;
     width: 100vw !important;
     display: block !important;
+    position: relative !important;
+    z-index: 5 !important;
   }
 
   .slide-section {
@@ -164,6 +182,8 @@ body {
     height: auto !important;
     max-height: none !important;
     overflow: visible !important;
+    position: relative !important;
+    z-index: 5 !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
@@ -177,14 +197,12 @@ body {
     width: 100% !important;
     height: auto !important;
     aspect-ratio: auto !important;
+    position: relative !important;
+    z-index: 10 !important;
     display: flex !important;
     flex-direction: column !important;
     gap: 16px !important;
     margin: 0 !important;
-  }
-
-  #bg-canvas {
-    opacity: 0.85 !important;
   }
 
   .top-hud-bar {
@@ -201,7 +219,7 @@ body {
     bottom: 16px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 999;
+    z-index: 999 !important;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -233,6 +251,8 @@ body {
     padding: 20px 16px !important;
     border-radius: 18px !important;
     margin-bottom: 8px;
+    position: relative !important;
+    z-index: 10 !important;
   }
 
   .section-headline {
@@ -289,6 +309,7 @@ body {
     inset 0 0 25px rgba(0, 255, 178, 0.05);
   border-radius: 24px;
   position: relative;
+  z-index: 10;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
@@ -307,11 +328,13 @@ body {
 }
 
 .octane-card-hud {
-  background: rgba(13, 20, 36, 0.78);
+  background: rgba(13, 20, 36, 0.88);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1.5px solid rgba(0, 255, 178, 0.3);
   border-radius: 22px;
+  position: relative;
+  z-index: 10;
   box-shadow: 
     0 20px 45px -8px rgba(0, 0, 0, 0.65),
     0 0 25px rgba(0, 255, 178, 0.08),
@@ -320,7 +343,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: relative;
   overflow: hidden;
 }
 
@@ -348,11 +370,12 @@ body {
 .phase-card-tier {
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   border-radius: 20px;
-  background: rgba(13, 20, 36, 0.85);
+  background: rgba(13, 20, 36, 0.88);
   border: 1.5px solid rgba(0, 255, 178, 0.3);
 }
 
@@ -625,30 +648,19 @@ body {
 [data-delay="7"] { transition-delay: 0.40s; }
 [data-delay="8"] { transition-delay: 0.46s; }
 
-/* ==================== Top HUD Bar & Canvas ==================== */
-#bg-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.8;
-}
-
+/* ==================== Top HUD Bar ==================== */
 .top-hud-bar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: 56px;
-  z-index: 100;
+  z-index: 1000 !important;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 40px;
-  background: rgba(7, 10, 15, 0.9);
+  background: rgba(7, 10, 15, 0.92);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(0, 255, 178, 0.25);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
@@ -670,7 +682,7 @@ body {
   right: 20px;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 99;
+  z-index: 100 !important;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -734,7 +746,7 @@ body {
   box-shadow: -12px 0 45px rgba(0, 0, 0, 0.7);
   transform: translateX(100%);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 120;
+  z-index: 1200;
   display: flex;
   flex-direction: column;
 }
