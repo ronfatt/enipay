@@ -373,24 +373,24 @@ function setupMobileTouchSwipe() {
   }, { passive: true });
 }
 
-// Interactive 9x6 Calculator on Slide 9
+// Interactive 9x6 Calculator on Slide 11
 function setupTeamCalculator() {
-  const investInput = document.getElementById('calc-invest');
-  const rateInput = document.getElementById('calc-rate');
+  const investInput = document.getElementById('calc-avg-inv') || document.getElementById('calc-invest');
+  const rateInput = document.getElementById('calc-daily-rate') || document.getElementById('calc-rate');
 
   if (!investInput || !rateInput) return;
 
   function calculate() {
-    const invest = parseFloat(investInput.value) || 300;
-    const rate = (parseFloat(rateInput.value) || 1.0) / 100;
-    const currentLang = (window.i18n && window.i18n.currentLang) || 'zh';
+    const invest = Math.max(0, parseFloat(investInput.value) || 0);
+    const rate = (parseFloat(rateInput.value) || 0) / 100;
+    const currentLang = localStorage.getItem('enipay_lang') || (window.i18n && window.i18n.currentLang) || 'zh';
 
     const dayUnits = {
-      zh: { perDay: 'U / 日', dailyTotal: 'USDT / 天', prefix: '第 ', suffix: ' 代：', userSuffix: ' 人' },
-      en: { perDay: 'U / Day', dailyTotal: 'USDT / Day', prefix: 'Tier ', suffix: ': ', userSuffix: ' Users' },
-      ja: { perDay: 'U / 日', dailyTotal: 'USDT / 日', prefix: '第', suffix: '世代: ', userSuffix: '人' },
-      ko: { perDay: 'U / 일', dailyTotal: 'USDT / 일', prefix: '', suffix: '대: ', userSuffix: '명' },
-      vi: { perDay: 'U / Ngày', dailyTotal: 'USDT / Ngày', prefix: 'Tầng ', suffix: ': ', userSuffix: ' Người' }
+      zh: { perDay: '/ 日', dailyTotal: 'USDT / 天', prefix: '第 ', suffix: ' 代：', userSuffix: ' 人' },
+      en: { perDay: '/ Day', dailyTotal: 'USDT / Day', prefix: 'Tier ', suffix: ': ', userSuffix: ' Users' },
+      ja: { perDay: '/ 日', dailyTotal: 'USDT / 日', prefix: '第 ', suffix: ' 世代: ', userSuffix: ' 人' },
+      ko: { perDay: '/ 일', dailyTotal: 'USDT / 일', prefix: '제 ', suffix: ' 대: ', userSuffix: ' 명' },
+      vi: { perDay: '/ Ngày', dailyTotal: 'USDT / Ngày', prefix: 'Tầng ', suffix: ': ', userSuffix: ' Người' }
     };
 
     const curConfig = dayUnits[currentLang] || dayUnits.zh;
@@ -410,17 +410,15 @@ function setupTeamCalculator() {
       const dailyEarn = teamVolume * rate * t.pct;
       totalDaily += dailyEarn;
 
-      const elLabel = document.getElementById(`calc-lbl-${t.gen}`);
-      const elVolume = document.getElementById(`calc-vol-${t.gen}`);
-      const elEarn = document.getElementById(`calc-earn-${t.gen}`);
+      const elLabel = document.getElementById(`calc-t${t.gen}-lbl`) || document.getElementById(`calc-lbl-${t.gen}`);
+      const elEarn = document.getElementById(`calc-t${t.gen}-val`) || document.getElementById(`calc-earn-${t.gen}`);
       
       if (elLabel) elLabel.innerText = `${curConfig.prefix}${t.gen}${curConfig.suffix}${t.count.toLocaleString()}${curConfig.userSuffix}`;
-      if (elVolume) elVolume.innerText = teamVolume >= 1000000 ? `$${(teamVolume / 1000000).toFixed(1)}M U` : `$${(teamVolume / 1000).toFixed(1)}k U`;
       if (elEarn) elEarn.innerText = `$${dailyEarn.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${curConfig.perDay}`;
     });
 
     const totalEl = document.getElementById('calc-total-daily');
-    const totalCnyEl = document.getElementById('calc-total-cny');
+    const totalCnyEl = document.getElementById('calc-cny-equiv') || document.getElementById('calc-total-cny');
     if (totalEl) {
       totalEl.innerText = `$${totalDaily.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${curConfig.dailyTotal}`;
     }
@@ -442,6 +440,9 @@ function setupTeamCalculator() {
   window.recalculateTeamEarnings = calculate;
   investInput.addEventListener('input', calculate);
   rateInput.addEventListener('input', calculate);
+  investInput.addEventListener('change', calculate);
+  rateInput.addEventListener('change', calculate);
+  calculate();
 }
 
 // Copy to Clipboard Utility with Haptic Feedback
