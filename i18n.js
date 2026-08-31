@@ -278,8 +278,12 @@ const translations = {
     s11_contract_lbl: "EPAY 代币合约地址:",
     s11_burn_lbl: "EPAY 销毁钱包 (死亡黑洞):",
     s11_verify_burn_btn: "核验 ↗",
-    s11_qr_title: "立即扫码下载 Enipay 客户端",
-    s11_qr_desc: "注册激活 · 配置属于您的专属 U 卡与 AI A-Card"
+    s11_qr_title: "立即扫码下载 Enipay 客户端 (v1.3.15)",
+    s11_qr_desc: "注册激活 · 配置属于您的专属 U 卡与 AI A-Card",
+    s11_ios_lbl: "🍏 iOS 苹果客户端",
+    s11_ios_sub: "App Store 扫码下载 ↗",
+    s11_android_lbl: "🤖 Android 安卓端",
+    s11_android_sub: "Google Play / APK ↗"
   },
 
   // ==================== ENGLISH (EN) ====================
@@ -541,8 +545,12 @@ const translations = {
     s11_contract_lbl: "EPAY Token Contract Address:",
     s11_burn_lbl: "EPAY Burn Wallet (Black Hole):",
     s11_verify_burn_btn: "Verify ↗",
-    s11_qr_title: "Scan QR Code to Download Enipay Client",
-    s11_qr_desc: "Activate account · Setup your exclusive U-Card & AI A-Card"
+    s11_qr_title: "Scan QR Code to Download Enipay Client (v1.3.15)",
+    s11_qr_desc: "Activate account · Setup your exclusive U-Card & AI A-Card",
+    s11_ios_lbl: "🍏 iOS App Store",
+    s11_ios_sub: "Scan for App Store ↗",
+    s11_android_lbl: "🤖 Android / Play",
+    s11_android_sub: "Google Play / APK ↗"
   },
 
   // ==================== JAPANESE (日本語 - JA) ====================
@@ -804,8 +812,12 @@ const translations = {
     s11_contract_lbl: "EPAY トークンコントラクト:",
     s11_burn_lbl: "EPAY 焼却ブラックホール:",
     s11_verify_burn_btn: "検証 ↗",
-    s11_qr_title: "QRコードをスキャンして Enipay アプリをDL",
-    s11_qr_desc: "アカウント登録・認証 · 専用UカードとAI A-Cardを発行"
+    s11_qr_title: "QRコードをスキャンして Enipay アプリをDL (v1.3.15)",
+    s11_qr_desc: "アカウント登録・認証 · 専用UカードとAI A-Cardを発行",
+    s11_ios_lbl: "🍏 iOS アプリ",
+    s11_ios_sub: "App Store スキャン ↗",
+    s11_android_lbl: "🤖 Android アプリ",
+    s11_android_sub: "Google Play / APK ↗"
   },
 
   // ==================== KOREAN (한국어 - KO) ====================
@@ -1067,8 +1079,12 @@ const translations = {
     s11_contract_lbl: "EPAY 토큰 계약 주소:",
     s11_burn_lbl: "EPAY 소각 지갑 (블랙홀):",
     s11_verify_burn_btn: "검증 ↗",
-    s11_qr_title: "QR 코드를 스캔하여 Enipay 앱 다운로드",
-    s11_qr_desc: "회원가입 · 전용 U-Card 및 AI A-Card 발급"
+    s11_qr_title: "QR 코드를 스캔하여 Enipay 앱 다운로드 (v1.3.15)",
+    s11_qr_desc: "회원가입 · 전용 U-Card 및 AI A-Card 발급",
+    s11_ios_lbl: "🍏 iOS 앱스토어",
+    s11_ios_sub: "App Store 다운로드 ↗",
+    s11_android_lbl: "🤖 안드로이드 / 구글",
+    s11_android_sub: "Google Play / APK ↗"
   },
 
   // ==================== VIETNAMESE (Tiếng Việt - VI) ====================
@@ -1330,8 +1346,12 @@ const translations = {
     s11_contract_lbl: "Địa chỉ hợp đồng EPAY:",
     s11_burn_lbl: "Ví đốt EPAY (Hố đen vĩnh viễn):",
     s11_verify_burn_btn: "Xác minh ↗",
-    s11_qr_title: "Quét mã QR tải ứng dụng Enipay",
-    s11_qr_desc: "Đăng ký kích hoạt · Nhận thẻ U-Card & AI A-Card độc quyền"
+    s11_qr_title: "Quét mã QR tải ứng dụng Enipay (v1.3.15)",
+    s11_qr_desc: "Đăng ký kích hoạt · Nhận thẻ U-Card & AI A-Card độc quyền",
+    s11_ios_lbl: "🍏 iOS App Store",
+    s11_ios_sub: "Tải trên App Store ↗",
+    s11_android_lbl: "🤖 Android / Play",
+    s11_android_sub: "Google Play / APK ↗"
   }
 };
 

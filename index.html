@@ -1510,38 +1510,44 @@
           </div>
 
           <!-- Right Column: Live App Download QR & Contracts (6 cols) -->
-          <div class="lg:col-span-6 octane-card-hud p-6 lg:p-8 flex flex-col justify-between text-center" data-motion="right" data-delay="2">
+          <div class="lg:col-span-6 octane-card-hud p-5 lg:p-7 flex flex-col justify-between text-center" data-motion="right" data-delay="2">
             <div>
-              <div class="cyber-pill mb-4"><span class="cyber-bullet"></span>BETA CLIENT DOWNLOAD</div>
+              <div class="flex items-center justify-between mb-2.5">
+                <div class="cyber-pill text-xs py-0.5 px-2.5"><span class="cyber-bullet"></span>ENIPAY CLIENT v1.3.15</div>
+                <span class="cyber-pill text-[10px] py-0.5 px-2 bg-cyan-neon/10 text-cyan-neon border-cyan-neon/30">OFFICIAL QR</span>
+              </div>
               
-              <!-- Pure CSS High-Tech Glowing QR Code Mockup -->
-              <div class="qr-cyber-container my-3 inline-block">
-                <div class="qr-corner-tl"></div>
-                <div class="qr-corner-tr"></div>
-                <div class="qr-corner-bl"></div>
-                <div class="qr-corner-br"></div>
-                
-                <div class="w-44 h-44 bg-white p-2.5 rounded-xl shadow-2xl flex flex-col items-center justify-center relative overflow-hidden">
-                  <!-- QR Matrix Blocks -->
-                  <div class="w-full h-full bg-slate-950 rounded-lg flex flex-col items-center justify-center p-2 relative">
-                    <div class="grid grid-cols-6 gap-1 w-full h-full p-1 opacity-90">
-                      <div class="bg-cyan-neon rounded-sm"></div><div class="bg-cyan-bright rounded-sm"></div><div class="bg-white rounded-sm"></div><div class="bg-cyan-neon rounded-sm"></div><div class="bg-white rounded-sm"></div><div class="bg-cyan-bright rounded-sm"></div>
-                      <div class="bg-white rounded-sm"></div><div class="bg-cyan-neon rounded-sm"></div><div class="bg-cyan-bright rounded-sm"></div><div class="bg-white rounded-sm"></div><div class="bg-cyan-neon rounded-sm"></div><div class="bg-white rounded-sm"></div>
-                      <div class="bg-cyan-neon rounded-sm"></div><div class="bg-white rounded-sm"></div><div class="bg-gold-400 rounded-sm"></div><div class="bg-gold-400 rounded-sm"></div><div class="bg-white rounded-sm"></div><div class="bg-cyan-neon rounded-sm"></div>
-                      <div class="bg-white rounded-sm"></div><div class="bg-cyan-bright rounded-sm"></div><div class="bg-gold-400 rounded-sm"></div><div class="bg-gold-400 rounded-sm"></div><div class="bg-cyan-bright rounded-sm"></div><div class="bg-white rounded-sm"></div>
-                      <div class="bg-cyan-neon rounded-sm"></div><div class="bg-white rounded-sm"></div><div class="bg-cyan-bright rounded-sm"></div><div class="bg-white rounded-sm"></div><div class="bg-cyan-neon rounded-sm"></div><div class="bg-cyan-bright rounded-sm"></div>
-                      <div class="bg-cyan-bright rounded-sm"></div><div class="bg-cyan-neon rounded-sm"></div><div class="bg-white rounded-sm"></div><div class="bg-cyan-bright rounded-sm"></div><div class="bg-white rounded-sm"></div><div class="bg-cyan-neon rounded-sm"></div>
-                    </div>
-                    <!-- Center Enipay Badge -->
-                    <div class="absolute w-8 h-8 rounded-lg bg-slate-950 border border-cyan-neon flex items-center justify-center text-cyan-neon font-black font-mono text-xs shadow-lg">
-                      E
-                    </div>
+              <!-- Real Dual QR Codes: iOS & Android -->
+              <div class="grid grid-cols-2 gap-3 my-2 text-center">
+                <!-- iOS Card -->
+                <div class="p-3 rounded-2xl bg-slate-950 border border-slate-800 hover:border-cyan-neon/60 transition-all flex flex-col items-center group">
+                  <div class="text-xs font-bold text-white mb-2 flex items-center gap-1">
+                    <span data-i18n="s11_ios_lbl">🍏 iOS 苹果客户端</span>
+                  </div>
+                  <div class="p-1.5 bg-white rounded-xl shadow-xl group-hover:scale-105 transition-transform duration-300">
+                    <img src="./assets/qr_ios.png" alt="Enipay iOS App Store QR" class="w-28 h-28 sm:w-32 sm:h-32 object-contain rounded-lg">
+                  </div>
+                  <div class="text-[10px] font-mono text-cyan-neon mt-2 font-bold" data-i18n="s11_ios_sub">
+                    App Store 扫码下载 ↗
+                  </div>
+                </div>
+
+                <!-- Android Card -->
+                <div class="p-3 rounded-2xl bg-slate-950 border border-slate-800 hover:border-cyan-bright/60 transition-all flex flex-col items-center group">
+                  <div class="text-xs font-bold text-white mb-2 flex items-center gap-1">
+                    <span data-i18n="s11_android_lbl">🤖 Android 安卓端</span>
+                  </div>
+                  <div class="p-1.5 bg-white rounded-xl shadow-xl group-hover:scale-105 transition-transform duration-300">
+                    <img src="./assets/qr_android.png" alt="Enipay Android Google Play / APK QR" class="w-28 h-28 sm:w-32 sm:h-32 object-contain rounded-lg">
+                  </div>
+                  <div class="text-[10px] font-mono text-cyan-bright mt-2 font-bold" data-i18n="s11_android_sub">
+                    Google Play / APK ↗
                   </div>
                 </div>
               </div>
 
-              <h4 class="text-base font-extrabold text-white mt-2" data-i18n="s11_qr_title">立即扫码下载 Enipay 客户端</h4>
-              <p class="text-xs text-slate-300 mt-1" data-i18n="s11_qr_desc">注册激活 · 配置属于您的专属 U 卡与 AI A-Card</p>
+              <h4 class="text-base font-extrabold text-white mt-2" data-i18n="s11_qr_title">立即扫码下载 Enipay 客户端 (v1.3.15)</h4>
+              <p class="text-xs text-slate-300 mt-0.5" data-i18n="s11_qr_desc">注册激活 · 配置属于您的专属 U 卡与 AI A-Card</p>
             </div>
 
             <!-- Official Domain & Token Contract Address -->
