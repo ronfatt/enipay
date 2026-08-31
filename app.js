@@ -1,7 +1,8 @@
 /**
  * ENIPay Web3 Presentation Engine (Octane 3D HUD Edition)
  * Features: Three.js 3D Background, Motion Choreography, Counter Tickers,
- * 3D Holographic Card Interactions, Web Audio HUD sound synthesis, Speaker Notes Sync.
+ * 3D Holographic Card Interactions, Web Audio HUD sound synthesis, Speaker Notes Sync,
+ * Mobile Touch Gesture Navigation & Adaptive UI/UX.
  */
 
 // Sound Synthesizer (Zero asset dependencies, Web Audio API)
@@ -207,6 +208,12 @@ function updatePresenterUI(slideNum) {
     counter.textContent = `SLIDE ${String(slideNum).padStart(2, '0')} / ${String(state.totalSlides).padStart(2, '0')}`;
   }
 
+  // Mobile Bottom Indicator
+  const mobileNum = document.getElementById('mobile-slide-num');
+  if (mobileNum) {
+    mobileNum.textContent = `${String(slideNum).padStart(2, '0')} / ${String(state.totalSlides).padStart(2, '0')}`;
+  }
+
   // Dots
   document.querySelectorAll('.hud-dot').forEach(dot => {
     const dotIndex = parseInt(dot.getAttribute('data-slide'));
@@ -241,8 +248,10 @@ function goToSlide(num) {
   }
 }
 
-// 3D Card Interactive Tilt & Depth Hover
+// 3D Card Interactive Tilt & Depth Hover (Desktop Only)
 function setup3DCardTilt() {
+  if (window.innerWidth <= 768) return; // Disable tilt on mobile for touch performance
+
   document.querySelectorAll('.octane-glass-panel, .octane-card-hud').forEach(card => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
@@ -260,6 +269,46 @@ function setup3DCardTilt() {
       card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)`;
     });
   });
+}
+
+// Mobile Touch Swipe Gesture Support
+function setupMobileTouchSwipe() {
+  let touchStartY = 0;
+  let touchStartX = 0;
+  let touchEndY = 0;
+  let touchEndX = 0;
+
+  window.addEventListener('touchstart', (e) => {
+    touchStartY = e.changedTouches[0].screenY;
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  window.addEventListener('touchend', (e) => {
+    touchEndY = e.changedTouches[0].screenY;
+    touchEndX = e.changedTouches[0].screenX;
+    
+    const diffY = touchStartY - touchEndY;
+    const diffX = touchStartX - touchEndX;
+
+    // Minimum swipe threshold: 45px
+    if (Math.abs(diffY) > 45 && Math.abs(diffY) > Math.abs(diffX)) {
+      if (diffY > 0) {
+        // Swiped UP -> Next Slide
+        goToSlide(state.currentSlide + 1);
+      } else {
+        // Swiped DOWN -> Prev Slide
+        goToSlide(state.currentSlide - 1);
+      }
+    } else if (Math.abs(diffX) > 45 && Math.abs(diffX) > Math.abs(diffY)) {
+      if (diffX > 0) {
+        // Swiped LEFT -> Next Slide
+        goToSlide(state.currentSlide + 1);
+      } else {
+        // Swiped RIGHT -> Prev Slide
+        goToSlide(state.currentSlide - 1);
+      }
+    }
+  }, { passive: true });
 }
 
 // Interactive 9x6 Calculator on Slide 9
@@ -308,10 +357,11 @@ function setupTeamCalculator() {
   rateInput.addEventListener('input', calculate);
 }
 
-// Copy to Clipboard Utility
+// Copy to Clipboard Utility with Haptic Feedback
 function copyAddress(text, btnElement) {
   navigator.clipboard.writeText(text).then(() => {
     audio.playChime();
+    if (navigator.vibrate) navigator.vibrate(50); // Mobile haptic vibration
     const original = btnElement.innerHTML;
     btnElement.innerHTML = `<span>✓ 已复制</span>`;
     setTimeout(() => {
@@ -324,13 +374,14 @@ function copyAddress(text, btnElement) {
 document.addEventListener('DOMContentLoaded', () => {
   initThreeScene();
   setup3DCardTilt();
+  setupMobileTouchSwipe();
   setupTeamCalculator();
 
   // Scroll Observer for Slide Transitions
   const sections = document.querySelectorAll('.slide-section');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting && entry.intersectionRatio >= 0.35) {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.25) {
         const slideId = entry.target.getAttribute('id');
         if (slideId && slideId.startsWith('slide-')) {
           const num = parseInt(slideId.replace('slide-', ''));
@@ -338,7 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     });
-  }, { threshold: [0.35, 0.65] });
+  }, { threshold: [0.25, 0.5] });
 
   sections.forEach(sec => observer.observe(sec));
 
@@ -407,6 +458,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Global window functions
   window.goToSlide = goToSlide;
   window.copyAddress = copyAddress;
+  window.state = state;
 
   // Initialize UI with Slide 1
   updatePresenterUI(1);

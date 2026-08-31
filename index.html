@@ -90,7 +90,7 @@
     <div id="top-progress-bar" class="progress-bar-cyan"></div>
   </header>
 
-  <!-- Side HUD Navigation Dots -->
+  <!-- Side HUD Navigation Dots (Desktop) -->
   <nav class="hud-nav" aria-label="幻灯片导航">
     <div class="hud-dot active" data-slide="1" onclick="goToSlide(1)"><span class="hud-tooltip">01 封面 · 全息视觉中心</span></div>
     <div class="hud-dot" data-slide="2" onclick="goToSlide(2)"><span class="hud-tooltip">02 万亿痛点与巨头先例</span></div>
@@ -104,6 +104,16 @@
     <div class="hud-dot" data-slide="10" onclick="goToSlide(10)"><span class="hud-tooltip">10 双通缩代币经济闭环</span></div>
     <div class="hud-dot" data-slide="11" onclick="goToSlide(11)"><span class="hud-tooltip">11 黄金内测 · 加入未来</span></div>
   </nav>
+
+  <!-- Mobile Floating Thumb Navigation Widget (< 768px) -->
+  <div class="mobile-bottom-nav md:hidden">
+    <button onclick="goToSlide(window.state.currentSlide - 1)" aria-label="上一页" class="hover:text-cyan-bright transition-colors">◀</button>
+    <div class="flex items-center gap-1.5 px-2">
+      <span class="cyber-bullet"></span>
+      <span id="mobile-slide-num" class="text-xs font-mono font-black text-white">01 / 11</span>
+    </div>
+    <button onclick="goToSlide(window.state.currentSlide + 1)" aria-label="下一页" class="hover:text-cyan-bright transition-colors">▶</button>
+  </div>
 
   <!-- Presenter Speaker Notes Drawer -->
   <aside id="notes-drawer" class="notes-drawer p-6 overflow-y-auto">
