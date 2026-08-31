@@ -48,6 +48,60 @@ body {
   background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
 }
 
+/* ==================== Multi-Language Selector Dropdown ==================== */
+.lang-dropdown-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.lang-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: rgba(10, 16, 28, 0.98);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 255, 178, 0.45);
+  border-radius: 14px;
+  padding: 6px;
+  min-width: 150px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 255, 178, 0.2);
+  display: none;
+  z-index: 1000;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lang-dropdown-wrap:hover .lang-dropdown-menu,
+.lang-dropdown-menu.show {
+  display: flex;
+}
+
+.lang-select-option {
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: #94a3b8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.lang-select-option:hover {
+  background: rgba(0, 255, 178, 0.15);
+  color: #ffffff;
+}
+
+.lang-select-option.active-lang {
+  background: rgba(0, 255, 178, 0.25);
+  color: #00ffb2;
+  font-weight: bold;
+  border: 1px solid rgba(0, 255, 178, 0.5);
+}
+
 /* ==================== Desktop Presentation Stage System ==================== */
 @media (min-width: 769px) {
   .slides-container {
@@ -112,9 +166,9 @@ body {
     overflow: visible !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: flex-start !important; /* Always start from TOP */
+    justify-content: flex-start !important;
     align-items: stretch !important;
-    padding: 68px 16px 90px !important; /* Top space for header, bottom space for thumb dock */
+    padding: 68px 16px 90px !important;
     scroll-margin-top: 52px;
     scroll-snap-align: none !important;
   }
@@ -130,7 +184,7 @@ body {
   }
 
   #bg-canvas {
-    opacity: 0.35 !important; /* Subdued on mobile so text is crystal clear */
+    opacity: 0.35 !important;
   }
 
   .top-hud-bar {
@@ -142,7 +196,6 @@ body {
     display: none !important;
   }
 
-  /* Mobile floating thumb navigation dock */
   .mobile-bottom-nav {
     position: fixed;
     bottom: 16px;
@@ -207,7 +260,7 @@ body {
   }
 
   .badge-chamfer, .link-cyber-badge {
-    min-height: 42px !important; /* Ergonomic Apple touch target */
+    min-height: 42px !important;
     padding: 8px 14px !important;
     font-size: 12px !important;
   }

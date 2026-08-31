@@ -501,13 +501,31 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btn) {
       btn.innerHTML = audio.muted ? '🔇' : '🔊';
     }
-    if (!audio.muted) audio.playClick();
+  // Language Dropdown Toggle
+  window.toggleLangMenu = function(e) {
+    if (e) e.stopPropagation();
+    const menu = document.getElementById('lang-menu');
+    if (menu) menu.classList.toggle('show');
   };
+
+  // Close dropdown on click outside
+  document.addEventListener('click', (e) => {
+    const wrap = document.querySelector('.lang-dropdown-wrap');
+    const menu = document.getElementById('lang-menu');
+    if (menu && wrap && !wrap.contains(e.target)) {
+      menu.classList.remove('show');
+    }
+  });
 
   // Global window functions
   window.goToSlide = goToSlide;
   window.copyAddress = copyAddress;
   window.state = state;
+
+  // Initialize i18n
+  if (window.i18n) {
+    window.i18n.init();
+  }
 
   // Initialize UI with Slide 1
   updatePresenterUI(1);
