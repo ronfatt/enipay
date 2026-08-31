@@ -532,74 +532,105 @@
     </div>
   </section>
 
-  <!-- ==================== SLIDE 4: 三层架构与全场景矩阵 ==================== -->
+  <!-- ==================== SLIDE 4: 三层架构与全场景矩阵 (文字翻倍 + 进场动效 + 强力 Hover) ==================== -->
   <section id="slide-4" class="slide-section">
     <div class="slide-stage-16-9">
       
-      <!-- Top 3-Layer Step Architecture -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 flex-1">
-        <div class="octane-card-hud p-5 border-t-2 border-t-slate-400" data-motion data-delay="1">
-          <div class="cyber-pill text-[10px] py-0.5 px-2.5 mb-2">LAYER 01 底座层</div>
-          <h4 class="font-extrabold text-white text-base lg:text-lg">ENI 公链基础设施</h4>
-          <p class="text-xs lg:text-sm text-slate-300 mt-2 leading-relaxed">高性能 L1 结算、稳定币跨链流通、企业级商业承载底座</p>
+      <!-- Top 3-Layer Step Architecture (Doubled Font Size & Motion) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5 flex-1">
+        <!-- Layer 1 -->
+        <div class="octane-card-hud p-6 border-t-4 border-t-slate-400" data-motion="scale-in" data-delay="1">
+          <div class="flex items-center justify-between mb-2">
+            <div class="cyber-pill text-xs py-1 px-3">LAYER 01 底座层</div>
+            <span class="text-xs font-mono text-slate-400">L1 BASE</span>
+          </div>
+          <h4 class="font-black text-white text-2xl lg:text-3xl tracking-tight my-2" data-motion="slide-left" data-delay="2">
+            ENI 公链基础设施
+          </h4>
+          <p class="text-sm lg:text-base text-slate-200 mt-2 leading-relaxed" data-motion="slide-right" data-delay="3">
+            高性能 L1 结算、稳定币跨链流通、企业级商业承载底座。
+          </p>
         </div>
-        <div class="octane-card-hud p-5 border-t-2 border-t-cyan-neon border-cyan-neon/40" data-motion data-delay="2">
-          <div class="cyber-pill text-[10px] py-0.5 px-2.5 mb-2"><span class="cyber-bullet"></span>LAYER 02 核心层</div>
-          <h4 class="font-extrabold text-white text-base lg:text-lg">ENIPAY 支付网络</h4>
-          <p class="text-xs lg:text-sm text-slate-300 mt-2 leading-relaxed">稳定币即时清算、AI Agent 智能支付、全球链上与法币双向合规接入</p>
+
+        <!-- Layer 2 -->
+        <div class="octane-card-hud p-6 border-t-4 border-t-cyan-neon border-cyan-neon/50 bg-cyan-neon/5" data-motion="scale-in" data-delay="2">
+          <div class="flex items-center justify-between mb-2">
+            <div class="cyber-pill text-xs py-1 px-3"><span class="cyber-bullet"></span>LAYER 02 核心层</div>
+            <span class="text-xs font-mono text-cyan-neon font-bold">SETTLEMENT</span>
+          </div>
+          <h4 class="font-black text-white text-2xl lg:text-3xl tracking-tight my-2" data-motion="slide-left" data-delay="3">
+            ENIPAY 支付网络
+          </h4>
+          <p class="text-sm lg:text-base text-slate-200 mt-2 leading-relaxed" data-motion="slide-right" data-delay="4">
+            稳定币即时清算、AI Agent 智能支付、全球链上与法币双向合规接入。
+          </p>
         </div>
-        <div class="octane-card-hud p-5 border-t-2 border-t-gold-400" data-motion data-delay="3">
-          <div class="cyber-pill text-[10px] py-0.5 px-2.5 mb-2">LAYER 03 增长层</div>
-          <h4 class="font-extrabold text-white text-base lg:text-lg">EPAY 社区增长层</h4>
-          <p class="text-xs lg:text-sm text-slate-300 mt-2 leading-relaxed">用户裂变体系、生态高额补贴、链上数据沉淀打造上市资产</p>
+
+        <!-- Layer 3 -->
+        <div class="octane-card-hud p-6 border-t-4 border-t-gold-400 border-gold-400/50 bg-gold-400/5" data-motion="scale-in" data-delay="3">
+          <div class="flex items-center justify-between mb-2">
+            <div class="cyber-pill text-xs py-1 px-3">LAYER 03 增长层</div>
+            <span class="text-xs font-mono text-gold-400 font-bold">EXPANSION</span>
+          </div>
+          <h4 class="font-black text-white text-2xl lg:text-3xl tracking-tight my-2" data-motion="slide-left" data-delay="4">
+            EPAY 社区增长层
+          </h4>
+          <p class="text-sm lg:text-base text-slate-200 mt-2 leading-relaxed" data-motion="slide-right" data-delay="5">
+            用户裂变体系、生态高额补贴、链上数据沉淀打造上市资产。
+          </p>
         </div>
       </div>
 
-      <!-- Bottom 5-Product Matrix Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-5 gap-3.5 flex-1">
-        <div class="octane-card-hud p-4" data-motion data-delay="4">
+      <!-- Bottom 5-Product Matrix Grid (Enlarged Fonts + Bouncing Icons + Granular Motion) -->
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-4 flex-1">
+        <!-- Product 1 -->
+        <div class="octane-card-hud p-5" data-motion="slide-left" data-delay="4">
           <div>
-            <div class="text-2xl mb-2 text-cyan-neon">📱</div>
-            <h5 class="font-bold text-white text-sm lg:text-base">双币扫码支付</h5>
-            <p class="text-xs text-slate-300 mt-1.5">亚太首家法币+稳定币四方清算，打通微信/支付宝/MoMoPay/C-Pay</p>
+            <div class="text-3xl lg:text-4xl mb-2.5 text-cyan-neon icon-bounce">📱</div>
+            <h5 class="font-black text-white text-lg lg:text-xl tracking-tight mb-1.5">双币扫码支付</h5>
+            <p class="text-xs lg:text-sm text-slate-200 leading-relaxed">亚太首家法币+稳定币四方清算，打通微信/支付宝/MoMoPay/C-Pay。</p>
           </div>
-          <span class="text-[10px] font-mono text-cyan-neon font-bold mt-3">四方清算</span>
+          <span class="text-xs font-mono text-cyan-neon font-bold mt-4 inline-block">四方清算通道 ↗</span>
         </div>
 
-        <div class="octane-card-hud p-4" data-motion data-delay="5">
+        <!-- Product 2 -->
+        <div class="octane-card-hud p-5" data-motion="slide-left" data-delay="5">
           <div>
-            <div class="text-2xl mb-2 text-cyan-bright">⚡</div>
-            <h5 class="font-bold text-white text-sm lg:text-base">极速合规出入金</h5>
-            <p class="text-xs text-slate-300 mt-1.5">SWIFT/Wire 电汇 + 微信支付宝海外商铺扫码，彻底告别冻卡痛点</p>
+            <div class="text-3xl lg:text-4xl mb-2.5 text-cyan-bright icon-bounce">⚡</div>
+            <h5 class="font-black text-white text-lg lg:text-xl tracking-tight mb-1.5">极速合规出入金</h5>
+            <p class="text-xs lg:text-sm text-slate-200 leading-relaxed">SWIFT/Wire 电汇 + 微信支付宝海外商铺扫码，彻底告别冻卡痛点。</p>
           </div>
-          <span class="text-[10px] font-mono text-cyan-bright font-bold mt-3">无冻卡风险</span>
+          <span class="text-xs font-mono text-cyan-bright font-bold mt-4 inline-block">无冻卡风险 ↗</span>
         </div>
 
-        <div class="octane-card-hud p-4" data-motion data-delay="6">
+        <!-- Product 3 -->
+        <div class="octane-card-hud p-5" data-motion="slide-left" data-delay="6">
           <div>
-            <div class="text-2xl mb-2 text-gold-400">💳</div>
-            <h5 class="font-bold text-white text-sm lg:text-base">Enipay 三色 U 卡</h5>
-            <p class="text-xs text-slate-300 mt-1.5">基础黑卡、极速绿卡、高端黑金卡。支持全球高额 ATM 提现与刷卡</p>
+            <div class="text-3xl lg:text-4xl mb-2.5 text-gold-400 icon-bounce">💳</div>
+            <h5 class="font-black text-white text-lg lg:text-xl tracking-tight mb-1.5">Enipay 三色 U 卡</h5>
+            <p class="text-xs lg:text-sm text-slate-200 leading-relaxed">基础黑卡、极速绿卡、高端黑金卡。支持全球高额 ATM 提现与消费刷卡。</p>
           </div>
-          <span class="text-[10px] font-mono text-gold-400 font-bold mt-3">实体卡 + 虚拟卡</span>
+          <span class="text-xs font-mono text-gold-400 font-bold mt-4 inline-block">实体卡 + 虚拟卡 ↗</span>
         </div>
 
-        <div class="octane-card-hud p-4" data-motion data-delay="7">
+        <!-- Product 4 -->
+        <div class="octane-card-hud p-5" data-motion="slide-left" data-delay="7">
           <div>
-            <div class="text-2xl mb-2 text-cyan-blue">✈️</div>
-            <h5 class="font-bold text-white text-sm lg:text-base">全球生态小程序</h5>
-            <p class="text-xs text-slate-300 mt-1.5">内置机票预订、全球酒店、打车、国际 SIM 卡，打通衣食住行</p>
+            <div class="text-3xl lg:text-4xl mb-2.5 text-cyan-blue icon-bounce">✈️</div>
+            <h5 class="font-black text-white text-lg lg:text-xl tracking-tight mb-1.5">全球生态小程序</h5>
+            <p class="text-xs lg:text-sm text-slate-200 leading-relaxed">内置机票预订、全球酒店、打车、国际 SIM 卡，打通衣食住行全链路。</p>
           </div>
-          <span class="text-[10px] font-mono text-cyan-blue font-bold mt-3">一站式出行</span>
+          <span class="text-xs font-mono text-cyan-blue font-bold mt-4 inline-block">一站式全球出行 ↗</span>
         </div>
 
-        <div class="octane-card-hud p-4" data-motion data-delay="8">
+        <!-- Product 5 -->
+        <div class="octane-card-hud p-5" data-motion="slide-left" data-delay="8">
           <div>
-            <div class="text-2xl mb-2 text-cyan-neon">📈</div>
-            <h5 class="font-bold text-white text-sm lg:text-base">链上美股市场</h5>
-            <p class="text-xs text-slate-300 mt-1.5">免繁琐开户、免高额税费，直接使用稳定币一键交易美股股票代币</p>
+            <div class="text-3xl lg:text-4xl mb-2.5 text-cyan-neon icon-bounce">📈</div>
+            <h5 class="font-black text-white text-lg lg:text-xl tracking-tight mb-1.5">链上美股市场</h5>
+            <p class="text-xs lg:text-sm text-slate-200 leading-relaxed">免繁琐开户、免高额税费，直接使用稳定币一键交易美股股票代币。</p>
           </div>
-          <span class="text-[10px] font-mono text-cyan-neon font-bold mt-3">0 门槛美股</span>
+          <span class="text-xs font-mono text-cyan-neon font-bold mt-4 inline-block">0 门槛美股代币 ↗</span>
         </div>
       </div>
 
