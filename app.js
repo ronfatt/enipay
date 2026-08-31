@@ -381,6 +381,17 @@ function setupTeamCalculator() {
   function calculate() {
     const invest = parseFloat(investInput.value) || 300;
     const rate = (parseFloat(rateInput.value) || 1.0) / 100;
+    const currentLang = (window.i18n && window.i18n.currentLang) || 'zh';
+
+    const dayUnits = {
+      zh: { perDay: 'U / 日', dailyTotal: 'USDT / 天', prefix: '第 ', suffix: ' 代：', userSuffix: ' 人' },
+      en: { perDay: 'U / Day', dailyTotal: 'USDT / Day', prefix: 'Tier ', suffix: ': ', userSuffix: ' Users' },
+      ja: { perDay: 'U / 日', dailyTotal: 'USDT / 日', prefix: '第', suffix: '世代: ', userSuffix: '人' },
+      ko: { perDay: 'U / 일', dailyTotal: 'USDT / 일', prefix: '', suffix: '대: ', userSuffix: '명' },
+      vi: { perDay: 'U / Ngày', dailyTotal: 'USDT / Ngày', prefix: 'Tầng ', suffix: ': ', userSuffix: ' Người' }
+    };
+
+    const curConfig = dayUnits[currentLang] || dayUnits.zh;
 
     const tiers = [
       { gen: 1, count: 9, pct: 0.05 },
@@ -397,22 +408,36 @@ function setupTeamCalculator() {
       const dailyEarn = teamVolume * rate * t.pct;
       totalDaily += dailyEarn;
 
+      const elLabel = document.getElementById(`calc-lbl-${t.gen}`);
       const elVolume = document.getElementById(`calc-vol-${t.gen}`);
       const elEarn = document.getElementById(`calc-earn-${t.gen}`);
-      if (elVolume) elVolume.innerText = `$${(teamVolume / 1000).toFixed(1)}k U`;
-      if (elEarn) elEarn.innerText = `$${dailyEarn.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} U`;
+      
+      if (elLabel) elLabel.innerText = `${curConfig.prefix}${t.gen}${curConfig.suffix}${t.count.toLocaleString()}${curConfig.userSuffix}`;
+      if (elVolume) elVolume.innerText = teamVolume >= 1000000 ? `$${(teamVolume / 1000000).toFixed(1)}M U` : `$${(teamVolume / 1000).toFixed(1)}k U`;
+      if (elEarn) elEarn.innerText = `$${dailyEarn.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${curConfig.perDay}`;
     });
 
     const totalEl = document.getElementById('calc-total-daily');
     const totalCnyEl = document.getElementById('calc-total-cny');
     if (totalEl) {
-      totalEl.innerText = `$${totalDaily.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USDT / 天`;
+      totalEl.innerText = `$${totalDaily.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${curConfig.dailyTotal}`;
     }
     if (totalCnyEl) {
-      totalCnyEl.innerText = `≈ ¥${(totalDaily * 7.23).toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })} 元 / 天`;
+      if (currentLang === 'zh') {
+        totalCnyEl.innerText = `≈ ¥${(totalDaily * 7.23).toLocaleString('en-US', { maximumFractionDigits: 0 })} 元 / 天`;
+      } else if (currentLang === 'en') {
+        totalCnyEl.innerText = `≈ $${(totalDaily).toLocaleString('en-US', { maximumFractionDigits: 0 })} USD / Day`;
+      } else if (currentLang === 'ja') {
+        totalCnyEl.innerText = `≈ ¥${(totalDaily * 155).toLocaleString('en-US', { maximumFractionDigits: 0 })} 円 / 日`;
+      } else if (currentLang === 'ko') {
+        totalCnyEl.innerText = `≈ ₩${(totalDaily * 1380).toLocaleString('en-US', { maximumFractionDigits: 0 })} 원 / 일`;
+      } else if (currentLang === 'vi') {
+        totalCnyEl.innerText = `≈ ${(totalDaily * 25400).toLocaleString('en-US', { maximumFractionDigits: 0 })} ₫ / Ngày`;
+      }
     }
   }
 
+  window.recalculateTeamEarnings = calculate;
   investInput.addEventListener('input', calculate);
   rateInput.addEventListener('input', calculate);
 }
