@@ -513,6 +513,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btn) {
       btn.innerHTML = audio.muted ? '🔇' : '🔊';
     }
+    if (!audio.muted) audio.playClick();
+  };
+
   // Language Dropdown Toggle
   window.toggleLangMenu = function(e) {
     if (e) e.stopPropagation();

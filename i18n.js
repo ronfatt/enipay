@@ -1025,6 +1025,12 @@ class I18nManager {
 
 const i18n = new I18nManager();
 window.i18n = i18n;
-window.setAppLanguage = function(lang) {
+window.setAppLanguage = function(lang, e) {
+  if (e) {
+    e.stopPropagation();
+    e.preventDefault();
+  }
+  const menu = document.getElementById('lang-menu');
+  if (menu) menu.classList.remove('show');
   i18n.setLanguage(lang);
 };

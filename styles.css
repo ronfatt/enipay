@@ -264,6 +264,16 @@ body {
     padding: 8px 14px !important;
     font-size: 12px !important;
   }
+
+  /* Ensure all sections and cards are 100% visible when scrolling on mobile */
+  [data-motion],
+  [data-motion="slide-left"],
+  [data-motion="slide-right"],
+  [data-motion="scale-in"] {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+  }
 }
 
 /* ==================== Enhanced Octane 3D Glass & Neon Hover ==================== */
