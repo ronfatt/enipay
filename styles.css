@@ -154,134 +154,27 @@ body {
   display: inline-block;
 }
 
-/* ==================== 3D Floating Asset Components ==================== */
-/* 1. Holographic 3D Payment Card */
-.holo-3d-card-wrap {
-  perspective: 1000px;
-  position: relative;
+/* ==================== Slide 5 AI Feature 3D Visual Cards ==================== */
+.tech-vis-box {
+  width: 120px;
+  height: 90px;
+  background: rgba(6, 11, 22, 0.9);
+  border: 1px solid rgba(0, 255, 178, 0.4);
+  border-radius: 14px;
+  box-shadow: 0 0 20px rgba(0, 255, 178, 0.15), inset 0 0 15px rgba(0, 255, 178, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 0;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
 }
 
-.holo-3d-card {
-  width: 100%;
-  max-width: 440px;
-  height: 220px;
-  background: linear-gradient(135deg, #0e172c 0%, #060a14 100%);
-  border: 1.5px solid rgba(0, 255, 178, 0.65);
-  border-radius: 20px;
-  box-shadow: 
-    0 25px 50px rgba(0, 0, 0, 0.75),
-    0 0 40px rgba(0, 255, 178, 0.35),
-    inset 0 1px 2px rgba(255, 255, 255, 0.4);
-  transform: rotateX(14deg) rotateY(-16deg) rotateZ(3deg);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  position: relative;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.holo-3d-card:hover {
-  transform: rotateX(6deg) rotateY(-6deg) rotateZ(1deg) scale(1.04);
-  box-shadow: 
-    0 30px 60px rgba(0, 0, 0, 0.85),
-    0 0 55px rgba(0, 255, 178, 0.55);
-}
-
-.card-chip {
-  width: 42px;
-  height: 32px;
-  background: linear-gradient(135deg, #facc15 0%, #ca8a04 100%);
-  border-radius: 6px;
-  position: relative;
-  box-shadow: 0 0 12px rgba(250, 204, 21, 0.5);
-}
-.card-chip::after {
-  content: '';
-  position: absolute;
-  inset: 4px;
-  border: 1px solid rgba(0,0,0,0.35);
-}
-
-/* 2. Lightning Settlement Visual */
-.lightning-core {
-  position: relative;
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.lightning-bolt {
-  font-size: 46px;
-  color: #00ffb2;
-  filter: drop-shadow(0 0 16px #00ffb2) drop-shadow(0 0 32px rgba(0, 255, 178, 0.65));
-  animation: boltPulse 2s ease-in-out infinite;
-}
-@keyframes boltPulse {
-  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 16px #00ffb2); }
-  50% { transform: scale(1.1); filter: drop-shadow(0 0 26px #00ffb2) drop-shadow(0 0 45px #00c8ff); }
-}
-
-/* 3. AI Biometric Orb */
-.ai-orb-wrap {
-  width: 80px;
-  height: 80px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.ai-orb-core {
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #00f2fe 0%, #0891b2 50%, #031427 90%);
-  box-shadow: 
-    0 0 25px rgba(0, 242, 254, 0.7),
-    inset 0 0 18px rgba(255, 255, 255, 0.85);
-  animation: orbRotate 6s linear infinite;
-  position: relative;
-}
-.ai-orb-ring {
-  position: absolute;
-  inset: -8px;
-  border-radius: 50%;
-  border: 2px dashed rgba(0, 255, 178, 0.75);
-  animation: ringSpin 8s linear infinite reverse;
-}
-@keyframes orbRotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-@keyframes ringSpin {
-  0% { transform: rotate(0deg) scale(0.95); }
-  50% { transform: rotate(180deg) scale(1.05); }
-  100% { transform: rotate(360deg) scale(0.95); }
-}
-
-/* 4. 3D Binance Security Shield */
-.shield-wrap {
-  width: 80px;
-  height: 80px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.shield-core {
-  font-size: 48px;
-  color: #00ffb2;
-  filter: drop-shadow(0 0 18px rgba(0, 255, 178, 0.75)) drop-shadow(0 0 30px rgba(245, 158, 11, 0.55));
-  animation: shieldHover 3s ease-in-out infinite;
-}
-@keyframes shieldHover {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px) scale(1.06); }
+.octane-card-hud:hover .tech-vis-box {
+  border-color: #00ffb2;
+  box-shadow: 0 0 25px rgba(0, 255, 178, 0.35), inset 0 0 20px rgba(0, 255, 178, 0.2);
+  transform: scale(1.05);
 }
 
 /* ==================== Large, Prominent Typography System ==================== */
