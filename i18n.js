@@ -39,7 +39,7 @@ const translations = {
 
     // Slide 1
     s1_tag: "SYSTEM v2.0 // LAUNCH 2026",
-    s1_title: "Enipay (ENIPAY)",
+    s1_title: "Enipay",
     s1_subtitle: "全球数字支付聚合平台",
     s1_desc: "ENI 公链 × ENIPAY 支付网络 × EPAY 社区增长层<br>构建面向 AI 智能体、稳定币结算与 Web3 商业的全球支付生态入口。",
     s1_kpi1_val: "0.02s",
@@ -239,7 +239,7 @@ const translations = {
     nav_11: "11 Beta Access · Join Future",
 
     s1_tag: "SYSTEM v2.0 // LAUNCH 2026",
-    s1_title: "Enipay (ENIPAY)",
+    s1_title: "Enipay",
     s1_subtitle: "Global Digital Payment Aggregator",
     s1_desc: "ENI Chain × ENIPAY Payment Network × EPAY Growth Layer<br>Building the global Web3 payment gateway for AI Agents, Stablecoins & Global Commerce.",
     s1_kpi1_val: "0.02s",
@@ -429,7 +429,7 @@ const translations = {
     nav_11: "11 ベータ参加・未来へ",
 
     s1_tag: "SYSTEM v2.0 // LAUNCH 2026",
-    s1_title: "Enipay (ENIPAY)",
+    s1_title: "Enipay",
     s1_subtitle: "グローバル・デジタル決済アグリゲーション・プラットフォーム",
     s1_desc: "ENI パブリックチェーン × ENIPAY 決済ネットワーク × EPAY 成長層<br>AI エージェント、ステーブルコイン決済、Web3 コマース向け次世代決済ポータル。",
     s1_kpi1_val: "0.02秒",
@@ -619,7 +619,7 @@ const translations = {
     nav_11: "11 골든 베타 참여 · 미래로",
 
     s1_tag: "SYSTEM v2.0 // LAUNCH 2026",
-    s1_title: "Enipay (ENIPAY)",
+    s1_title: "Enipay",
     s1_subtitle: "글로벌 디지털 결제 애그리게이터 플랫폼",
     s1_desc: "ENI 메인넷 × ENIPAY 결제 네트워크 × EPAY 커뮤니티 성장 레이어<br>AI 에이전트, 스테이블코인 정산 및 Web3 커머스를 위한 차세대 글로벌 결제 게이트웨이.",
     s1_kpi1_val: "0.02초",
@@ -809,7 +809,7 @@ const translations = {
     nav_11: "11 Beta Vàng · Tham gia Tương lai",
 
     s1_tag: "SYSTEM v2.0 // LAUNCH 2026",
-    s1_title: "Enipay (ENIPAY)",
+    s1_title: "Enipay",
     s1_subtitle: "Nền Tảng Tổng Hợp Thanh Toán Kỹ Thuật Số Toàn Cầu",
     s1_desc: "ENI Chain × Mạng Thanh Toán ENIPAY × Tầng Tăng Trưởng EPAY<br>Xây dựng cổng thanh toán toàn cầu cho AI Agent, Stablecoin & Thương mại Web3.",
     s1_kpi1_val: "0.02s",
