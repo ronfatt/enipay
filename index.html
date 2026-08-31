@@ -1691,30 +1691,60 @@
             </div>
           </div>
 
-          <!-- Right Column: Live App Download QR & Contracts (6 cols) -->
+          <!-- Right Column: ENIPAY Official Channels (6 cols) -->
           <div class="lg:col-span-6 octane-card-hud p-5 lg:p-7 flex flex-col justify-between text-center" data-motion="right" data-delay="2">
-            <div class="flex items-center justify-between mb-4 pb-2 border-b border-slate-800">
-              <div class="cyber-pill text-xs py-0.5 px-2.5"><span class="cyber-bullet"></span>ENIPAY OFFICIAL VERIFICATION</div>
-              <span class="cyber-pill text-[10px] py-0.5 px-2 bg-cyan-neon/10 text-cyan-neon border-cyan-neon/30">100% ON-CHAIN</span>
+            <div class="flex items-center justify-between mb-3 pb-2 border-b border-slate-800">
+              <div class="cyber-pill text-xs py-0.5 px-2.5"><span class="cyber-bullet"></span>ENIPAY OFFICIAL CHANNELS</div>
+              <span class="cyber-pill text-[10px] py-0.5 px-2 bg-cyan-neon/10 text-cyan-neon border-cyan-neon/30">GLOBAL HUB</span>
             </div>
 
-            <!-- Official Domain & Token Contract Address -->
+            <!-- 3 Official Action Cards -->
             <div class="space-y-3 text-left text-xs font-mono my-auto">
-              <div class="flex items-center justify-between p-2 rounded bg-slate-950 border border-slate-800">
-                <span class="text-slate-400" data-i18n="s11_url_lbl">ENIPAY 官方网址:</span>
-                <span class="text-cyan-neon font-bold">https://www.enipay.net</span>
-                <button onclick="copyAddress('https://www.enipay.net', this)" class="badge-chamfer text-[10px] py-0.5 px-2 text-cyan-bright border-cyan-bright" data-i18n="copy_btn">复制</button>
-              </div>
-              <div class="flex items-center justify-between p-2 rounded bg-slate-950 border border-slate-800">
-                <span class="text-slate-400" data-i18n="s11_contract_lbl">EPAY 代币合约地址:</span>
-                <span class="text-cyan-bright font-bold truncate max-w-[170px]">0x71C9...89bE</span>
-                <button onclick="copyAddress('0x71C99026D7f023812543940173400a4A7A4A89bE', this)" class="badge-chamfer text-[10px] py-0.5 px-2 text-cyan-neon border-cyan-neon" data-i18n="copy_btn">复制</button>
-              </div>
-              <div class="flex items-center justify-between p-2 rounded bg-slate-950 border border-slate-800">
-                <span class="text-slate-400" data-i18n="s11_burn_lbl">EPAY 销毁钱包 (死亡黑洞):</span>
-                <span class="text-gold-400 font-bold truncate max-w-[170px]">0x0000...dEaD</span>
-                <a href="https://scan.eniac.network/address/0x8B5D6877E000332de0E46FFC4D0a111400c5f21c?tab=token_transfers" target="_blank" rel="noopener noreferrer" class="badge-chamfer text-[10px] py-0.5 px-2 text-gold-400 border-gold-400" data-i18n="s11_verify_burn_btn">核验 ↗</a>
-              </div>
+              <!-- Item 1: ENIPAY 官网 -->
+              <a href="https://www.enipay.net/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-neon hover:bg-slate-900 transition-all group shadow-sm">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-lg bg-slate-900 border border-cyan-neon/30 flex items-center justify-center text-base flex-shrink-0">
+                    🌐
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-white group-hover:text-cyan-neon transition-colors" data-i18n="s11_site_title">ENIPAY 官方网站 ↗</div>
+                    <div class="text-[10px] text-slate-400 font-mono">https://www.enipay.net/</div>
+                  </div>
+                </div>
+                <button onclick="event.preventDefault(); copyAddress('https://www.enipay.net/', this)" class="badge-chamfer text-[10px] py-1 px-2.5 text-cyan-neon border-cyan-neon/50 hover:border-cyan-neon" data-i18n="copy_btn">复制</button>
+              </a>
+
+              <!-- Item 2: ENIPAY 推特 -->
+              <a href="https://x.com/ENIPAY_NET" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-bright hover:bg-slate-900 transition-all group shadow-sm">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-lg bg-slate-900 border border-cyan-bright/30 flex items-center justify-center text-base flex-shrink-0">
+                    🐦
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-white group-hover:text-cyan-bright transition-colors" data-i18n="s11_x_title">ENIPAY 官方推特 / X ↗</div>
+                    <div class="text-[10px] text-slate-400 font-mono">https://x.com/ENIPAY_NET</div>
+                  </div>
+                </div>
+                <span class="badge-chamfer text-[10px] py-1 px-2.5 text-cyan-bright border-cyan-bright/50 font-bold">@ENIPAY_NET</span>
+              </a>
+
+              <!-- Item 3: ENIPAY 产品指南 -->
+              <a href="https://www.enipay.net/docs/zh-CN/app" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-gold-400 hover:bg-slate-900 transition-all group shadow-sm">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-lg bg-slate-900 border border-gold-400/30 flex items-center justify-center text-base flex-shrink-0">
+                    📖
+                  </div>
+                  <div>
+                    <div class="text-xs font-bold text-white group-hover:text-gold-400 transition-colors" data-i18n="s11_guide_title">ENIPAY 产品指南 (App) ↗</div>
+                    <div class="text-[10px] text-slate-400 font-mono truncate max-w-[190px] sm:max-w-[240px]">https://www.enipay.net/docs/zh-CN/app</div>
+                  </div>
+                </div>
+                <span class="badge-chamfer text-[10px] py-1 px-2.5 text-gold-400 border-gold-400/50 font-bold" data-i18n="explore_btn">查阅 ↗</span>
+              </a>
+            </div>
+
+            <div class="text-[11px] font-mono text-slate-400 mt-2">
+              VERIFIED OFFICIAL CHANNELS // 2026
             </div>
           </div>
 
