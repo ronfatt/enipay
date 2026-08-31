@@ -292,7 +292,12 @@ function goToSlide(num) {
   if (num < 1 || num > state.totalSlides) return;
   const target = document.getElementById(`slide-${num}`);
   if (target) {
-    target.scrollIntoView({ behavior: 'smooth' });
+    if (window.innerWidth <= 768) {
+      const topOffset = target.getBoundingClientRect().top + window.pageYOffset - 54;
+      window.scrollTo({ top: topOffset, behavior: 'smooth' });
+    } else {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
     audio.playClick();
     updatePresenterUI(num);
   }

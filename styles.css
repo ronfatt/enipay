@@ -31,7 +31,7 @@
 
 html, body {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   background-color: var(--bg-obsidian);
 }
 
@@ -48,105 +48,138 @@ body {
   background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
 }
 
-/* ==================== Responsive Stage & Scroll System ==================== */
-.slides-container {
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  height: 100vh;
-  width: 100vw;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-}
-
-.slide-section {
-  min-height: 100vh;
-  width: 100vw;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 64px 3.5vw 20px;
-  box-sizing: border-box;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
-
-.slide-stage-16-9 {
-  width: min(calc(100vw - 64px), calc((100vh - 88px) * 16 / 9));
-  height: min(calc(100vh - 88px), calc((100vw - 64px) * 9 / 16));
-  aspect-ratio: 16 / 9;
-  position: relative;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: auto;
-}
-
-/* ==================== Mobile Adaptive Styles (< 768px) ==================== */
-@media (max-width: 768px) {
+/* ==================== Desktop Presentation Stage System ==================== */
+@media (min-width: 769px) {
   .slides-container {
-    scroll-snap-type: none; /* Allow free comfortable mobile scrolling */
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+    width: 100vw;
+    scroll-behavior: smooth;
   }
 
   .slide-section {
-    min-height: auto;
-    height: auto;
-    max-height: none;
-    padding: 60px 16px 40px;
-    scroll-snap-align: none;
+    height: 100vh;
+    width: 100vw;
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 64px 3.5vw 20px;
+    box-sizing: border-box;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .slide-stage-16-9 {
+    width: min(calc(100vw - 64px), calc((100vh - 88px) * 16 / 9));
+    height: min(calc(100vh - 88px), calc((100vw - 64px) * 9 / 16));
+    aspect-ratio: 16 / 9;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: auto;
+  }
+}
+
+/* ==================== Mobile-First UI/UX Overhaul (< 768px) ==================== */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    height: auto !important;
+  }
+
+  .slides-container {
+    scroll-snap-type: none !important;
+    overflow-y: visible !important;
+    height: auto !important;
+    width: 100vw !important;
+    display: block !important;
+  }
+
+  .slide-section {
+    width: 100vw !important;
+    min-height: 100vh !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important; /* Always start from TOP */
+    align-items: stretch !important;
+    padding: 68px 16px 90px !important; /* Top space for header, bottom space for thumb dock */
+    scroll-margin-top: 52px;
+    scroll-snap-align: none !important;
   }
 
   .slide-stage-16-9 {
     width: 100% !important;
     height: auto !important;
     aspect-ratio: auto !important;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    margin: 0 !important;
+  }
+
+  #bg-canvas {
+    opacity: 0.35 !important; /* Subdued on mobile so text is crystal clear */
   }
 
   .top-hud-bar {
     padding: 0 16px !important;
-    height: 50px !important;
+    height: 52px !important;
   }
 
   .hud-nav {
-    display: none !important; /* Hide vertical side dots on mobile to maximize horizontal canvas */
+    display: none !important;
   }
 
-  /* Mobile floating thumb navigation indicator */
+  /* Mobile floating thumb navigation dock */
   .mobile-bottom-nav {
     position: fixed;
-    bottom: 12px;
+    bottom: 16px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 99;
+    z-index: 999;
     display: flex;
     align-items: center;
-    gap: 8px;
-    background: rgba(7, 10, 15, 0.92);
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(0, 255, 178, 0.4);
-    padding: 6px 14px;
+    gap: 12px;
+    background: rgba(7, 10, 15, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 255, 178, 0.5);
+    padding: 8px 18px;
     border-radius: 9999px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.85), 0 0 15px rgba(0,255,178,0.25);
   }
 
   .mobile-bottom-nav button {
     background: transparent;
     border: none;
     color: #00ffb2;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
-    padding: 2px 8px;
+    padding: 4px 10px;
     cursor: pointer;
+    min-height: 36px;
+    min-width: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .octane-glass-panel, .octane-card-hud, .phase-card-tier {
-    padding: 18px 16px !important;
+    padding: 20px 16px !important;
     border-radius: 18px !important;
+    margin-bottom: 8px;
   }
 
   .section-headline {
@@ -154,10 +187,14 @@ body {
     line-height: 1.25 !important;
   }
 
+  .holo-3d-card-wrap {
+    padding: 10px 0 !important;
+  }
+
   .holo-3d-card {
-    height: 160px !important;
-    padding: 14px !important;
-    transform: none !important; /* Flat on small mobile for touch readability */
+    height: 165px !important;
+    padding: 16px !important;
+    transform: none !important;
   }
 
   .holo-3d-card:hover {
@@ -170,8 +207,9 @@ body {
   }
 
   .badge-chamfer, .link-cyber-badge {
-    min-height: 38px;
-    padding: 6px 12px !important;
+    min-height: 42px !important; /* Ergonomic Apple touch target */
+    padding: 8px 14px !important;
+    font-size: 12px !important;
   }
 }
 
