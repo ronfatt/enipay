@@ -129,6 +129,9 @@ const translations = {
     s1_c3_tag: "LIQUIDITY & BROKER",
     s1_card3_title: "Binance 币安流动性与经纪网络",
     s1_card3_desc: "币安生态内的流动性与经纪商接入层。全面支持经纪商、数字钱包、交易所与资产管理系统的深度集成。",
+    s1_c4_tag: "PAYMENT NETWORK",
+    s1_card4_title: "Visa 全球支付网络",
+    s1_card4_desc: "全球支付网络与认证伙伴生态，全面赋能实体/虚拟卡刷卡消费与全球商户即时收单场景。",
     s1_partners_lbl: "战略合作伙伴与权威审计生态",
 
     // Slide 6: 6 币安第三方资金托管
@@ -466,6 +469,9 @@ const translations = {
     s1_c3_tag: "LIQUIDITY & BROKER",
     s1_card3_title: "Binance Liquidity & Broker Network",
     s1_card3_desc: "Liquidity and broker access layer within the Binance ecosystem. Supports Broker, Wallet, Exchange and Asset Management integrations.",
+    s1_c4_tag: "PAYMENT NETWORK",
+    s1_card4_title: "Visa Global Payment Network",
+    s1_card4_desc: "Global payment network and certified partner ecosystem for card-based and merchant acceptance scenarios.",
     s1_partners_lbl: "STRATEGIC PARTNERS & AUDIT ECOSYSTEM",
 
     s6_tag: "100% CUSTODY // 006",
@@ -795,6 +801,9 @@ const translations = {
     s1_c3_tag: "LIQUIDITY & BROKER",
     s1_card3_title: "Binance 流動性＆ブローカーネットワーク",
     s1_card3_desc: "バイナンスエコシステム内の流動性およびブローカーアクセスレイヤー。ブローカー、ウォレット、取引所、資産運用の統合をサポート。",
+    s1_c4_tag: "PAYMENT NETWORK",
+    s1_card4_title: "Visa グローバル決済ネットワーク",
+    s1_card4_desc: "グローバル決済ネットワークと認定パートナーエコシステムにより、カード決済および加盟店決済シナリオを包括的に支援。",
     s1_partners_lbl: "戦略的パートナーおよび監査エコシステム",
 
     s6_tag: "100% CUSTODY // 006",
@@ -1124,6 +1133,9 @@ const translations = {
     s1_c3_tag: "LIQUIDITY & BROKER",
     s1_card3_title: "Binance 유동성 및 브로커 네트워크",
     s1_card3_desc: "바이낸스 생태계 내 유동성 및 브로커 액세스 레이어. 브로커, 지갑, 거래소 및 자산 관리 통합 지원.",
+    s1_c4_tag: "PAYMENT NETWORK",
+    s1_card4_title: "Visa 글로벌 결제 네트워크",
+    s1_card4_desc: "카드 기반 소비 및 글로벌 가맹점 결제 시나리오를 지원하는 글로벌 결제 네트워크 및 공인 파트너 에코시스템.",
     s1_partners_lbl: "전략적 파트너 및 보안 감사 에코시스템",
 
     s6_tag: "100% CUSTODY // 006",
@@ -1453,6 +1465,9 @@ const translations = {
     s1_c3_tag: "LIQUIDITY & BROKER",
     s1_card3_title: "Binance Mạng lưới Thanh khoản & Môi giới",
     s1_card3_desc: "Tầng tiếp cận thanh khoản và môi giới trong hệ sinh thái Binance. Hỗ trợ tích hợp Môi giới, Ví, Sàn giao dịch và Quản lý tài sản.",
+    s1_c4_tag: "PAYMENT NETWORK",
+    s1_card4_title: "Visa Mạng Lưới Thanh Toán Toàn Cầu",
+    s1_card4_desc: "Mạng lưới thanh toán toàn cầu và hệ sinh thái đối tác được chứng nhận cho các kịch bản thanh toán thẻ và chấp nhận người bán.",
     s1_partners_lbl: "ĐỐI TÁC CHIẾN LƯỢC & HỆ SINH THÁI KIỂM TOÁN",
 
     s6_tag: "100% CUSTODY // 006",
