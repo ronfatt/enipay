@@ -206,8 +206,9 @@ body {
   }
 
   .top-hud-bar {
-    padding: 0 16px !important;
-    height: 52px !important;
+    padding: 0 10px !important;
+    height: 50px !important;
+    gap: 8px !important;
   }
 
   .hud-nav {
@@ -604,8 +605,10 @@ body {
   font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 700;
+  white-space: nowrap !important;
+  flex-shrink: 0;
   transition: all 0.25s ease;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;

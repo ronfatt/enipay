@@ -49,28 +49,26 @@
 
   <!-- Fixed Top HUD Bar (Octane 3D FinTech Style) -->
   <header class="top-hud-bar">
-    <div class="flex items-center space-x-3.5">
-      <div class="w-9 h-9 rounded-xl bg-slate-950 border border-cyan-neon/60 flex items-center justify-center shadow-lg shadow-cyan-neon/20 text-cyan-neon font-mono font-black text-base">
+    <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+      <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-slate-950 border border-cyan-neon/60 flex items-center justify-center shadow-lg shadow-cyan-neon/20 text-cyan-neon font-mono font-black text-xs sm:text-sm flex-shrink-0">
         E
       </div>
-      <div>
-        <div class="text-sm md:text-base font-extrabold tracking-tight text-white flex items-center gap-3">
-          <span>ENIPAY</span>
-          <!-- Database & Media Hub Button -->
-          <div id="database-btn-slot" class="inline-flex items-center min-w-[20px]">
-            <a href="./resources.html" class="badge-chamfer py-0.5 px-2 text-[11px] bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 flex items-center gap-1 transition-all shadow-sm" title="官方媒体与资源中心">
-              <span>📚</span>
-              <span class="font-bold" data-i18n="nav_db_btn">资料库</span>
-              <span class="text-[9px]">↗</span>
-            </a>
-          </div>
+      <div class="flex items-center gap-1.5 sm:gap-2.5">
+        <span class="text-xs sm:text-base font-extrabold tracking-tight text-white whitespace-nowrap">ENIPAY</span>
+        <!-- Database & Media Hub Button -->
+        <div id="database-btn-slot" class="inline-flex items-center flex-shrink-0">
+          <a href="./resources.html" class="badge-chamfer py-0.5 px-2 text-[10px] sm:text-xs bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 flex items-center gap-1 transition-all shadow-sm whitespace-nowrap flex-shrink-0" title="官方媒体与资源中心">
+            <span>📚</span>
+            <span class="font-bold" data-i18n="nav_db_btn">资料库</span>
+            <span class="text-[9px]">↗</span>
+          </a>
         </div>
-        <div class="text-[10px] text-slate-400 font-mono tracking-wider hidden sm:block" data-i18n="hud_sub">ENI CHAIN × BINANCE CUSTODY × AI AGENT</div>
       </div>
+      <div class="text-[10px] text-slate-400 font-mono tracking-wider hidden md:block" data-i18n="hud_sub">ENI CHAIN × BINANCE CUSTODY × AI AGENT</div>
     </div>
 
     <!-- HUD Center Indicator with Real-Time Ticker -->
-    <div class="hidden md:flex items-center space-x-3">
+    <div class="hidden lg:flex items-center space-x-3">
       <div class="cyber-pill bg-slate-900/90 border-cyan-neon/40 py-1 px-3.5 text-xs">
         <span class="cyber-bullet"></span>
         <span id="slide-counter-badge" class="font-mono font-bold text-white">SLIDE 01 / 13</span>
@@ -81,14 +79,14 @@
     </div>
 
     <!-- Presenter Controls & Multi-Language Switcher -->
-    <div class="flex items-center space-x-2">
+    <div class="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
       
       <!-- Multi-Language Selector Dropdown -->
-      <div class="lang-dropdown-wrap">
-        <button id="lang-btn" class="badge-chamfer py-1.5 px-2.5 text-xs text-cyan-neon border-cyan-neon/40 shadow-sm cursor-pointer flex items-center gap-1.5" onclick="toggleLangMenu(event)">
+      <div class="lang-dropdown-wrap flex-shrink-0">
+        <button id="lang-btn" class="badge-chamfer py-1 px-2 text-[10px] sm:text-xs text-cyan-neon border-cyan-neon/40 shadow-sm cursor-pointer flex items-center gap-1 whitespace-nowrap flex-shrink-0" onclick="toggleLangMenu(event)">
           <span>🌐</span>
-          <span id="current-lang-text" class="font-bold">中文</span>
-          <span class="text-[9px]">▼</span>
+          <span id="current-lang-text" class="font-bold whitespace-nowrap">中文</span>
+          <span class="text-[8px] sm:text-[9px]">▼</span>
         </button>
         <div id="lang-menu" class="lang-dropdown-menu">
           <div class="lang-select-option active-lang" data-lang="zh" onclick="setAppLanguage('zh', event)">🇨🇳 简体中文 (ZH)</div>
@@ -99,16 +97,16 @@
         </div>
       </div>
 
-      <button onclick="toggleSound()" id="sound-toggle-btn" title="切换声音反馈" class="p-2 rounded-full border border-slate-700 bg-slate-900 text-sm hover:border-cyan-neon transition-all shadow-sm">
+      <button onclick="toggleSound()" id="sound-toggle-btn" title="切换声音反馈" class="p-1 sm:p-1.5 rounded-full border border-slate-700 bg-slate-900 text-xs hover:border-cyan-neon transition-all shadow-sm flex-shrink-0">
         🔊
       </button>
-      <button onclick="toggleNotes()" class="badge-chamfer py-1.5 px-3 text-xs text-cyan-neon border-cyan-neon/40 shadow-sm cursor-pointer hidden sm:flex">
+      <button onclick="toggleNotes()" class="badge-chamfer py-1 px-2.5 text-xs text-cyan-neon border-cyan-neon/40 shadow-sm cursor-pointer hidden md:flex whitespace-nowrap flex-shrink-0">
         <span data-i18n="notes_btn">提词</span>
         <kbd class="font-mono text-[9px] bg-slate-800 px-1 rounded ml-1 text-slate-300">N</kbd>
       </button>
-      <button onclick="toggleFullscreen()" class="badge-chamfer py-1.5 px-3 text-xs bg-cyan-neon/20 border-cyan-neon text-cyan-neon font-bold shadow-sm cursor-pointer">
+      <button onclick="toggleFullscreen()" class="badge-chamfer py-1 px-2.5 text-[10px] sm:text-xs bg-cyan-neon/20 border-cyan-neon text-cyan-neon font-bold shadow-sm cursor-pointer whitespace-nowrap flex-shrink-0 hidden sm:flex">
         <span data-i18n="fullscreen_btn">全屏</span>
-        <span class="ml-1 text-xs">↗</span>
+        <span class="ml-0.5 text-xs">↗</span>
       </button>
     </div>
 
