@@ -76,7 +76,7 @@ function initThreeScene() {
     color: 0x00ffb2,
     wireframe: true,
     transparent: true,
-    opacity: 0.48
+    opacity: 0.50
   });
   const torus = new THREE.Mesh(torusGeo, torusMat);
   scene.add(torus);
@@ -98,7 +98,7 @@ function initThreeScene() {
     color: 0x00f2fe,
     size: 0.65,
     transparent: true,
-    opacity: 0.8,
+    opacity: 0.50,
     blending: THREE.AdditiveBlending
   });
   const particles = new THREE.Points(particleGeo, particleMat);
