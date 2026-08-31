@@ -68,15 +68,15 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 72px 4vw 28px;
+  padding: 68px 4vw 24px;
   box-sizing: border-box;
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }
 
 .slide-stage-16-9 {
-  width: min(calc(100vw - 80px), calc((100vh - 104px) * 16 / 9));
-  height: min(calc(100vh - 104px), calc((100vw - 80px) * 9 / 16));
+  width: min(calc(100vw - 72px), calc((100vh - 96px) * 16 / 9));
+  height: min(calc(100vh - 96px), calc((100vw - 72px) * 9 / 16));
   aspect-ratio: 16 / 9;
   position: relative;
   z-index: 10;
@@ -292,7 +292,7 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-/* ==================== Capsule Tags & Badges ==================== */
+/* ==================== Capsule Tags & Interactive Badges ==================== */
 .cyber-pill {
   display: inline-flex;
   align-items: center;
@@ -337,12 +337,37 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
 }
 .badge-chamfer:hover {
   border-color: #00ffb2;
   color: #00ffb2;
   box-shadow: 0 0 16px rgba(0, 255, 178, 0.35);
   transform: translateY(-2px);
+}
+
+/* Interactive Glowing Link Badge */
+.link-cyber-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: rgba(0, 255, 178, 0.12);
+  border: 1px solid rgba(0, 255, 178, 0.5);
+  color: #00ffb2;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+.link-cyber-badge:hover {
+  background: rgba(0, 255, 178, 0.25);
+  border-color: #00ffb2;
+  box-shadow: 0 0 14px rgba(0, 255, 178, 0.45);
+  transform: translateY(-1px);
 }
 
 /* ==================== Motion Choreography ==================== */
