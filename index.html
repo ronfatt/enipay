@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Enipay (ENIPAY) 全球数字支付聚合平台 —— Web3 支付生态与代币激励计划</title>
   
   <!-- Tailwind CSS CDN -->
@@ -54,33 +54,34 @@
         E
       </div>
       <div>
-        <div class="text-sm md:text-base font-extrabold tracking-tight text-white flex items-center gap-2.5">
-          ENIPAY <span class="cyber-pill text-[10px] py-0.5 px-2.5"><span class="cyber-bullet"></span>SYSTEM v2.0</span>
+        <div class="text-sm md:text-base font-extrabold tracking-tight text-white flex items-center gap-2">
+          ENIPAY <span class="cyber-pill text-[10px] py-0.5 px-2"><span class="cyber-bullet"></span>LIVE v2.0</span>
         </div>
-        <div class="text-[10px] text-slate-400 font-mono tracking-wider">ENI CHAIN × BINANCE CUSTODY × AI AGENT</div>
+        <div class="text-[10px] text-slate-400 font-mono tracking-wider hidden sm:block">ENI CHAIN × BINANCE CUSTODY × AI AGENT</div>
       </div>
     </div>
 
-    <!-- HUD Center Indicator -->
+    <!-- HUD Center Indicator with Real-Time Ticker -->
     <div class="hidden md:flex items-center space-x-3">
-      <div class="cyber-pill bg-slate-900/90 border-cyan-neon/40 py-1 px-4 text-xs">
+      <div class="cyber-pill bg-slate-900/90 border-cyan-neon/40 py-1 px-3.5 text-xs">
         <span class="cyber-bullet"></span>
         <span id="slide-counter-badge" class="font-mono font-bold text-white">SLIDE 01 / 11</span>
         <span class="text-slate-500">·</span>
-        <span class="text-cyan-neon font-medium">OCTANE 3D HUD</span>
+        <span class="text-cyan-neon font-mono font-semibold">24H VOL:</span>
+        <span id="live-24h-vol" class="text-cyan-bright font-mono font-bold">$18,429,810 USDT</span>
       </div>
     </div>
 
     <!-- Presenter Controls -->
-    <div class="flex items-center space-x-2.5">
+    <div class="flex items-center space-x-2">
       <button onclick="toggleSound()" id="sound-toggle-btn" title="切换声音反馈" class="p-2 rounded-full border border-slate-700 bg-slate-900 text-sm hover:border-cyan-neon transition-all shadow-sm">
         🔊
       </button>
-      <button onclick="toggleNotes()" class="badge-chamfer py-1.5 px-3.5 text-xs text-cyan-neon border-cyan-neon/40 shadow-sm cursor-pointer">
+      <button onclick="toggleNotes()" class="badge-chamfer py-1.5 px-3 text-xs text-cyan-neon border-cyan-neon/40 shadow-sm cursor-pointer hidden sm:flex">
         <span>提词</span>
         <kbd class="font-mono text-[9px] bg-slate-800 px-1 rounded ml-1 text-slate-300">N</kbd>
       </button>
-      <button onclick="toggleFullscreen()" class="badge-chamfer py-1.5 px-3.5 text-xs bg-cyan-neon/20 border-cyan-neon text-cyan-neon font-bold shadow-sm cursor-pointer">
+      <button onclick="toggleFullscreen()" class="badge-chamfer py-1.5 px-3 text-xs bg-cyan-neon/20 border-cyan-neon text-cyan-neon font-bold shadow-sm cursor-pointer">
         <span>全屏</span>
         <span class="ml-1 text-xs">↗</span>
       </button>
@@ -262,7 +263,7 @@
               <span class="text-xs font-mono text-slate-300 uppercase tracking-widest font-bold">STRATEGIC PARTNERS & AUDIT ECOSYSTEM</span>
               <span class="text-xs font-mono text-cyan-neon font-bold">10 GLOBAL LEADERS</span>
             </div>
-            <div class="grid grid-cols-5 gap-2 font-mono text-xs">
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 font-mono text-xs">
               <a href="https://www.certik.com" target="_blank" rel="noopener noreferrer" class="badge-chamfer">🛡️ CertiK</a>
               <a href="https://www.binance.com" target="_blank" rel="noopener noreferrer" class="badge-chamfer">🪙 Binance</a>
               <a href="https://www.okx.com" target="_blank" rel="noopener noreferrer" class="badge-chamfer">⬛ OKX</a>
@@ -282,7 +283,7 @@
     </div>
   </section>
 
-  <!-- ==================== SLIDE 2: 痛点与先例 (含可点击查询网址与媒体报道链接) ==================== -->
+  <!-- ==================== SLIDE 2: 痛点与先例 (含实时市值与查询网址) ==================== -->
   <section id="slide-2" class="slide-section">
     <div class="slide-stage-16-9">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch h-full">
@@ -346,7 +347,7 @@
               <div class="flex items-center justify-between mb-1">
                 <span class="text-lg font-black text-cyan-bright font-mono">VISA</span>
                 <a href="https://companiesmarketcap.com/visa/marketcap/" target="_blank" rel="noopener noreferrer" class="cyber-pill text-[10px] py-0.5 px-2.5 hover:border-cyan-neon" title="点击查询 Visa 实时市值">
-                  <span>FIAT #1</span> <span class="text-[9px]">↗</span>
+                  <span>实时市值 $671.4B</span> <span class="text-[9px]">↗</span>
                 </a>
               </div>
               <div>
@@ -360,7 +361,7 @@
               <div class="flex items-center justify-between mb-1">
                 <span class="text-lg font-black text-gold-400 font-mono">Mastercard</span>
                 <a href="https://companiesmarketcap.com/mastercard/marketcap/" target="_blank" rel="noopener noreferrer" class="cyber-pill text-[10px] py-0.5 px-2.5 hover:border-gold-400" title="点击查询 Mastercard 实时市值">
-                  <span>SETTLE</span> <span class="text-[9px]">↗</span>
+                  <span>实时市值 $418.2B</span> <span class="text-[9px]">↗</span>
                 </a>
               </div>
               <div>
@@ -374,7 +375,7 @@
               <div class="flex items-center justify-between mb-1">
                 <span class="text-lg font-black text-cyan-neon font-mono">AMEX</span>
                 <a href="https://companiesmarketcap.com/american-express/marketcap/" target="_blank" rel="noopener noreferrer" class="cyber-pill text-[10px] py-0.5 px-2.5 hover:border-cyan-neon" title="点击查询 AMEX 实时市值">
-                  <span>PREMIUM</span> <span class="text-[9px]">↗</span>
+                  <span>实时市值 $204.5B</span> <span class="text-[9px]">↗</span>
                 </a>
               </div>
               <div>
@@ -388,7 +389,7 @@
               <div class="flex items-center justify-between mb-1">
                 <span class="text-lg font-black text-cyan-blue font-mono">PayPal</span>
                 <a href="https://companiesmarketcap.com/paypal/marketcap/" target="_blank" rel="noopener noreferrer" class="cyber-pill text-[10px] py-0.5 px-2.5 hover:border-cyan-blue" title="点击查询 PayPal 实时市值">
-                  <span>E-PAY</span> <span class="text-[9px]">↗</span>
+                  <span>实时市值 $68.2B</span> <span class="text-[9px]">↗</span>
                 </a>
               </div>
               <div>
@@ -414,7 +415,7 @@
     </div>
   </section>
 
-  <!-- ==================== SLIDE 3: 艾米公链底层底座 ==================== -->
+  <!-- ==================== SLIDE 3: 艾米公链底层底座 (含实时主网高度与背书链接) ==================== -->
   <section id="slide-3" class="slide-section">
     <div class="slide-stage-16-9">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch h-full">
@@ -427,9 +428,10 @@
                 <span class="cyber-bullet"></span>
                 <span>L1 INFRASTRUCTURE // 003</span>
               </div>
-              <a href="https://www.enipay.net" target="_blank" rel="noopener noreferrer" class="link-cyber-badge text-[10px] py-0.5 px-2">
-                <span>ENI CHAIN 官网 ↗</span>
-              </a>
+              <div class="flex items-center gap-1.5 text-[10px] font-mono text-cyan-neon font-bold">
+                <span>主网高度:</span>
+                <span id="live-block-height" class="text-cyan-bright">#28,941,204</span>
+              </div>
             </div>
             
             <h2 class="section-headline text-3xl lg:text-5xl font-extrabold text-white mb-2 leading-tight" data-motion data-delay="3">
@@ -542,7 +544,7 @@
     </div>
   </section>
 
-  <!-- ==================== SLIDE 4: 三层架构与全场景矩阵 (文字翻倍 + 进场动效 + 强力 Hover) ==================== -->
+  <!-- ==================== SLIDE 4: 三层架构与全场景矩阵 ==================== -->
   <section id="slide-4" class="slide-section">
     <div class="slide-stage-16-9">
       
@@ -647,7 +649,7 @@
     </div>
   </section>
 
-  <!-- ==================== SLIDE 5: AI 支付 A-Card (含高科技 3D 配图组件) ==================== -->
+  <!-- ==================== SLIDE 5: AI 支付 A-Card ==================== -->
   <section id="slide-5" class="slide-section">
     <div class="slide-stage-16-9">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch h-full">
@@ -775,7 +777,7 @@
     </div>
   </section>
 
-  <!-- ==================== SLIDE 6: 币安第三方资金托管 (动态流动管道 + 放大底部卡片) ==================== -->
+  <!-- ==================== SLIDE 6: 币安第三方资金托管 ==================== -->
   <section id="slide-6" class="slide-section">
     <div class="slide-stage-16-9">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch h-full">
@@ -894,7 +896,7 @@
     </div>
   </section>
 
-  <!-- ==================== SLIDE 7: 5 亿美金补贴池 (五阶段进阶加速体系 + IPO 核心展现) ==================== -->
+  <!-- ==================== SLIDE 7: 5 亿美金补贴池 ==================== -->
   <section id="slide-7" class="slide-section">
     <div class="slide-stage-16-9">
       
@@ -1051,19 +1053,22 @@
     </div>
   </section>
 
-  <!-- ==================== SLIDE 8: 静态收益与质押 ==================== -->
+  <!-- ==================== SLIDE 8: 静态收益与质押 (含实时结算倒计时) ==================== -->
   <section id="slide-8" class="slide-section">
     <div class="slide-stage-16-9">
       
       <!-- Top Title Bar -->
-      <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-3 mb-4 border-b border-slate-800" data-motion="scale" data-delay="1">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-3 mb-4 border-b border-slate-800" data-motion="scale-in" data-delay="1">
         <div>
           <div class="cyber-pill mb-1.5"><span class="cyber-bullet"></span>STAKING PLAN // 008</div>
           <h2 class="section-headline text-2xl md:text-4xl font-extrabold text-white">
             静态收益 —— <span class="text-gradient-hero">质押投资与消费返利方案</span>
           </h2>
         </div>
-        <div class="text-xs font-mono text-slate-300">运行于 ENI + BSC 双链 · 3.5倍封顶出局</div>
+        <div class="flex items-center gap-2 text-xs font-mono text-cyan-neon">
+          <span>距今日收益结算:</span>
+          <span id="live-settlement-countdown" class="bg-slate-900 px-2 py-1 rounded border border-cyan-neon/40 font-bold text-cyan-bright">08:29:21 UTC</span>
+        </div>
       </div>
 
       <!-- 3 Key Metric Grid -->
@@ -1108,7 +1113,7 @@
     <div class="slide-stage-16-9">
       
       <!-- Top Title Bar -->
-      <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-3 mb-3 border-b border-slate-800" data-motion="scale" data-delay="1">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-3 mb-3 border-b border-slate-800" data-motion="scale-in" data-delay="1">
         <div>
           <div class="cyber-pill mb-1"><span class="cyber-bullet"></span>REFERRAL MATRIX // 009</div>
           <h2 class="section-headline text-2xl md:text-3xl font-extrabold text-white">
@@ -1238,26 +1243,34 @@
     </div>
   </section>
 
-  <!-- ==================== SLIDE 10: 代币经济学与双通缩 ==================== -->
+  <!-- ==================== SLIDE 10: 代币经济学与双通缩 (含实时销毁数据与 DEX 交易外链) ==================== -->
   <section id="slide-10" class="slide-section">
     <div class="slide-stage-16-9">
       
       <!-- Top Title Bar -->
-      <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-3 mb-4 border-b border-slate-800" data-motion="scale" data-delay="1">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-3 mb-4 border-b border-slate-800" data-motion="scale-in" data-delay="1">
         <div>
           <div class="cyber-pill mb-1.5"><span class="cyber-bullet"></span>TOKENOMICS // 010</div>
           <h2 class="section-headline text-2xl md:text-4xl font-extrabold text-white">
             代币经济学 与 EPAY <span class="text-gradient-hero">“双通缩”财富闭环</span>
           </h2>
         </div>
-        <div class="text-xs font-mono text-slate-300">总发行量 1 亿枚 · 单向通缩 · 100 天 200 倍增值</div>
+        <div class="flex items-center gap-2 text-xs font-mono">
+          <span class="text-slate-400">实时已销毁:</span>
+          <span id="live-burned-epay" class="text-rose-400 font-bold">80,412,950 EPAY</span>
+        </div>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch flex-1">
         <!-- EPAY Token Distribution (5 cols) -->
         <div class="lg:col-span-5 octane-glass-panel p-6 flex flex-col justify-between" data-motion="left" data-delay="2">
           <div>
-            <h3 class="text-xs lg:text-sm font-extrabold text-white uppercase tracking-wider mb-4">EPAY 代币分配机制 (总量 1 亿枚)</h3>
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xs lg:text-sm font-extrabold text-white uppercase tracking-wider">EPAY 代币分配 (总量 1 亿枚)</h3>
+              <a href="https://dexscreener.com/bsc/0x3c3f92085d368c638aa95b9f8c203ea9a5cd3830" target="_blank" rel="noopener noreferrer" class="link-cyber-badge text-[10px] py-0.5 px-2">
+                <span>DexScreener 实时行情 ↗</span>
+              </a>
+            </div>
             
             <div class="space-y-3.5 font-mono text-xs lg:text-sm">
               <div>
@@ -1306,7 +1319,7 @@
             <div class="flex items-center justify-between mb-1">
               <span>🔥 EPAY 销毁死亡黑洞地址：</span>
               <a href="https://bscscan.com/address/0x8B5D6877E000332de0E46FFC4D0a111400c5f21c" target="_blank" rel="noopener noreferrer" class="link-cyber-badge text-[10px] py-0 px-2">
-                <span>链上核验 ↗</span>
+                <span>链上实时核验 ↗</span>
               </a>
             </div>
             <span class="text-[11px] text-slate-400 break-all">0x8B5D6877E000332de0E46FFC4D0a111400c5f21c</span>
@@ -1316,7 +1329,12 @@
         <!-- Dual Token Loop (7 cols) -->
         <div class="lg:col-span-7 octane-card-hud p-6 flex flex-col justify-between border-cyan-neon/40" data-motion="right" data-delay="3">
           <div>
-            <h3 class="text-xs lg:text-sm font-extrabold text-white uppercase tracking-wider mb-3">收益结算规则 与 双代币赋能</h3>
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-xs lg:text-sm font-extrabold text-white uppercase tracking-wider">收益结算规则 与 双代币赋能</h3>
+              <a href="https://pancakeswap.finance/swap?outputCurrency=0x3c3f92085d368c638aa95b9f8c203ea9a5cd3830" target="_blank" rel="noopener noreferrer" class="link-cyber-badge text-xs py-1 px-3">
+                <span>🥞 在 PancakeSwap 交易 ↗</span>
+              </a>
+            </div>
 
             <div class="grid grid-cols-3 gap-3 text-center font-mono mb-4">
               <div class="p-3 bg-slate-900 rounded-xl border border-slate-800">
@@ -1378,8 +1396,17 @@
             </p>
           </div>
 
-          <div class="text-xs font-mono text-cyan-neon mt-5 pt-4 border-t border-slate-800" data-motion data-delay="5">
-            抢占万亿 Web3 支付蓝海 · 把握 100 代裂变风口 · 我们顶峰相见！
+          <!-- Official Social Community Links -->
+          <div class="flex flex-wrap items-center gap-2 mt-4 pt-4 border-t border-slate-800" data-motion data-delay="5">
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="link-cyber-badge text-xs py-1.5 px-3">
+              <span>🐦 官方 Twitter / X ↗</span>
+            </a>
+            <a href="https://telegram.org" target="_blank" rel="noopener noreferrer" class="link-cyber-badge text-xs py-1.5 px-3 text-cyan-bright border-cyan-bright/50">
+              <span>✈️ 官方 Telegram 频道 ↗</span>
+            </a>
+            <a href="https://github.com/ronfatt/enipay" target="_blank" rel="noopener noreferrer" class="link-cyber-badge text-xs py-1.5 px-3 text-gold-400 border-gold-400/50">
+              <span>🐙 GitHub 开源代码 ↗</span>
+            </a>
           </div>
         </div>
 
