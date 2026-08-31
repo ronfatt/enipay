@@ -717,42 +717,87 @@
           <!-- Right Column: 3 Settlement Cards + 10 Partner Grid (6 cols) -->
           <div class="lg:col-span-6 flex flex-col justify-between space-y-3 h-full" data-motion="right" data-delay="2">
             
-            <!-- Card 1: 秒级清算 -->
-            <div class="octane-card-hud p-4 flex items-start space-x-3.5" data-motion="scale-in" data-delay="3">
-              <div class="w-10 h-10 rounded-xl bg-cyan-neon/10 border border-cyan-neon/40 flex items-center justify-center text-cyan-neon text-xl font-bold flex-shrink-0">
-                ⚡
+            <!-- Card 1: CIRCLE (STABLECOIN FOUNDATION) -->
+            <div class="octane-card-hud p-3.5" data-motion="scale-in" data-delay="3">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-[10px] font-mono tracking-widest text-slate-400 uppercase font-bold" data-i18n="s1_c1_tag">STABLECOIN FOUNDATION</span>
+                <span class="cyber-pill text-[9px] py-0.2 px-1.5 bg-cyan-neon/10 text-cyan-neon border-cyan-neon/30">USDC CORE</span>
               </div>
-              <div>
-                <h3 class="text-base font-bold text-white mb-0.5" data-i18n="s1_card1_title">秒级全球清结算</h3>
-                <p class="text-xs text-slate-300 leading-relaxed" data-i18n="s1_card1_desc">
-                  双币实时归集，智能路由最低滑点与全球加密/法币双向合规通道。
-                </p>
+              <div class="flex items-center gap-2.5 mb-1.5">
+                <!-- Circle Logo SVG -->
+                <div class="w-7 h-7 rounded-lg bg-slate-950 border border-cyan-neon/40 flex items-center justify-center shadow-md flex-shrink-0">
+                  <svg class="w-4.5 h-4.5" viewBox="0 0 100 100" fill="none">
+                    <circle cx="50" cy="50" r="42" stroke="#00ffb2" stroke-width="8" stroke-opacity="0.25"/>
+                    <path d="M36,32 C40,28 45,26 50,26 C63.2,26 74,36.8 74,50 C74,55 72.5,59.5 69.5,63.5" stroke="#00ffb2" stroke-width="8" stroke-linecap="round"/>
+                    <path d="M64,68 C60,72 55,74 50,74 C36.8,74 26,63.2 26,50 C26,45 27.5,40.5 30.5,36.5" stroke="#00f2fe" stroke-width="8" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <span class="text-sm sm:text-base font-black text-white tracking-wider" data-i18n="s1_card1_title">Circle 稳定币底层基座</span>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed mb-2" data-i18n="s1_card1_desc">
+                具备全透明储备金与机构级网络的稳定币基础设施。依托合规优先架构，实现 7×24 小时近乎即时的清结算。
+              </p>
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="cyber-pill text-[9px] py-0.5 px-2 bg-slate-900 border-slate-700/80 text-slate-300">Alliance Program</span>
+                <span class="cyber-pill text-[9px] py-0.5 px-2 bg-slate-900 border-slate-700/80 text-slate-300">CPN</span>
+                <span class="cyber-pill text-[9px] py-0.5 px-2 bg-slate-900 border-slate-700/80 text-cyan-neon font-bold">100% Backed</span>
               </div>
             </div>
 
-            <!-- Card 2: AI Agent -->
-            <div class="octane-card-hud p-4 flex items-start space-x-3.5" data-motion="scale-in" data-delay="4">
-              <div class="w-10 h-10 rounded-xl bg-cyan-bright/10 border border-cyan-bright/40 flex items-center justify-center text-cyan-bright text-xl font-bold flex-shrink-0">
-                🤖
+            <!-- Card 2: BRIDGE (MONEY MOVEMENT) -->
+            <div class="octane-card-hud p-3.5" data-motion="scale-in" data-delay="4">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-[10px] font-mono tracking-widest text-slate-400 uppercase font-bold" data-i18n="s1_c2_tag">MONEY MOVEMENT</span>
+                <span class="cyber-pill text-[9px] py-0.2 px-1.5 bg-cyan-bright/10 text-cyan-bright border-cyan-bright/30">PAYMENT RAILS</span>
               </div>
-              <div>
-                <h3 class="text-base font-bold text-white mb-0.5" data-i18n="s1_card2_title">AI Agent 智能卡</h3>
-                <p class="text-xs text-slate-300 leading-relaxed" data-i18n="s1_card2_desc">
-                  面向自主智能体的小额即时授权、自主量化套利理财与自动化微支付。
-                </p>
+              <div class="flex items-center gap-2.5 mb-1.5">
+                <!-- Bridge Logo SVG -->
+                <div class="w-7 h-7 rounded-lg bg-slate-950 border border-cyan-bright/40 flex items-center justify-center shadow-md flex-shrink-0">
+                  <svg class="w-4.5 h-4.5" viewBox="0 0 100 100" fill="none">
+                    <path d="M22,58 A28,28 0 0,1 78,58" stroke="#ffffff" stroke-width="8" stroke-linecap="round"/>
+                    <line x1="22" y1="67" x2="22" y2="76" stroke="#00f2fe" stroke-width="7" stroke-linecap="round"/>
+                    <line x1="33" y1="71" x2="33" y2="80" stroke="#00f2fe" stroke-width="7" stroke-linecap="round"/>
+                    <line x1="44" y1="73" x2="44" y2="82" stroke="#00f2fe" stroke-width="7" stroke-linecap="round"/>
+                    <line x1="56" y1="73" x2="56" y2="82" stroke="#00f2fe" stroke-width="7" stroke-linecap="round"/>
+                    <line x1="67" y1="71" x2="67" y2="80" stroke="#00f2fe" stroke-width="7" stroke-linecap="round"/>
+                    <line x1="78" y1="67" x2="78" y2="76" stroke="#00f2fe" stroke-width="7" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <span class="text-sm sm:text-base font-black text-white tracking-wider" data-i18n="s1_card2_title">Bridge 全球资金编排层</span>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed mb-2" data-i18n="s1_card2_desc">
+                全流程资金编排层，全面统筹跨法币、稳定币与数字资产的支付通道、智能合约、储备金及银行级系统对接。
+              </p>
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="cyber-pill text-[9px] py-0.5 px-2 bg-slate-900 border-slate-700/80 text-slate-300">Issuance</span>
+                <span class="cyber-pill text-[9px] py-0.5 px-2 bg-slate-900 border-slate-700/80 text-slate-300">Orchestration</span>
+                <span class="cyber-pill text-[9px] py-0.5 px-2 bg-slate-900 border-slate-700/80 text-cyan-bright font-bold">Multi-currency</span>
               </div>
             </div>
 
-            <!-- Card 3: 100% 币安第三方托管 -->
-            <div class="octane-card-hud p-4 flex items-start space-x-3.5" data-motion="scale-in" data-delay="5">
-              <div class="w-10 h-10 rounded-xl bg-gold-400/10 border border-gold-400/40 flex items-center justify-center text-gold-400 text-xl font-bold flex-shrink-0">
-                🛡️
+            <!-- Card 3: BINANCE (LIQUIDITY & BROKER) -->
+            <div class="octane-card-hud p-3.5" data-motion="scale-in" data-delay="5">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-[10px] font-mono tracking-widest text-slate-400 uppercase font-bold" data-i18n="s1_c3_tag">LIQUIDITY & BROKER</span>
+                <span class="cyber-pill text-[9px] py-0.2 px-1.5 bg-gold-400/10 text-gold-400 border-gold-400/30">BINANCE LINK</span>
               </div>
-              <div>
-                <h3 class="text-base font-bold text-white mb-0.5" data-i18n="s1_card3_title">100% 币安第三方托管</h3>
-                <p class="text-xs text-slate-300 leading-relaxed" data-i18n="s1_card3_desc">
-                  零资金池沉淀风险，全额锁定币安官方账户，物理隔离与 MPC 冷重多签防护。
-                </p>
+              <div class="flex items-center gap-2.5 mb-1.5">
+                <!-- Binance Logo SVG -->
+                <div class="w-7 h-7 rounded-lg bg-slate-950 border border-gold-400/40 flex items-center justify-center shadow-md flex-shrink-0">
+                  <svg class="w-4.5 h-4.5" viewBox="0 0 24 24" fill="#F3BA2F">
+                    <path d="M12 2.6L7.3 7.3l2.4 2.4L12 7.4l2.3 2.3 2.4-2.4L12 2.6zm-7.4 7.4L2.3 12.3l2.3 2.3 2.4-2.4-2.4-2.2zm14.8 0l-2.4 2.4 2.4 2.4 2.3-2.3-2.3-2.5zm-5.1 2.3L12 14.6l-2.3-2.3-2.4 2.4L12 19.4l4.7-4.7-2.4-2.4z"/>
+                  </svg>
+                </div>
+                <span class="text-sm sm:text-base font-black text-[#F3BA2F] tracking-wider" data-i18n="s1_card3_title">Binance 币安流动性与经纪网络</span>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed mb-2" data-i18n="s1_card3_desc">
+                币安生态内的流动性与经纪商接入层。全面支持经纪商、数字钱包、交易所与资产管理系统的深度集成。
+              </p>
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="cyber-pill text-[9px] py-0.5 px-2 bg-slate-900 border-slate-700/80 text-slate-300">Broker</span>
+                <span class="cyber-pill text-[9px] py-0.5 px-2 bg-slate-900 border-slate-700/80 text-slate-300">Wallet</span>
+                <span class="cyber-pill text-[9px] py-0.5 px-2 bg-slate-900 border-slate-700/80 text-slate-300">Exchange</span>
+                <span class="cyber-pill text-[9px] py-0.5 px-2 bg-slate-900 border-slate-700/80 text-gold-400 font-bold">Asset Mgmt</span>
               </div>
             </div>
 
