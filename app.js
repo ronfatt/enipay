@@ -208,7 +208,8 @@ function initLiveOnChainDataFeeds() {
     }
   }, 2500);
 
-  // 2. Live Burned EPAY (Query directly from EniScan Black Hole 0x0000...dEaD)
+  // 2. Live Burned EPAY (Query Official EPAY Contract 0x3C3F92085D368C638Aa95b9f8c203ea9a5cD3830)
+  const OFFICIAL_EPAY_CONTRACT = '0x3c3f92085d368c638aa95b9f8c203ea9a5cd3830';
   let liveBurnedEPAY = 72060367.11;
 
   function updateBurnedEPAYUI() {
@@ -220,25 +221,48 @@ function initLiveOnChainDataFeeds() {
 
   async function fetchLiveBurnedEPAY() {
     try {
-      const res = await fetch('https://scan.eniac.network/api/v2/addresses/0x000000000000000000000000000000000000dEaD/tokens');
-      if (!res.ok) throw new Error('EniScan black hole query error');
-      const data = await res.json();
-      if (data && data.items && data.items.length > 0) {
-        const epayItem = data.items.find(i => i.token && (i.token.symbol === 'EPAY' || (i.token.name && i.token.name.includes('EPAY'))));
-        if (epayItem && epayItem.value) {
-          const decimals = parseInt(epayItem.token.decimals || '18', 10);
-          const rawVal = BigInt(epayItem.value);
-          const divisor = BigInt(10 ** (decimals - 2));
-          const balanceFormatted = Number(rawVal / divisor) / 100;
-          if (balanceFormatted > 0) {
-            // Exact raw on-chain burned EPAY balance from EniScan black hole
-            liveBurnedEPAY = balanceFormatted;
-            updateBurnedEPAYUI();
+      // 1. Direct query from official EPAY holders (1st holder is dead address)
+      const res = await fetch(`https://scan.eniac.network/api/v2/tokens/${OFFICIAL_EPAY_CONTRACT}/holders`);
+      if (res.ok) {
+        const data = await res.json();
+        if (data && data.items && data.items.length > 0) {
+          const deadHolder = data.items.find(i => i.address && i.address.hash && i.address.hash.toLowerCase() === '0x000000000000000000000000000000000000dead') || data.items[0];
+          if (deadHolder && deadHolder.value) {
+            const rawVal = BigInt(deadHolder.value);
+            const divisor = BigInt(10 ** 16);
+            const balanceFormatted = Number(rawVal / divisor) / 100;
+            if (balanceFormatted > 0 && balanceFormatted < 99000000) {
+              liveBurnedEPAY = balanceFormatted;
+              updateBurnedEPAYUI();
+              return;
+            }
           }
         }
       }
     } catch (e) {
-      console.warn('EniScan live burned query fallback to dynamic simulation:', e);
+      console.warn('EniScan holders API error, trying dead address tokens:', e);
+    }
+
+    try {
+      // 2. Secondary fallback: dead address tokens matching exact contract hash
+      const res2 = await fetch('https://scan.eniac.network/api/v2/addresses/0x000000000000000000000000000000000000dEaD/tokens');
+      if (res2.ok) {
+        const data2 = await res2.json();
+        if (data2 && data2.items) {
+          const epayItem = data2.items.find(i => i.token && i.token.address_hash && i.token.address_hash.toLowerCase() === OFFICIAL_EPAY_CONTRACT);
+          if (epayItem && epayItem.value) {
+            const rawVal = BigInt(epayItem.value);
+            const divisor = BigInt(10 ** 16);
+            const balanceFormatted = Number(rawVal / divisor) / 100;
+            if (balanceFormatted > 0 && balanceFormatted < 99000000) {
+              liveBurnedEPAY = balanceFormatted;
+              updateBurnedEPAYUI();
+            }
+          }
+        }
+      }
+    } catch (err) {
+      console.warn('EniScan dead tokens fallback error:', err);
     }
   }
 
