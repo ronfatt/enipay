@@ -80,6 +80,8 @@ const translations = {
     s3_link_eni: "ENI 官网 ↗",
     s3_link_node: "节点连接 ↗",
     s3_link_terms: "Enipay安全条款 ↗",
+    s3_card1_title: "ENI 官方博客 ↗",
+    s3_card2_title: "100 超级节点计划 ↗",
 
     // Slide 3: 2b 四大传统支付巨头市值
     s2b_tag: "GLOBAL CLEARING GIANTS // 003",
@@ -436,6 +438,8 @@ const translations = {
     s3_link_eni: "ENI Official ↗",
     s3_link_node: "Node Connect ↗",
     s3_link_terms: "Security Terms ↗",
+    s3_card1_title: "ENI Official Blogs ↗",
+    s3_card2_title: "Top 100 Supernodes ↗",
 
     s2b_tag: "GLOBAL CLEARING GIANTS // 003",
     s2b_title: "Traditional Payment Giants <span class=\"text-gradient-hero\">\"Trillion-Dollar Market Cap\"</span> Benchmark",
@@ -781,6 +785,8 @@ const translations = {
     s3_link_eni: "ENI 公式 ↗",
     s3_link_node: "ノード接続 ↗",
     s3_link_terms: "セキュリティ規約 ↗",
+    s3_card1_title: "ENI 公式ブログ ↗",
+    s3_card2_title: "100 スーパーノード計画 ↗",
 
     s2b_tag: "GLOBAL CLEARING GIANTS // 003",
     s2b_title: "世界的決済大手 <span class=\"text-gradient-hero\">「兆ドル時価総額」</span> の指標と示唆",
@@ -1126,6 +1132,8 @@ const translations = {
     s3_link_eni: "ENI 공식 ↗",
     s3_link_node: "노드 연결 ↗",
     s3_link_terms: "보안 약관 ↗",
+    s3_card1_title: "ENI 공식 블로그 ↗",
+    s3_card2_title: "100 슈퍼노드 프로그램 ↗",
 
     s2b_tag: "GLOBAL CLEARING GIANTS // 003",
     s2b_title: "전통 결제 거두들의 <span class=\"text-gradient-hero\">\"수조 달러 시가총액\"</span> 벤치마크",
@@ -1471,6 +1479,8 @@ const translations = {
     s3_link_eni: "ENI Trang chủ ↗",
     s3_link_node: "Kết nối Node ↗",
     s3_link_terms: "Điều khoản bảo mật ↗",
+    s3_card1_title: "Blog chính thức ENI ↗",
+    s3_card2_title: "Kế hoạch 100 Supernode ↗",
 
     s2b_tag: "GLOBAL CLEARING GIANTS // 003",
     s2b_title: "Các Gã khổng lồ Thanh toán <span class=\"text-gradient-hero\">\"Vốn hóa Nghìn tỷ Đô la\"</span> Đối sánh",
