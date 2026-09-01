@@ -208,8 +208,8 @@ function initLiveOnChainDataFeeds() {
     }
   }, 2500);
 
-  // 2. Live Burned EPAY (Query from EniScan Black Hole 0x0000...dEaD + Real-time buyback ticks)
-  let liveBurnedEPAY = 80413744;
+  // 2. Live Burned EPAY (Query directly from EniScan Black Hole 0x0000...dEaD)
+  let liveBurnedEPAY = 72060367.11;
 
   function updateBurnedEPAYUI() {
     const burnEl = document.getElementById('live-burned-epay');
@@ -231,8 +231,8 @@ function initLiveOnChainDataFeeds() {
           const divisor = BigInt(10 ** (decimals - 2));
           const balanceFormatted = Number(rawVal / divisor) / 100;
           if (balanceFormatted > 0) {
-            // Actual on-chain black hole token accumulation
-            liveBurnedEPAY = Math.max(balanceFormatted, 80000000 + (balanceFormatted % 1000000));
+            // Exact raw on-chain burned EPAY balance from EniScan black hole
+            liveBurnedEPAY = balanceFormatted;
             updateBurnedEPAYUI();
           }
         }
@@ -243,7 +243,7 @@ function initLiveOnChainDataFeeds() {
   }
 
   fetchLiveBurnedEPAY();
-  setInterval(fetchLiveBurnedEPAY, 20000);
+  setInterval(fetchLiveBurnedEPAY, 15000);
 
   // Micro-ticks for live burns & 24H volume
   setInterval(() => {
