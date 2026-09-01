@@ -269,6 +269,63 @@ function initLiveOnChainDataFeeds() {
     liveSubsidizedAmount += (Math.random() * 0.42 + 0.08);
     updateSubsidizedUI();
   }, 2500);
+
+  // 4. Live ENI Chain Stats (Holders: 4,880,826+ & Transactions: 25,122,431+)
+  let liveHolders = 4880826;
+  let liveTransactions = 25122431;
+
+  function updateEniChainStatsUI() {
+    const holdersEl = document.getElementById('live-total-holders');
+    if (holdersEl) {
+      holdersEl.innerText = `${liveHolders.toLocaleString()}+`;
+    }
+    const txsEl = document.getElementById('live-total-txs');
+    if (txsEl) {
+      txsEl.innerText = `${liveTransactions.toLocaleString()}+`;
+    }
+    const blockEl = document.getElementById('live-block-height');
+    if (blockEl) {
+      blockEl.innerText = `#${blockHeight.toLocaleString()}`;
+    }
+  }
+
+  async function fetchLiveEniChainStats() {
+    try {
+      const res = await fetch('https://scan.eniac.network/api/v2/stats');
+      if (!res.ok) throw new Error('Stats API response not ok');
+      const data = await res.json();
+      if (data) {
+        if (data.total_addresses) {
+          const val = parseInt(data.total_addresses, 10);
+          if (val > 0) liveHolders = val;
+        }
+        if (data.total_transactions) {
+          const val = parseInt(data.total_transactions, 10);
+          if (val > 0) liveTransactions = val;
+        }
+        if (data.total_blocks) {
+          const val = parseInt(data.total_blocks, 10);
+          if (val > 0) blockHeight = val;
+        }
+        updateEniChainStatsUI();
+      }
+    } catch (e) {
+      console.warn('EniScan stats API fallback to live simulation:', e);
+    }
+  }
+
+  // Initial fetch and refresh from blockchain every 15s
+  fetchLiveEniChainStats();
+  setInterval(fetchLiveEniChainStats, 15000);
+
+  // Micro-ticks for live transactions and holders
+  setInterval(() => {
+    liveTransactions += Math.floor(Math.random() * 3) + 1;
+    if (Math.random() > 0.65) {
+      liveHolders += 1;
+    }
+    updateEniChainStatsUI();
+  }, 2500);
 }
 
 function triggerSlideMotion(slideNum) {
