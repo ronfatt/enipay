@@ -601,240 +601,47 @@ const RESOURCES_DATA = [
     ]
   },
   {
-    "id": "rollup-zh-set",
-    "category": "rollups",
-    "type": "PNG",
-    "title": "ENIPAY 官方中文易拉宝展架 (全套 6 张)",
-    "subtitle": "涵盖平台介绍、公链底座、U卡权益、收益模型、安全保障与上市规划",
-    "path": "./ENI资料库/易拉寶图/易拉寶1.png",
-    "thumb": "./ENI资料库/易拉寶图/易拉寶1.png",
-    "badge": "中文易拉宝",
-    "badgeColor": "cyan",
-    "icon": "🚩",
-    "canPreview": true,
-    "canDownload": true,
-    "previewType": "image",
-    "multiLangLinks": [
-      {
-        "lang": "r1",
-        "label": "展架 1 (总览)",
-        "url": "./ENI资料库/易拉寶图/易拉寶1.png"
-      },
-      {
-        "lang": "r2",
-        "label": "展架 2 (公链)",
-        "url": "./ENI资料库/易拉寶图/易拉寶2.png"
-      },
-      {
-        "lang": "r3",
-        "label": "展架 3 (U卡)",
-        "url": "./ENI资料库/易拉寶图/易拉寶3.png"
-      },
-      {
-        "lang": "r4",
-        "label": "展架 4 (模型)",
-        "url": "./ENI资料库/易拉寶图/易拉寶4.png"
-      },
-      {
-        "lang": "r5",
-        "label": "展架 5 (安全)",
-        "url": "./ENI资料库/易拉寶图/易拉寶5.png"
-      },
-      {
-        "lang": "r6",
-        "label": "展架 6 (上市)",
-        "url": "./ENI资料库/易拉寶图/易拉寶6.png"
-      }
-    ]
-  },
-  {
-    "id": "rollup-en-set",
-    "category": "rollups",
-    "type": "PNG",
-    "title": "ENIPAY English Roll-up Banners (Set of 6)",
-    "subtitle": "Standard English Roll-up Banners for Global Conferences & Roadshows",
-    "path": "./ENI资料库/易拉寶图/易拉寶英文 1.png",
-    "thumb": "./ENI资料库/易拉寶图/易拉寶英文 1.png",
-    "badge": "English Rollup",
-    "badgeColor": "gold",
-    "icon": "🚩",
-    "canPreview": true,
-    "canDownload": true,
-    "previewType": "image",
-    "multiLangLinks": [
-      {
-        "lang": "r1",
-        "label": "Banner 1",
-        "url": "./ENI资料库/易拉寶图/易拉寶英文 1.png"
-      },
-      {
-        "lang": "r2",
-        "label": "Banner 2",
-        "url": "./ENI资料库/易拉寶图/易拉寶英文 2.png"
-      },
-      {
-        "lang": "r3",
-        "label": "Banner 3",
-        "url": "./ENI资料库/易拉寶图/易拉寶英文 3.png"
-      },
-      {
-        "lang": "r4",
-        "label": "Banner 4",
-        "url": "./ENI资料库/易拉寶图/易拉寶英文 4.png"
-      },
-      {
-        "lang": "r5",
-        "label": "Banner 5",
-        "url": "./ENI资料库/易拉寶图/易拉寶英文 5.png"
-      },
-      {
-        "lang": "r6",
-        "label": "Banner 6",
-        "url": "./ENI资料库/易拉寶图/易拉寶英文 6.png"
-      }
-    ]
-  },
-  {
-    "id": "rollup-ja-set",
-    "category": "rollups",
-    "type": "PNG",
-    "title": "ENIPAY 日本語ロールアップバナー (全6種)",
-    "subtitle": "日本のコミュニティ及びオフラインイベント専用標準ロールアップバナー",
-    "path": "./ENI资料库/易拉寶图/易拉寶日文 1.png",
-    "thumb": "./ENI资料库/易拉寶图/易拉寶日文 1.png",
-    "badge": "日本語バナー",
-    "badgeColor": "blue",
-    "icon": "🚩",
-    "canPreview": true,
-    "canDownload": true,
-    "previewType": "image",
-    "multiLangLinks": [
-      {
-        "lang": "r1",
-        "label": "バナー 1",
-        "url": "./ENI资料库/易拉寶图/易拉寶日文 1.png"
-      },
-      {
-        "lang": "r2",
-        "label": "バナー 2",
-        "url": "./ENI资料库/易拉寶图/易拉寶日文 2.png"
-      },
-      {
-        "lang": "r3",
-        "label": "バナー 3",
-        "url": "./ENI资料库/易拉寶图/易拉寶日文 3.png"
-      },
-      {
-        "lang": "r4",
-        "label": "バナー 4",
-        "url": "./ENI资料库/易拉寶图/易拉寶日文 4.png"
-      },
-      {
-        "lang": "r5",
-        "label": "バナー 5",
-        "url": "./ENI资料库/易拉寶图/易拉寶日文 5.png"
-      },
-      {
-        "lang": "r6",
-        "label": "バナー 6",
-        "url": "./ENI资料库/易拉寶图/易拉寶日文 6.png"
-      }
-    ]
-  },
-  {
-    "id": "rollup-ko-set",
-    "category": "rollups",
-    "type": "PNG",
-    "title": "ENIPAY 한국어 롤업 배너 (전 6종 세트)",
-    "subtitle": "한국 오프라인 밋업 및 파트너 설명회용 공식 롤업 배너",
-    "path": "./ENI资料库/易拉寶图/易拉寶韩文 1.png",
-    "thumb": "./ENI资料库/易拉寶图/易拉寶韩文 1.png",
-    "badge": "한국어 배너",
-    "badgeColor": "blue",
-    "icon": "🚩",
-    "canPreview": true,
-    "canDownload": true,
-    "previewType": "image",
-    "multiLangLinks": [
-      {
-        "lang": "r1",
-        "label": "배너 1",
-        "url": "./ENI资料库/易拉寶图/易拉寶韩文 1.png"
-      },
-      {
-        "lang": "r2",
-        "label": "배너 2",
-        "url": "./ENI资料库/易拉寶图/易拉寶韩文 2.png"
-      },
-      {
-        "lang": "r3",
-        "label": "배너 3",
-        "url": "./ENI资料库/易拉寶图/易拉寶韩文 3.png"
-      },
-      {
-        "lang": "r4",
-        "label": "배너 4",
-        "url": "./ENI资料库/易拉寶图/易拉寶韩文 4.png"
-      },
-      {
-        "lang": "r5",
-        "label": "배너 5",
-        "url": "./ENI资料库/易拉寶图/易拉寶韩文 5.png"
-      },
-      {
-        "lang": "r6",
-        "label": "배너 6",
-        "url": "./ENI资料库/易拉寶图/易拉寶韩文 6.png"
-      }
-    ]
-  },
-  {
-    "id": "rollup-vi-set",
-    "category": "rollups",
-    "type": "PNG",
-    "title": "ENIPAY Standee Cuốn Tiếng Việt (Trọn bộ 6 bản)",
-    "subtitle": "Bộ Standee Roll-up tiêu chuẩn dành cho sự kiện và hội nghị tại Việt Nam",
-    "path": "./ENI资料库/易拉寶图/易拉寶越文 1.png",
-    "thumb": "./ENI资料库/易拉寶图/易拉寶越文 1.png",
-    "badge": "Standee VN",
-    "badgeColor": "cyan",
-    "icon": "🚩",
-    "canPreview": true,
-    "canDownload": true,
-    "previewType": "image",
-    "multiLangLinks": [
-      {
-        "lang": "r1",
-        "label": "Standee 1",
-        "url": "./ENI资料库/易拉寶图/易拉寶越文 1.png"
-      },
-      {
-        "lang": "r2",
-        "label": "Standee 2",
-        "url": "./ENI资料库/易拉寶图/易拉寶越文 2.png"
-      },
-      {
-        "lang": "r3",
-        "label": "Standee 3",
-        "url": "./ENI资料库/易拉寶图/易拉寶越文 3.png"
-      },
-      {
-        "lang": "r4",
-        "label": "Standee 4",
-        "url": "./ENI资料库/易拉寶图/易拉寶越文 4.png"
-      },
-      {
-        "lang": "r5",
-        "label": "Standee 5",
-        "url": "./ENI资料库/易拉寶图/易拉寶越文 5.png"
-      },
-      {
-        "lang": "r6",
-        "label": "Standee 6",
-        "url": "./ENI资料库/易拉寶图/易拉寶越文 6.png"
-      }
-    ]
-  },
+  "id": "rollup-global-set",
+  "category": "rollups",
+  "type": "PNG",
+  "title": "ENIPAY 官方标准易拉宝展架 (5 国语言全套 30 款)",
+  "subtitle": "涵盖平台总览、公链底座、U卡权益、收益模型、安全保障与上市规划全套展架",
+  "path": "./ENI资料库/易拉寶图/易拉寶1.png",
+  "thumb": "./ENI资料库/易拉寶图/易拉寶1.png",
+  "badge": "5 国语言展架",
+  "badgeColor": "cyan",
+  "icon": "🚩",
+  "canPreview": true,
+  "canDownload": true,
+  "previewType": "image",
+  "multiLangLinks": [
+    {
+      "lang": "zh",
+      "label": "🇨🇳 中文版 (6款)",
+      "url": "./ENI资料库/易拉寶图/易拉寶1.png"
+    },
+    {
+      "lang": "en",
+      "label": "🇺🇸 English (6款)",
+      "url": "./ENI资料库/易拉寶图/易拉寶英文 1.png"
+    },
+    {
+      "lang": "ja",
+      "label": "🇯🇵 日本語 (6款)",
+      "url": "./ENI资料库/易拉寶图/易拉寶日文 1.png"
+    },
+    {
+      "lang": "ko",
+      "label": "🇰🇷 한국어 (6款)",
+      "url": "./ENI资料库/EPAY韩文/Poster KR.jpeg"
+    },
+    {
+      "lang": "vi",
+      "label": "🇻🇳 Tiếng Việt (6款)",
+      "url": "./ENI资料库/易拉寶图/易拉寶越文 1.png"
+    }
+  ]
+},
   {
     "id": "qa-q1",
     "category": "qa",
@@ -1304,7 +1111,13 @@ function generateThemedDocCover(item) {
   let techFootnote = "Traditional Finance × Blockchain Infrastructure × AI-Powered Payment Layer";
   let microTag = "OFFICIAL SPEC";
 
-  if (item.id === "docsend-global-deck" || item.category === "docsend") {
+  if (item.id === "rollup-global-set" || item.category === "rollups") {
+    gradientClass = "bg-gradient-to-br from-[#00ffb2] via-[#22d3ee] to-[#3b82f6]";
+    enTitle = "ENIPAY OFFICIAL ROLL-UP BANNERS (5 LANGUAGES)";
+    zhTitle = "ENIPAY 官方标准易拉宝展架 · 5 国语言全套";
+    techFootnote = "Conferences × Roadshows × Multi-Language Rollups";
+    microTag = "ROLLUP BANNERS";
+  } else if (item.id === "docsend-global-deck" || item.category === "docsend") {
     gradientClass = "bg-gradient-to-br from-[#00ffb2] via-[#00f2fe] to-[#3b82f6]";
     enTitle = "ENI CHAIN OFFICIAL GLOBAL CORE DECK (6 LANGUAGES)";
     zhTitle = "ENI 公链官方核心资料 · 6 语种在线全息阅览";
@@ -1444,8 +1257,8 @@ function renderGridView(container, items) {
       let mediaPreview = "";
       if (isImage || item.thumb) {
         mediaPreview = `
-          <div class="h-36 sm:h-40 w-full bg-slate-950/80 rounded-xl overflow-hidden flex items-center justify-center relative group cursor-pointer border border-slate-800/80 hover:border-cyan-neon/50 transition-all" onclick="openImageLightbox('${item.path}', '${item.title}')">
-            <img src="${item.thumb || item.path}" alt="${item.title}" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          <div class="h-36 sm:h-40 w-full bg-slate-950/80 rounded-xl overflow-hidden flex items-center justify-center relative group cursor-pointer border border-slate-800/80 hover:border-cyan-neon/50 transition-all" onclick="openImageLightbox(encodeURI('${item.path}'), '${item.title}')">
+            <img src="${encodeURI(item.thumb || item.path)}" alt="${item.title}" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy">
             <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
               <span class="p-2 rounded-full bg-cyan-neon/20 border border-cyan-neon text-cyan-neon text-xs font-bold shadow-lg">🔍 点击查看大图</span>
             </div>
@@ -1500,7 +1313,7 @@ function renderGridView(container, items) {
           if (isPdf) {
             previewBtn = `<a href="${item.path}" target="_blank" class="flex-1 py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 hover:border-cyan-bright/50 text-xs font-bold flex items-center justify-center gap-1 transition-all"><span>👁️</span> 浏览</a>`;
           } else if (isImage) {
-            previewBtn = `<button onclick="openImageLightbox('${item.path}', '${item.title}')" class="flex-1 py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 hover:border-cyan-bright/50 text-xs font-bold flex items-center justify-center gap-1 transition-all"><span>👁️</span> 大图</button>`;
+            previewBtn = `<button onclick="openImageLightbox(encodeURI('${item.path}'), '${item.title}')" class="flex-1 py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 hover:border-cyan-bright/50 text-xs font-bold flex items-center justify-center gap-1 transition-all"><span>👁️</span> 大图</button>`;
           } else {
             previewBtn = `<a href="${item.path}" target="_blank" class="flex-1 py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 hover:border-cyan-bright/50 text-xs font-bold flex items-center justify-center gap-1 transition-all"><span>👁️</span> 打开</a>`;
           }
@@ -1569,8 +1382,8 @@ function renderListView(container, items) {
       let thumbHtml = "";
       if (isImage || item.thumb) {
         thumbHtml = `
-          <div class="w-12 h-12 rounded-lg bg-slate-950 overflow-hidden flex items-center justify-center flex-shrink-0 border border-slate-800 cursor-pointer" onclick="openImageLightbox('${item.path}', '${item.title}')">
-            <img src="${item.thumb || item.path}" class="w-full h-full object-cover" loading="lazy">
+          <div class="w-12 h-12 rounded-lg bg-slate-950 overflow-hidden flex items-center justify-center flex-shrink-0 border border-slate-800 cursor-pointer" onclick="openImageLightbox(encodeURI('${item.path}'), '${item.title}')">
+            <img src="${encodeURI(item.thumb || item.path)}" class="w-full h-full object-cover" loading="lazy">
           </div>
         `;
       } else if (isVideo) {
@@ -1623,7 +1436,7 @@ function renderListView(container, items) {
           if (isPdf) {
             previewBtn = `<a href="${item.path}" target="_blank" class="py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap"><span>👁️</span> 浏览</a>`;
           } else if (isImage) {
-            previewBtn = `<button onclick="openImageLightbox('${item.path}', '${item.title}')" class="py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap"><span>👁️</span> 大图</button>`;
+            previewBtn = `<button onclick="openImageLightbox(encodeURI('${item.path}'), '${item.title}')" class="py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap"><span>👁️</span> 大图</button>`;
           } else {
             previewBtn = `<a href="${item.path}" target="_blank" class="py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap"><span>👁️</span> 打开</a>`;
           }
