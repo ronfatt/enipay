@@ -193,9 +193,10 @@ async function handleResourceUpload(e) {
       if (progressBar) progressBar.style.width = "20%";
       if (progressPercent) progressPercent.innerText = "20%";
 
+      const lang = document.getElementById("field-lang") ? document.getElementById("field-lang").value : "zh";
       const bucketName = localStorage.getItem(STORAGE_KEY_BUCKET) || "enipay-assets";
       const cleanFileName = `${Date.now()}_${selectedUploadFile.name.replace(/[^a-zA-Z0-9._-]/g, '_')}`;
-      const storagePath = `${category}/${cleanFileName}`;
+      const storagePath = lang && lang !== "all" ? `${category}/${lang}/${cleanFileName}` : `${category}/${cleanFileName}`;
 
       try {
         if (progressBar) progressBar.style.width = "50%";
@@ -244,6 +245,18 @@ async function handleResourceUpload(e) {
     icon = "🖼️";
   }
 
+  const lang = document.getElementById("field-lang") ? document.getElementById("field-lang").value : "zh";
+  const langFlags = {
+    zh: "🇨🇳 中文",
+    zht: "🇭🇰 繁體",
+    en: "🇺🇸 English",
+    ja: "🇯🇵 日本語",
+    ko: "🇰🇷 한국어",
+    vi: "🇻🇳 Tiếng Việt",
+    all: "🌐 全球通用"
+  };
+  const finalBadge = badge ? `${badge} (${langFlags[lang] || ''})` : (langFlags[lang] || "官方资料");
+
   const newResource = {
     id: "res_" + Date.now(),
     category: category,
@@ -253,7 +266,7 @@ async function handleResourceUpload(e) {
     path: publicUrl,
     thumb: previewType === "image" ? publicUrl : "",
     size: sizeStr,
-    badge: badge,
+    badge: finalBadge,
     badge_color: badgeColor,
     icon: icon,
     can_preview: canPreview,
