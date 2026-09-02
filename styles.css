@@ -829,3 +829,67 @@ body {
 .notes-drawer.open {
   transform: translateX(0);
 }
+
+/* ==================== Desktop & iPad (Tablet) UI/UX Ergonomics Optimization ==================== */
+
+/* 1. iPad & Tablet (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .slide-stage-16-9 {
+    width: 96% !important;
+    height: auto !important;
+    min-height: calc(100vh - 100px) !important;
+    aspect-ratio: auto !important;
+    padding: 20px 10px !important;
+  }
+
+  .hud-nav {
+    right: 10px !important;
+    gap: 8px !important;
+  }
+
+  .hud-dot {
+    width: 6px !important;
+    height: 6px !important;
+  }
+
+  .hud-dot.active {
+    height: 18px !important;
+  }
+}
+
+/* 2. Desktop & Widescreen (1025px+) */
+@media (min-width: 1025px) {
+  .res-card,
+  .octane-card-hud,
+  .octane-glass-panel {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.2s ease;
+  }
+
+  .res-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px -10px rgba(0, 255, 178, 0.25);
+    border-color: rgba(0, 255, 178, 0.65);
+  }
+
+  /* Desktop Presentation Keynote Crisp Typography */
+  .section-headline {
+    letter-spacing: -0.02em;
+  }
+
+  /* Smooth Custom Scrollbar for Desktop */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #030712;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 178, 0.25);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 255, 178, 0.55);
+  }
+}
+
