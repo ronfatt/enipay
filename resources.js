@@ -1294,6 +1294,119 @@ function getResourceMultiLinks(item) {
   return null;
 }
 
+
+// 🎬 Generate High-Tech Themed Cyan/Neon Video Cover Banners
+function generateThemedVideoCover(item) {
+  let gradientClass = "bg-gradient-to-br from-[#064e3b] via-[#0f172a] to-[#083344]";
+  let borderGlow = "border-cyan-neon/40 hover:border-cyan-neon";
+  let enTitle = "OFFICIAL 4K HD PROMOTIONAL CINEMATIC";
+  let zhTitle = item.title || "官方高清宣传视频";
+  let techFootnote = "ENIPAY Ultra-HD Streaming // Web FastStart";
+  let microTag = "4K STREAM";
+
+  if (item.id === "video-eni-main") {
+    gradientClass = "bg-gradient-to-br from-[#042f2e] via-[#0f172a] to-[#022c22]";
+    enTitle = "ENI CHAIN GLOBAL OFFICIAL CINEMATIC DECK";
+    zhTitle = "ENI 公链官方品牌宣传大片";
+    techFootnote = "Modular L1 Architecture × NTT Partnership × Tokyo HQ";
+    microTag = "FLAGSHIP";
+  } else if (item.id === "video-enipay-promo") {
+    gradientClass = "bg-gradient-to-br from-[#064e3b] via-[#022c22] to-[#083344]";
+    enTitle = "ENIPAY GLOBAL DIGITAL PAYMENT NETWORK";
+    zhTitle = "ENIPAY 全球支付聚合平台宣传短片";
+    techFootnote = "Tri-Color Crypto U-Card × QR Code Rails × AI Card";
+    microTag = "PAYMENT HUB";
+  } else if (item.id === "video-spokesperson") {
+    gradientClass = "bg-gradient-to-br from-[#713f12] via-[#0f172a] to-[#1e1b4b]";
+    enTitle = "OFFICIAL BRAND AMBASSADOR SHOWCASE";
+    zhTitle = "ENIPAY 品牌形象代言宣传短片";
+    techFootnote = "Global Community Evangelism × Influencer Matrix";
+    microTag = "AMBASSADOR";
+  } else if (item.id === "video-ecosystem") {
+    gradientClass = "bg-gradient-to-br from-[#083344] via-[#0f172a] to-[#022c22]";
+    enTitle = "ENIPAY GLOBAL ECOSYSTEM & FIVE-YEAR ROADMAP";
+    zhTitle = "ENIPAY ECOSYSTEM 全球生态全景";
+    techFootnote = "Global M&A × Nasdaq Listing Roadmap × Trillion Pipeline";
+    microTag = "ECOSYSTEM";
+  } else if (item.id === "video-finance-model") {
+    gradientClass = "bg-gradient-to-br from-[#713f12] via-[#0f172a] to-[#064e3b]";
+    enTitle = "ENI MG FINANCIAL TOKENOMICS & DEFLATION";
+    zhTitle = "ENI MG 金融模型与通缩机制深度解读";
+    techFootnote = "Node Mining × 80% Black Hole × Market Acceleration";
+    microTag = "TOKENOMICS";
+  } else if (item.id === "video-wealth-code") {
+    gradientClass = "bg-gradient-to-br from-[#854d0e] via-[#0f172a] to-[#042f2e]";
+    enTitle = "ENIPAY WEALTH CODE & EARLY PARTICIPANT DIVIDENDS";
+    zhTitle = "ENIPAY 财富密码与全球红利";
+    techFootnote = "Web3 Blue Ocean Market × Continuous Cashflow Pipeline";
+    microTag = "WEALTH MATRIX";
+  } else if (item.id === "video-super-eco") {
+    gradientClass = "bg-gradient-to-br from-[#064e3b] via-[#0f172a] to-[#0c4a6e]";
+    enTitle = "EPAY SUPER ECOSYSTEM LIVE APPLICATION";
+    zhTitle = "EPAY 超级生态落地演示";
+    techFootnote = "Merchant Settlement × On-Off Ramp × Instant Liquidity";
+    microTag = "SUPER ECO";
+  } else if (item.id === "video-digital-pay") {
+    gradientClass = "bg-gradient-to-br from-[#0284c7] via-[#0f172a] to-[#059669]";
+    enTitle = "EPAY DIGITAL INSTANT SETTLEMENT & ZERO-FREEZE";
+    zhTitle = "EPAY 数字支付与即时出入金";
+    techFootnote = "Zero-Freeze Risk Control × Binance Custody × Swift Rails";
+    microTag = "INSTANT PAY";
+  } else if (item.id === "video-eni-promo-2") {
+    gradientClass = "bg-gradient-to-br from-[#0f766e] via-[#0f172a] to-[#1e1b4b]";
+    enTitle = "ENI CHAIN GLOBAL NODES & CROSS-CHAIN RAILS";
+    zhTitle = "ENI 公链全球节点与技术架构短片 02";
+    techFootnote = "Supernode Distribution × Cross-Chain Interoperability";
+    microTag = "GLOBAL NODES";
+  }
+
+  return `
+    <div class="h-36 sm:h-40 w-full ${gradientClass} rounded-xl p-3 flex flex-col justify-between relative overflow-hidden shadow-lg cursor-pointer border ${borderGlow} transition-all group/vcover hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,255,178,0.3)] select-none" onclick="openVideoModal('${item.path}', '${item.title}')">
+      <!-- Top Row -->
+      <div class="flex items-center justify-between z-10">
+        <div class="flex items-center gap-1.5 font-mono font-black text-cyan-neon text-[11px] tracking-wider">
+          <span class="w-4 h-4 bg-cyan-neon text-slate-950 rounded flex items-center justify-center text-[10px] font-extrabold">E</span>
+          <span class="text-white drop-shadow">ENI\\PAY</span>
+        </div>
+        <div class="flex items-center gap-1">
+          <span class="text-[8px] font-mono font-bold text-cyan-neon bg-cyan-neon/15 px-1.5 py-0.5 rounded border border-cyan-neon/30 uppercase tracking-wide">
+            ${microTag}
+          </span>
+          <span class="text-[8px] font-mono font-bold text-red-400 bg-red-500/15 px-1.5 py-0.5 rounded border border-red-500/25">
+            🔒 仅限在线观看
+          </span>
+        </div>
+      </div>
+
+      <!-- Center Floating Glowing Play Button & Title -->
+      <div class="z-10 my-auto text-center px-1 flex flex-col items-center">
+        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-cyan-neon/20 border border-cyan-neon flex items-center justify-center text-cyan-neon text-lg sm:text-xl shadow-[0_0_20px_rgba(0,255,178,0.4)] group-hover/vcover:scale-110 group-hover/vcover:bg-cyan-neon group-hover/vcover:text-slate-950 transition-all duration-300 mb-1">
+          ▶
+        </div>
+        <div class="text-[10px] sm:text-[11px] font-black text-cyan-bright tracking-tight leading-snug uppercase font-mono line-clamp-1">
+          ${enTitle}
+        </div>
+        <div class="text-xs sm:text-[13px] font-extrabold text-white leading-tight drop-shadow line-clamp-1">
+          ${zhTitle}
+        </div>
+      </div>
+
+      <!-- Bottom Tech Footnote -->
+      <div class="z-10 text-center border-t border-slate-700/60 pt-1">
+        <div class="text-[8px] font-mono font-semibold text-slate-300/90 truncate">
+          ${techFootnote}
+        </div>
+      </div>
+
+      <!-- High Tech Background Visuals & Grid & Neon Waves -->
+      <div class="absolute -right-8 -top-8 w-28 h-28 bg-cyan-neon/15 rounded-full blur-xl pointer-events-none group-hover/vcover:scale-125 transition-transform"></div>
+      <div class="absolute -left-8 -bottom-8 w-28 h-28 bg-emerald-500/15 rounded-full blur-xl pointer-events-none"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/30 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(#00ffb2_1px,transparent_1px)] [background-size:16px_16px] opacity-10 pointer-events-none"></div>
+    </div>
+  `;
+}
+
 function renderResources() {
   const container = document.getElementById("resources-container");
   const emptyState = document.getElementById("empty-state");
@@ -1356,15 +1469,7 @@ function renderGridView(container, items) {
           </div>
         `;
       } else if (isVideo) {
-        mediaPreview = `
-          <div class="h-36 sm:h-40 w-full bg-slate-950 rounded-xl overflow-hidden flex flex-col items-center justify-center relative group cursor-pointer border border-slate-800/80 hover:border-cyan-neon/50 transition-all" onclick="openVideoModal('${item.path}', '${item.title}')">
-            <div class="w-12 h-12 rounded-full bg-cyan-neon/20 border border-cyan-neon flex items-center justify-center text-cyan-neon text-xl shadow-[0_0_20px_rgba(0,255,178,0.3)] group-hover:scale-110 transition-transform">
-              ▶
-            </div>
-            <div class="text-[11px] font-mono text-cyan-neon mt-2 font-bold">在线高清播放</div>
-            <div class="absolute top-2 right-2 cyber-pill text-[9px] py-0.2 px-1.5 bg-red-500/20 text-red-400 border-red-500/30">🔒 仅限在线观看</div>
-          </div>
-        `;
+        mediaPreview = generateThemedVideoCover(item);
       } else {
         mediaPreview = generateThemedDocCover(item);
       }
