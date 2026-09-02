@@ -891,6 +891,96 @@ function handleSecretAdminTrigger() {
 
 
 // Render Function
+
+// 🎨 Generate High-Tech Themed Cyan Graphic Covers for Documents & PDFs (matching Enipay brand design)
+function generateThemedDocCover(item) {
+  let gradientClass = "bg-gradient-to-br from-[#84cc16] via-[#00ffb2] to-[#00f2fe]";
+  let textDark = "text-[#050811]";
+  let enTitle = "A GLOBAL DIGITAL PAYMENT NETWORK FOR HUMANS AND AI AGENTS";
+  let zhTitle = "人类与 AI Agent 共用的全球数字支付网络";
+  let techFootnote = "Traditional Finance × Blockchain Infrastructure × AI-Powered Payment Layer";
+  let microTag = "OFFICIAL SPEC";
+
+  if (item.id === "doc-bp-pdf") {
+    gradientClass = "bg-gradient-to-br from-[#84cc16] via-[#00ffb2] to-[#00f2fe]";
+    enTitle = "ENIPAY OFFICIAL BUSINESS PLAN & STRATEGY";
+    zhTitle = "ENIPAY 官方商业计划书 (Business Plan)";
+    techFootnote = "Business Model × Tri-Layer Architecture × Token Incentive";
+    microTag = "STRATEGY BP";
+  } else if (item.id === "doc-qa-pdf" || item.id === "doc-qa-pptx") {
+    gradientClass = "bg-gradient-to-br from-[#00f2fe] via-[#00ffb2] to-[#22c55e]";
+    enTitle = "ENIPAY MARKET QUESTIONS & ANSWERS MANUAL";
+    zhTitle = "ENIPAY 市场常见问答手册 (Q&A)";
+    techFootnote = "ENI Chain Base × Binance Custody × Crypto U-Card";
+    microTag = item.type === "PPTX" ? "KEYNOTE DECK" : "MARKET FAQ";
+  } else if (item.id === "doc-epay-intro") {
+    gradientClass = "bg-gradient-to-br from-[#a3e635] via-[#10b981] to-[#06b6d4]";
+    enTitle = "EPAY TOKENOMICS & DEFLATIONARY ACCELERATOR";
+    zhTitle = "EPAY 项目深度介绍 (中文版)";
+    techFootnote = "80% Black Hole × 5% Mandatory Buyback × 100-Tier Matrix";
+    microTag = "TOKENOMICS";
+  } else if (item.id === "doc-epay-v14") {
+    gradientClass = "bg-gradient-to-br from-[#00ffb2] via-[#00c8ff] to-[#3b82f6]";
+    enTitle = "GLOBAL PAYMENT AGGREGATION PROTOCOL v1.4";
+    zhTitle = "Epay 全球聚合支付平台架构白皮书 v1.4";
+    techFootnote = "Four-Party Clearing × Smart Contracts × On-Off Ramp Rails";
+    microTag = "WHITEPAPER";
+  } else if (item.id === "doc-amend-pdf") {
+    gradientClass = "bg-gradient-to-br from-[#38bdf8] via-[#00ffb2] to-[#84cc16]";
+    enTitle = "GLOBAL FINANCIAL LICENSES & COMPLIANCE";
+    zhTitle = "ENIPAY 生态规划与合规补充说明";
+    techFootnote = "Global M&A × Multi-Jurisdiction Compliance × Risk Protocol";
+    microTag = "COMPLIANCE";
+  } else if (item.title) {
+    zhTitle = item.title;
+    enTitle = item.subtitle ? item.subtitle.toUpperCase() : "ENIPAY OFFICIAL VERIFIED RESOURCE";
+    techFootnote = "Traditional Finance × Blockchain Infrastructure × AI Payment Layer";
+    microTag = item.type || "DOC";
+  }
+
+  const clickAction = (item.previewType === "pdf" || item.type === "PDF") 
+    ? `onclick="window.open('${item.path}', '_blank')"` 
+    : (item.path ? `onclick="window.open('${item.path}', '_blank')"` : "");
+
+  return `
+    <div class="h-36 sm:h-40 w-full ${gradientClass} rounded-xl p-3 flex flex-col justify-between relative overflow-hidden shadow-md cursor-pointer group/cover hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(0,255,178,0.35)] transition-all border border-white/20 select-none" ${clickAction}>
+      <!-- Top Brand Row -->
+      <div class="flex items-center justify-between z-10">
+        <div class="flex items-center gap-1.5 font-mono font-black ${textDark} text-[11px] tracking-wider">
+          <span class="w-4 h-4 bg-[#050811] text-[#00ffb2] rounded flex items-center justify-center text-[10px] font-bold">E</span>
+          <span>ENI\PAY</span>
+        </div>
+        <span class="text-[8px] font-mono font-bold ${textDark} bg-black/10 px-1.5 py-0.5 rounded border border-black/15 uppercase">
+          ${microTag}
+        </span>
+      </div>
+
+      <!-- Center Headline -->
+      <div class="z-10 my-auto text-center px-1">
+        <div class="text-[10px] sm:text-[11px] font-black ${textDark} tracking-tight leading-snug uppercase font-mono mb-0.5 line-clamp-2">
+          ${enTitle}
+        </div>
+        <div class="text-xs sm:text-[13px] font-extrabold ${textDark} leading-tight drop-shadow-sm line-clamp-1">
+          ${zhTitle}
+        </div>
+      </div>
+
+      <!-- Bottom Footnote -->
+      <div class="z-10 text-center border-t border-black/15 pt-1">
+        <div class="text-[8px] font-mono font-semibold ${textDark}/85 truncate">
+          ${techFootnote}
+        </div>
+      </div>
+
+      <!-- Background Glow & Mesh Overlays -->
+      <div class="absolute -right-6 -top-6 w-20 h-20 bg-white/30 rounded-full blur-lg pointer-events-none group-hover/cover:scale-125 transition-transform"></div>
+      <div class="absolute -left-6 -bottom-6 w-20 h-20 bg-black/10 rounded-full blur-lg pointer-events-none"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-white/20 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-cyan-neon/10 opacity-0 group-hover/cover:opacity-100 transition-opacity pointer-events-none"></div>
+    </div>
+  `;
+}
+
 function renderResources() {
   const container = document.getElementById("resources-container");
   const emptyState = document.getElementById("empty-state");
@@ -963,14 +1053,7 @@ function renderGridView(container, items) {
           </div>
         `;
       } else {
-        const clickAction = isPdf ? `onclick="window.open('${item.path}', '_blank')"` : isDocSend ? `onclick="window.open('${item.path}', '_blank')"` : "";
-        mediaPreview = `
-          <div class="h-28 sm:h-32 w-full bg-slate-950/60 rounded-xl flex flex-col items-center justify-center border border-slate-800/60 relative p-3 text-center cursor-pointer hover:border-cyan-neon/40 transition-all group" ${clickAction}>
-            <span class="text-3xl sm:text-4xl mb-1 group-hover:scale-110 transition-transform">${item.icon || '📄'}</span>
-            <span class="text-[11px] font-mono font-bold text-slate-300">${item.type} 文件</span>
-            ${item.size ? `<span class="text-[10px] text-slate-500 font-mono">${item.size}</span>` : ""}
-          </div>
-        `;
+        mediaPreview = generateThemedDocCover(item);
       }
 
       // Actions buttons
