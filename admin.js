@@ -58,9 +58,14 @@ function handleAdminLogout() {
 }
 
 // ==================== 2. SUPABASE INITIALIZATION ====================
+const DEFAULT_SUPABASE_URL = "https://kvdaargyladksfytbjlf.supabase.co";
+const DEFAULT_SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt2ZGFhcmd5bGFka3NmeXRiamxmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgzMTE4MzksImV4cCI6MjEwMzg4NzgzOX0.7xCvOpNvQkdh7PkxnTdL4GxsbIuGbLpsjK6d9qEYYsc";
+const DEFAULT_BUCKET = "enipay-assets";
+
 function initSupabaseClient() {
-  const url = localStorage.getItem(STORAGE_KEY_URL) || "https://dudwovszbkhwghfylxwu.supabase.co"; // Default or custom
-  const key = localStorage.getItem(STORAGE_KEY_KEY) || "";
+  const url = localStorage.getItem(STORAGE_KEY_URL) || DEFAULT_SUPABASE_URL;
+  const key = localStorage.getItem(STORAGE_KEY_KEY) || DEFAULT_SUPABASE_KEY;
+  const bucket = localStorage.getItem(STORAGE_KEY_BUCKET) || DEFAULT_BUCKET;
 
   const badge = document.getElementById("supabase-status-badge");
 
@@ -68,8 +73,8 @@ function initSupabaseClient() {
     try {
       supabaseClient = window.supabase.createClient(url, key);
       if (badge) {
-        badge.innerText = "● SUPABASE 已连接";
-        badge.className = "cyber-pill text-[9px] py-0.5 px-2 bg-cyan-neon/15 text-cyan-neon border-cyan-neon/30";
+        badge.innerText = "● SUPABASE 已连接 (enipay-assets)";
+        badge.className = "cyber-pill text-[9px] py-0.5 px-2 bg-cyan-neon/15 text-cyan-neon border-cyan-neon/30 font-bold";
       }
     } catch (err) {
       if (badge) {
@@ -508,13 +513,31 @@ CREATE TABLE IF NOT EXISTS resources (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- 2. 开启公开可读写权限 (Public Access)
+-- 2. 开启 resources 表公开读写权限
 ALTER TABLE resources ENABLE ROW LEVEL SECURITY;
+DROP POLICY IF EXISTS "Public Read Access" ON resources;
+DROP POLICY IF EXISTS "Public Insert Access" ON resources;
+DROP POLICY IF EXISTS "Public Update Access" ON resources;
+DROP POLICY IF EXISTS "Public Delete Access" ON resources;
+
 CREATE POLICY "Public Read Access" ON resources FOR SELECT USING (true);
-CREATE POLICY "Public Write Access" ON resources FOR ALL USING (true);`;
+CREATE POLICY "Public Insert Access" ON resources FOR INSERT WITH CHECK (true);
+CREATE POLICY "Public Update Access" ON resources FOR UPDATE USING (true);
+CREATE POLICY "Public Delete Access" ON resources FOR DELETE USING (true);
+
+-- 3. 开启 Storage 存储桶公开上传与读写权限
+DROP POLICY IF EXISTS "Allow Public Uploads" ON storage.objects;
+DROP POLICY IF EXISTS "Allow Public Select" ON storage.objects;
+DROP POLICY IF EXISTS "Allow Public Update" ON storage.objects;
+DROP POLICY IF EXISTS "Allow Public Delete" ON storage.objects;
+
+CREATE POLICY "Allow Public Uploads" ON storage.objects FOR INSERT TO public WITH CHECK (bucket_id = 'enipay-assets');
+CREATE POLICY "Allow Public Select" ON storage.objects FOR SELECT TO public USING (bucket_id = 'enipay-assets');
+CREATE POLICY "Allow Public Update" ON storage.objects FOR UPDATE TO public USING (bucket_id = 'enipay-assets');
+CREATE POLICY "Allow Public Delete" ON storage.objects FOR DELETE TO public USING (bucket_id = 'enipay-assets');`;
 
   navigator.clipboard.writeText(sql).then(() => {
-    showAdminToast("✓ SQL 建表语句已复制到剪贴板！");
+    showAdminToast("✓ 完整建表与存储权限 SQL 已复制！");
   });
 }
 

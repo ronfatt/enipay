@@ -344,10 +344,28 @@ CREATE TABLE IF NOT EXISTS resources (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- 2. 开启公开可读权限 (Public Read)
+-- 2. 开启 resources 表公开读写权限
 ALTER TABLE resources ENABLE ROW LEVEL SECURITY;
+DROP POLICY IF EXISTS "Public Read Access" ON resources;
+DROP POLICY IF EXISTS "Public Insert Access" ON resources;
+DROP POLICY IF EXISTS "Public Update Access" ON resources;
+DROP POLICY IF EXISTS "Public Delete Access" ON resources;
+
 CREATE POLICY "Public Read Access" ON resources FOR SELECT USING (true);
-CREATE POLICY "Public Write Access" ON resources FOR ALL USING (true);
+CREATE POLICY "Public Insert Access" ON resources FOR INSERT WITH CHECK (true);
+CREATE POLICY "Public Update Access" ON resources FOR UPDATE USING (true);
+CREATE POLICY "Public Delete Access" ON resources FOR DELETE USING (true);
+
+-- 3. 开启 Storage 存储桶公开上传权限 (解决 RLS policy 报错)
+DROP POLICY IF EXISTS "Allow Public Uploads" ON storage.objects;
+DROP POLICY IF EXISTS "Allow Public Select" ON storage.objects;
+DROP POLICY IF EXISTS "Allow Public Update" ON storage.objects;
+DROP POLICY IF EXISTS "Allow Public Delete" ON storage.objects;
+
+CREATE POLICY "Allow Public Uploads" ON storage.objects FOR INSERT TO public WITH CHECK (bucket_id = 'enipay-assets');
+CREATE POLICY "Allow Public Select" ON storage.objects FOR SELECT TO public USING (bucket_id = 'enipay-assets');
+CREATE POLICY "Allow Public Update" ON storage.objects FOR UPDATE TO public USING (bucket_id = 'enipay-assets');
+CREATE POLICY "Allow Public Delete" ON storage.objects FOR DELETE TO public USING (bucket_id = 'enipay-assets');
             </pre>
           </div>
 
@@ -413,6 +431,7 @@ CREATE POLICY "Public Write Access" ON resources FOR ALL USING (true);
   </div>
 
   <!-- Scripts -->
+  <script src="./resources.js"></script>
   <script src="./admin.js"></script>
 </body>
 </html>
