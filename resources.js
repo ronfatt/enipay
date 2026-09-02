@@ -80,21 +80,6 @@ const RESOURCES_DATA = [
     canDownload: true,
     previewType: "pdf"
   },
-  {
-    id: "doc-amend-pdf",
-    category: "docs",
-    type: "PDF",
-    title: "ENIPAY 生态规划与合规补充说明",
-    subtitle: "全球金融牌照并购进度与法币出入金通道风控准则",
-    path: "./amend.pdf",
-    size: "177 KB",
-    badge: "合规说明",
-    badgeColor: "blue",
-    icon: "📜",
-    canPreview: true,
-    canDownload: true,
-    previewType: "pdf"
-  },
 
   // ==================== 2. 官方高清宣传视频 (VIDEOS - 仅在线播放，禁止下载) ====================
   {
@@ -771,9 +756,12 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Fetch Realtime Resources from Supabase with Local Fallback
+const DEFAULT_SUPABASE_URL = "https://kvdaargyladksfytbjlf.supabase.co";
+const DEFAULT_SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt2ZGFhcmd5bGFka3NmeXRiamxmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgzMTE4MzksImV4cCI6MjEwMzg4NzgzOX0.7xCvOpNvQkdh7PkxnTdL4GxsbIuGbLpsjK6d9qEYYsc";
+
 async function fetchLiveResourcesFromSupabase() {
-  const url = localStorage.getItem("enipay_supabase_url");
-  const key = localStorage.getItem("enipay_supabase_key");
+  const url = localStorage.getItem("enipay_supabase_url") || DEFAULT_SUPABASE_URL;
+  const key = localStorage.getItem("enipay_supabase_key") || DEFAULT_SUPABASE_KEY;
   const localCache = localStorage.getItem("enipay_local_resources_db");
 
   if (url && key && window.supabase) {
@@ -782,10 +770,11 @@ async function fetchLiveResourcesFromSupabase() {
       const { data, error } = await client
         .from("resources")
         .select("*")
-        .order("sort_order", { ascending: true });
+        .order("created_at", { ascending: false });
 
       if (!error && data && data.length > 0) {
         activeResourcesList = data;
+        localStorage.setItem("enipay_local_resources_db", JSON.stringify(data));
         renderResources();
         return;
       }
