@@ -167,18 +167,9 @@ body {
     box-sizing: border-box;
   }
 
-  .slide-stage-16-9 .grid > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .slide-stage-16-9 .octane-card-hud,
-  .slide-stage-16-9 .octane-glass-panel {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  .slide-stage-16-9 > .grid {
+    flex: 1;
+    min-height: 0;
   }
 }
 
