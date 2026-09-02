@@ -1203,6 +1203,97 @@ function generateThemedDocCover(item) {
   `;
 }
 
+
+// 🌐 Static Multi-Language Registry (Ensures 100% reliable 2-column national flag link matrix even if fetched from Supabase)
+const MULTI_LANG_REGISTRY = {
+  "doc-bp-multilang": [
+    { lang: "zh", label: "🇨🇳 简体中文版", url: "./ENI资料库/EPAY中文/ENIPAY商业计划书.pdf" },
+    { lang: "en", label: "🇺🇸 英文版 (English)", url: "./ENI资料库/EPAY英文/ENIPAY Business Plan.pdf" },
+    { lang: "ja", label: "🇯🇵 日本語版", url: "./ENI资料库/EPAY日文/2026 ENIPAY 事業説明(JPN) VER1-Compressed.pdf" },
+    { lang: "ko", label: "🇰🇷 한국어판", url: "./ENI资料库/EPAY韩文/2026_ENIPAY_사업설명_VER1_Compressed.pdf" },
+    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南版", url: "./ENI资料库/EPAY越南/Kế hoạch kinh doanh của ENIPAY.pdf" },
+    { lang: "id", label: "🇮🇩 Indonesia 印尼版", url: "./ENI资料库/EPAY印尼语/Rencana Bisnis ENIPAY.pdf" }
+  ],
+  "docsend-global-deck": [
+    { lang: "zh", label: "🇨🇳 简体中文版", url: "https://docsend.com/view/7s4r2r8p6i8xex9k" },
+    { lang: "zht", label: "🇭🇰 繁體中文版", url: "https://docsend.com/view/h3kzb8q7k9v5p9x2" },
+    { lang: "en", label: "🇺🇸 英文版 (English)", url: "https://docsend.com/view/5u8q6c9w8v7x2k4p" },
+    { lang: "ko", label: "🇰🇷 한국어판", url: "https://docsend.com/view/3m9x2k7p4w8v5c6q" },
+    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南版", url: "https://docsend.com/view/2k8p9x4w7v5c6q3m" },
+    { lang: "ja", label: "🇯🇵 日本語版", url: "https://docsend.com/view/4w8v7x2k9p6c5q3m" }
+  ],
+  "rollup-global-set": [
+    { lang: "zh", label: "🇨🇳 中文版 (6款)", url: "./ENI资料库/易拉寶图/易拉寶1.png" },
+    { lang: "en", label: "🇺🇸 English (6款)", url: "./ENI资料库/易拉寶图/易拉寶英文 1.png" },
+    { lang: "ja", label: "🇯🇵 日本語 (6款)", url: "./ENI资料库/易拉寶图/易拉寶日文 1.png" },
+    { lang: "ko", label: "🇰🇷 한국어 (6款)", url: "./ENI资料库/EPAY韩文/Poster KR.jpeg" },
+    { lang: "vi", label: "🇻🇳 Tiếng Việt (6款)", url: "./ENI资料库/易拉寶图/易拉寶越文 1.png" }
+  ],
+  "poster-long-intro": [
+    { lang: "zh", label: "🇨🇳 中文长图", url: "./ENI资料库/EPAY中文/ENIPAY 简介长图.png" },
+    { lang: "en", label: "🇺🇸 English 英文长图", url: "./ENI资料库/EPAY英文/ENIPAY introduction image.png" },
+    { lang: "ja", label: "🇯🇵 日本語长图", url: "./ENI资料库/EPAY日文/日文长图.jpg" },
+    { lang: "ko", label: "🇰🇷 한국어长图", url: "./ENI资料库/EPAY韩文/长图（韩文）.png" },
+    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南长图", url: "./ENI资料库/EPAY越南/Hình ảnh giới thiệu ENIPAY.png" },
+    { lang: "id", label: "🇮🇩 Indonesia 印尼长图", url: "./ENI资料库/EPAY印尼语/enipay_indonesian.png" }
+  ],
+  "poster-competitive-edge": [
+    { lang: "zh", label: "🇨🇳 中文版", url: "./ENI资料库/EPAY中文/ENIPAY 生态竞争优势.PNG" },
+    { lang: "en", label: "🇺🇸 English 英文版", url: "./ENI资料库/EPAY英文/ENIPAY's competitive advantages.png" },
+    { lang: "ja", label: "🇯🇵 日本語版", url: "./ENI资料库/EPAY日文/日文四大竞争优势.jpg" },
+    { lang: "ko", label: "🇰🇷 한국어판", url: "./ENI资料库/EPAY韩文/ENI竞争优势（韩文）.png" },
+    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南版", url: "./ENI资料库/EPAY越南/Đặc điểm dự án ENIPAY.png" },
+    { lang: "id", label: "🇮🇩 Indonesia 印尼版", url: "./ENI资料库/EPAY印尼语/epaykeunggulan kompetitif.png" }
+  ],
+  "poster-staking-model": [
+    { lang: "zh", label: "🇨🇳 中文横图", url: "./ENI资料库/EPAY中文/ENIPAY 质押模型 01.png" },
+    { lang: "en", label: "🇺🇸 English 英文横图", url: "./ENI资料库/EPAY英文/Introduction to ENIPAY Financial Model.png" },
+    { lang: "ja", label: "🇯🇵 日本語横图", url: "./ENI资料库/EPAY日文/日文模式横图.jpg" },
+    { lang: "ko", label: "🇰🇷 한국어横图", url: "./ENI资料库/EPAY韩文/模式横图（韩文）.png" },
+    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南横图", url: "./ENI资料库/EPAY越南/Giới thiệu về Mô hình Tài chính ENIPAY.png" },
+    { lang: "id", label: "🇮🇩 Indonesia 印尼横图", url: "./ENI资料库/EPAY印尼语/Bagan Horizontal Pola.png" }
+  ],
+  "poster-main-1": [
+    { lang: "zh", label: "🇨🇳 中文版", url: "./ENI资料库/EPAY中文/ENI海报.PNG" },
+    { lang: "en", label: "🇺🇸 English 英文版", url: "./ENI资料库/EPAY英文/Poster EN.png" },
+    { lang: "ko", label: "🇰🇷 한국어판", url: "./ENI资料库/EPAY韩文/Poster KR.jpeg" },
+    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南版", url: "./ENI资料库/EPAY越南/Poster VN.png" },
+    { lang: "id", label: "🇮🇩 Indonesia 印尼版", url: "./ENI资料库/EPAY印尼语/ENI poster.png" }
+  ],
+  "poster-main-2": [
+    { lang: "zh", label: "🇨🇳 中文版", url: "./ENI资料库/EPAY中文/ENI 海报 02PNG.PNG" },
+    { lang: "en", label: "🇺🇸 English 英文版", url: "./ENI资料库/EPAY英文/Poster En 02.png" },
+    { lang: "ko", label: "🇰🇷 한국어판", url: "./ENI资料库/EPAY韩文/Poster KR 02.jpeg" },
+    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南版", url: "./ENI资料库/EPAY越南/Poster VN 02.png" },
+    { lang: "id", label: "🇮🇩 Indonesia 印尼版", url: "./ENI资料库/EPAY印尼语/ENI poster 02.png" }
+  ],
+  "poster-main-3": [
+    { lang: "zh", label: "🇨🇳 中文版", url: "./ENI资料库/EPAY中文/ENI 海报 03.PNG" },
+    { lang: "en", label: "🇺🇸 English 英文版", url: "./ENI资料库/EPAY英文/3.png" },
+    { lang: "ja", label: "🇯🇵 日本語版", url: "./ENI资料库/EPAY日文/日文图03.jpg" },
+    { lang: "ko", label: "🇰🇷 한국어판", url: "./ENI资料库/EPAY韩文/3.jpeg" },
+    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南版", url: "./ENI资料库/EPAY越南/4越南.png" },
+    { lang: "id", label: "🇮🇩 Indonesia 印尼版", url: "./ENI资料库/EPAY印尼语/image.png" }
+  ]
+};
+
+function getResourceMultiLinks(item) {
+  if (item.multiLangLinks && Array.isArray(item.multiLangLinks) && item.multiLangLinks.length > 0) {
+    return item.multiLangLinks;
+  }
+  if (item.multi_lang_links && Array.isArray(item.multi_lang_links) && item.multi_lang_links.length > 0) {
+    return item.multi_lang_links;
+  }
+  if (MULTI_LANG_REGISTRY[item.id]) {
+    return MULTI_LANG_REGISTRY[item.id];
+  }
+  const found = RESOURCES_DATA.find((r) => r.id === item.id);
+  if (found && found.multiLangLinks) {
+    return found.multiLangLinks;
+  }
+  return null;
+}
+
 function renderResources() {
   const container = document.getElementById("resources-container");
   const emptyState = document.getElementById("empty-state");
@@ -1280,11 +1371,12 @@ function renderGridView(container, items) {
 
       // Actions buttons
       let actionButtons = "";
-      if (item.multiLangLinks && Array.isArray(item.multiLangLinks)) {
+      const multiLinks = getResourceMultiLinks(item);
+      if (multiLinks && Array.isArray(multiLinks) && multiLinks.length > 0) {
         const isImg = ["PNG", "JPG", "JPEG", "WEBP"].includes(item.type);
         actionButtons = `
           <div class="grid grid-cols-2 gap-1.5 sm:gap-2 w-full pt-2.5 border-t border-slate-800/80 mt-2">
-            ${item.multiLangLinks
+            ${multiLinks
               .map((link) => {
                 const clickHandler = isImg 
                   ? `onclick="openImageLightbox(encodeURI('${link.url}'), '${item.title} - ${link.label}')"`
@@ -1407,11 +1499,12 @@ function renderListView(container, items) {
 
       // Actions
       let actionButtons = "";
-      if (item.multiLangLinks && Array.isArray(item.multiLangLinks)) {
+      const multiLinks = getResourceMultiLinks(item);
+      if (multiLinks && Array.isArray(multiLinks) && multiLinks.length > 0) {
         const isImg = ["PNG", "JPG", "JPEG", "WEBP"].includes(item.type);
         actionButtons = `
           <div class="flex items-center gap-1.5 flex-wrap">
-            ${item.multiLangLinks
+            ${multiLinks
               .map((link) => {
                 const clickHandler = isImg 
                   ? `onclick="openImageLightbox(encodeURI('${link.url}'), '${item.title} - ${link.label}')"`
