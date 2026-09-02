@@ -933,10 +933,14 @@ function renderGridView(container, items) {
 
   container.innerHTML = items
     .map((item) => {
-      const isVideo = item.category === "videos";
-      const isImage = item.previewType === "image";
-      const isPdf = item.previewType === "pdf";
-      const isDocSend = item.type === "DOCSEND";
+      const isVideo = item.category === "videos" || item.type === "MP4" || (item.path && item.path.toLowerCase().endsWith(".mp4"));
+      const isDocSend = item.type === "DOCSEND" || item.category === "docsend" || (item.path && item.path.includes("docsend.com"));
+      const isPdf = item.previewType === "pdf" || item.preview_type === "pdf" || item.type === "PDF" || (item.path && item.path.toLowerCase().endsWith(".pdf"));
+      const isImage = (item.previewType === "image" || item.preview_type === "image" || ["PNG", "JPG", "JPEG", "WEBP"].includes(item.type)) && !isVideo && !isDocSend && !isPdf;
+
+      const canPreview = item.canPreview !== false && item.can_preview !== false;
+      const canDownload = item.canDownload !== false && item.can_download !== false && !isVideo && !isDocSend;
+      const badgeColor = item.badgeColor || item.badge_color || "cyan";
 
       let mediaPreview = "";
       if (isImage || item.thumb) {
@@ -959,9 +963,10 @@ function renderGridView(container, items) {
           </div>
         `;
       } else {
+        const clickAction = isPdf ? `onclick="window.open('${item.path}', '_blank')"` : isDocSend ? `onclick="window.open('${item.path}', '_blank')"` : "";
         mediaPreview = `
-          <div class="h-28 sm:h-32 w-full bg-slate-950/60 rounded-xl flex flex-col items-center justify-center border border-slate-800/60 relative p-3 text-center">
-            <span class="text-3xl sm:text-4xl mb-1">${item.icon}</span>
+          <div class="h-28 sm:h-32 w-full bg-slate-950/60 rounded-xl flex flex-col items-center justify-center border border-slate-800/60 relative p-3 text-center cursor-pointer hover:border-cyan-neon/40 transition-all group" ${clickAction}>
+            <span class="text-3xl sm:text-4xl mb-1 group-hover:scale-110 transition-transform">${item.icon || '📄'}</span>
             <span class="text-[11px] font-mono font-bold text-slate-300">${item.type} 文件</span>
             ${item.size ? `<span class="text-[10px] text-slate-500 font-mono">${item.size}</span>` : ""}
           </div>
@@ -983,15 +988,21 @@ function renderGridView(container, items) {
           </button>
         `;
       } else {
-        const previewBtn = item.canPreview
-          ? isPdf
-            ? `<a href="${item.path}" target="_blank" class="flex-1 py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 hover:border-cyan-bright/50 text-[11px] font-bold flex items-center justify-center gap-1 transition-all"><span>👁️</span> 浏览</a>`
-            : `<button onclick="openImageLightbox('${item.path}', '${item.title}')" class="flex-1 py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 hover:border-cyan-bright/50 text-[11px] font-bold flex items-center justify-center gap-1 transition-all"><span>👁️</span> 大图</button>`
-          : "";
+        let previewBtn = "";
+        if (canPreview) {
+          if (isPdf) {
+            previewBtn = `<a href="${item.path}" target="_blank" class="flex-1 py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 hover:border-cyan-bright/50 text-xs font-bold flex items-center justify-center gap-1 transition-all"><span>👁️</span> 浏览</a>`;
+          } else if (isImage) {
+            previewBtn = `<button onclick="openImageLightbox('${item.path}', '${item.title}')" class="flex-1 py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 hover:border-cyan-bright/50 text-xs font-bold flex items-center justify-center gap-1 transition-all"><span>👁️</span> 大图</button>`;
+          } else {
+            previewBtn = `<a href="${item.path}" target="_blank" class="flex-1 py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 hover:border-cyan-bright/50 text-xs font-bold flex items-center justify-center gap-1 transition-all"><span>👁️</span> 打开</a>`;
+          }
+        }
 
-        const downloadBtn = item.canDownload
-          ? `<a href="${item.path}" download class="flex-1 py-1.5 px-2.5 rounded-lg bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 text-[11px] font-bold flex items-center justify-center gap-1 transition-all"><span>⬇️</span> 下载</a>`
-          : "";
+        let downloadBtn = "";
+        if (canDownload) {
+          downloadBtn = `<a href="${item.path}" download class="flex-1 py-1.5 px-2.5 rounded-lg bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 text-xs font-bold flex items-center justify-center gap-1 transition-all"><span>⬇️</span> 下载</a>`;
+        }
 
         actionButtons = `
           <div class="flex items-center gap-2 w-full pt-2 border-t border-slate-800/80">
@@ -1005,8 +1016,8 @@ function renderGridView(container, items) {
         <div class="res-card p-4 flex flex-col justify-between h-full bg-slate-900/70 border border-slate-800/80 rounded-2xl hover:border-cyan-neon/50 transition-all group">
           <div>
             <div class="flex items-center justify-between gap-2 mb-2.5">
-              <span class="cyber-pill text-[9px] py-0.5 px-2 bg-${item.badgeColor === "gold" ? "gold-400/15 text-gold-400 border-gold-400/30" : item.badgeColor === "blue" ? "blue-500/15 text-blue-400 border-blue-500/30" : "cyan-neon/15 text-cyan-neon border-cyan-neon/30"} font-bold">
-                ${item.badge}
+              <span class="cyber-pill text-[9px] py-0.5 px-2 bg-${badgeColor === "gold" ? "gold-400/15 text-gold-400 border-gold-400/30" : badgeColor === "blue" ? "blue-500/15 text-blue-400 border-blue-500/30" : "cyan-neon/15 text-cyan-neon border-cyan-neon/30"} font-bold">
+                ${item.badge || item.category}
               </span>
               <span class="text-[10px] font-mono text-slate-400 font-bold">${item.type}</span>
             </div>
@@ -1017,8 +1028,8 @@ function renderGridView(container, items) {
               <h3 class="text-sm font-bold text-white leading-snug line-clamp-2 group-hover:text-cyan-neon transition-colors" title="${item.title}">
                 ${item.title}
               </h3>
-              <p class="text-[11px] text-slate-400 mt-1 line-clamp-2 leading-relaxed" title="${item.subtitle}">
-                ${item.subtitle}
+              <p class="text-[11px] text-slate-400 mt-1 line-clamp-2 leading-relaxed" title="${item.subtitle || ''}">
+                ${item.subtitle || ''}
               </p>
             </div>
           </div>
@@ -1038,10 +1049,14 @@ function renderListView(container, items) {
 
   container.innerHTML = items
     .map((item) => {
-      const isVideo = item.category === "videos";
-      const isImage = item.previewType === "image";
-      const isPdf = item.previewType === "pdf";
-      const isDocSend = item.type === "DOCSEND";
+      const isVideo = item.category === "videos" || item.type === "MP4" || (item.path && item.path.toLowerCase().endsWith(".mp4"));
+      const isDocSend = item.type === "DOCSEND" || item.category === "docsend" || (item.path && item.path.includes("docsend.com"));
+      const isPdf = item.previewType === "pdf" || item.preview_type === "pdf" || item.type === "PDF" || (item.path && item.path.toLowerCase().endsWith(".pdf"));
+      const isImage = (item.previewType === "image" || item.preview_type === "image" || ["PNG", "JPG", "JPEG", "WEBP"].includes(item.type)) && !isVideo && !isDocSend && !isPdf;
+
+      const canPreview = item.canPreview !== false && item.can_preview !== false;
+      const canDownload = item.canDownload !== false && item.can_download !== false && !isVideo && !isDocSend;
+      const badgeColor = item.badgeColor || item.badge_color || "cyan";
 
       // Small Thumb
       let thumbHtml = "";
@@ -1058,9 +1073,10 @@ function renderListView(container, items) {
           </div>
         `;
       } else {
+        const clickAction = isPdf ? `onclick="window.open('${item.path}', '_blank')"` : isDocSend ? `onclick="window.open('${item.path}', '_blank')"` : "";
         thumbHtml = `
-          <div class="w-12 h-12 rounded-lg bg-slate-950 flex items-center justify-center text-xl border border-slate-800 flex-shrink-0">
-            ${item.icon}
+          <div class="w-12 h-12 rounded-lg bg-slate-950 flex items-center justify-center text-xl border border-slate-800 flex-shrink-0 cursor-pointer hover:border-cyan-neon" ${clickAction}>
+            ${item.icon || '📄'}
           </div>
         `;
       }
@@ -1080,15 +1096,21 @@ function renderListView(container, items) {
           </button>
         `;
       } else {
-        const previewBtn = item.canPreview
-          ? isPdf
-            ? `<a href="${item.path}" target="_blank" class="py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap"><span>👁️</span> 浏览</a>`
-            : `<button onclick="openImageLightbox('${item.path}', '${item.title}')" class="py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap"><span>👁️</span> 大图</button>`
-          : "";
+        let previewBtn = "";
+        if (canPreview) {
+          if (isPdf) {
+            previewBtn = `<a href="${item.path}" target="_blank" class="py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap"><span>👁️</span> 浏览</a>`;
+          } else if (isImage) {
+            previewBtn = `<button onclick="openImageLightbox('${item.path}', '${item.title}')" class="py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap"><span>👁️</span> 大图</button>`;
+          } else {
+            previewBtn = `<a href="${item.path}" target="_blank" class="py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap"><span>👁️</span> 打开</a>`;
+          }
+        }
 
-        const downloadBtn = item.canDownload
-          ? `<a href="${item.path}" download class="py-1.5 px-2.5 rounded-lg bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap"><span>⬇️</span> 下载</a>`
-          : "";
+        let downloadBtn = "";
+        if (canDownload) {
+          downloadBtn = `<a href="${item.path}" download class="py-1.5 px-2.5 rounded-lg bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap"><span>⬇️</span> 下载</a>`;
+        }
 
         actionButtons = `
           <div class="flex items-center gap-2">
@@ -1104,8 +1126,8 @@ function renderListView(container, items) {
             ${thumbHtml}
             <div class="min-w-0 flex-1">
               <div class="flex items-center gap-2 mb-0.5 flex-wrap">
-                <span class="cyber-pill text-[9px] py-0.2 px-1.5 bg-${item.badgeColor === "gold" ? "gold-400/15 text-gold-400 border-gold-400/30" : "cyan-neon/15 text-cyan-neon border-cyan-neon/30"} font-bold">
-                  ${item.badge}
+                <span class="cyber-pill text-[9px] py-0.2 px-1.5 bg-${badgeColor === "gold" ? "gold-400/15 text-gold-400 border-gold-400/30" : "cyan-neon/15 text-cyan-neon border-cyan-neon/30"} font-bold">
+                  ${item.badge || item.category}
                 </span>
                 <span class="text-[10px] font-mono text-slate-400">${item.type}</span>
                 ${item.size ? `<span class="text-[10px] text-slate-500 font-mono">· ${item.size}</span>` : ""}
@@ -1115,7 +1137,7 @@ function renderListView(container, items) {
                 ${item.title}
               </h3>
               <p class="text-[11px] text-slate-400 truncate hidden sm:block">
-                ${item.subtitle}
+                ${item.subtitle || ''}
               </p>
             </div>
           </div>
