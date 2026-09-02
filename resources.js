@@ -727,88 +727,26 @@ const RESOURCES_DATA = [
 
   // ==================== 7. DOCSEND 全球多语种资料库 (DOCSEND GLOBAL) ====================
   {
-    id: "docsend-zh",
+    id: "docsend-global-deck",
     category: "docsend",
     type: "DOCSEND",
-    title: "ENI 公链官方资料 —— 🇨🇳 简体中文版",
-    subtitle: "DocSend 在线全息查阅，实时同步官方最新修订版本",
+    title: "ENI 公链官方核心白皮书与宣讲资料 (DocSend 6 国语言)",
+    subtitle: "DocSend 在线全息查阅，支持 6 种主流语言实时同步官方最新修订版本",
     path: "https://docsend.com/view/7s4r2r8p6i8xex9k",
-    badge: "中文在线",
+    badge: "6 语种支持",
     badgeColor: "cyan",
     icon: "🌐",
     isExternal: true,
     canPreview: true,
-    canDownload: false
-  },
-  {
-    id: "docsend-zht",
-    category: "docsend",
-    type: "DOCSEND",
-    title: "ENI 公链官方資料 —— 🇭🇰 繁體中文版",
-    subtitle: "DocSend 線上全息查閱，適用於港澳台及海外華人社群",
-    path: "https://docsend.com/view/h3kzb8q7k9v5p9x2",
-    badge: "繁體在線",
-    badgeColor: "cyan",
-    icon: "🌐",
-    isExternal: true,
-    canPreview: true,
-    canDownload: false
-  },
-  {
-    id: "docsend-en",
-    category: "docsend",
-    type: "DOCSEND",
-    title: "ENI Chain Official Deck —— 🇺🇸 English Edition",
-    subtitle: "DocSend Online Global Reader for International Investors & Communities",
-    path: "https://docsend.com/view/5u8q6c9w8v7x2k4p",
-    badge: "English Deck",
-    badgeColor: "gold",
-    icon: "🌐",
-    isExternal: true,
-    canPreview: true,
-    canDownload: false
-  },
-  {
-    id: "docsend-ja",
-    category: "docsend",
-    type: "DOCSEND",
-    title: "ENI パブリックチェーン資料 —— 🇯🇵 日本語版",
-    subtitle: "DocSend オンライン閲覧、日本のコミュニティ及び投資家向け",
-    path: "https://docsend.com/view/4w8v7x2k9p6c5q3m",
-    badge: "日本語デッキ",
-    badgeColor: "blue",
-    icon: "🌐",
-    isExternal: true,
-    canPreview: true,
-    canDownload: false
-  },
-  {
-    id: "docsend-ko",
-    category: "docsend",
-    type: "DOCSEND",
-    title: "ENI 퍼블릭 체인 자료 —— 🇰🇷 한국어판",
-    subtitle: "DocSend 온라인 열람, 한국 커뮤니티 및 파트너용 공식 덱",
-    path: "https://docsend.com/view/3m9x2k7p4w8v5c6q",
-    badge: "한국어 덱",
-    badgeColor: "blue",
-    icon: "🌐",
-    isExternal: true,
-    canPreview: true,
-    canDownload: false
-  },
-  {
-    id: "docsend-vi",
-    category: "docsend",
-    type: "DOCSEND",
-    title: "Tài Liệu ENI Chain —— 🇻🇳 Tiếng Việt",
-    subtitle: "DocSend Xem trực tuyến dành cho cộng đồng và đối tác Việt Nam",
-    path: "https://docsend.com/view/2k8p9x4w7v5c6q3m",
-    badge: "Bản Tiếng Việt",
-    badgeColor: "cyan",
-    icon: "🌐",
-    isExternal: true,
-    canPreview: true,
-    canDownload: false
+    canDownload: false,
+    multiLangLinks: [
+      { lang: "zh", label: "🇨🇳 简体中文版", url: "https://docsend.com/view/7s4r2r8p6i8xex9k" },
+      { lang: "zht", label: "🇭🇰 繁體中文版", url: "https://docsend.com/view/h3kzb8q7k9v5p9x2" },
+      { lang: "en", label: "🇺🇸 English", url: "https://docsend.com/view/5u8q6c9w8v7x2k4p" },
+      { lang: "ja", label: "🇯🇵 日本語版", url: "https://docsend.com/view/4w8v7x2k9p6c5q3m" },
+      { lang: "ko", label: "🇰🇷 한국어판", url: "https://docsend.com/view/3m9x2k7p4w8v5c6q" },
+      { lang: "vi", label: "🇻🇳 Tiếng Việt", url: "https://docsend.com/view/2k8p9x4w7v5c6q3m" }
+    ]
   }
 ];
 
@@ -901,7 +839,13 @@ function generateThemedDocCover(item) {
   let techFootnote = "Traditional Finance × Blockchain Infrastructure × AI-Powered Payment Layer";
   let microTag = "OFFICIAL SPEC";
 
-  if (item.id === "doc-bp-pdf") {
+  if (item.id === "docsend-global-deck" || item.category === "docsend") {
+    gradientClass = "bg-gradient-to-br from-[#00ffb2] via-[#00f2fe] to-[#3b82f6]";
+    enTitle = "ENI CHAIN OFFICIAL GLOBAL CORE DECK (6 LANGUAGES)";
+    zhTitle = "ENI 公链官方核心资料 · 6 语种在线全息阅览";
+    techFootnote = "DocSend Live Sync × Multi-Language Global Reader";
+    microTag = "6 LANGUAGES";
+  } else if (item.id === "doc-bp-pdf") {
     gradientClass = "bg-gradient-to-br from-[#84cc16] via-[#00ffb2] to-[#00f2fe]";
     enTitle = "ENIPAY OFFICIAL BUSINESS PLAN & STRATEGY";
     zhTitle = "ENIPAY 官方商业计划书 (Business Plan)";
@@ -1058,7 +1002,22 @@ function renderGridView(container, items) {
 
       // Actions buttons
       let actionButtons = "";
-      if (isDocSend) {
+      if (item.multiLangLinks && Array.isArray(item.multiLangLinks)) {
+        actionButtons = `
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5 w-full pt-2 border-t border-slate-800/80">
+            ${item.multiLangLinks
+              .map(
+                (link) => `
+              <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="py-1 px-1.5 rounded-lg bg-slate-900/90 hover:bg-cyan-neon/20 text-slate-200 hover:text-cyan-neon border border-slate-700/80 hover:border-cyan-neon/50 text-[10px] font-bold flex items-center justify-between transition-all group/link shadow-sm">
+                <span class="truncate">${link.label}</span>
+                <span class="text-[9px] text-cyan-neon group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform flex-shrink-0 ml-1">↗</span>
+              </a>
+            `
+              )
+              .join("")}
+          </div>
+        `;
+      } else if (isDocSend) {
         actionButtons = `
           <a href="${item.path}" target="_blank" rel="noopener noreferrer" class="w-full py-2 px-3 rounded-xl bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-sm">
             <span>🌐</span> 在线全息查阅 ↗
@@ -1166,7 +1125,22 @@ function renderListView(container, items) {
 
       // Actions
       let actionButtons = "";
-      if (isDocSend) {
+      if (item.multiLangLinks && Array.isArray(item.multiLangLinks)) {
+        actionButtons = `
+          <div class="flex items-center gap-1.5 flex-wrap">
+            ${item.multiLangLinks
+              .map(
+                (link) => `
+              <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="py-1 px-2 rounded-lg bg-slate-900/90 hover:bg-cyan-neon/20 text-slate-200 hover:text-cyan-neon border border-slate-700/80 hover:border-cyan-neon/50 text-[10px] font-bold flex items-center gap-1 transition-all">
+                <span>${link.label}</span>
+                <span class="text-[9px] text-cyan-neon">↗</span>
+              </a>
+            `
+              )
+              .join("")}
+          </div>
+        `;
+      } else if (isDocSend) {
         actionButtons = `
           <a href="${item.path}" target="_blank" rel="noopener noreferrer" class="py-1.5 px-3 rounded-lg bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap">
             <span>🌐</span> 在线查阅 ↗
