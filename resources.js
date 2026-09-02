@@ -1281,17 +1281,21 @@ function renderGridView(container, items) {
       // Actions buttons
       let actionButtons = "";
       if (item.multiLangLinks && Array.isArray(item.multiLangLinks)) {
+        const isImg = ["PNG", "JPG", "JPEG", "WEBP"].includes(item.type);
         actionButtons = `
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-1.5 w-full pt-2 border-t border-slate-800/80">
+          <div class="grid grid-cols-2 gap-1.5 sm:gap-2 w-full pt-2.5 border-t border-slate-800/80 mt-2">
             ${item.multiLangLinks
-              .map(
-                (link) => `
-              <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="py-1 px-1.5 rounded-lg bg-slate-900/90 hover:bg-cyan-neon/20 text-slate-200 hover:text-cyan-neon border border-slate-700/80 hover:border-cyan-neon/50 text-[10px] font-bold flex items-center justify-between transition-all group/link shadow-sm">
-                <span class="truncate">${link.label}</span>
-                <span class="text-[9px] text-cyan-neon group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform flex-shrink-0 ml-1">↗</span>
-              </a>
-            `
-              )
+              .map((link) => {
+                const clickHandler = isImg 
+                  ? `onclick="openImageLightbox(encodeURI('${link.url}'), '${item.title} - ${link.label}')"`
+                  : `onclick="window.open('${link.url}', '_blank')"`;
+                return `
+                  <button type="button" ${clickHandler} class="py-2 px-2.5 rounded-xl bg-slate-950/70 hover:bg-cyan-neon/15 text-slate-300 hover:text-white border border-slate-800 hover:border-cyan-neon/60 text-[11px] font-semibold flex items-center justify-between transition-all group/btn shadow-sm text-left cursor-pointer">
+                    <span class="truncate font-medium">${link.label}</span>
+                    <span class="text-[10px] text-cyan-neon group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform flex-shrink-0 ml-1">↗</span>
+                  </button>
+                `;
+              })
               .join("")}
           </div>
         `;
@@ -1404,17 +1408,21 @@ function renderListView(container, items) {
       // Actions
       let actionButtons = "";
       if (item.multiLangLinks && Array.isArray(item.multiLangLinks)) {
+        const isImg = ["PNG", "JPG", "JPEG", "WEBP"].includes(item.type);
         actionButtons = `
           <div class="flex items-center gap-1.5 flex-wrap">
             ${item.multiLangLinks
-              .map(
-                (link) => `
-              <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="py-1 px-2 rounded-lg bg-slate-900/90 hover:bg-cyan-neon/20 text-slate-200 hover:text-cyan-neon border border-slate-700/80 hover:border-cyan-neon/50 text-[10px] font-bold flex items-center gap-1 transition-all">
-                <span>${link.label}</span>
-                <span class="text-[9px] text-cyan-neon">↗</span>
-              </a>
-            `
-              )
+              .map((link) => {
+                const clickHandler = isImg 
+                  ? `onclick="openImageLightbox(encodeURI('${link.url}'), '${item.title} - ${link.label}')"`
+                  : `onclick="window.open('${link.url}', '_blank')"`;
+                return `
+                  <button type="button" ${clickHandler} class="py-1 px-2.5 rounded-lg bg-slate-950/70 hover:bg-cyan-neon/15 text-slate-300 hover:text-white border border-slate-800 hover:border-cyan-neon/60 text-[11px] font-semibold flex items-center gap-1.5 transition-all cursor-pointer">
+                    <span>${link.label}</span>
+                    <span class="text-[10px] text-cyan-neon">↗</span>
+                  </button>
+                `;
+              })
               .join("")}
           </div>
         `;
