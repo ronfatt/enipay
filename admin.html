@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ENIPAY 官方资料库 · 隐藏管理后台 (Admin Portal)</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cyan: {
+              neon: '#00ffb2',
+              bright: '#00f2fe',
+              blue: '#00c8ff',
+              deep: '#0891b2'
+            },
+            gold: {
+              400: '#fbbf24',
+              500: '#f59e0b'
+            },
+            slate: {
+              850: '#0b1329',
+              900: '#080d1a',
+              950: '#050811'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Supabase JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    body {
+      background-color: #030712;
+      color: #f3f4f6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      min-height: 100vh;
+      overflow-y: auto !important;
+    }
+    .admin-card {
+      background: rgba(11, 19, 41, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(0, 255, 178, 0.2);
+      border-radius: 1.25rem;
+    }
+    .admin-tab-btn.active {
+      background: rgba(0, 255, 178, 0.2);
+      border-color: #00ffb2;
+      color: #00ffb2;
+      font-weight: 800;
+      box-shadow: 0 0 15px rgba(0, 255, 178, 0.25);
+    }
+    .dropzone {
+      border: 2px dashed rgba(0, 255, 178, 0.35);
+      transition: all 0.2s ease;
+    }
+    .dropzone.dragover {
+      border-color: #00ffb2;
+      background: rgba(0, 255, 178, 0.08);
+      transform: scale(1.01);
+    }
+  </style>
+</head>
+<body class="selection:bg-cyan-neon selection:text-black">
+
+  <!-- ==================== 1. 锁屏密码验证 (LOCK SCREEN) ==================== -->
+  <div id="auth-lockscreen" class="fixed inset-0 z-50 bg-slate-950 flex items-center justify-center p-4">
+    <div class="w-full max-w-md admin-card p-6 sm:p-8 text-center space-y-6 shadow-[0_0_50px_rgba(0,255,178,0.15)]">
+      <div class="w-16 h-16 rounded-2xl bg-slate-900 border border-cyan-neon flex items-center justify-center mx-auto text-3xl shadow-lg shadow-cyan-neon/20">
+        🔐
+      </div>
+      <div>
+        <h2 class="text-xl font-black text-white">ENIPAY 资料库管理后台</h2>
+        <p class="text-xs text-slate-400 mt-1">请输入管理员安全密钥以解锁后台控制台</p>
+      </div>
+      <form id="auth-form" onsubmit="handleAdminLogin(event)" class="space-y-4">
+        <div class="relative">
+          <input 
+            type="password" 
+            id="admin-pass-input" 
+            placeholder="请输入管理员密码..." 
+            class="w-full py-3 px-4 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 text-sm focus:border-cyan-neon focus:ring-1 focus:ring-cyan-neon outline-none text-center tracking-widest"
+            required
+            autofocus
+          >
+        </div>
+        <button 
+          type="submit" 
+          class="w-full py-3 px-4 rounded-xl bg-cyan-neon text-slate-950 font-extrabold text-sm hover:bg-cyan-neon/90 transition-all shadow-[0_0_20px_rgba(0,255,178,0.4)]"
+        >
+          验证并进入后台 →
+        </button>
+        <p class="text-[11px] text-slate-500 font-mono">
+          默认初始密钥：<span class="text-cyan-neon font-bold">enipay888</span>（登录后可在设置中修改）
+        </p>
+      </form>
+      <div class="pt-4 border-t border-slate-800">
+        <a href="./resources.html" class="text-xs text-slate-400 hover:text-cyan-neon transition-colors">
+          ← 返回公共资料库
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 2. 主管理控制台 (ADMIN DASHBOARD) ==================== -->
+  <div id="admin-dashboard" class="hidden min-h-screen flex flex-col">
+    
+    <!-- Top Navigation -->
+    <header class="sticky top-0 z-40 bg-slate-950/90 backdrop-blur-md border-b border-slate-800 px-4 sm:px-8 py-3 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="./resources.html" class="py-1 px-3 rounded-lg bg-slate-900 border border-slate-700 text-slate-300 hover:text-white text-xs font-bold transition-all">
+          ← 查看公共前台
+        </a>
+        <div class="h-4 w-px bg-slate-800"></div>
+        <div class="flex items-center gap-2">
+          <span class="text-lg">⚡</span>
+          <span class="font-extrabold text-white text-sm sm:text-base">ENIPAY 资源管理中心</span>
+          <span id="supabase-status-badge" class="cyber-pill text-[9px] py-0.5 px-2 bg-yellow-500/20 text-yellow-400 border-yellow-500/30">
+            检查连接中...
+          </span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button onclick="openConfigModal()" class="py-1.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 text-xs font-bold flex items-center gap-1.5 transition-all">
+          <span>⚙️</span> <span class="hidden sm:inline">Supabase 配置</span>
+        </button>
+        <button onclick="handleAdminLogout()" class="py-1.5 px-3 rounded-xl bg-red-500/15 hover:bg-red-500/25 border border-red-500/40 text-red-400 text-xs font-bold transition-all">
+          退出
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-8 py-6 space-y-6">
+      
+      <!-- Action Tabs Bar -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-1 border-b border-slate-800">
+        <button class="admin-tab-btn active py-2.5 px-5 rounded-xl border border-transparent text-slate-300 text-xs sm:text-sm font-bold flex items-center gap-2 transition-all" onclick="switchAdminTab('upload', this)">
+          <span>📤</span> <span>上传新增资料</span>
+        </button>
+        <button class="admin-tab-btn py-2.5 px-5 rounded-xl border border-transparent text-slate-300 text-xs sm:text-sm font-bold flex items-center gap-2 transition-all" onclick="switchAdminTab('list', this)">
+          <span>📋</span> <span>资料库列表管理 (<span id="tab-count-lbl">0</span>)</span>
+        </button>
+        <button class="admin-tab-btn py-2.5 px-5 rounded-xl border border-transparent text-slate-300 text-xs sm:text-sm font-bold flex items-center gap-2 transition-all" onclick="switchAdminTab('seed', this)">
+          <span>⚡</span> <span>一键初始化与 SQL</span>
+        </button>
+      </div>
+
+      <!-- ==================== TAB 1: 上传新增资料 (UPLOAD) ==================== -->
+      <div id="tab-upload" class="admin-tab-content space-y-6">
+        <div class="admin-card p-6 sm:p-8">
+          <h3 class="text-base sm:text-lg font-black text-white mb-2 flex items-center gap-2">
+            <span>📤</span> <span>上传新文件到 Supabase Storage 并发布到资料库</span>
+          </h3>
+          <p class="text-xs text-slate-400 mb-6">
+            支持拖拽上传 PDF、MP4 视频、PNG/JPG 高清海报、PPTX 等。文件将直接上传至 Supabase 存储桶并自动实时同步至前端页面！
+          </p>
+
+          <form id="upload-form" onsubmit="handleResourceUpload(event)" class="space-y-6">
+            
+            <!-- File Dropzone -->
+            <div id="file-dropzone" class="dropzone p-8 rounded-2xl bg-slate-950/60 text-center cursor-pointer hover:bg-slate-950 transition-all flex flex-col items-center justify-center gap-2" onclick="document.getElementById('file-input').click()">
+              <input type="file" id="file-input" class="hidden" onchange="handleFileSelected(this.files[0])">
+              <div class="w-14 h-14 rounded-2xl bg-slate-900 border border-cyan-neon/50 flex items-center justify-center text-3xl mb-1 shadow-lg shadow-cyan-neon/10">
+                📁
+              </div>
+              <div id="dropzone-text" class="text-sm font-bold text-slate-200">
+                点击选择文件，或将文件拖拽至此处
+              </div>
+              <div id="dropzone-sub" class="text-xs text-slate-500">
+                支持 PDF、MP4、PNG、JPG、PPTX、PSD、DOCX 等所有格式
+              </div>
+            </div>
+
+            <!-- Upload Progress Bar (Hidden by default) -->
+            <div id="upload-progress-box" class="hidden space-y-2">
+              <div class="flex justify-between text-xs font-mono">
+                <span id="upload-progress-status" class="text-cyan-neon">正在上传至 Supabase Storage...</span>
+                <span id="upload-progress-percent" class="text-white font-bold">0%</span>
+              </div>
+              <div class="w-full h-2 bg-slate-900 rounded-full overflow-hidden border border-slate-800">
+                <div id="upload-progress-bar" class="h-full bg-cyan-neon transition-all duration-200" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <!-- Metadata Inputs Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-4 border-t border-slate-800">
+              
+              <!-- Category -->
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1.5">所属分类 *</label>
+                <select id="field-category" class="w-full py-2.5 px-3 rounded-xl bg-slate-950 border border-slate-700 text-white text-xs outline-none focus:border-cyan-neon" required>
+                  <option value="docs">📄 官方文档 & 商业计划书 (docs)</option>
+                  <option value="videos">🎬 官方高清视频 (videos - 仅在线播放)</option>
+                  <option value="posters">🖼️ 宣传海报与展架 (posters)</option>
+                  <option value="qa">❓ 市场问答卡片 (qa)</option>
+                  <option value="signage">🏢 实体招牌与前台 (signage)</option>
+                  <option value="brand">🎨 品牌 VI & Logo (brand)</option>
+                  <option value="docsend">🌐 DocSend 全球资料 (docsend)</option>
+                </select>
+              </div>
+
+              <!-- Title -->
+              <div class="sm:col-span-2">
+                <label class="block text-xs font-bold text-slate-300 mb-1.5">资料标题 *</label>
+                <input type="text" id="field-title" placeholder="如：ENIPAY 2026 官方商业计划书 (中文版)" class="w-full py-2.5 px-3 rounded-xl bg-slate-950 border border-slate-700 text-white text-xs outline-none focus:border-cyan-neon" required>
+              </div>
+
+              <!-- Subtitle -->
+              <div class="sm:col-span-2">
+                <label class="block text-xs font-bold text-slate-300 mb-1.5">一句话副标题/简介</label>
+                <input type="text" id="field-subtitle" placeholder="如：全面解析商业模式、代币通缩与上市路径" class="w-full py-2.5 px-3 rounded-xl bg-slate-950 border border-slate-700 text-white text-xs outline-none focus:border-cyan-neon">
+              </div>
+
+              <!-- Badge -->
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1.5">标签名称 (Badge)</label>
+                <input type="text" id="field-badge" placeholder="如：商业计划书 / 官方大片" class="w-full py-2.5 px-3 rounded-xl bg-slate-950 border border-slate-700 text-white text-xs outline-none focus:border-cyan-neon">
+              </div>
+
+              <!-- Badge Color -->
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1.5">标签颜色</label>
+                <select id="field-badge-color" class="w-full py-2.5 px-3 rounded-xl bg-slate-950 border border-slate-700 text-white text-xs outline-none focus:border-cyan-neon">
+                  <option value="cyan">青色霓虹 (Cyan Neon)</option>
+                  <option value="gold">高贵黑金 (Gold)</option>
+                  <option value="blue">科技深蓝 (Blue)</option>
+                </select>
+              </div>
+
+              <!-- Manual External / Custom URL (Optional) -->
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1.5">自定义直链 (可选，若已选择文件则自动生成)</label>
+                <input type="text" id="field-custom-url" placeholder="https://..." class="w-full py-2.5 px-3 rounded-xl bg-slate-950 border border-slate-700 text-white text-xs outline-none focus:border-cyan-neon">
+              </div>
+
+              <!-- Switches: Can Download & Preview -->
+              <div class="flex items-center gap-6 sm:col-span-2 lg:col-span-3 pt-2">
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" id="field-can-download" class="w-4 h-4 accent-cyan-neon rounded" checked>
+                  <span class="text-xs font-bold text-slate-300">允许用户下载 (视频建议取消勾选)</span>
+                </label>
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" id="field-can-preview" class="w-4 h-4 accent-cyan-neon rounded" checked>
+                  <span class="text-xs font-bold text-slate-300">支持在线预览/大图/播放</span>
+                </label>
+              </div>
+
+            </div>
+
+            <!-- Submit Button -->
+            <div class="pt-4 flex justify-end">
+              <button type="submit" id="btn-submit-upload" class="py-3 px-8 rounded-xl bg-cyan-neon hover:bg-cyan-neon/90 text-slate-950 font-black text-sm transition-all shadow-[0_0_20px_rgba(0,255,178,0.3)] flex items-center gap-2">
+                <span>🚀</span> <span>确认并立即发布到资料库</span>
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+      <!-- ==================== TAB 2: 资料库列表管理 (LIST / CRUD) ==================== -->
+      <div id="tab-list" class="admin-tab-content hidden space-y-4">
+        
+        <!-- Filter & Search Controls -->
+        <div class="admin-card p-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div class="flex items-center gap-2 w-full sm:w-auto">
+            <select id="admin-filter-cat" onchange="renderAdminList()" class="py-2 px-3 rounded-xl bg-slate-950 border border-slate-700 text-white text-xs outline-none focus:border-cyan-neon cursor-pointer">
+              <option value="all">🌟 全部类别</option>
+              <option value="docs">📄 官方文档</option>
+              <option value="videos">🎬 官方视频</option>
+              <option value="posters">🖼️ 宣传海报</option>
+              <option value="qa">❓ 市场答疑</option>
+              <option value="signage">🏢 实体招牌</option>
+              <option value="brand">🎨 品牌 Logo</option>
+              <option value="docsend">🌐 DocSend</option>
+            </select>
+          </div>
+          <div class="w-full sm:w-72">
+            <input 
+              type="text" 
+              id="admin-search-input" 
+              placeholder="🔍 搜索资料名称..." 
+              oninput="renderAdminList()" 
+              class="w-full py-2 px-3 rounded-xl bg-slate-950 border border-slate-700 text-white text-xs outline-none focus:border-cyan-neon"
+            >
+          </div>
+        </div>
+
+        <!-- Resources Table / Cards -->
+        <div id="admin-table-container" class="space-y-2.5">
+          <!-- Populated by admin.js -->
+        </div>
+
+      </div>
+
+      <!-- ==================== TAB 3: 一键初始化与 SQL (SEED & SQL) ==================== -->
+      <div id="tab-seed" class="admin-tab-content hidden space-y-6">
+        <div class="admin-card p-6 sm:p-8 space-y-6">
+          <div>
+            <h3 class="text-base sm:text-lg font-black text-white mb-1 flex items-center gap-2">
+              <span>⚡</span> <span>Supabase 数据库一键初始化 (One-Click Seed)</span>
+            </h3>
+            <p class="text-xs text-slate-400">
+              如果您刚创建好 Supabase 项目，可以一键将当前 35+ 份官方资料直接写入 Supabase 的 <code class="text-cyan-neon font-mono">resources</code> 数据表中！
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-300">第一步：在 Supabase SQL Editor 执行建表语句</span>
+              <button onclick="copySqlStatement()" class="py-1 px-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-cyan-neon text-xs font-mono font-bold">
+                复制代码
+              </button>
+            </div>
+            <pre class="p-3 bg-slate-900 rounded-lg text-[11px] font-mono text-slate-300 overflow-x-auto">
+-- 1. 创建 resources 数据表
+CREATE TABLE IF NOT EXISTS resources (
+  id TEXT PRIMARY KEY,
+  category TEXT NOT NULL,
+  type TEXT NOT NULL,
+  title TEXT NOT NULL,
+  subtitle TEXT,
+  path TEXT NOT NULL,
+  thumb TEXT,
+  size TEXT,
+  badge TEXT,
+  badge_color TEXT DEFAULT 'cyan',
+  icon TEXT DEFAULT '📄',
+  can_preview BOOLEAN DEFAULT true,
+  can_download BOOLEAN DEFAULT true,
+  preview_type TEXT,
+  sort_order INTEGER DEFAULT 0,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- 2. 开启公开可读权限 (Public Read)
+ALTER TABLE resources ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Public Read Access" ON resources FOR SELECT USING (true);
+CREATE POLICY "Public Write Access" ON resources FOR ALL USING (true);
+            </pre>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <div class="text-xs font-bold text-white">第二步：一键导入初始 35+ 项官方素材</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">将商业计划书、宣传视频、海报、Q&A 等全部导入 Supabase 数据库</div>
+            </div>
+            <button onclick="seedDefaultResourcesToSupabase()" id="btn-seed" class="py-2.5 px-6 rounded-xl bg-gold-400 hover:bg-gold-500 text-slate-950 font-black text-xs transition-all shadow-[0_0_15px_rgba(251,191,36,0.3)] whitespace-nowrap">
+              ⚡ 立即执行一键导入
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ==================== CONFIG MODAL (SUPABASE SETTINGS) ==================== -->
+  <div id="config-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="admin-card w-full max-w-lg p-6 space-y-5">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h4 class="text-base font-bold text-white flex items-center gap-2">
+          <span>⚙️</span> <span>Supabase 云数据库与存储配置</span>
+        </h4>
+        <button onclick="closeConfigModal()" class="text-slate-400 hover:text-white font-bold">✕</button>
+      </div>
+
+      <div class="space-y-4 text-xs">
+        <div>
+          <label class="block font-bold text-slate-300 mb-1">Supabase Project URL *</label>
+          <input type="text" id="cfg-supabase-url" placeholder="https://your-project.supabase.co" class="w-full py-2.5 px-3 rounded-xl bg-slate-950 border border-slate-700 text-white outline-none focus:border-cyan-neon font-mono">
+        </div>
+        <div>
+          <label class="block font-bold text-slate-300 mb-1">Supabase Anon Key (公钥) / Service Key *</label>
+          <input type="password" id="cfg-supabase-key" placeholder="eyJhbGciOiJIUzI1NiIsIn..." class="w-full py-2.5 px-3 rounded-xl bg-slate-950 border border-slate-700 text-white outline-none focus:border-cyan-neon font-mono">
+        </div>
+        <div>
+          <label class="block font-bold text-slate-300 mb-1">Storage Bucket 存储桶名称</label>
+          <input type="text" id="cfg-supabase-bucket" value="enipay-assets" class="w-full py-2.5 px-3 rounded-xl bg-slate-950 border border-slate-700 text-white outline-none focus:border-cyan-neon font-mono">
+        </div>
+        <div>
+          <label class="block font-bold text-slate-300 mb-1">修改后台管理员密码</label>
+          <input type="text" id="cfg-admin-pass" placeholder="输入新密码 (留空则保持不变)" class="w-full py-2.5 px-3 rounded-xl bg-slate-950 border border-slate-700 text-white outline-none focus:border-cyan-neon">
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center pt-3 border-t border-slate-800">
+        <button onclick="testSupabaseConnection()" class="py-2 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-bright font-bold text-xs">
+          测试连接
+        </button>
+        <button onclick="saveSupabaseConfig()" class="py-2 px-6 rounded-xl bg-cyan-neon hover:bg-cyan-neon/90 text-slate-950 font-black text-xs">
+          保存配置
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="admin-toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 py-3 px-5 rounded-2xl bg-slate-900 border border-cyan-neon text-cyan-neon font-bold text-xs shadow-[0_0_30px_rgba(0,255,178,0.3)] flex items-center gap-2">
+    <span id="admin-toast-msg">操作成功</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./admin.js"></script>
+</body>
+</html>

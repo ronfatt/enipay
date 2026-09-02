@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>ENIPAY 官方媒体与资料中心 —— 商业计划书 · 高清宣传视频 · 市场答疑 · 品牌物料</title>
   
+  <!-- Supabase JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -208,8 +211,11 @@
   </main>
 
   <!-- Footer -->
-  <footer class="relative z-10 border-t border-slate-800/80 py-6 px-4 text-center text-xs text-slate-500 font-mono mt-12 bg-slate-950/60">
-    <div>ENIPAY Web3 Payment Ecosystem · Official Resource Repository</div>
+    <!-- Footer (With Hidden Admin 5-Click Trigger) -->
+  <footer class="relative z-10 border-t border-slate-800/80 py-6 px-4 text-center text-xs text-slate-500 font-mono mt-12 bg-slate-950/60 select-none">
+    <div onclick="handleSecretAdminTrigger()" class="cursor-pointer inline-block hover:text-slate-400 transition-colors" title="ENIPAY Web3 Hub">
+      ⚡ ENIPAY Web3 Payment Ecosystem · Official Resource Repository ⚡
+    </div>
     <div class="mt-1 text-[11px] text-slate-600">© 2026 ENIPAY Global. All Rights Reserved.</div>
   </footer>
 

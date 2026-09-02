@@ -812,18 +812,83 @@ const RESOURCES_DATA = [
   }
 ];
 
+
+// Expose Default Dataset Globally
+window.RESOURCES_DATA = RESOURCES_DATA;
+
 // App State
+let activeResourcesList = [...RESOURCES_DATA];
 let currentCategory = "all";
 let currentViewMode = "grid"; // 'grid' | 'list'
 let searchQuery = "";
+let secretClickCount = 0;
 
 // Initialize Page
 document.addEventListener("DOMContentLoaded", () => {
-  renderResources();
   initViewToggle();
   initSearch();
   initCategoryTabs();
+  initSecretShortcuts();
+  fetchLiveResourcesFromSupabase();
 });
+
+// Fetch Realtime Resources from Supabase with Local Fallback
+async function fetchLiveResourcesFromSupabase() {
+  const url = localStorage.getItem("enipay_supabase_url");
+  const key = localStorage.getItem("enipay_supabase_key");
+  const localCache = localStorage.getItem("enipay_local_resources_db");
+
+  if (url && key && window.supabase) {
+    try {
+      const client = window.supabase.createClient(url, key);
+      const { data, error } = await client
+        .from("resources")
+        .select("*")
+        .order("sort_order", { ascending: true });
+
+      if (!error && data && data.length > 0) {
+        activeResourcesList = data;
+        renderResources();
+        return;
+      }
+    } catch (e) {
+      console.warn("Supabase fetch failed, falling back to local dataset", e);
+    }
+  }
+
+  if (localCache) {
+    try {
+      const parsed = JSON.parse(localCache);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        activeResourcesList = parsed;
+        renderResources();
+        return;
+      }
+    } catch (e) {}
+  }
+
+  activeResourcesList = [...RESOURCES_DATA];
+  renderResources();
+}
+
+// 🔐 Secret Backdoor Trigger (Cmd+Shift+A or 5-Clicks on footer)
+function initSecretShortcuts() {
+  document.addEventListener("keydown", (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.shiftKey && (e.key === "a" || e.key === "A")) {
+      e.preventDefault();
+      window.location.href = "./admin.html";
+    }
+  });
+}
+
+function handleSecretAdminTrigger() {
+  secretClickCount++;
+  if (secretClickCount >= 5) {
+    secretClickCount = 0;
+    window.location.href = "./admin.html";
+  }
+}
+
 
 // Render Function
 function renderResources() {
@@ -832,7 +897,7 @@ function renderResources() {
   const countBadge = document.getElementById("total-count-badge");
   if (!container) return;
 
-  const filtered = RESOURCES_DATA.filter((item) => {
+  const filtered = activeResourcesList.filter((item) => {
     const matchCat = currentCategory === "all" || item.category === currentCategory;
     const matchSearch =
       !searchQuery ||
