@@ -5,733 +5,1209 @@
 
 // Complete Local & Remote Resources Dataset
 const RESOURCES_DATA = [
-  // ==================== 1. 官方文档 & 商业计划书 (DOCUMENTS) ====================
   {
-    id: "doc-bp-pdf",
-    category: "docs",
-    type: "PDF",
-    title: "ENIPAY 官方商业计划书 (Business Plan)",
-    subtitle: "全面解析 ENIPAY 商业模式、三层架构、代币激励与上市路径",
-    path: "./ENIPAY商业计划书.pdf",
-    size: "8.2 MB",
-    badge: "商业计划书",
-    badgeColor: "gold",
-    icon: "📄",
-    canPreview: true,
-    canDownload: true,
-    previewType: "pdf"
-  },
-  {
-    id: "doc-qa-pdf",
-    category: "docs",
-    type: "PDF",
-    title: "ENIPAY 市场常见问答手册 (Q&A)",
-    subtitle: "全面解答关于 ENI 公链底座、币安托管、U卡申请与收益模型等核心问题",
-    path: "./ENI资料库/ENIPAY 问与答/ENIPAY市场问答Q&A.pdf",
-    size: "3.4 MB",
-    badge: "市场答疑",
-    badgeColor: "cyan",
-    icon: "❓",
-    canPreview: true,
-    canDownload: true,
-    previewType: "pdf"
-  },
-  {
-    id: "doc-qa-pptx",
-    category: "docs",
-    type: "PPTX",
-    title: "ENIPAY 市场问答宣讲幻灯片 (Q&A PPTX)",
-    subtitle: "官方标准演讲幻灯片，适用于线下招商会、社区路演与团队布道",
-    path: "./ENI资料库/ENIPAY 问与答/ENIPAY市场问答Q&A.pptx",
-    size: "5.1 MB",
-    badge: "招商演示",
-    badgeColor: "cyan",
-    icon: "📊",
-    canPreview: false,
-    canDownload: true
-  },
-  {
-    id: "doc-epay-intro",
-    category: "docs",
-    type: "PDF",
-    title: "EPAY 项目深度介绍 (中文版)",
-    subtitle: "聚焦 EPAY 双通缩机制、回购销毁执行器与 100 代社区裂变激励",
-    path: "./EPAY 项目介绍 中文.pdf",
-    size: "4.7 MB",
-    badge: "项目介绍",
-    badgeColor: "gold",
-    icon: "📘",
-    canPreview: true,
-    canDownload: true,
-    previewType: "pdf"
-  },
-  {
-    id: "doc-epay-v14",
-    category: "docs",
-    type: "PDF",
-    title: "Epay 全球聚合支付平台架构白皮书 v1.4",
-    subtitle: "四方清算技术规范、合规出入金方案与智能合约体系详解",
-    path: "./Epay 聚合平台v1.4.pdf",
-    size: "3.0 MB",
-    badge: "技术白皮书",
-    badgeColor: "cyan",
-    icon: "📑",
-    canPreview: true,
-    canDownload: true,
-    previewType: "pdf"
-  },
-
-  // ==================== 2. 官方高清宣传视频 (VIDEOS - 仅在线播放，禁止下载) ====================
-  {
-    id: "video-eni-main",
-    category: "videos",
-    type: "MP4",
-    title: "ENI 公链官方品牌宣传大片",
-    subtitle: "展现东京总部、NTT 战略合作、模块化 L1 架构与 5 年稳健运行风采",
-    path: "./ENI资料库/视频/ENI宣传视频.MP4",
-    badge: "公链大片",
-    badgeColor: "cyan",
-    icon: "🎬",
-    canPreview: true,
-    canDownload: false,
-    previewType: "video"
-  },
-  {
-    id: "video-enipay-promo",
-    category: "videos",
-    type: "MP4",
-    title: "ENIPAY 全球支付聚合平台宣传短片",
-    subtitle: "三色 U 卡、双币扫码、AI 智能助手卡与全球生活出行全景演示",
-    path: "./ENI资料库/视频/ENIPAY宣传短片MP4.MP4",
-    badge: "平台短片",
-    badgeColor: "cyan",
-    icon: "🎬",
-    canPreview: true,
-    canDownload: false,
-    previewType: "video"
-  },
-  {
-    id: "video-spokesperson",
-    category: "videos",
-    type: "MP4",
-    title: "ENIPAY 品牌形象代言宣传短片",
-    subtitle: "特邀形象大使助力全球布道与市场裂变推广",
-    path: "./ENI资料库/视频/光头强ENIPAY代言.mp4",
-    badge: "形象代言",
-    badgeColor: "gold",
-    icon: "🎬",
-    canPreview: true,
-    canDownload: false,
-    previewType: "video"
-  },
-  {
-    id: "video-ecosystem",
-    category: "videos",
-    type: "MP4",
-    title: "ENIPAY ECOSYSTEM 全球生态全景",
-    subtitle: "全球化商业落地战略、五年上市规划与万亿清算赛道解析",
-    path: "./ENI资料库/视频/ENIPAY ECOSYSTEM.mp4",
-    badge: "生态全景",
-    badgeColor: "cyan",
-    icon: "🎬",
-    canPreview: true,
-    canDownload: false,
-    previewType: "video"
-  },
-  {
-    id: "video-finance-model",
-    category: "videos",
-    type: "MP4",
-    title: "ENI MG 金融模型与通缩机制深度解读",
-    subtitle: "80% 黑洞销毁 + 提现 5% 强制回购代币经济学深度剖析",
-    path: "./ENI资料库/视频/ENIMG金融模型解读.mp4",
-    badge: "金融模型",
-    badgeColor: "gold",
-    icon: "🎬",
-    canPreview: true,
-    canDownload: false,
-    previewType: "video"
-  },
-  {
-    id: "video-wealth-code",
-    category: "videos",
-    type: "MP4",
-    title: "ENIPAY 财富密码与全球红利",
-    subtitle: "早期种子节点红利、上市加速池补贴与 3.5 倍收益闭环",
-    path: "./ENI资料库/视频/ENIPAY财富密码.mp4",
-    badge: "财富指南",
-    badgeColor: "gold",
-    icon: "🎬",
-    canPreview: true,
-    canDownload: false,
-    previewType: "video"
-  },
-  {
-    id: "video-super-eco",
-    category: "videos",
-    type: "MP4",
-    title: "EPAY 超级生态落地演示",
-    subtitle: "打通线上线下、全球 ATM 取现与日常消费刷卡全场景",
-    path: "./ENI资料库/视频/EPAY超级生态.MP4",
-    badge: "超级生态",
-    badgeColor: "cyan",
-    icon: "🎬",
-    canPreview: true,
-    canDownload: false,
-    previewType: "video"
-  },
-  {
-    id: "video-digital-pay",
-    category: "videos",
-    type: "MP4",
-    title: "EPAY 数字支付与即时出入金",
-    subtitle: "无冻卡风险、SWIFT 国际电汇与合规资金流向展示",
-    path: "./ENI资料库/视频/EPAY数字支付.MP4",
-    badge: "数字支付",
-    badgeColor: "cyan",
-    icon: "🎬",
-    canPreview: true,
-    canDownload: false,
-    previewType: "video"
-  },
-  {
-    id: "video-eni-promo-2",
-    category: "videos",
-    type: "MP4",
-    title: "ENI 公链全球节点与技术架构短片 02",
-    subtitle: "企业级高并发测试、12,500 TPS 与极低 Gas 费体验",
-    path: "./ENI资料库/视频/ENI 宣传视频 02.mp4",
-    badge: "技术短片",
-    badgeColor: "blue",
-    icon: "🎬",
-    canPreview: true,
-    canDownload: false,
-    previewType: "video"
-  },
-
-  // ==================== 3. 宣传海报与展架易拉宝 (POSTERS) ====================
-  {
-    id: "poster-long-intro",
-    category: "posters",
-    type: "PNG",
-    title: "ENIPAY 官方简介全景长图",
-    subtitle: "高清长图排版，适合微信、Telegram 等社群一键转发",
-    path: "./ENI资料库/EPAY中文/ENIPAY 简介长图.png",
-    thumb: "./ENI资料库/EPAY中文/ENIPAY 简介长图.png",
-    badge: "社群长图",
-    badgeColor: "cyan",
-    icon: "🖼️",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "poster-eco-overview",
-    category: "posters",
-    type: "PNG",
-    title: "ENI 生态系统简介展板",
-    subtitle: "公链底座、支付清算与生态矩阵一览",
-    path: "./ENI资料库/EPAY中文/ENI 生态简介.png",
-    thumb: "./ENI资料库/EPAY中文/ENI 生态简介.png",
-    badge: "生态展板",
-    badgeColor: "cyan",
-    icon: "🖼️",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "poster-competitive-edge",
-    category: "posters",
-    type: "PNG",
-    title: "ENIPAY 生态竞争优势图解",
-    subtitle: "对比传统出入金与竞品，凸显 100% 币安托管与无冻卡优势",
-    path: "./ENI资料库/EPAY中文/ENIPAY 生态竞争优势.PNG",
-    thumb: "./ENI资料库/EPAY中文/ENIPAY 生态竞争优势.PNG",
-    badge: "竞争优势",
-    badgeColor: "gold",
-    icon: "🖼️",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "poster-staking-model-1",
-    category: "posters",
-    type: "PNG",
-    title: "ENIPAY 质押投资与收益模型 01",
-    subtitle: "300~10000U 投资梯度、日化 1% 与 3.5 倍出局机制",
-    path: "./ENI资料库/EPAY中文/ENIPAY 质押模型 01.png",
-    thumb: "./ENI资料库/EPAY中文/ENIPAY 质押模型 01.png",
-    badge: "质押模型",
-    badgeColor: "gold",
-    icon: "🖼️",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "poster-staking-model-2",
-    category: "posters",
-    type: "PNG",
-    title: "ENIPAY 质押投资与收益模型 02",
-    subtitle: "100 代动态裂变奖金池与团队管理激励图解",
-    path: "./ENI资料库/EPAY中文/NIPAY 质押模型 02.png",
-    thumb: "./ENI资料库/EPAY中文/NIPAY 质押模型 02.png",
-    badge: "裂变模型",
-    badgeColor: "gold",
-    icon: "🖼️",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "poster-main-1",
-    category: "posters",
-    type: "PNG",
-    title: "ENI 官方主视觉海报 01",
-    subtitle: "极具科技感的高清主视觉，适合线下峰会与展会背景",
-    path: "./ENI资料库/EPAY中文/ENI海报.PNG",
-    thumb: "./ENI资料库/EPAY中文/ENI海报.PNG",
-    badge: "主视觉海报",
-    badgeColor: "cyan",
-    icon: "🖼️",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "poster-main-2",
-    category: "posters",
-    type: "PNG",
-    title: "ENI 官方主视觉海报 02",
-    subtitle: "企业级公链与 Web3 支付结合的视觉主题展板",
-    path: "./ENI资料库/EPAY中文/ENI 海报 02PNG.PNG",
-    thumb: "./ENI资料库/EPAY中文/ENI 海报 02PNG.PNG",
-    badge: "主视觉海报",
-    badgeColor: "cyan",
-    icon: "🖼️",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "poster-main-3",
-    category: "posters",
-    type: "PNG",
-    title: "ENI 官方主视觉海报 03",
-    subtitle: "聚焦全球金融合规牌照与纳斯达克 IPO 冲刺愿景",
-    path: "./ENI资料库/EPAY中文/ENI 海报 03.PNG",
-    thumb: "./ENI资料库/EPAY中文/ENI 海报 03.PNG",
-    badge: "主视觉海报",
-    badgeColor: "gold",
-    icon: "🖼️",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-
-  // ==================== 4. 市场问答与答疑卡片 (Q&A CARDS Q1-Q14) ====================
-  {
-    id: "qa-q1",
-    category: "qa",
-    type: "PNG",
-    title: "Q1: 什么是 ENIPAY 全球支付聚合平台？",
-    subtitle: "解析 ENIPAY 的平台定位与生态价值",
-    path: "./ENI资料库/ENIPAY 问与答/Q1.PNG",
-    thumb: "./ENI资料库/ENIPAY 问与答/Q1.PNG",
-    badge: "Q&A 01",
-    badgeColor: "cyan",
-    icon: "❓",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "qa-q2",
-    category: "qa",
-    type: "PNG",
-    title: "Q2: ENIPAY 的资金安全性如何保障？",
-    subtitle: "阐述币安第三方独立托管机制与零资金沉淀",
-    path: "./ENI资料库/ENIPAY 问与答/Q2.PNG",
-    thumb: "./ENI资料库/ENIPAY 问与答/Q2.PNG",
-    badge: "Q&A 02",
-    badgeColor: "cyan",
-    icon: "❓",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "qa-q3",
-    category: "qa",
-    type: "PNG",
-    title: "Q3: ENIPAY 三色 U 卡如何申请与使用？",
-    subtitle: "黑卡、绿卡、蓝卡的申请条件与全球刷卡额度",
-    path: "./ENI资料库/ENIPAY 问与答/Q3.PNG",
-    thumb: "./ENI资料库/ENIPAY 问与答/Q3.PNG",
-    badge: "Q&A 03",
-    badgeColor: "cyan",
-    icon: "❓",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "qa-q4",
-    category: "qa",
-    type: "PNG",
-    title: "Q4: 为什么能彻底告别银行冻卡痛点？",
-    subtitle: "揭秘四方合规清算通道与银行级电汇网络",
-    path: "./ENI资料库/ENIPAY 问与答/Q4.PNG",
-    thumb: "./ENI资料库/ENIPAY 问与答/Q4.PNG",
-    badge: "Q&A 04",
-    badgeColor: "cyan",
-    icon: "❓",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "qa-q5",
-    category: "qa",
-    type: "PNG",
-    title: "Q5: EPAY 代币的通缩逻辑是什么？",
-    subtitle: "80% 初始黑洞销毁与 5% 提现强制回购深度解读",
-    path: "./ENI资料库/ENIPAY 问与答/Q5.PNG",
-    thumb: "./ENI资料库/ENIPAY 问与答/Q5.PNG",
-    badge: "Q&A 05",
-    badgeColor: "gold",
-    icon: "❓",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "qa-q6",
-    category: "qa",
-    type: "PNG",
-    title: "Q6: 静态质押收益与出局规则是怎样的？",
-    subtitle: "0.8%~1.2% 日收益率与 3.5 倍出局保障",
-    path: "./ENI资料库/ENIPAY 问与答/Q6.PNG",
-    thumb: "./ENI资料库/ENIPAY 问与答/Q6.PNG",
-    badge: "Q&A 06",
-    badgeColor: "gold",
-    icon: "❓",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "qa-q7",
-    category: "qa",
-    type: "PNG",
-    title: "Q7: 100 代动态裂变奖金如何计算？",
-    subtitle: "直推人数与代数权限解锁规则",
-    path: "./ENI资料库/ENIPAY 问与答/Q7.PNG",
-    thumb: "./ENI资料库/ENIPAY 问与答/Q7.PNG",
-    badge: "Q&A 07",
-    badgeColor: "gold",
-    icon: "❓",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "qa-q8",
-    category: "qa",
-    type: "PNG",
-    title: "Q8: 三年 5 亿美金加速池资金来源何在？",
-    subtitle: "底池做市、社区扩张与上市推进 5 大阶段说明",
-    path: "./ENI资料库/ENIPAY 问与答/Q8.PNG",
-    thumb: "./ENI资料库/ENIPAY 问与答/Q8.PNG",
-    badge: "Q&A 08",
-    badgeColor: "gold",
-    icon: "❓",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "qa-q9",
-    category: "qa",
-    type: "PNG",
-    title: "Q9: 什么是 AI Agent 智能助手卡 (A-Card)？",
-    subtitle: "人工智能代理自主消费与 MPC 多签风控模型",
-    path: "./ENI资料库/ENIPAY 问与答/Q9.PNG",
-    thumb: "./ENI资料库/ENIPAY 问与答/Q9.PNG",
-    badge: "Q&A 09",
-    badgeColor: "cyan",
-    icon: "❓",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "qa-q10",
-    category: "qa",
-    type: "PNG",
-    title: "Q10: ENI 主网初代币的稀缺性体现在哪？",
-    subtitle: "全网仅 5% 产出与 2026 年首发主流交易所规划",
-    path: "./ENI资料库/ENIPAY 问与答/Q10.PNG",
-    thumb: "./ENI资料库/ENIPAY 问与答/Q10.PNG",
-    badge: "Q&A 10",
-    badgeColor: "cyan",
-    icon: "❓",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "qa-q11",
-    category: "qa",
-    type: "PNG",
-    title: "Q11: 如何参与全球超级节点计划？",
-    subtitle: "100 超级节点招募条件与全网手续费分红特权",
-    path: "./ENI资料库/ENIPAY 问与答/Q11.PNG",
-    thumb: "./ENI资料库/ENIPAY 问与答/Q11.PNG",
-    badge: "Q&A 11",
-    badgeColor: "cyan",
-    icon: "❓",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "qa-q12",
-    category: "qa",
-    type: "PNG",
-    title: "Q12: ENIPAY 在纳斯达克上市的时间表？",
-    subtitle: "合规推进、用户体量沉淀与 500 亿估值冲刺目标",
-    path: "./ENI资料库/ENIPAY 问与答/Q12.PNG",
-    thumb: "./ENI资料库/ENIPAY 问与答/Q12.PNG",
-    badge: "Q&A 12",
-    badgeColor: "gold",
-    icon: "❓",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "qa-q13",
-    category: "qa",
-    type: "PNG",
-    title: "Q13: 如何下载官方 App 与绑定钱包？",
-    subtitle: "iOS 与 Android 客户端安装指引与安全备份",
-    path: "./ENI资料库/ENIPAY 问与答/Q13.PNG",
-    thumb: "./ENI资料库/ENIPAY 问与答/Q13.PNG",
-    badge: "Q&A 13",
-    badgeColor: "cyan",
-    icon: "❓",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "qa-q14",
-    category: "qa",
-    type: "PNG",
-    title: "Q14: 早期参与者的核心财富指令是什么？",
-    subtitle: "把握黄金内测窗口，紧握核心筹码迎接资本红利",
-    path: "./ENI资料库/ENIPAY 问与答/Q14.PNG",
-    thumb: "./ENI资料库/ENIPAY 问与答/Q14.PNG",
-    badge: "Q&A 14",
-    badgeColor: "gold",
-    icon: "❓",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-
-  // ==================== 5. 实体物料与招牌 (STORE SIGNAGE) ====================
-  {
-    id: "signage-front-day",
-    category: "signage",
-    type: "PNG",
-    title: "ENIPAY 线下实体旗舰中心前台 (白天效果)",
-    subtitle: "标准线下服务中心与 VIP 咨询接待前台视觉实景图",
-    path: "./ENI资料库/实体招牌/白天前台.png",
-    thumb: "./ENI资料库/实体招牌/白天前台.png",
-    badge: "实体前台",
-    badgeColor: "cyan",
-    icon: "🏢",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "signage-front-night",
-    category: "signage",
-    type: "PNG",
-    title: "ENIPAY 线下实体旗舰中心前台 (夜间发光效果)",
-    subtitle: "赛博朋克霓虹光效前台设计，展现顶级金融科技质感",
-    path: "./ENI资料库/实体招牌/晚上前台.png",
-    thumb: "./ENI资料库/实体招牌/晚上前台.png",
-    badge: "夜间光效",
-    badgeColor: "cyan",
-    icon: "🏢",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "signage-storefront",
-    category: "signage",
-    type: "PNG",
-    title: "ENIPAY 官方门店招牌门头设计图",
-    subtitle: "全球加盟店与线下网点统一标准门头招牌设计规范",
-    path: "./ENI资料库/实体招牌/店招.png",
-    thumb: "./ENI资料库/实体招牌/店招.png",
-    badge: "门头招牌",
-    badgeColor: "gold",
-    icon: "🏪",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "signage-lightbox",
-    category: "signage",
-    type: "PNG",
-    title: "ENIPAY 实体店发光灯箱设计图",
-    subtitle: "立柱灯箱、侧发光广告牌高清设计原图",
-    path: "./ENI资料库/实体招牌/灯箱.png",
-    thumb: "./ENI资料库/实体招牌/灯箱.png",
-    badge: "发光灯箱",
-    badgeColor: "gold",
-    icon: "💡",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-
-  // ==================== 6. 品牌 VI & 官方 LOGO (BRAND VI) ====================
-  {
-    id: "logo-app-icon",
-    category: "brand",
-    type: "PNG",
-    title: "ENIPAY 官方标准 App 图标 (App Icon)",
-    subtitle: "正方形圆角高清图标，适用于移动端应用商店与官网图标",
-    path: "./ENI资料库/ENIPAY Logo/IMG_1324.PNG",
-    thumb: "./ENI资料库/ENIPAY Logo/IMG_1324.PNG",
-    badge: "App Icon",
-    badgeColor: "cyan",
-    icon: "🎨",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "logo-horiz-dark",
-    category: "brand",
-    type: "PNG",
-    title: "ENIPAY 品牌标准横版 Logo (深色背景专用)",
-    subtitle: "高清透明底横版 Logo，适用于演示文稿、官网与广告物料",
-    path: "./ENI资料库/ENIPAY Logo/IMG_1534.PNG",
-    thumb: "./ENI资料库/ENIPAY Logo/IMG_1534.PNG",
-    badge: "标准横版",
-    badgeColor: "cyan",
-    icon: "🎨",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "logo-horiz-light",
-    category: "brand",
-    type: "PNG",
-    title: "ENIPAY 品牌标准横版 Logo (浅色背景专用)",
-    subtitle: "浅色或白色背景印刷与文档专用高清标",
-    path: "./ENI资料库/ENIPAY Logo/IMG_1535.PNG",
-    thumb: "./ENI资料库/ENIPAY Logo/IMG_1535.PNG",
-    badge: "浅底专用",
-    badgeColor: "cyan",
-    icon: "🎨",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "logo-3d-neon",
-    category: "brand",
-    type: "PNG",
-    title: "ENIPAY 3D 霓虹质感官方徽标",
-    subtitle: "3D 金属与霓虹青光泽渲染，适合高端海报与主视觉设计",
-    path: "./ENI资料库/ENIPAY Logo/IMG_1536.PNG",
-    thumb: "./ENI资料库/ENIPAY Logo/IMG_1536.PNG",
-    badge: "3D 徽标",
-    badgeColor: "gold",
-    icon: "✨",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "logo-symbol",
-    category: "brand",
-    type: "PNG",
-    title: "ENIPAY 品牌核心超级符号 (Icon Symbol)",
-    subtitle: "极简字母 E 融合能量芯片造型的品牌超级符号",
-    path: "./ENI资料库/ENIPAY Logo/IMG_1537.PNG",
-    thumb: "./ENI资料库/ENIPAY Logo/IMG_1537.PNG",
-    badge: "超级符号",
-    badgeColor: "cyan",
-    icon: "💠",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "logo-gold-black",
-    category: "brand",
-    type: "PNG",
-    title: "ENIPAY 极简黑金高奢标 (Gold Edition)",
-    subtitle: "尊享黑金卡与 VIP 会员专属高贵配色方案",
-    path: "./ENI资料库/ENIPAY Logo/IMG_1538.PNG",
-    thumb: "./ENI资料库/ENIPAY Logo/IMG_1538.PNG",
-    badge: "黑金高奢",
-    badgeColor: "gold",
-    icon: "👑",
-    canPreview: true,
-    canDownload: true,
-    previewType: "image"
-  },
-  {
-    id: "logo-psd-source",
-    category: "brand",
-    type: "PSD",
-    title: "ENIPAY 官方 Logo 分层源文件 (Photoshop PSD)",
-    subtitle: "包含所有分层、矢量路径与调色图层，供专业设计师二开使用",
-    path: "./ENI资料库/ENIPAY Logo/LOGO3.psd",
-    badge: "设计源文件",
-    badgeColor: "blue",
-    icon: "📦",
-    canPreview: false,
-    canDownload: true
-  },
-
-  // ==================== 7. DOCSEND 全球多语种资料库 (DOCSEND GLOBAL) ====================
-  {
-    id: "docsend-global-deck",
-    category: "docsend",
-    type: "DOCSEND",
-    title: "ENI 公链官方核心白皮书与宣讲资料 (DocSend 6 国语言)",
-    subtitle: "DocSend 在线全息查阅，支持 6 种主流语言实时同步官方最新修订版本",
-    path: "https://docsend.com/view/7s4r2r8p6i8xex9k",
-    badge: "6 语种支持",
-    badgeColor: "cyan",
-    icon: "🌐",
-    isExternal: true,
-    canPreview: true,
-    canDownload: false,
-    multiLangLinks: [
-      { lang: "zh", label: "🇨🇳 简体中文版", url: "https://docsend.com/view/7s4r2r8p6i8xex9k" },
-      { lang: "zht", label: "🇭🇰 繁體中文版", url: "https://docsend.com/view/h3kzb8q7k9v5p9x2" },
-      { lang: "en", label: "🇺🇸 English", url: "https://docsend.com/view/5u8q6c9w8v7x2k4p" },
-      { lang: "ja", label: "🇯🇵 日本語版", url: "https://docsend.com/view/4w8v7x2k9p6c5q3m" },
-      { lang: "ko", label: "🇰🇷 한국어판", url: "https://docsend.com/view/3m9x2k7p4w8v5c6q" },
-      { lang: "vi", label: "🇻🇳 Tiếng Việt", url: "https://docsend.com/view/2k8p9x4w7v5c6q3m" }
+    "id": "doc-bp-multilang",
+    "category": "docs",
+    "type": "PDF",
+    "title": "ENIPAY 官方商业计划书 (Business Plan · 6 国语言)",
+    "subtitle": "全面解析 ENIPAY 商业模式、三层架构、代币激励与上市路径 (中/英/日/韩/越/印尼)",
+    "path": "./ENI资料库/EPAY中文/ENIPAY商业计划书.pdf",
+    "size": "8.2 MB",
+    "badge": "商业计划书",
+    "badgeColor": "gold",
+    "icon": "📄",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "pdf",
+    "multiLangLinks": [
+      {
+        "lang": "zh",
+        "label": "🇨🇳 中文版",
+        "url": "./ENI资料库/EPAY中文/ENIPAY商业计划书.pdf"
+      },
+      {
+        "lang": "en",
+        "label": "🇺🇸 English",
+        "url": "./ENI资料库/EPAY英文/ENIPAY Business Plan.pdf"
+      },
+      {
+        "lang": "ja",
+        "label": "🇯🇵 日本語",
+        "url": "./ENI资料库/EPAY日文/2026 ENIPAY 事業説明(JPN) VER1-Compressed.pdf"
+      },
+      {
+        "lang": "ko",
+        "label": "🇰🇷 한국어",
+        "url": "./ENI资料库/EPAY韩文/2026_ENIPAY_사업설명_VER1_Compressed.pdf"
+      },
+      {
+        "lang": "vi",
+        "label": "🇻🇳 Tiếng Việt",
+        "url": "./ENI资料库/EPAY越南/Kế hoạch kinh doanh của ENIPAY.pdf"
+      },
+      {
+        "lang": "id",
+        "label": "🇮🇩 Indonesia",
+        "url": "./ENI资料库/EPAY印尼语/Rencana Bisnis ENIPAY.pdf"
+      }
     ]
+  },
+  {
+    "id": "doc-qa-pdf",
+    "category": "docs",
+    "type": "PDF",
+    "title": "ENIPAY 市场常见问答手册 (Q&A Manual)",
+    "subtitle": "全面解答关于 ENI 公链底座、币安托管、U卡申请与收益模型等核心问题",
+    "path": "./ENI资料库/ENIPAY 问与答/ENIPAY市场问答Q&A.pdf",
+    "size": "3.4 MB",
+    "badge": "市场答疑",
+    "badgeColor": "cyan",
+    "icon": "❓",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "pdf"
+  },
+  {
+    "id": "doc-qa-pptx",
+    "category": "docs",
+    "type": "PPTX",
+    "title": "ENIPAY 市场问答宣讲幻灯片 (Q&A PPTX)",
+    "subtitle": "官方标准演讲幻灯片，适用于线下招商会、社区路演与团队布道",
+    "path": "./ENI资料库/ENIPAY 问与答/ENIPAY市场问答Q&A.pptx",
+    "size": "5.1 MB",
+    "badge": "招商演示",
+    "badgeColor": "cyan",
+    "icon": "📊",
+    "canPreview": false,
+    "canDownload": true
+  },
+  {
+    "id": "doc-epay-intro",
+    "category": "docs",
+    "type": "PDF",
+    "title": "EPAY 项目深度介绍 (中文版)",
+    "subtitle": "聚焦 EPAY 双通缩机制、回购销毁执行器与 100 代社区裂变激励",
+    "path": "./EPAY 项目介绍 中文.pdf",
+    "size": "4.7 MB",
+    "badge": "项目介绍",
+    "badgeColor": "gold",
+    "icon": "📘",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "pdf"
+  },
+  {
+    "id": "doc-epay-v14",
+    "category": "docs",
+    "type": "PDF",
+    "title": "Epay 全球聚合支付平台架构白皮书 v1.4",
+    "subtitle": "四方清算技术规范、合规出入金方案与智能合约体系详解",
+    "path": "./Epay 聚合平台v1.4.pdf",
+    "size": "3.0 MB",
+    "badge": "技术白皮书",
+    "badgeColor": "cyan",
+    "icon": "📑",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "pdf"
+  },
+  {
+    "id": "doc-deck-vn",
+    "category": "docs",
+    "type": "PDF",
+    "title": "ENIPAY 越南语生态演讲手册 (Deck VN)",
+    "subtitle": "ENIPAY 越南社区专用路演与业务宣讲官方手册",
+    "path": "./ENI资料库/EPAY越南/ENIPAY_deck_VN.pdf",
+    "size": "4.2 MB",
+    "badge": "越南手册",
+    "badgeColor": "cyan",
+    "icon": "🇻🇳",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "pdf"
+  },
+  {
+    "id": "docsend-global-deck",
+    "category": "docsend",
+    "type": "DOCSEND",
+    "title": "ENI 公链官方核心白皮书与宣讲资料 (DocSend 6 国语言)",
+    "subtitle": "DocSend 在线全息查阅，支持 6 种主流语言实时同步官方最新修订版本",
+    "path": "https://docsend.com/view/7s4r2r8p6i8xex9k",
+    "badge": "6 语种支持",
+    "badgeColor": "cyan",
+    "icon": "🌐",
+    "isExternal": true,
+    "canPreview": true,
+    "canDownload": false,
+    "multiLangLinks": [
+      {
+        "lang": "zh",
+        "label": "🇨🇳 简体中文版",
+        "url": "https://docsend.com/view/7s4r2r8p6i8xex9k"
+      },
+      {
+        "lang": "zht",
+        "label": "🇭🇰 繁體中文版",
+        "url": "https://docsend.com/view/h3kzb8q7k9v5p9x2"
+      },
+      {
+        "lang": "en",
+        "label": "🇺🇸 English",
+        "url": "https://docsend.com/view/5u8q6c9w8v7x2k4p"
+      },
+      {
+        "lang": "ja",
+        "label": "🇯🇵 日本語版",
+        "url": "https://docsend.com/view/4w8v7x2k9p6c5q3m"
+      },
+      {
+        "lang": "ko",
+        "label": "🇰🇷 한국어판",
+        "url": "https://docsend.com/view/3m9x2k7p4w8v5c6q"
+      },
+      {
+        "lang": "vi",
+        "label": "🇻🇳 Tiếng Việt",
+        "url": "https://docsend.com/view/2k8p9x4w7v5c6q3m"
+      }
+    ]
+  },
+  {
+    "id": "video-eni-main",
+    "category": "videos",
+    "type": "MP4",
+    "title": "ENI 公链官方品牌宣传大片",
+    "subtitle": "展现东京总部、NTT 战略合作、模块化 L1 架构与 5 年稳健运行风采",
+    "path": "./ENI资料库/视频/ENI宣传视频.MP4",
+    "badge": "公链大片",
+    "badgeColor": "cyan",
+    "icon": "🎬",
+    "canPreview": true,
+    "canDownload": false,
+    "previewType": "video"
+  },
+  {
+    "id": "video-enipay-promo",
+    "category": "videos",
+    "type": "MP4",
+    "title": "ENIPAY 全球支付聚合平台宣传短片",
+    "subtitle": "三色 U 卡、双币扫码、AI 智能助手卡与全球生活出行全景演示",
+    "path": "./ENI资料库/视频/ENIPAY宣传短片MP4.MP4",
+    "badge": "平台短片",
+    "badgeColor": "cyan",
+    "icon": "🎬",
+    "canPreview": true,
+    "canDownload": false,
+    "previewType": "video"
+  },
+  {
+    "id": "video-spokesperson",
+    "category": "videos",
+    "type": "MP4",
+    "title": "ENIPAY 品牌形象代言宣传短片",
+    "subtitle": "特邀形象大使助力全球布道与市场裂变推广",
+    "path": "./ENI资料库/视频/光头强ENIPAY代言.mp4",
+    "badge": "形象代言",
+    "badgeColor": "gold",
+    "icon": "🎬",
+    "canPreview": true,
+    "canDownload": false,
+    "previewType": "video"
+  },
+  {
+    "id": "video-ecosystem",
+    "category": "videos",
+    "type": "MP4",
+    "title": "ENIPAY ECOSYSTEM 全球生态全景",
+    "subtitle": "全球化商业落地战略、五年上市规划与万亿清算赛道解析",
+    "path": "./ENI资料库/视频/ENIPAY ECOSYSTEM.mp4",
+    "badge": "生态全景",
+    "badgeColor": "cyan",
+    "icon": "🎬",
+    "canPreview": true,
+    "canDownload": false,
+    "previewType": "video"
+  },
+  {
+    "id": "video-finance-model",
+    "category": "videos",
+    "type": "MP4",
+    "title": "ENI MG 金融模型与通缩机制深度解读",
+    "subtitle": "权威剖析代币通缩模型、节点产出与做市加速机制",
+    "path": "./ENI资料库/视频/ENIMG金融模型解读.mp4",
+    "badge": "金融模型",
+    "badgeColor": "gold",
+    "icon": "🎬",
+    "canPreview": true,
+    "canDownload": false,
+    "previewType": "video"
+  },
+  {
+    "id": "video-wealth-code",
+    "category": "videos",
+    "type": "MP4",
+    "title": "ENIPAY 财富密码与全球红利",
+    "subtitle": "解析 Web3 支付蓝海市场与早期参与者红利分配",
+    "path": "./ENI资料库/视频/ENIPAY财富密码.mp4",
+    "badge": "财富红利",
+    "badgeColor": "gold",
+    "icon": "🎬",
+    "canPreview": true,
+    "canDownload": false,
+    "previewType": "video"
+  },
+  {
+    "id": "video-super-eco",
+    "category": "videos",
+    "type": "MP4",
+    "title": "EPAY 超级生态落地演示",
+    "subtitle": "全球落地商铺消费、卡片绑定与实时核销流程",
+    "path": "./ENI资料库/视频/EPAY超级生态.MP4",
+    "badge": "超级生态",
+    "badgeColor": "cyan",
+    "icon": "🎬",
+    "canPreview": true,
+    "canDownload": false,
+    "previewType": "video"
+  },
+  {
+    "id": "video-digital-pay",
+    "category": "videos",
+    "type": "MP4",
+    "title": "EPAY 数字支付与即时出入金",
+    "subtitle": "无冻卡极速合规出入金全流程实操演示",
+    "path": "./ENI资料库/视频/EPAY数字支付.MP4",
+    "badge": "数字支付",
+    "badgeColor": "cyan",
+    "icon": "🎬",
+    "canPreview": true,
+    "canDownload": false,
+    "previewType": "video"
+  },
+  {
+    "id": "video-eni-promo-2",
+    "category": "videos",
+    "type": "MP4",
+    "title": "ENI 公链全球节点与技术架构短片 02",
+    "subtitle": "全球超级节点部署实况与跨链清算性能展示",
+    "path": "./ENI资料库/视频/ENI 宣传视频 02.mp4",
+    "badge": "节点技术",
+    "badgeColor": "cyan",
+    "icon": "🎬",
+    "canPreview": true,
+    "canDownload": false,
+    "previewType": "video"
+  },
+  {
+    "id": "poster-long-intro",
+    "category": "posters",
+    "type": "PNG",
+    "title": "ENIPAY 官方简介全景长图 (多语言)",
+    "subtitle": "长图全景展现平台愿景、五大落地产品、质押收益与上市战略",
+    "path": "./ENI资料库/EPAY中文/ENIPAY 简介长图.png",
+    "thumb": "./ENI资料库/EPAY中文/ENIPAY 简介长图.png",
+    "badge": "官方长图",
+    "badgeColor": "cyan",
+    "icon": "🖼️",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image",
+    "multiLangLinks": [
+      {
+        "lang": "zh",
+        "label": "🇨🇳 中文长图",
+        "url": "./ENI资料库/EPAY中文/ENIPAY 简介长图.png"
+      },
+      {
+        "lang": "en",
+        "label": "🇺🇸 English",
+        "url": "./ENI资料库/EPAY英文/ENIPAY introduction image.png"
+      },
+      {
+        "lang": "ja",
+        "label": "🇯🇵 日本語",
+        "url": "./ENI资料库/EPAY日文/日文长图.jpg"
+      },
+      {
+        "lang": "ko",
+        "label": "🇰🇷 한국어",
+        "url": "./ENI资料库/EPAY韩文/长图（韩文）.png"
+      },
+      {
+        "lang": "vi",
+        "label": "🇻🇳 Tiếng Việt",
+        "url": "./ENI资料库/EPAY越南/Hình ảnh giới thiệu ENIPAY.png"
+      },
+      {
+        "lang": "id",
+        "label": "🇮🇩 Indonesia",
+        "url": "./ENI资料库/EPAY印尼语/enipay_indonesian.png"
+      }
+    ]
+  },
+  {
+    "id": "poster-competitive-edge",
+    "category": "posters",
+    "type": "PNG",
+    "title": "ENIPAY 生态竞争优势图解 (多语言)",
+    "subtitle": "对比传统出入金与竞品，凸显 100% 币安托管与无冻卡优势",
+    "path": "./ENI资料库/EPAY中文/ENIPAY 生态竞争优势.PNG",
+    "thumb": "./ENI资料库/EPAY中文/ENIPAY 生态竞争优势.PNG",
+    "badge": "竞争优势",
+    "badgeColor": "gold",
+    "icon": "🖼️",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image",
+    "multiLangLinks": [
+      {
+        "lang": "zh",
+        "label": "🇨🇳 中文版",
+        "url": "./ENI资料库/EPAY中文/ENIPAY 生态竞争优势.PNG"
+      },
+      {
+        "lang": "en",
+        "label": "🇺🇸 English",
+        "url": "./ENI资料库/EPAY英文/ENIPAY's competitive advantages.png"
+      },
+      {
+        "lang": "ja",
+        "label": "🇯🇵 日本語",
+        "url": "./ENI资料库/EPAY日文/日文四大竞争优势.jpg"
+      },
+      {
+        "lang": "ko",
+        "label": "🇰🇷 한국어",
+        "url": "./ENI资料库/EPAY韩文/ENI竞争优势（韩文）.png"
+      },
+      {
+        "lang": "vi",
+        "label": "🇻🇳 Tiếng Việt",
+        "url": "./ENI资料库/EPAY越南/Đặc điểm dự án ENIPAY.png"
+      },
+      {
+        "lang": "id",
+        "label": "🇮🇩 Indonesia",
+        "url": "./ENI资料库/EPAY印尼语/epaykeunggulan kompetitif.png"
+      }
+    ]
+  },
+  {
+    "id": "poster-staking-model",
+    "category": "posters",
+    "type": "PNG",
+    "title": "ENIPAY 金融模型与收益横图 (多语言)",
+    "subtitle": "300~10000U 投资梯度、日化 1% 与 3.5 倍出局机制全景横图",
+    "path": "./ENI资料库/EPAY中文/ENIPAY 质押模型 01.png",
+    "thumb": "./ENI资料库/EPAY中文/ENIPAY 质押模型 01.png",
+    "badge": "金融模型",
+    "badgeColor": "gold",
+    "icon": "🖼️",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image",
+    "multiLangLinks": [
+      {
+        "lang": "zh",
+        "label": "🇨🇳 中文横图",
+        "url": "./ENI资料库/EPAY中文/ENIPAY 质押模型 01.png"
+      },
+      {
+        "lang": "en",
+        "label": "🇺🇸 English",
+        "url": "./ENI资料库/EPAY英文/Introduction to ENIPAY Financial Model.png"
+      },
+      {
+        "lang": "ja",
+        "label": "🇯🇵 日本語",
+        "url": "./ENI资料库/EPAY日文/日文模式横图.jpg"
+      },
+      {
+        "lang": "ko",
+        "label": "🇰🇷 한국어",
+        "url": "./ENI资料库/EPAY韩文/模式横图（韩文）.png"
+      },
+      {
+        "lang": "vi",
+        "label": "🇻🇳 Tiếng Việt",
+        "url": "./ENI资料库/EPAY越南/Giới thiệu về Mô hình Tài chính ENIPAY.png"
+      },
+      {
+        "lang": "id",
+        "label": "🇮🇩 Indonesia",
+        "url": "./ENI资料库/EPAY印尼语/Bagan Horizontal Pola.png"
+      }
+    ]
+  },
+  {
+    "id": "poster-eco-overview",
+    "category": "posters",
+    "type": "PNG",
+    "title": "ENI 生态系统简介展板",
+    "subtitle": "公链底座、支付清算与生态矩阵一览",
+    "path": "./ENI资料库/EPAY中文/ENI 生态简介.png",
+    "thumb": "./ENI资料库/EPAY中文/ENI 生态简介.png",
+    "badge": "生态展板",
+    "badgeColor": "cyan",
+    "icon": "🖼️",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image"
+  },
+  {
+    "id": "poster-fission-model",
+    "category": "posters",
+    "type": "PNG",
+    "title": "ENIPAY 100代裂变管理模型 02",
+    "subtitle": "100 代动态裂变奖金池与团队管理激励图解",
+    "path": "./ENI资料库/EPAY中文/NIPAY 质押模型 02.png",
+    "thumb": "./ENI资料库/EPAY中文/NIPAY 质押模型 02.png",
+    "badge": "裂变模型",
+    "badgeColor": "gold",
+    "icon": "🖼️",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image"
+  },
+  {
+    "id": "poster-main-1",
+    "category": "posters",
+    "type": "PNG",
+    "title": "ENI 官方主视觉海报 01 (多语言)",
+    "subtitle": "极具科技感的高清主视觉，适合线下峰会与展会背景",
+    "path": "./ENI资料库/EPAY中文/ENI海报.PNG",
+    "thumb": "./ENI资料库/EPAY中文/ENI海报.PNG",
+    "badge": "主视觉 01",
+    "badgeColor": "cyan",
+    "icon": "🖼️",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image",
+    "multiLangLinks": [
+      {
+        "lang": "zh",
+        "label": "🇨🇳 中文",
+        "url": "./ENI资料库/EPAY中文/ENI海报.PNG"
+      },
+      {
+        "lang": "en",
+        "label": "🇺🇸 English",
+        "url": "./ENI资料库/EPAY英文/Poster EN.png"
+      },
+      {
+        "lang": "ko",
+        "label": "🇰🇷 한국어",
+        "url": "./ENI资料库/EPAY韩文/Poster KR.jpeg"
+      },
+      {
+        "lang": "vi",
+        "label": "🇻🇳 Tiếng Việt",
+        "url": "./ENI资料库/EPAY越南/Poster VN.png"
+      },
+      {
+        "lang": "id",
+        "label": "🇮🇩 Indonesia",
+        "url": "./ENI资料库/EPAY印尼语/ENI poster.png"
+      }
+    ]
+  },
+  {
+    "id": "poster-main-2",
+    "category": "posters",
+    "type": "PNG",
+    "title": "ENI 官方主视觉海报 02 (多语言)",
+    "subtitle": "全球节点连接与公链科技感视觉海报",
+    "path": "./ENI资料库/EPAY中文/ENI 海报 02PNG.PNG",
+    "thumb": "./ENI资料库/EPAY中文/ENI 海报 02PNG.PNG",
+    "badge": "主视觉 02",
+    "badgeColor": "cyan",
+    "icon": "🖼️",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image",
+    "multiLangLinks": [
+      {
+        "lang": "zh",
+        "label": "🇨🇳 中文",
+        "url": "./ENI资料库/EPAY中文/ENI 海报 02PNG.PNG"
+      },
+      {
+        "lang": "en",
+        "label": "🇺🇸 English",
+        "url": "./ENI资料库/EPAY英文/Poster En 02.png"
+      },
+      {
+        "lang": "ko",
+        "label": "🇰🇷 한국어",
+        "url": "./ENI资料库/EPAY韩文/Poster KR 02.jpeg"
+      },
+      {
+        "lang": "vi",
+        "label": "🇻🇳 Tiếng Việt",
+        "url": "./ENI资料库/EPAY越南/Poster VN 02.png"
+      },
+      {
+        "lang": "id",
+        "label": "🇮🇩 Indonesia",
+        "url": "./ENI资料库/EPAY印尼语/ENI poster 02.png"
+      }
+    ]
+  },
+  {
+    "id": "poster-main-3",
+    "category": "posters",
+    "type": "PNG",
+    "title": "ENI 官方主视觉海报 03 (多语言)",
+    "subtitle": "ENIPAY 生态落地与全球数字卡片主视觉",
+    "path": "./ENI资料库/EPAY中文/ENI 海报 03.PNG",
+    "thumb": "./ENI资料库/EPAY中文/ENI 海报 03.PNG",
+    "badge": "主视觉 03",
+    "badgeColor": "cyan",
+    "icon": "🖼️",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image",
+    "multiLangLinks": [
+      {
+        "lang": "zh",
+        "label": "🇨🇳 中文",
+        "url": "./ENI资料库/EPAY中文/ENI 海报 03.PNG"
+      },
+      {
+        "lang": "en",
+        "label": "🇺🇸 English",
+        "url": "./ENI资料库/EPAY英文/3.png"
+      },
+      {
+        "lang": "ja",
+        "label": "🇯🇵 日本語",
+        "url": "./ENI资料库/EPAY日文/日文图03.jpg"
+      },
+      {
+        "lang": "ko",
+        "label": "🇰🇷 한국어",
+        "url": "./ENI资料库/EPAY韩文/3.jpeg"
+      },
+      {
+        "lang": "vi",
+        "label": "🇻🇳 Tiếng Việt",
+        "url": "./ENI资料库/EPAY越南/4越南.png"
+      },
+      {
+        "lang": "id",
+        "label": "🇮🇩 Indonesia",
+        "url": "./ENI资料库/EPAY印尼语/image.png"
+      }
+    ]
+  },
+  {
+    "id": "rollup-zh-set",
+    "category": "rollups",
+    "type": "PNG",
+    "title": "ENIPAY 官方中文易拉宝展架 (全套 6 张)",
+    "subtitle": "涵盖平台介绍、公链底座、U卡权益、收益模型、安全保障与上市规划",
+    "path": "./ENI资料库/易拉寶图/易拉寶1.png",
+    "thumb": "./ENI资料库/易拉寶图/易拉寶1.png",
+    "badge": "中文易拉宝",
+    "badgeColor": "cyan",
+    "icon": "🚩",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image",
+    "multiLangLinks": [
+      {
+        "lang": "r1",
+        "label": "展架 1 (总览)",
+        "url": "./ENI资料库/易拉寶图/易拉寶1.png"
+      },
+      {
+        "lang": "r2",
+        "label": "展架 2 (公链)",
+        "url": "./ENI资料库/易拉寶图/易拉寶2.png"
+      },
+      {
+        "lang": "r3",
+        "label": "展架 3 (U卡)",
+        "url": "./ENI资料库/易拉寶图/易拉寶3.png"
+      },
+      {
+        "lang": "r4",
+        "label": "展架 4 (模型)",
+        "url": "./ENI资料库/易拉寶图/易拉寶4.png"
+      },
+      {
+        "lang": "r5",
+        "label": "展架 5 (安全)",
+        "url": "./ENI资料库/易拉寶图/易拉寶5.png"
+      },
+      {
+        "lang": "r6",
+        "label": "展架 6 (上市)",
+        "url": "./ENI资料库/易拉寶图/易拉寶6.png"
+      }
+    ]
+  },
+  {
+    "id": "rollup-en-set",
+    "category": "rollups",
+    "type": "PNG",
+    "title": "ENIPAY English Roll-up Banners (Set of 6)",
+    "subtitle": "Standard English Roll-up Banners for Global Conferences & Roadshows",
+    "path": "./ENI资料库/易拉寶图/易拉寶英文 1.png",
+    "thumb": "./ENI资料库/易拉寶图/易拉寶英文 1.png",
+    "badge": "English Rollup",
+    "badgeColor": "gold",
+    "icon": "🚩",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image",
+    "multiLangLinks": [
+      {
+        "lang": "r1",
+        "label": "Banner 1",
+        "url": "./ENI资料库/易拉寶图/易拉寶英文 1.png"
+      },
+      {
+        "lang": "r2",
+        "label": "Banner 2",
+        "url": "./ENI资料库/易拉寶图/易拉寶英文 2.png"
+      },
+      {
+        "lang": "r3",
+        "label": "Banner 3",
+        "url": "./ENI资料库/易拉寶图/易拉寶英文 3.png"
+      },
+      {
+        "lang": "r4",
+        "label": "Banner 4",
+        "url": "./ENI资料库/易拉寶图/易拉寶英文 4.png"
+      },
+      {
+        "lang": "r5",
+        "label": "Banner 5",
+        "url": "./ENI资料库/易拉寶图/易拉寶英文 5.png"
+      },
+      {
+        "lang": "r6",
+        "label": "Banner 6",
+        "url": "./ENI资料库/易拉寶图/易拉寶英文 6.png"
+      }
+    ]
+  },
+  {
+    "id": "rollup-ja-set",
+    "category": "rollups",
+    "type": "PNG",
+    "title": "ENIPAY 日本語ロールアップバナー (全6種)",
+    "subtitle": "日本のコミュニティ及びオフラインイベント専用標準ロールアップバナー",
+    "path": "./ENI资料库/易拉寶图/易拉寶日文 1.png",
+    "thumb": "./ENI资料库/易拉寶图/易拉寶日文 1.png",
+    "badge": "日本語バナー",
+    "badgeColor": "blue",
+    "icon": "🚩",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image",
+    "multiLangLinks": [
+      {
+        "lang": "r1",
+        "label": "バナー 1",
+        "url": "./ENI资料库/易拉寶图/易拉寶日文 1.png"
+      },
+      {
+        "lang": "r2",
+        "label": "バナー 2",
+        "url": "./ENI资料库/易拉寶图/易拉寶日文 2.png"
+      },
+      {
+        "lang": "r3",
+        "label": "バナー 3",
+        "url": "./ENI资料库/易拉寶图/易拉寶日文 3.png"
+      },
+      {
+        "lang": "r4",
+        "label": "バナー 4",
+        "url": "./ENI资料库/易拉寶图/易拉寶日文 4.png"
+      },
+      {
+        "lang": "r5",
+        "label": "バナー 5",
+        "url": "./ENI资料库/易拉寶图/易拉寶日文 5.png"
+      },
+      {
+        "lang": "r6",
+        "label": "バナー 6",
+        "url": "./ENI资料库/易拉寶图/易拉寶日文 6.png"
+      }
+    ]
+  },
+  {
+    "id": "rollup-ko-set",
+    "category": "rollups",
+    "type": "PNG",
+    "title": "ENIPAY 한국어 롤업 배너 (전 6종 세트)",
+    "subtitle": "한국 오프라인 밋업 및 파트너 설명회용 공식 롤업 배너",
+    "path": "./ENI资料库/易拉寶图/易拉寶韩文 1.png",
+    "thumb": "./ENI资料库/易拉寶图/易拉寶韩文 1.png",
+    "badge": "한국어 배너",
+    "badgeColor": "blue",
+    "icon": "🚩",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image",
+    "multiLangLinks": [
+      {
+        "lang": "r1",
+        "label": "배너 1",
+        "url": "./ENI资料库/易拉寶图/易拉寶韩文 1.png"
+      },
+      {
+        "lang": "r2",
+        "label": "배너 2",
+        "url": "./ENI资料库/易拉寶图/易拉寶韩文 2.png"
+      },
+      {
+        "lang": "r3",
+        "label": "배너 3",
+        "url": "./ENI资料库/易拉寶图/易拉寶韩文 3.png"
+      },
+      {
+        "lang": "r4",
+        "label": "배너 4",
+        "url": "./ENI资料库/易拉寶图/易拉寶韩文 4.png"
+      },
+      {
+        "lang": "r5",
+        "label": "배너 5",
+        "url": "./ENI资料库/易拉寶图/易拉寶韩文 5.png"
+      },
+      {
+        "lang": "r6",
+        "label": "배너 6",
+        "url": "./ENI资料库/易拉寶图/易拉寶韩文 6.png"
+      }
+    ]
+  },
+  {
+    "id": "rollup-vi-set",
+    "category": "rollups",
+    "type": "PNG",
+    "title": "ENIPAY Standee Cuốn Tiếng Việt (Trọn bộ 6 bản)",
+    "subtitle": "Bộ Standee Roll-up tiêu chuẩn dành cho sự kiện và hội nghị tại Việt Nam",
+    "path": "./ENI资料库/易拉寶图/易拉寶越文 1.png",
+    "thumb": "./ENI资料库/易拉寶图/易拉寶越文 1.png",
+    "badge": "Standee VN",
+    "badgeColor": "cyan",
+    "icon": "🚩",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image",
+    "multiLangLinks": [
+      {
+        "lang": "r1",
+        "label": "Standee 1",
+        "url": "./ENI资料库/易拉寶图/易拉寶越文 1.png"
+      },
+      {
+        "lang": "r2",
+        "label": "Standee 2",
+        "url": "./ENI资料库/易拉寶图/易拉寶越文 2.png"
+      },
+      {
+        "lang": "r3",
+        "label": "Standee 3",
+        "url": "./ENI资料库/易拉寶图/易拉寶越文 3.png"
+      },
+      {
+        "lang": "r4",
+        "label": "Standee 4",
+        "url": "./ENI资料库/易拉寶图/易拉寶越文 4.png"
+      },
+      {
+        "lang": "r5",
+        "label": "Standee 5",
+        "url": "./ENI资料库/易拉寶图/易拉寶越文 5.png"
+      },
+      {
+        "lang": "r6",
+        "label": "Standee 6",
+        "url": "./ENI资料库/易拉寶图/易拉寶越文 6.png"
+      }
+    ]
+  },
+  {
+    "id": "qa-q1",
+    "category": "qa",
+    "type": "PNG",
+    "title": "Q1: 什么是 ENIPAY 全球支付聚合平台？",
+    "subtitle": "解析 ENIPAY 的平台定位与生态价值",
+    "path": "./ENI资料库/ENIPAY 问与答/Q1.PNG",
+    "thumb": "./ENI资料库/ENIPAY 问与答/Q1.PNG",
+    "badge": "Q&A 01",
+    "badgeColor": "cyan",
+    "icon": "❓",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image"
+  },
+  {
+    "id": "qa-q2",
+    "category": "qa",
+    "type": "PNG",
+    "title": "Q2: ENIPAY 的资金安全性如何保障？",
+    "subtitle": "阐述币安第三方独立托管机制与零资金沉淀",
+    "path": "./ENI资料库/ENIPAY 问与答/Q2.PNG",
+    "thumb": "./ENI资料库/ENIPAY 问与答/Q2.PNG",
+    "badge": "Q&A 02",
+    "badgeColor": "cyan",
+    "icon": "❓",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image"
+  },
+  {
+    "id": "qa-q3",
+    "category": "qa",
+    "type": "PNG",
+    "title": "Q3: ENIPAY 三色 U 卡如何申请与使用？",
+    "subtitle": "黑卡、绿卡、蓝卡的申请条件与全球刷卡额度",
+    "path": "./ENI资料库/ENIPAY 问与答/Q3.PNG",
+    "thumb": "./ENI资料库/ENIPAY 问与答/Q3.PNG",
+    "badge": "Q&A 03",
+    "badgeColor": "cyan",
+    "icon": "❓",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image"
+  },
+  {
+    "id": "qa-q4",
+    "category": "qa",
+    "type": "PNG",
+    "title": "Q4: 为什么能彻底告别银行冻卡痛点？",
+    "subtitle": "揭秘四方合规清算通道与银行级电汇网络",
+    "path": "./ENI资料库/ENIPAY 问与答/Q4.PNG",
+    "thumb": "./ENI资料库/ENIPAY 问与答/Q4.PNG",
+    "badge": "Q&A 04",
+    "badgeColor": "cyan",
+    "icon": "❓",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image"
+  },
+  {
+    "id": "qa-q5",
+    "category": "qa",
+    "type": "PNG",
+    "title": "Q5: EPAY 代币的通缩逻辑是什么？",
+    "subtitle": "80% 初始黑洞销毁与 5% 提现强制回购深度解读",
+    "path": "./ENI资料库/ENIPAY 问与答/Q5.PNG",
+    "thumb": "./ENI资料库/ENIPAY 问与答/Q5.PNG",
+    "badge": "Q&A 05",
+    "badgeColor": "gold",
+    "icon": "❓",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image"
+  },
+  {
+    "id": "qa-q6",
+    "category": "qa",
+    "type": "PNG",
+    "title": "Q6: 静态质押收益与出局规则是怎样的？",
+    "subtitle": "0.8%~1.2% 日收益率与 3.5 倍出局保障",
+    "path": "./ENI资料库/ENIPAY 问与答/Q6.PNG",
+    "thumb": "./ENI资料库/ENIPAY 问与答/Q6.PNG",
+    "badge": "Q&A 06",
+    "badgeColor": "gold",
+    "icon": "❓",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image"
+  },
+  {
+    "id": "qa-q7",
+    "category": "qa",
+    "type": "PNG",
+    "title": "Q7: 100 代动态裂变奖金如何计算？",
+    "subtitle": "直推人数与代数权限解锁规则",
+    "path": "./ENI资料库/ENIPAY 问与答/Q7.PNG",
+    "thumb": "./ENI资料库/ENIPAY 问与答/Q7.PNG",
+    "badge": "Q&A 07",
+    "badgeColor": "gold",
+    "icon": "❓",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image"
+  },
+  {
+    "id": "qa-q8",
+    "category": "qa",
+    "type": "PNG",
+    "title": "Q8: 三年 5 亿美金加速池资金来源何在？",
+    "subtitle": "底池做市、社区扩张与上市推进 5 大阶段说明",
+    "path": "./ENI资料库/ENIPAY 问与答/Q8.PNG",
+    "thumb": "./ENI资料库/ENIPAY 问与答/Q8.PNG",
+    "badge": "Q&A 08",
+    "badgeColor": "gold",
+    "icon": "❓",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image"
+  },
+  {
+    "id": "qa-q9",
+    "category": "qa",
+    "type": "PNG",
+    "title": "Q9: 什么是 AI Agent 智能助手卡 (A-Card)？",
+    "subtitle": "人工智能代理自主消费与 MPC 多签风控模型",
+    "path": "./ENI资料库/ENIPAY 问与答/Q9.PNG",
+    "thumb": "./ENI资料库/ENIPAY 问与答/Q9.PNG",
+    "badge": "Q&A 09",
+    "badgeColor": "cyan",
+    "icon": "❓",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image"
+  },
+  {
+    "id": "qa-q10",
+    "category": "qa",
+    "type": "PNG",
+    "title": "Q10: ENI 主网初代币的稀缺性体现在哪？",
+    "subtitle": "恒定 1 亿总量、公链 Gas 消耗与强落地应用支撑",
+    "path": "./ENI资料库/ENIPAY 问与答/Q10.PNG",
+    "thumb": "./ENI资料库/ENIPAY 问与答/Q10.PNG",
+    "badge": "Q&A 10",
+    "badgeColor": "gold",
+    "icon": "❓",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image"
+  },
+  {
+    "id": "qa-q11",
+    "category": "qa",
+    "type": "PNG",
+    "title": "Q11: 如何参与全球超级节点计划？",
+    "subtitle": "100 超级节点招募条件、收益权重与治理权益",
+    "path": "./ENI资料库/ENIPAY 问与答/Q11.PNG",
+    "thumb": "./ENI资料库/ENIPAY 问与答/Q11.PNG",
+    "badge": "Q&A 11",
+    "badgeColor": "cyan",
+    "icon": "❓",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image"
+  },
+  {
+    "id": "qa-q12",
+    "category": "qa",
+    "type": "PNG",
+    "title": "Q12: ENIPAY 在纳斯达克上市的时间表？",
+    "subtitle": "三年业务规划、合规审计与资本运作路线图",
+    "path": "./ENI资料库/ENIPAY 问与答/Q12.PNG",
+    "thumb": "./ENI资料库/ENIPAY 问与答/Q12.PNG",
+    "badge": "Q&A 12",
+    "badgeColor": "gold",
+    "icon": "❓",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image"
+  },
+  {
+    "id": "qa-q13",
+    "category": "qa",
+    "type": "PNG",
+    "title": "Q13: 如何下载官方 App 与绑定钱包？",
+    "subtitle": "iOS TestFlight、Google Play 与 Web3 钱包直连教程",
+    "path": "./ENI资料库/ENIPAY 问与答/Q13.PNG",
+    "thumb": "./ENI资料库/ENIPAY 问与答/Q13.PNG",
+    "badge": "Q&A 13",
+    "badgeColor": "cyan",
+    "icon": "❓",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image"
+  },
+  {
+    "id": "qa-q14",
+    "category": "qa",
+    "type": "PNG",
+    "title": "Q14: 早期参与者的核心财富指令是什么？",
+    "subtitle": "把握第一波红利窗口期，建立长期稳定现金流管道",
+    "path": "./ENI资料库/ENIPAY 问与答/Q14.PNG",
+    "thumb": "./ENI资料库/ENIPAY 问与答/Q14.PNG",
+    "badge": "Q&A 14",
+    "badgeColor": "gold",
+    "icon": "❓",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image"
+  },
+  {
+    "id": "signage-front-day",
+    "category": "signage",
+    "type": "PNG",
+    "title": "ENIPAY 线下实体旗舰中心前台 (白天效果)",
+    "subtitle": "现代极简科技风实体服务中心前台实景效果",
+    "path": "./ENI资料库/实体招牌/白天前台.png",
+    "thumb": "./ENI资料库/实体招牌/白天前台.png",
+    "badge": "白天实景",
+    "badgeColor": "cyan",
+    "icon": "🏢",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image"
+  },
+  {
+    "id": "signage-front-night",
+    "category": "signage",
+    "type": "PNG",
+    "title": "ENIPAY 线下实体旗舰中心前台 (夜间发光效果)",
+    "subtitle": "赛博朋克霓虹光效前台设计，展现顶级金融科技质感",
+    "path": "./ENI资料库/实体招牌/晚上前台.png",
+    "thumb": "./ENI资料库/实体招牌/晚上前台.png",
+    "badge": "夜间光效",
+    "badgeColor": "cyan",
+    "icon": "🏢",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image"
+  },
+  {
+    "id": "signage-storefront",
+    "category": "signage",
+    "type": "PNG",
+    "title": "ENIPAY 官方门店招牌门头设计图",
+    "subtitle": "全球加盟店与线下网点统一标准门头招牌设计规范",
+    "path": "./ENI资料库/实体招牌/店招.png",
+    "thumb": "./ENI资料库/实体招牌/店招.png",
+    "badge": "门头招牌",
+    "badgeColor": "gold",
+    "icon": "🏪",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image"
+  },
+  {
+    "id": "signage-lightbox",
+    "category": "signage",
+    "type": "PNG",
+    "title": "ENIPAY 实体店发光灯箱设计图",
+    "subtitle": "立柱灯箱、侧发光广告牌高清设计原图",
+    "path": "./ENI资料库/实体招牌/灯箱.png",
+    "thumb": "./ENI资料库/实体招牌/灯箱.png",
+    "badge": "发光灯箱",
+    "badgeColor": "gold",
+    "icon": "💡",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image"
+  },
+  {
+    "id": "logo-app-icon",
+    "category": "brand",
+    "type": "PNG",
+    "title": "ENIPAY 官方标准 App 图标 (App Icon)",
+    "subtitle": "正方形圆角高清图标，适用于移动端应用商店与官网图标",
+    "path": "./ENI资料库/ENIPAY Logo/IMG_1324.PNG",
+    "thumb": "./ENI资料库/ENIPAY Logo/IMG_1324.PNG",
+    "badge": "App Icon",
+    "badgeColor": "cyan",
+    "icon": "🎨",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image"
+  },
+  {
+    "id": "logo-horiz-dark",
+    "category": "brand",
+    "type": "PNG",
+    "title": "ENIPAY 品牌标准横版 Logo (深色背景专用)",
+    "subtitle": "高清透明底横版 Logo，适用于演示文稿、官网与广告物料",
+    "path": "./ENI资料库/ENIPAY Logo/IMG_1534.PNG",
+    "thumb": "./ENI资料库/ENIPAY Logo/IMG_1534.PNG",
+    "badge": "标准横版",
+    "badgeColor": "cyan",
+    "icon": "🎨",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image"
+  },
+  {
+    "id": "logo-horiz-light",
+    "category": "brand",
+    "type": "PNG",
+    "title": "ENIPAY 品牌标准横版 Logo (浅色背景专用)",
+    "subtitle": "浅色或白色背景印刷与文档专用高清标",
+    "path": "./ENI资料库/ENIPAY Logo/IMG_1535.PNG",
+    "thumb": "./ENI资料库/ENIPAY Logo/IMG_1535.PNG",
+    "badge": "浅底专用",
+    "badgeColor": "cyan",
+    "icon": "🎨",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image"
+  },
+  {
+    "id": "logo-3d-neon",
+    "category": "brand",
+    "type": "PNG",
+    "title": "ENIPAY 3D 霓虹质感官方徽标",
+    "subtitle": "3D 金属与霓虹青光泽渲染，适合高端海报与主视觉设计",
+    "path": "./ENI资料库/ENIPAY Logo/IMG_1536.PNG",
+    "thumb": "./ENI资料库/ENIPAY Logo/IMG_1536.PNG",
+    "badge": "3D 徽标",
+    "badgeColor": "gold",
+    "icon": "✨",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image"
+  },
+  {
+    "id": "logo-symbol",
+    "category": "brand",
+    "type": "PNG",
+    "title": "ENIPAY 品牌核心超级符号 (Icon Symbol)",
+    "subtitle": "极简字母 E 融合能量芯片造型的品牌超级符号",
+    "path": "./ENI资料库/ENIPAY Logo/IMG_1537.PNG",
+    "thumb": "./ENI资料库/ENIPAY Logo/IMG_1537.PNG",
+    "badge": "超级符号",
+    "badgeColor": "cyan",
+    "icon": "💠",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image"
+  },
+  {
+    "id": "logo-gold-black",
+    "category": "brand",
+    "type": "PNG",
+    "title": "ENIPAY 极简黑金高奢标 (Gold Edition)",
+    "subtitle": "尊享黑金卡与 VIP 会员专属高贵配色方案",
+    "path": "./ENI资料库/ENIPAY Logo/IMG_1538.PNG",
+    "thumb": "./ENI资料库/ENIPAY Logo/IMG_1538.PNG",
+    "badge": "黑金高奢",
+    "badgeColor": "gold",
+    "icon": "👑",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "image"
+  },
+  {
+    "id": "logo-psd-source",
+    "category": "brand",
+    "type": "PSD",
+    "title": "ENIPAY 官方 Logo 分层源文件 (Photoshop PSD)",
+    "subtitle": "包含所有分层、矢量路径与调色图层，供专业设计师二开使用",
+    "path": "./ENI资料库/ENIPAY Logo/LOGO3.psd",
+    "size": "15.4 MB",
+    "badge": "设计源件",
+    "badgeColor": "gold",
+    "icon": "📐",
+    "canPreview": false,
+    "canDownload": true
   }
 ];
 
