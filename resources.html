@@ -105,46 +105,47 @@
   </div>
 
   <!-- Top Navigation Header -->
-  <header class="sticky top-0 z-50 bg-slate-950/85 backdrop-blur-md border-b border-slate-800/80 px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-3">
+  <header class="sticky top-0 z-50 bg-slate-950/85 backdrop-blur-md border-b border-slate-800/80 px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-2">
     <!-- Brand & Back Button -->
-    <div class="flex items-center gap-3 flex-shrink-0">
-      <a href="./index.html" class="flex items-center gap-1.5 py-1.5 px-3 rounded-xl bg-slate-900 border border-cyan-neon/40 text-cyan-neon hover:bg-cyan-neon/15 text-xs sm:text-sm font-bold transition-all group shadow-sm">
+    <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+      <a href="./index.html" class="flex items-center gap-1 py-1.5 px-2.5 sm:px-3 rounded-xl bg-slate-900 border border-cyan-neon/40 text-cyan-neon hover:bg-cyan-neon/15 text-xs sm:text-sm font-bold transition-all group shadow-sm">
         <span class="group-hover:-translate-x-0.5 transition-transform">←</span>
-        <span>返回演示系统</span>
+        <span class="hidden sm:inline">返回演示系统</span>
+        <span class="sm:hidden">演示</span>
       </a>
-      <div class="h-5 w-px bg-slate-800 hidden sm:block"></div>
-      <div class="flex items-center gap-2">
-        <div class="w-8 h-8 rounded-lg bg-slate-900 border border-cyan-neon/60 flex items-center justify-center text-cyan-neon font-mono font-black text-sm">
+      <div class="h-4 sm:h-5 w-px bg-slate-800 hidden md:block"></div>
+      <div class="flex items-center gap-1.5 sm:gap-2">
+        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-slate-900 border border-cyan-neon/60 flex items-center justify-center text-cyan-neon font-mono font-black text-xs sm:text-sm">
           E
         </div>
         <div>
-          <span class="text-sm sm:text-base font-extrabold text-white">ENIPAY 官方资料库</span>
-          <span class="text-[10px] text-slate-400 font-mono hidden md:inline ml-2">MEDIA & RESOURCE HUB</span>
+          <span class="text-xs sm:text-base font-extrabold text-white">ENIPAY 资料库</span>
+          <span class="text-[10px] text-slate-400 font-mono hidden lg:inline ml-2">MEDIA & RESOURCE HUB</span>
         </div>
       </div>
     </div>
 
-    <!-- Right Controls: View Switch & Total Badge -->
-    <div class="flex items-center gap-2.5 flex-shrink-0">
-      <span id="total-count-badge" class="cyber-pill text-[10px] py-1 px-2.5 bg-cyan-neon/10 text-cyan-neon border-cyan-neon/30 font-bold hidden sm:inline-block">
+    <!-- Right Controls: View Switch, Language, Admin & Total Badge -->
+    <div class="flex items-center gap-1.5 sm:gap-2.5 flex-shrink-0">
+      <span id="total-count-badge" class="cyber-pill text-[10px] py-1 px-2.5 bg-cyan-neon/10 text-cyan-neon border-cyan-neon/30 font-bold hidden md:inline-block">
         加载中...
       </span>
 
       <!-- View Toggle Switch (Grid vs List) -->
       <div class="flex items-center bg-slate-900/90 border border-slate-800 rounded-xl p-0.5 shadow-inner">
-        <button id="btn-view-grid" class="view-toggle-btn active-view py-1 px-2.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1" title="网格模式 (Grid)">
+        <button id="btn-view-grid" class="view-toggle-btn active-view py-1 px-2 sm:px-2.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1" title="网格模式 (Grid)">
           <span>🔲</span> <span class="hidden md:inline">网格</span>
         </button>
-        <button id="btn-view-list" class="view-toggle-btn py-1 px-2.5 rounded-lg text-xs font-bold text-slate-400 hover:text-white transition-all flex items-center gap-1" title="列表模式 (List)">
+        <button id="btn-view-list" class="view-toggle-btn py-1 px-2 sm:px-2.5 rounded-lg text-xs font-bold text-slate-400 hover:text-white transition-all flex items-center gap-1" title="列表模式 (List)">
           <span>📋</span> <span class="hidden md:inline">列表</span>
         </button>
       </div>
 
       <!-- Language Selector Dropdown -->
       <div class="relative">
-        <select id="hub-lang-select" onchange="switchLanguage(this.value)" class="bg-slate-900 border border-slate-700 text-slate-200 text-xs rounded-xl px-2.5 py-1.5 focus:border-cyan-neon outline-none cursor-pointer">
-          <option value="zh">🇨🇳 简体中文</option>
-          <option value="en">🇺🇸 English</option>
+        <select id="hub-lang-select" onchange="switchLanguage(this.value)" class="bg-slate-900 border border-slate-700 text-slate-200 text-xs rounded-xl px-2 sm:px-2.5 py-1.5 focus:border-cyan-neon outline-none cursor-pointer">
+          <option value="zh">🇨🇳 中文</option>
+          <option value="en">🇺🇸 EN</option>
           <option value="ja">🇯🇵 日本語</option>
           <option value="ko">🇰🇷 한국어</option>
           <option value="vi">🇻🇳 Tiếng Việt</option>
@@ -152,9 +153,10 @@
       </div>
 
       <!-- Admin Login Button -->
-      <a href="./admin.html" class="py-1.5 px-3 rounded-xl bg-cyan-neon/10 hover:bg-cyan-neon/20 border border-cyan-neon/40 hover:border-cyan-neon text-cyan-neon text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm shadow-cyan-neon/10" title="进入资料库后台管理">
+      <a href="./admin.html" class="py-1.5 px-2.5 sm:px-3 rounded-xl bg-cyan-neon/10 hover:bg-cyan-neon/20 border border-cyan-neon/40 hover:border-cyan-neon text-cyan-neon text-xs font-bold transition-all flex items-center gap-1 shadow-sm shadow-cyan-neon/10" title="进入资料库后台管理">
         <span>🔐</span>
-        <span>Admin 登录</span>
+        <span class="hidden sm:inline">Admin 登录</span>
+        <span class="sm:hidden">后台</span>
       </a>
     </div>
   </header>
