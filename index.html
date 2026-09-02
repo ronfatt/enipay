@@ -172,12 +172,12 @@
       <button onclick="toggleNotes()" class="text-slate-400 hover:text-white text-lg">✕</button>
     </div>
     <div class="mt-4">
-      <div class="text-xs font-mono text-cyan-neon mb-2 font-semibold">📢 演讲重点与逐字提示：</div>
+      <div class="text-xs font-mono text-cyan-neon mb-2 font-semibold"><span data-i18n="notes_prompt_lbl">📢 演讲重点与逐字提示：</span></div>
       <div id="notes-text-area" class="text-sm text-slate-200 leading-relaxed whitespace-pre-line bg-slate-900/90 p-4 rounded-xl border border-slate-800 font-sans">
         正在加载提词内容...
       </div>
       <div class="mt-5 pt-4 border-t border-slate-800 text-xs text-slate-500 font-mono">
-        快捷键: [N] 切换提词 | [F] 全屏 | [←/→] 翻页 | [Home/End] 首末页
+        <span data-i18n="notes_shortcuts_lbl">快捷键: [N] 切换提词 | [F] 全屏 | [←/→] 翻页 | [Home/End] 首末页</span>
       </div>
     </div>
   </aside>
@@ -321,7 +321,7 @@
             <!-- Bottom Institutional Feature Card -->
             <div class="p-3.5 rounded-xl bg-slate-950/90 border border-slate-800 text-xs text-slate-300">
               <div class="flex items-center gap-2 text-cyan-neon font-bold mb-1">
-                <span>🌐</span> <span>模块化架构与 100+ 全球超级节点</span>
+                <span>🌐</span> <span data-i18n="s3_l1_arch_title">模块化架构与 100+ 全球超级节点</span>
               </div>
               <p class="text-[11px] text-slate-400 leading-relaxed" data-i18n="s3_l1_feature">
                 支持无缝接入与一键部署模块化企业子链，为 ENIPAY 支付生态提供毫秒级高吞吐保障。
@@ -979,16 +979,16 @@
               <!-- 3 Security Pillars -->
               <div class="space-y-2 mb-3">
                 <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-700/80 text-xs flex items-center justify-between">
-                  <span class="text-white font-medium">🏛️ 机构级独立子账户托管</span>
-                  <span class="text-cyan-neon font-mono font-bold">100% 隔离</span>
+                  <span class="text-white font-medium" data-i18n="s6_pillar1_lbl">🏛️ 机构级独立子账户托管</span>
+                  <span class="text-cyan-neon font-mono font-bold" data-i18n="s6_pillar1_val">100% 隔离</span>
                 </div>
                 <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-700/80 text-xs flex items-center justify-between">
-                  <span class="text-white font-medium">📜 链上实时资产储备证明</span>
-                  <span class="text-gold-400 font-mono font-bold">1:1 穿透</span>
+                  <span class="text-white font-medium" data-i18n="s6_pillar2_lbl">📜 链上实时资产储备证明</span>
+                  <span class="text-gold-400 font-mono font-bold" data-i18n="s6_pillar2_val">1:1 穿透</span>
                 </div>
                 <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-700/80 text-xs flex items-center justify-between">
-                  <span class="text-white font-medium">⚡ 毫秒级清结算原子通道</span>
-                  <span class="text-cyan-bright font-mono font-bold">API 直连</span>
+                  <span class="text-white font-medium" data-i18n="s6_pillar3_lbl">⚡ 毫秒级清结算原子通道</span>
+                  <span class="text-cyan-bright font-mono font-bold" data-i18n="s6_pillar3_val">API 直连</span>
                 </div>
               </div>
             </div>
@@ -1521,8 +1521,8 @@
           <div class="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800 flex items-start gap-2.5">
             <div class="text-2xl flex-shrink-0">⏱️</div>
             <div>
-              <div class="text-xs font-bold text-cyan-bright mb-0.5">~100 天极速回本周期</div>
-              <p class="text-[11px] text-slate-400 leading-relaxed">
+              <div class="text-xs font-bold text-cyan-bright mb-0.5" data-i18n="s8_payback_title">~100 天极速回本周期</div>
+              <p class="text-[11px] text-slate-400 leading-relaxed" data-i18n="s8_payback_desc">
                 固定日化 1.0%，百日全额回本，剩余 250 天享纯利分红收益。
               </p>
             </div>
@@ -1531,8 +1531,8 @@
           <div class="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800 flex items-start gap-2.5">
             <div class="text-2xl flex-shrink-0">💳</div>
             <div>
-              <div class="text-xs font-bold text-gold-400 mb-0.5">收益无缝直通实体 U 卡</div>
-              <p class="text-[11px] text-slate-400 leading-relaxed">
+              <div class="text-xs font-bold text-gold-400 mb-0.5" data-i18n="s8_card_bridge_title">收益无缝直通实体 U 卡</div>
+              <p class="text-[11px] text-slate-400 leading-relaxed" data-i18n="s8_card_bridge_desc">
                 每日收益可直接秒级划转至实体卡，全球 ATM 取现与 POS 刷卡无阻。
               </p>
             </div>
@@ -1580,7 +1580,7 @@
               </div>
             </div>
             <div class="text-[10px] text-slate-400 mt-2">
-              💡 9人直通100代，享受深层海量管道收益！
+              <span data-i18n="s9_pipeline_tip">💡 9人直通100代，享受深层海量管道收益！</span>
             </div>
           </div>
 
@@ -1644,7 +1644,7 @@
                 </div>
                 <div class="text-right">
                   <div class="text-xs font-mono text-cyan-neon font-bold" id="calc-cny-equiv">≈ ¥1,280,000+ 元 / 天</div>
-                  <div class="text-[10px] text-slate-400">仅算前 6 代，未计 7-100 代！</div>
+                  <div class="text-[10px] text-slate-400"><span data-i18n="s9_calc_note">仅算前 6 代，未计 7-100 代！</span></div>
                 </div>
               </div>
             </div>
