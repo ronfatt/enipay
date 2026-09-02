@@ -146,15 +146,39 @@ body {
   }
 
   .slide-stage-16-9 {
-    width: min(calc(100vw - 64px), calc((100vh - 88px) * 16 / 9));
-    height: min(calc(100vh - 88px), calc((100vw - 64px) * 9 / 16));
-    aspect-ratio: 16 / 9;
+    width: min(calc((100vh - 100px) * 16 / 9), 1400px, 92vw) !important;
+    height: min(calc(100vh - 100px), calc(1400px * 9 / 16), calc(92vw * 9 / 16)) !important;
+    max-width: 1400px !important;
+    max-height: 787.5px !important;
+    aspect-ratio: 16 / 9 !important;
     position: relative;
     z-index: 10;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin: auto;
+    padding: 22px 30px;
+    background: rgba(10, 16, 28, 0.65);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(0, 255, 178, 0.22);
+    border-radius: 24px;
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85), 0 0 35px rgba(0, 255, 178, 0.08);
+    box-sizing: border-box;
+  }
+
+  .slide-stage-16-9 .grid > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .slide-stage-16-9 .octane-card-hud,
+  .slide-stage-16-9 .octane-glass-panel {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 }
 
