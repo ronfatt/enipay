@@ -11,7 +11,7 @@ const RESOURCES_DATA = [
     "type": "PDF",
     "title": "ENIPAY 官方商业计划书 (Business Plan · 6 国语言)",
     "subtitle": "全面解析 ENIPAY 商业模式、三层架构、代币激励与上市路径 (中/英/日/韩/越/印尼)",
-    "path": "./ENI资料库/EPAY中文/ENIPAY商业计划书.pdf",
+    "path": "./ENI资料库/EPAY中文/ENIPAY_Business_Plan_ZH.pdf",
     "size": "8.2 MB",
     "badge": "商业计划书",
     "badgeColor": "gold",
@@ -23,32 +23,32 @@ const RESOURCES_DATA = [
       {
         "lang": "zh",
         "label": "🇨🇳 中文版",
-        "url": "./ENI资料库/EPAY中文/ENIPAY商业计划书.pdf"
+        "url": "./ENI资料库/EPAY中文/ENIPAY_Business_Plan_ZH.pdf"
       },
       {
         "lang": "en",
         "label": "🇺🇸 English",
-        "url": "./ENI资料库/EPAY英文/ENIPAY Business Plan.pdf"
+        "url": "./ENI资料库/EPAY英文/ENIPAY_Business_Plan_EN.pdf"
       },
       {
         "lang": "ja",
         "label": "🇯🇵 日本語",
-        "url": "./ENI资料库/EPAY日文/2026 ENIPAY 事業説明(JPN) VER1-Compressed.pdf"
+        "url": "./ENI资料库/EPAY日文/ENIPAY_Business_Plan_JP.pdf"
       },
       {
         "lang": "ko",
         "label": "🇰🇷 한국어",
-        "url": "./ENI资料库/EPAY韩文/2026_ENIPAY_사업설명_VER1_Compressed.pdf"
+        "url": "./ENI资料库/EPAY韩文/ENIPAY_Business_Plan_KR.pdf"
       },
       {
         "lang": "vi",
         "label": "🇻🇳 Tiếng Việt",
-        "url": "./ENI资料库/EPAY越南/Kế hoạch kinh doanh của ENIPAY.pdf"
+        "url": "./ENI资料库/EPAY越南/ENIPAY_Business_Plan_VN.pdf"
       },
       {
         "lang": "id",
         "label": "🇮🇩 Indonesia",
-        "url": "./ENI资料库/EPAY印尼语/Rencana Bisnis ENIPAY.pdf"
+        "url": "./ENI资料库/EPAY印尼语/ENIPAY_Business_Plan_ID.pdf"
       }
     ]
   },
@@ -1207,12 +1207,12 @@ function generateThemedDocCover(item) {
 // 🌐 Static Multi-Language Registry (Ensures 100% reliable 2-column national flag link matrix even if fetched from Supabase)
 const MULTI_LANG_REGISTRY = {
   "doc-bp-multilang": [
-    { lang: "zh", label: "🇨🇳 简体中文版", url: "./ENI资料库/EPAY中文/ENIPAY商业计划书.pdf" },
-    { lang: "en", label: "🇺🇸 英文版 (English)", url: "./ENI资料库/EPAY英文/ENIPAY Business Plan.pdf" },
-    { lang: "ja", label: "🇯🇵 日本語版", url: "./ENI资料库/EPAY日文/2026 ENIPAY 事業説明(JPN) VER1-Compressed.pdf" },
-    { lang: "ko", label: "🇰🇷 한국어판", url: "./ENI资料库/EPAY韩文/2026_ENIPAY_사업설명_VER1_Compressed.pdf" },
-    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南版", url: "./ENI资料库/EPAY越南/Kế hoạch kinh doanh của ENIPAY.pdf" },
-    { lang: "id", label: "🇮🇩 Indonesia 印尼版", url: "./ENI资料库/EPAY印尼语/Rencana Bisnis ENIPAY.pdf" }
+    { lang: "zh", label: "🇨🇳 简体中文版", url: "./ENI资料库/EPAY中文/ENIPAY_Business_Plan_ZH.pdf" },
+    { lang: "en", label: "🇺🇸 英文版 (English)", url: "./ENI资料库/EPAY英文/ENIPAY_Business_Plan_EN.pdf" },
+    { lang: "ja", label: "🇯🇵 日本語版", url: "./ENI资料库/EPAY日文/ENIPAY_Business_Plan_JP.pdf" },
+    { lang: "ko", label: "🇰🇷 한국어판", url: "./ENI资料库/EPAY韩文/ENIPAY_Business_Plan_KR.pdf" },
+    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南版", url: "./ENI资料库/EPAY越南/ENIPAY_Business_Plan_VN.pdf" },
+    { lang: "id", label: "🇮🇩 Indonesia 印尼版", url: "./ENI资料库/EPAY印尼语/ENIPAY_Business_Plan_ID.pdf" }
   ],
   "docsend-global-deck": [
     { lang: "zh", label: "🇨🇳 简体中文版", url: "https://docsend.com/view/7s4r2r8p6i8xex9k" },
