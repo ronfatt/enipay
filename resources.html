@@ -83,6 +83,16 @@
       background: rgba(3, 7, 18, 0.9);
       backdrop-filter: blur(14px);
     }
+    /* Hide scrollbars completely */
+    ::-webkit-scrollbar {
+      width: 0px;
+      height: 0px;
+      background: transparent;
+    }
+    * {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
   </style>
 </head>
 <body class="selection:bg-cyan-neon selection:text-black">
@@ -170,31 +180,31 @@
       </div>
     </div>
 
-    <!-- Category Filter Tabs Bar (Horizontal Scrollable) -->
-    <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
-      <button class="category-tab-btn active-tab py-2 px-3.5 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1.5" data-category="all">
-        <span>🌟</span> <span>全部资料 (All)</span>
+    <!-- Clean Category Filter Tabs Bar (Natural Wrap, No Scrollbar) -->
+    <div class="flex flex-wrap items-center gap-2 pt-1 pb-1">
+      <button class="category-tab-btn active-tab py-1.5 px-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1.5 transition-all" data-category="all">
+        <span>🌟</span> <span>全部</span>
       </button>
-      <button class="category-tab-btn py-2 px-3.5 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1.5" data-category="docs">
-        <span>📄</span> <span>官方文档/PPT</span>
+      <button class="category-tab-btn py-1.5 px-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1.5 transition-all" data-category="docs">
+        <span>📄</span> <span>官方文档</span>
       </button>
-      <button class="category-tab-btn py-2 px-3.5 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1.5" data-category="videos">
-        <span>🎬</span> <span>官方高清视频</span>
+      <button class="category-tab-btn py-1.5 px-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1.5 transition-all" data-category="videos">
+        <span>🎬</span> <span>宣传视频</span>
       </button>
-      <button class="category-tab-btn py-2 px-3.5 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1.5" data-category="posters">
-        <span>🖼️</span> <span>宣传海报/展架</span>
+      <button class="category-tab-btn py-1.5 px-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1.5 transition-all" data-category="posters">
+        <span>🖼️</span> <span>海报展架</span>
       </button>
-      <button class="category-tab-btn py-2 px-3.5 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1.5" data-category="qa">
-        <span>❓</span> <span>市场问答卡片 (Q1-Q14)</span>
+      <button class="category-tab-btn py-1.5 px-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1.5 transition-all" data-category="qa">
+        <span>❓</span> <span>市场答疑 (Q&A)</span>
       </button>
-      <button class="category-tab-btn py-2 px-3.5 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1.5" data-category="signage">
-        <span>🏢</span> <span>实体招牌/前台</span>
+      <button class="category-tab-btn py-1.5 px-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1.5 transition-all" data-category="signage">
+        <span>🏢</span> <span>实体物料</span>
       </button>
-      <button class="category-tab-btn py-2 px-3.5 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1.5" data-category="brand">
-        <span>🎨</span> <span>品牌 VI & Logo</span>
+      <button class="category-tab-btn py-1.5 px-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1.5 transition-all" data-category="brand">
+        <span>🎨</span> <span>品牌 VI</span>
       </button>
-      <button class="category-tab-btn py-2 px-3.5 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1.5" data-category="docsend">
-        <span>🌐</span> <span>DocSend 全球资料</span>
+      <button class="category-tab-btn py-1.5 px-3 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1.5 transition-all" data-category="docsend">
+        <span>🌐</span> <span>DocSend</span>
       </button>
     </div>
 
