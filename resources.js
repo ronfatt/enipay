@@ -132,7 +132,7 @@ const RESOURCES_DATA = [
     "type": "DOCSEND",
     "title": "ENI 公链官方核心白皮书与宣讲资料 (DocSend 6 国语言)",
     "subtitle": "DocSend 在线全息查阅，支持 6 种主流语言实时同步官方最新修订版本",
-    "path": "https://docsend.com/view/7s4r2r8p6i8xex9k",
+    "path": "https://docsend.com/view/snsckjftrk4wj2af",
     "badge": "6 语种支持",
     "badgeColor": "cyan",
     "icon": "🌐",
@@ -143,32 +143,32 @@ const RESOURCES_DATA = [
       {
         "lang": "zh",
         "label": "🇨🇳 简体中文版",
-        "url": "https://docsend.com/view/7s4r2r8p6i8xex9k"
+        "url": "https://docsend.com/view/snsckjftrk4wj2af"
       },
       {
         "lang": "zht",
         "label": "🇭🇰 繁體中文版",
-        "url": "https://docsend.com/view/h3kzb8q7k9v5p9x2"
+        "url": "https://docsend.com/view/25w7zbf32t5nzrpj"
       },
       {
         "lang": "en",
-        "label": "🇺🇸 English",
-        "url": "https://docsend.com/view/5u8q6c9w8v7x2k4p"
-      },
-      {
-        "lang": "ja",
-        "label": "🇯🇵 日本語版",
-        "url": "https://docsend.com/view/4w8v7x2k9p6c5q3m"
+        "label": "🇺🇸 英文版 (English)",
+        "url": "https://docsend.com/view/iii725phveai54z9"
       },
       {
         "lang": "ko",
         "label": "🇰🇷 한국어판",
-        "url": "https://docsend.com/view/3m9x2k7p4w8v5c6q"
+        "url": "https://docsend.com/view/cq5mnjjmcyvs8mp8"
       },
       {
         "lang": "vi",
-        "label": "🇻🇳 Tiếng Việt",
-        "url": "https://docsend.com/view/2k8p9x4w7v5c6q3m"
+        "label": "🇻🇳 Tiếng Việt 越南版",
+        "url": "https://docsend.com/view/e88xepp5au3ueu5f"
+      },
+      {
+        "lang": "ja",
+        "label": "🇯🇵 日本語版",
+        "url": "https://docsend.com/view/dxrhryufyny9hp7v"
       }
     ]
   },
@@ -1215,12 +1215,12 @@ const MULTI_LANG_REGISTRY = {
     { lang: "id", label: "🇮🇩 Indonesia 印尼版", url: "./ENI资料库/EPAY印尼语/ENIPAY_Business_Plan_ID.pdf" }
   ],
   "docsend-global-deck": [
-    { lang: "zh", label: "🇨🇳 简体中文版", url: "https://docsend.com/view/7s4r2r8p6i8xex9k" },
-    { lang: "zht", label: "🇭🇰 繁體中文版", url: "https://docsend.com/view/h3kzb8q7k9v5p9x2" },
-    { lang: "en", label: "🇺🇸 英文版 (English)", url: "https://docsend.com/view/5u8q6c9w8v7x2k4p" },
-    { lang: "ko", label: "🇰🇷 한국어판", url: "https://docsend.com/view/3m9x2k7p4w8v5c6q" },
-    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南版", url: "https://docsend.com/view/2k8p9x4w7v5c6q3m" },
-    { lang: "ja", label: "🇯🇵 日本語版", url: "https://docsend.com/view/4w8v7x2k9p6c5q3m" }
+    { lang: "zh", label: "🇨🇳 简体中文版", url: "https://docsend.com/view/snsckjftrk4wj2af" },
+    { lang: "zht", label: "🇭🇰 繁體中文版", url: "https://docsend.com/view/25w7zbf32t5nzrpj" },
+    { lang: "en", label: "🇺🇸 英文版 (English)", url: "https://docsend.com/view/iii725phveai54z9" },
+    { lang: "ko", label: "🇰🇷 한국어판", url: "https://docsend.com/view/cq5mnjjmcyvs8mp8" },
+    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南版", url: "https://docsend.com/view/e88xepp5au3ueu5f" },
+    { lang: "ja", label: "🇯🇵 日本語版", url: "https://docsend.com/view/dxrhryufyny9hp7v" }
   ],
   "rollup-global-set": [
     { lang: "zh", label: "🇨🇳 中文版 (6款)", url: "./ENI资料库/易拉寶图/易拉寶1.png" },
