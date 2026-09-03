@@ -97,36 +97,6 @@ const RESOURCES_DATA = [
     "previewType": "pdf"
   },
   {
-    "id": "doc-epay-v14",
-    "category": "finance",
-    "type": "PDF",
-    "title": "Epay 全球聚合支付平台架构白皮书 v1.4",
-    "subtitle": "四方清算技术规范、合规出入金方案与智能合约体系详解",
-    "path": "./Epay 聚合平台v1.4.pdf",
-    "size": "3.0 MB",
-    "badge": "技术白皮书",
-    "badgeColor": "cyan",
-    "icon": "📑",
-    "canPreview": true,
-    "canDownload": true,
-    "previewType": "pdf"
-  },
-  {
-    "id": "doc-deck-vn",
-    "category": "qa",
-    "type": "PDF",
-    "title": "ENIPAY 越南语生态演讲手册 (Deck VN)",
-    "subtitle": "ENIPAY 越南社区专用路演与业务宣讲官方手册",
-    "path": "./ENI资料库/EPAY越南/ENIPAY_deck_VN.pdf",
-    "size": "4.2 MB",
-    "badge": "越南手册",
-    "badgeColor": "cyan",
-    "icon": "🇻🇳",
-    "canPreview": true,
-    "canDownload": true,
-    "previewType": "pdf"
-  },
-  {
     "id": "docsend-global-deck",
     "category": "company",
     "type": "DOCSEND",
@@ -1359,7 +1329,7 @@ function renderResources() {
 }
 
 function cat_mapping_runtime(item) {
-  const map = {"docsend-global-deck": "whitepaper", "doc-epay-v14": "whitepaper", "doc-bp-multilang": "company", "poster-long-intro": "company", "poster-staking-model": "model", "poster-fission-model": "model", "doc-community-ecosystem": "community", "doc-community-intro": "community", "poster-competitive-edge": "community", "doc-qa-pdf": "qa", "doc-qa-pptx": "qa", "download-gdrive-pack": "materials", "rollup-global-set": "materials", "poster-main-1": "materials", "poster-main-2": "materials", "poster-main-3": "materials", "signage-front-day": "materials", "logo-brand-pack": "materials", "logo-psd-source": "materials", "video-eni-main": "videos", "video-enipay-promo": "videos", "video-spokesperson": "videos", "video-ecosystem": "videos", "video-finance-model": "videos", "video-wealth-code": "videos", "video-super-eco": "videos", "video-digital-pay": "videos", "video-eni-promo-2": "videos"};
+  const map = {"docsend-global-deck": "whitepaper", "doc-bp-multilang": "company", "poster-long-intro": "company", "poster-staking-model": "model", "poster-fission-model": "model", "doc-community-ecosystem": "community", "doc-community-intro": "community", "poster-competitive-edge": "community", "doc-qa-pdf": "qa", "doc-qa-pptx": "qa", "download-gdrive-pack": "materials", "rollup-global-set": "materials", "poster-main-1": "materials", "poster-main-2": "materials", "poster-main-3": "materials", "signage-front-day": "materials", "logo-brand-pack": "materials", "logo-psd-source": "materials", "video-eni-main": "videos", "video-enipay-promo": "videos", "video-spokesperson": "videos", "video-ecosystem": "videos", "video-finance-model": "videos", "video-wealth-code": "videos", "video-super-eco": "videos", "video-digital-pay": "videos", "video-eni-promo-2": "videos"};
   return map[item.id] || item.category || "materials";
 }
 
