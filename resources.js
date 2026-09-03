@@ -1408,7 +1408,7 @@ function renderGridView(container, items) {
                   ? `onclick="alert('【温馨提示】该语言版本正在同步整理中，后续补齐后将立即开放下载！')"`
                   : isImg 
                     ? `onclick="openImageLightbox(encodeURI('${link.url}'), '${item.title} - ${link.label}')"`
-                    : `onclick="window.open('${link.url}', '_blank')"`;
+                    : `onclick="window.open(encodeURI('${link.url}'), '_blank')"`;
                 return `
                   <button type="button" ${clickHandler} class="py-2 px-2.5 rounded-xl bg-slate-950/70 hover:bg-cyan-neon/15 text-slate-300 hover:text-white border border-slate-800 hover:border-cyan-neon/60 text-[11px] font-semibold flex items-center justify-between transition-all group/btn shadow-sm text-left cursor-pointer">
                     <span class="truncate font-medium">${link.label}</span>
@@ -1528,7 +1528,8 @@ function renderListView(container, items) {
           </div>
         `;
       } else {
-        const clickAction = isPdf ? `onclick="window.open('${item.path}', '_blank')"` : isDocSend ? `onclick="window.open('${item.path}', '_blank')"` : "";
+        const safeItemPath = item.path ? encodeURI(item.path) : "";
+        const clickAction = (isPdf || isDocSend) && safeItemPath ? `onclick="window.open('${safeItemPath}', '_blank')"` : "";
         thumbHtml = `
           <div class="w-12 h-12 rounded-lg bg-slate-950 flex items-center justify-center text-xl border border-slate-800 flex-shrink-0 cursor-pointer hover:border-cyan-neon" ${clickAction}>
             ${item.icon || '📄'}
@@ -1550,7 +1551,7 @@ function renderListView(container, items) {
                   ? `onclick="alert('【温馨提示】该语言版本正在同步整理中，后续补齐后将立即开放下载！')"`
                   : isImg 
                     ? `onclick="openImageLightbox(encodeURI('${link.url}'), '${item.title} - ${link.label}')"`
-                    : `onclick="window.open('${link.url}', '_blank')"`;
+                    : `onclick="window.open(encodeURI('${link.url}'), '_blank')"`;
                 return `
                   <button type="button" ${clickHandler} class="py-1 px-2.5 rounded-lg bg-slate-950/70 hover:bg-cyan-neon/15 text-slate-300 hover:text-white border border-slate-800 hover:border-cyan-neon/60 text-[11px] font-semibold flex items-center gap-1.5 transition-all cursor-pointer">
                     <span>${link.label}</span>
