@@ -996,14 +996,7 @@ function generateThemedDocCover(item) {
 
 // 🌐 Static Multi-Language Registry (Ensures 100% reliable 2-column national flag link matrix even if fetched from Supabase)
 const MULTI_LANG_REGISTRY = {
-  "doc-bp-multilang": [
-    { lang: "zh", label: "🇨🇳 简体中文版", url: "./ENI资料库/EPAY中文/ENIPAY_Business_Plan_ZH.pdf" },
-    { lang: "en", label: "🇺🇸 英文版 (English)", url: "./ENI资料库/EPAY英文/ENIPAY_Business_Plan_EN.pdf" },
-    { lang: "ja", label: "🇯🇵 日本語版", url: "./ENI资料库/EPAY日文/ENIPAY_Business_Plan_JP.pdf" },
-    { lang: "ko", label: "🇰🇷 한국어판", url: "./ENI资料库/EPAY韩文/ENIPAY_Business_Plan_KR.pdf" },
-    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南版", url: "./ENI资料库/EPAY越南/ENIPAY_Business_Plan_VN.pdf" },
-    { lang: "id", label: "🇮🇩 Indonesia 印尼版", url: "./ENI资料库/EPAY印尼语/ENIPAY_Business_Plan_ID.pdf" }
-  ],
+  // 1- ENI 白皮书
   "docsend-global-deck": [
     { lang: "zh", label: "🇨🇳 简体中文版", url: "https://docsend.com/view/snsckjftrk4wj2af" },
     { lang: "zht", label: "🇭🇰 繁體中文版", url: "https://docsend.com/view/25w7zbf32t5nzrpj" },
@@ -1012,29 +1005,26 @@ const MULTI_LANG_REGISTRY = {
     { lang: "vi", label: "🇻🇳 Tiếng Việt 越南版", url: "https://docsend.com/view/e88xepp5au3ueu5f" },
     { lang: "ja", label: "🇯🇵 日本語版", url: "https://docsend.com/view/dxrhryufyny9hp7v" }
   ],
-  "rollup-global-set": [
-    { lang: "zh", label: "🇨🇳 中文版 (6款)", url: "./ENI资料库/易拉寶图/易拉寶1.png" },
-    { lang: "en", label: "🇺🇸 English (6款)", url: "./ENI资料库/易拉寶图/易拉寶英文 1.png" },
-    { lang: "ja", label: "🇯🇵 日本語 (6款)", url: "./ENI资料库/易拉寶图/易拉寶日文 1.png" },
-    { lang: "ko", label: "🇰🇷 한국어 (6款)", url: "./ENI资料库/EPAY韩文/Poster KR.jpeg" },
-    { lang: "vi", label: "🇻🇳 Tiếng Việt (6款)", url: "./ENI资料库/易拉寶图/易拉寶越文 1.png" }
+  "doc-eni-whitepaper-pdf": [
+    { lang: "zh", label: "🇨🇳 简体中文版", url: "./ENI资料库/EPAY中文/ENIPAY_Business_Plan_ZH.pdf" },
+    { lang: "en", label: "🇺🇸 英文版 (English)", url: "./ENI资料库/EPAY英文/ENIPAY_Business_Plan_EN.pdf" },
+    { lang: "ja", label: "🇯🇵 日本語版", url: "./ENI资料库/EPAY日文/ENIPAY_Business_Plan_JP.pdf" },
+    { lang: "ko", label: "🇰🇷 한국어판", url: "./ENI资料库/EPAY韩文/ENIPAY_Business_Plan_KR.pdf" },
+    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南版", url: "./ENI资料库/EPAY越南/ENIPAY_Business_Plan_VN.pdf" },
+    { lang: "id", label: "🇮🇩 Indonesia 印尼版", url: "./ENI资料库/EPAY印尼语/ENIPAY_Business_Plan_ID.pdf" }
   ],
-  "poster-long-intro": [
-    { lang: "zh", label: "🇨🇳 中文长图", url: "./ENI资料库/EPAY中文/ENIPAY 简介长图.png" },
-    { lang: "en", label: "🇺🇸 English 英文长图", url: "./ENI资料库/EPAY英文/ENIPAY introduction image.png" },
-    { lang: "ja", label: "🇯🇵 日本語长图", url: "./ENI资料库/EPAY日文/日文长图.jpg" },
-    { lang: "ko", label: "🇰🇷 한국어长图", url: "./ENI资料库/EPAY韩文/长图（韩文）.png" },
-    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南长图", url: "./ENI资料库/EPAY越南/Hình ảnh giới thiệu ENIPAY.png" },
-    { lang: "id", label: "🇮🇩 Indonesia 印尼长图", url: "./ENI资料库/EPAY印尼语/enipay_indonesian.png" }
+
+  // 2- 公司简介 (6语)
+  "doc-bp-multilang": [
+    { lang: "zh", label: "🇨🇳 简体中文版", url: "./ENI资料库/EPAY中文/ENIPAY_Business_Plan_ZH.pdf" },
+    { lang: "en", label: "🇺🇸 英文版 (English)", url: "./ENI资料库/EPAY英文/ENIPAY_Business_Plan_EN.pdf" },
+    { lang: "ja", label: "🇯🇵 日本語版", url: "./ENI资料库/EPAY日文/ENIPAY_Business_Plan_JP.pdf" },
+    { lang: "ko", label: "🇰🇷 한국어판", url: "./ENI资料库/EPAY韩文/ENIPAY_Business_Plan_KR.pdf" },
+    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南版", url: "./ENI资料库/EPAY越南/ENIPAY_Business_Plan_VN.pdf" },
+    { lang: "id", label: "🇮🇩 Indonesia 印尼版", url: "./ENI资料库/EPAY印尼语/ENIPAY_Business_Plan_ID.pdf" }
   ],
-  "poster-competitive-edge": [
-    { lang: "zh", label: "🇨🇳 中文版", url: "./ENI资料库/EPAY中文/ENIPAY 生态竞争优势.PNG" },
-    { lang: "en", label: "🇺🇸 English 英文版", url: "./ENI资料库/EPAY英文/ENIPAY's competitive advantages.png" },
-    { lang: "ja", label: "🇯🇵 日本語版", url: "./ENI资料库/EPAY日文/日文四大竞争优势.jpg" },
-    { lang: "ko", label: "🇰🇷 한국어판", url: "./ENI资料库/EPAY韩文/ENI竞争优势（韩文）.png" },
-    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南版", url: "./ENI资料库/EPAY越南/Đặc điểm dự án ENIPAY.png" },
-    { lang: "id", label: "🇮🇩 Indonesia 印尼版", url: "./ENI资料库/EPAY印尼语/epaykeunggulan kompetitif.png" }
-  ],
+
+  // 3- 模式图 (6语)
   "poster-staking-model": [
     { lang: "zh", label: "🇨🇳 中文横图", url: "./ENI资料库/EPAY中文/ENIPAY 质押模型 01.png" },
     { lang: "en", label: "🇺🇸 English 英文横图", url: "./ENI资料库/EPAY英文/Introduction to ENIPAY Financial Model.png" },
@@ -1043,27 +1033,74 @@ const MULTI_LANG_REGISTRY = {
     { lang: "vi", label: "🇻🇳 Tiếng Việt 越南横图", url: "./ENI资料库/EPAY越南/Giới thiệu về Mô hình Tài chính ENIPAY.png" },
     { lang: "id", label: "🇮🇩 Indonesia 印尼横图", url: "./ENI资料库/EPAY印尼语/Bagan Horizontal Pola.png" }
   ],
+
+  // 4- EPAY 社区 (6语)
+  "doc-epay-intro": [
+    { lang: "zh", label: "🇨🇳 简体中文版", url: "./ENI资料库/EPAY中文/EPAY 项目介绍 中文.pdf" },
+    { lang: "en", label: "🇺🇸 English (待补)", url: "#" },
+    { lang: "ja", label: "🇯🇵 日本語 (待补)", url: "#" },
+    { lang: "ko", label: "🇰🇷 한국어 (待补)", url: "#" },
+    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南版", url: "./ENI资料库/EPAY越南/ENIPAY_Deck_VN.pdf" },
+    { lang: "id", label: "🇮🇩 Indonesia (待补)", url: "#" }
+  ],
+  "poster-competitive-edge": [
+    { lang: "zh", label: "🇨🇳 中文版", url: "./ENI资料库/EPAY中文/ENIPAY 生态竞争优势.PNG" },
+    { lang: "en", label: "🇺🇸 English", url: "./ENI资料库/EPAY英文/ENIPAY's competitive advantages.png" },
+    { lang: "ja", label: "🇯🇵 日本語", url: "./ENI资料库/EPAY日文/日文四大竞争优势.jpg" },
+    { lang: "ko", label: "🇰🇷 한국어", url: "./ENI资料库/EPAY韩文/ENI竞争优势（韩文）.png" },
+    { lang: "vi", label: "🇻🇳 Tiếng Việt", url: "./ENI资料库/EPAY越南/Đặc điểm dự án ENIPAY.png" },
+    { lang: "id", label: "🇮🇩 Indonesia", url: "./ENI资料库/EPAY印尼语/epaykeunggulan kompetitif.png" }
+  ],
+
+  // 5- 百问百答 (6语)
+  "doc-qa-pdf": [
+    { lang: "zh", label: "🇨🇳 简体中文版", url: "./ENI资料库/ENIPAY 问与答/ENIPAY 问与答.pdf" },
+    { lang: "en", label: "🇺🇸 English (待补)", url: "#" },
+    { lang: "ja", label: "🇯🇵 日本語 (待补)", url: "#" },
+    { lang: "ko", label: "🇰🇷 한국어 (待补)", url: "#" },
+    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南版", url: "./ENI资料库/EPAY越南/ENIPAY_Deck_VN.pdf" },
+    { lang: "id", label: "🇮🇩 Indonesia (待补)", url: "#" }
+  ],
+
+  // 6- 物料
+  "rollup-global-set": [
+    { lang: "zh", label: "🇨🇳 中文版 (6款)", url: "./ENI资料库/易拉寶图/易拉寶1.png" },
+    { lang: "en", label: "🇺🇸 English (6款)", url: "./ENI资料库/易拉寶图/易拉寶英文 1.png" },
+    { lang: "ja", label: "🇯🇵 日本語 (6款)", url: "./ENI资料库/易拉寶图/易拉寶日文 1.png" },
+    { lang: "ko", label: "🇰🇷 한국어 (6款)", url: "./ENI资料库/EPAY韩文/Poster KR.jpeg" },
+    { lang: "vi", label: "🇻🇳 Tiếng Việt (6款)", url: "./ENI资料库/易拉寶图/易拉寶越文 1.png" }
+  ],
+
+  // 7- 海报长图 (6语)
+  "poster-long-intro": [
+    { lang: "zh", label: "🇨🇳 中文长图", url: "./ENI资料库/EPAY中文/ENIPAY 简介长图.png" },
+    { lang: "en", label: "🇺🇸 English 英文长图", url: "./ENI资料库/EPAY英文/ENIPAY introduction image.png" },
+    { lang: "ja", label: "🇯🇵 日本語长图", url: "./ENI资料库/EPAY日文/日文长图.jpg" },
+    { lang: "ko", label: "🇰🇷 한국어长图", url: "./ENI资料库/EPAY韩文/长图（韩文）.png" },
+    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南长图", url: "./ENI资料库/EPAY越南/Hình ảnh giới thiệu ENIPAY.png" },
+    { lang: "id", label: "🇮🇩 Indonesia 印尼长图", url: "./ENI资料库/EPAY印尼语/enipay_indonesian.png" }
+  ],
   "poster-main-1": [
-    { lang: "zh", label: "🇨🇳 中文版", url: "./ENI资料库/EPAY中文/ENI海报.PNG" },
-    { lang: "en", label: "🇺🇸 English 英文版", url: "./ENI资料库/EPAY英文/Poster EN.png" },
-    { lang: "ko", label: "🇰🇷 한국어판", url: "./ENI资料库/EPAY韩文/Poster KR.jpeg" },
-    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南版", url: "./ENI资料库/EPAY越南/Poster VN.png" },
-    { lang: "id", label: "🇮🇩 Indonesia 印尼版", url: "./ENI资料库/EPAY印尼语/ENI poster.png" }
+    { lang: "zh", label: "🇨🇳 中文", url: "./ENI资料库/EPAY中文/ENI 海报 01.png" },
+    { lang: "en", label: "🇺🇸 English", url: "./ENI资料库/EPAY英文/Poster En 01.png" },
+    { lang: "ko", label: "🇰🇷 한국어", url: "./ENI资料库/EPAY韩文/Poster KR.jpeg" },
+    { lang: "vi", label: "🇻🇳 Tiếng Việt", url: "./ENI资料库/EPAY越南/Poster VN.png" },
+    { lang: "id", label: "🇮🇩 Indonesia", url: "./ENI资料库/EPAY印尼语/ENI poster.png" }
   ],
   "poster-main-2": [
-    { lang: "zh", label: "🇨🇳 中文版", url: "./ENI资料库/EPAY中文/ENI 海报 02PNG.PNG" },
-    { lang: "en", label: "🇺🇸 English 英文版", url: "./ENI资料库/EPAY英文/Poster En 02.png" },
-    { lang: "ko", label: "🇰🇷 한국어판", url: "./ENI资料库/EPAY韩文/Poster KR 02.jpeg" },
-    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南版", url: "./ENI资料库/EPAY越南/Poster VN 02.png" },
-    { lang: "id", label: "🇮🇩 Indonesia 印尼版", url: "./ENI资料库/EPAY印尼语/ENI poster 02.png" }
+    { lang: "zh", label: "🇨🇳 中文", url: "./ENI资料库/EPAY中文/ENI 海报 02PNG.PNG" },
+    { lang: "en", label: "🇺🇸 English", url: "./ENI资料库/EPAY英文/Poster En 02.png" },
+    { lang: "ko", label: "🇰🇷 한국어", url: "./ENI资料库/EPAY韩文/Poster KR 02.jpeg" },
+    { lang: "vi", label: "🇻🇳 Tiếng Việt", url: "./ENI资料库/EPAY越南/Poster VN 02.png" },
+    { lang: "id", label: "🇮🇩 Indonesia", url: "./ENI资料库/EPAY印尼语/ENI poster 02.png" }
   ],
   "poster-main-3": [
-    { lang: "zh", label: "🇨🇳 中文版", url: "./ENI资料库/EPAY中文/ENI 海报 03.PNG" },
-    { lang: "en", label: "🇺🇸 English 英文版", url: "./ENI资料库/EPAY英文/3.png" },
-    { lang: "ja", label: "🇯🇵 日本語版", url: "./ENI资料库/EPAY日文/日文图03.jpg" },
-    { lang: "ko", label: "🇰🇷 한국어판", url: "./ENI资料库/EPAY韩文/3.jpeg" },
-    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南版", url: "./ENI资料库/EPAY越南/4越南.png" },
-    { lang: "id", label: "🇮🇩 Indonesia 印尼版", url: "./ENI资料库/EPAY印尼语/image.png" }
+    { lang: "zh", label: "🇨🇳 中文", url: "./ENI资料库/EPAY中文/ENI 海报 03.PNG" },
+    { lang: "en", label: "🇺🇸 English", url: "./ENI资料库/EPAY英文/3.png" },
+    { lang: "ja", label: "🇯🇵 日本語", url: "./ENI资料库/EPAY日文/日文图03.jpg" },
+    { lang: "ko", label: "🇰🇷 한국어", url: "./ENI资料库/EPAY韩文/3.jpeg" },
+    { lang: "vi", label: "🇻🇳 Tiếng Việt", url: "./ENI资料库/EPAY越南/4越南.png" },
+    { lang: "id", label: "🇮🇩 Indonesia", url: "./ENI资料库/EPAY印尼语/image.png" }
   ]
 };
 
@@ -1198,15 +1235,29 @@ function generateThemedVideoCover(item) {
 }
 
 
-// 🗂️ 6 Core Resources Sections Configuration (as requested)
+// 🗂️ 8 Core Resources Sections Configuration (Exact User Requirement)
 const RESOURCE_SECTIONS = [
-  { id: "company", title: "1- 公司简介 (6语)", en: "COMPANY PROFILE // 6-LANG", icon: "🏢", color: "cyan" },
-  { id: "finance", title: "2- 金融模式 (6语)", en: "FINANCIAL MODEL // 6-LANG", icon: "📈", color: "gold" },
-  { id: "community", title: "3- EPAY社区 (6语)", en: "COMMUNITY & ECO // 6-LANG", icon: "🌐", color: "cyan" },
-  { id: "qa", title: "4- 问与答 (6语)", en: "MARKET Q&A // 6-LANG", icon: "❓", color: "cyan" },
-  { id: "videos", title: "视频区", en: "OFFICIAL VIDEOS // 4K STREAM", icon: "🎬", color: "cyan" },
-  { id: "materials", title: "素材区", en: "BRAND & MEDIA ASSETS", icon: "🎨", color: "gold" }
+  { id: "whitepaper", title: "1- ENI 白皮书 (多语)", en: "ENI MODULAR L1 WHITEPAPER // MULTI-LANG", icon: "📄", color: "cyan" },
+  { id: "company", title: "2- 公司简介 (6语)", en: "CORPORATE PROFILE & BUSINESS PLAN // 6-LANG", icon: "🏢", color: "cyan" },
+  { id: "model", title: "3- 模式图 (6语)", en: "FINANCIAL STAKING & DEFLATION MODEL // 6-LANG", icon: "📈", color: "gold" },
+  { id: "community", title: "4- EPAY 社区 (6语)", en: "EPAY GLOBAL COMMUNITY & FISSION // 6-LANG", icon: "🌐", color: "cyan" },
+  { id: "qa", title: "5- 百问百答 (6语)", en: "OFFICIAL 100 MARKET Q&A MANUAL // 6-LANG", icon: "❓", color: "cyan" },
+  { id: "downloads", title: "6- 物料云盘下载", en: "OFFICIAL CLOUD MEDIA KIT // ZIP & PSD", icon: "📦", color: "gold" },
+  { id: "posters", title: "7- 海报长图", en: "OFFICIAL POSTERS & INFOGRAPHICS", icon: "🖼️", color: "cyan" },
+  { id: "videos", title: "8- 宣传视频", en: "OFFICIAL 4K CINEMATIC VIDEOS", icon: "🎬", color: "cyan" }
 ];
+
+
+function handleGdriveClick(defaultUrl) {
+  if (!defaultUrl || defaultUrl.includes("your_link")) {
+    const userLink = prompt("【Google Drive 云盘下载】\n请确认或输入您的 Google Drive 云盘分享链接：", "https://drive.google.com");
+    if (userLink) {
+      window.open(userLink, "_blank");
+    }
+  } else {
+    window.open(defaultUrl, "_blank");
+  }
+}
 
 function renderResources() {
   const container = document.getElementById("resources-container");
@@ -1290,8 +1341,8 @@ function renderResources() {
 }
 
 function cat_mapping_runtime(item) {
-  const map = {"doc-bp-multilang": "company", "docsend-global-deck": "company", "poster-long-intro": "company", "poster-staking-model": "finance", "doc-epay-intro": "finance", "doc-epay-v14": "finance", "poster-competitive-edge": "community", "poster-main-1": "community", "poster-main-2": "community", "poster-main-3": "community", "poster-eco-overview": "community", "poster-fission-model": "community", "doc-qa-pdf": "qa", "doc-qa-pptx": "qa", "doc-deck-vn": "qa", "video-eni-main": "videos", "video-enipay-promo": "videos", "video-spokesperson": "videos", "video-ecosystem": "videos", "video-finance-model": "videos", "video-wealth-code": "videos", "video-super-eco": "videos", "video-digital-pay": "videos", "video-eni-promo-2": "videos", "rollup-global-set": "materials", "signage-front-day": "materials", "signage-front-night": "materials", "signage-storefront": "materials", "signage-lightbox": "materials", "logo-app-icon": "materials", "logo-horiz-dark": "materials", "logo-horiz-light": "materials", "logo-3d-neon": "materials", "logo-symbol": "materials", "logo-gold-black": "materials", "logo-psd-source": "materials"};
-  return map[item.id] || item.category || "materials";
+  const map = {"docsend-global-deck": "whitepaper", "doc-eni-whitepaper-pdf": "whitepaper", "doc-bp-multilang": "company", "doc-epay-v14": "company", "poster-staking-model": "model", "poster-fission-model": "model", "doc-epay-intro": "community", "poster-competitive-edge": "community", "doc-qa-pdf": "qa", "doc-qa-pptx": "qa", "download-gdrive-pack": "downloads", "download-logo-psd": "downloads", "rollup-global-set": "downloads", "signage-front-day": "downloads", "signage-front-night": "downloads", "signage-storefront": "downloads", "signage-lightbox": "downloads", "logo-app-icon": "downloads", "logo-horiz-dark": "downloads", "logo-horiz-light": "downloads", "logo-3d-neon": "downloads", "logo-symbol": "downloads", "logo-gold-black": "downloads", "poster-long-intro": "posters", "poster-main-1": "posters", "poster-main-2": "posters", "poster-main-3": "posters", "poster-eco-overview": "posters", "video-eni-main": "videos", "video-enipay-promo": "videos", "video-spokesperson": "videos", "video-ecosystem": "videos", "video-finance-model": "videos", "video-wealth-code": "videos", "video-super-eco": "videos", "video-digital-pay": "videos", "video-eni-promo-2": "videos"};
+  return map[item.id] || item.category || "downloads";
 }
 
 // 🔲 Grid View Renderer
@@ -1334,9 +1385,12 @@ function renderGridView(container, items) {
           <div class="grid grid-cols-2 gap-1.5 sm:gap-2 w-full pt-2.5 border-t border-slate-800/80 mt-2">
             ${multiLinks
               .map((link) => {
-                const clickHandler = isImg 
-                  ? `onclick="openImageLightbox(encodeURI('${link.url}'), '${item.title} - ${link.label}')"`
-                  : `onclick="window.open('${link.url}', '_blank')"`;
+                const isPending = !link.url || link.url === "#";
+                const clickHandler = isPending
+                  ? `onclick="alert('【温馨提示】该语言版本正在同步整理中，后续补齐后将立即开放下载！')"`
+                  : isImg 
+                    ? `onclick="openImageLightbox(encodeURI('${link.url}'), '${item.title} - ${link.label}')"`
+                    : `onclick="window.open('${link.url}', '_blank')"`;
                 return `
                   <button type="button" ${clickHandler} class="py-2 px-2.5 rounded-xl bg-slate-950/70 hover:bg-cyan-neon/15 text-slate-300 hover:text-white border border-slate-800 hover:border-cyan-neon/60 text-[11px] font-semibold flex items-center justify-between transition-all group/btn shadow-sm text-left cursor-pointer">
                     <span class="truncate font-medium">${link.label}</span>
@@ -1345,6 +1399,17 @@ function renderGridView(container, items) {
                 `;
               })
               .join("")}
+          </div>
+        `;
+      } else if (item.id === "download-gdrive-pack") {
+        actionButtons = `
+          <div class="w-full pt-2 border-t border-slate-800/80">
+            <button onclick="handleGdriveClick('${item.path}')" class="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-gold-400/20 to-cyan-neon/20 hover:from-gold-400/30 hover:to-cyan-neon/30 text-white border border-gold-400/50 hover:border-cyan-neon text-xs font-bold flex items-center justify-center gap-2 transition-all shadow-md group/gd">
+              <span class="text-sm">📦</span> <span>进入 Google Drive 云盘下载 ↗</span>
+            </button>
+            <div class="text-[10px] text-slate-400 text-center mt-1 font-mono">
+              支持下载全套 PSD / AI / ZIP 源文件
+            </div>
           </div>
         `;
       } else if (isDocSend) {
@@ -1462,9 +1527,12 @@ function renderListView(container, items) {
           <div class="flex items-center gap-1.5 flex-wrap">
             ${multiLinks
               .map((link) => {
-                const clickHandler = isImg 
-                  ? `onclick="openImageLightbox(encodeURI('${link.url}'), '${item.title} - ${link.label}')"`
-                  : `onclick="window.open('${link.url}', '_blank')"`;
+                const isPending = !link.url || link.url === "#";
+                const clickHandler = isPending
+                  ? `onclick="alert('【温馨提示】该语言版本正在同步整理中，后续补齐后将立即开放下载！')"`
+                  : isImg 
+                    ? `onclick="openImageLightbox(encodeURI('${link.url}'), '${item.title} - ${link.label}')"`
+                    : `onclick="window.open('${link.url}', '_blank')"`;
                 return `
                   <button type="button" ${clickHandler} class="py-1 px-2.5 rounded-lg bg-slate-950/70 hover:bg-cyan-neon/15 text-slate-300 hover:text-white border border-slate-800 hover:border-cyan-neon/60 text-[11px] font-semibold flex items-center gap-1.5 transition-all cursor-pointer">
                     <span>${link.label}</span>
