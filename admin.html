@@ -87,21 +87,29 @@
           <input 
             type="password" 
             id="admin-pass-input" 
-            placeholder="请输入管理员密码..." 
-            class="w-full py-3 px-4 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 text-sm focus:border-cyan-neon focus:ring-1 focus:ring-cyan-neon outline-none text-center tracking-widest"
+            placeholder="请输入管理员密码 (默认 enipay888)..." 
+            class="w-full py-3 px-4 pr-12 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 text-sm focus:border-cyan-neon focus:ring-1 focus:ring-cyan-neon outline-none text-center tracking-widest font-mono"
             required
             autofocus
           >
+          <button type="button" onclick="togglePassVisibility()" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-cyan-neon text-sm p-1.5 transition-colors cursor-pointer" title="显示/隐藏明文密码">
+            👁️
+          </button>
         </div>
         <button 
           type="submit" 
-          class="w-full py-3 px-4 rounded-xl bg-cyan-neon text-slate-950 font-extrabold text-sm hover:bg-cyan-neon/90 transition-all shadow-[0_0_20px_rgba(0,255,178,0.4)]"
+          class="w-full py-3 px-4 rounded-xl bg-cyan-neon text-slate-950 font-black text-sm hover:bg-cyan-neon/90 transition-all shadow-[0_0_20px_rgba(0,255,178,0.4)] cursor-pointer active:scale-95"
         >
           验证并进入后台 →
         </button>
-        <p class="text-[11px] text-slate-500 font-mono">
-          默认初始密钥：<span class="text-cyan-neon font-bold">enipay888</span>（登录后可在设置中修改）
-        </p>
+        <div class="flex items-center justify-between text-[11px] text-slate-400 font-mono px-1 pt-1">
+          <button type="button" onclick="fillDefaultPassword()" class="text-cyan-neon hover:underline cursor-pointer flex items-center gap-1 font-bold">
+            <span>⚡</span> <span>一键填入 (enipay888)</span>
+          </button>
+          <button type="button" onclick="resetAdminPasswordToDefault()" class="text-slate-400 hover:text-amber-400 transition-colors cursor-pointer">
+            重置密码
+          </button>
+        </div>
       </form>
       <div class="pt-4 border-t border-slate-800">
         <a href="./resources.html" class="text-xs text-slate-400 hover:text-cyan-neon transition-colors">

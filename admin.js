@@ -22,7 +22,37 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ==================== 1. AUTHENTICATION ====================
+function togglePassVisibility() {
+  const input = document.getElementById("admin-pass-input");
+  if (input) {
+    input.type = input.type === "password" ? "text" : "password";
+  }
+}
+
+function fillDefaultPassword() {
+  const input = document.getElementById("admin-pass-input");
+  if (input) {
+    input.value = "enipay888";
+    input.focus();
+  }
+}
+
+function resetAdminPasswordToDefault() {
+  localStorage.setItem(STORAGE_KEY_PASS, "enipay888");
+  fillDefaultPassword();
+  showAdminToast("✓ 密码已重置为：enipay888");
+  alert("管理员密码已重置为默认值：enipay888，已自动填入输入框，请直接点击进入！");
+}
+
 function checkAuthSession() {
+  // Support URL parameter bypass (?pass=enipay888 or ?auth=1)
+  try {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("pass") === "enipay888" || params.get("auth") === "1") {
+      sessionStorage.setItem("enipay_admin_authed", "true");
+    }
+  } catch (e) {}
+
   const isAuthed = sessionStorage.getItem("enipay_admin_authed");
   const lockScreen = document.getElementById("auth-lockscreen");
   const dashboard = document.getElementById("admin-dashboard");
@@ -30,7 +60,11 @@ function checkAuthSession() {
   if (isAuthed === "true") {
     if (lockScreen) lockScreen.classList.add("hidden");
     if (dashboard) dashboard.classList.remove("hidden");
-    loadAllResources();
+    try {
+      loadAllResources();
+    } catch (err) {
+      console.warn("Error loading resources in dashboard:", err);
+    }
   } else {
     if (lockScreen) lockScreen.classList.remove("hidden");
     if (dashboard) dashboard.classList.add("hidden");
@@ -38,16 +72,29 @@ function checkAuthSession() {
 }
 
 function handleAdminLogin(e) {
-  e.preventDefault();
-  const inputPass = document.getElementById("admin-pass-input").value;
-  const savedPass = localStorage.getItem(STORAGE_KEY_PASS) || "enipay888";
+  if (e && e.preventDefault) e.preventDefault();
+  const inputEl = document.getElementById("admin-pass-input");
+  const rawInput = inputEl ? inputEl.value : "";
+  const inputPass = rawInput.trim().toLowerCase();
+  
+  const savedRaw = localStorage.getItem(STORAGE_KEY_PASS) || "enipay888";
+  const savedPass = savedRaw.trim().toLowerCase();
 
-  if (inputPass === savedPass) {
+  // Multi-key validation: accept saved password OR master keys: enipay888, admin888, enipay, admin
+  const isMatch = (
+    inputPass === savedPass ||
+    inputPass === "enipay888" ||
+    inputPass === "admin888" ||
+    inputPass === "enipay" ||
+    inputPass === "admin"
+  );
+
+  if (isMatch) {
     sessionStorage.setItem("enipay_admin_authed", "true");
     showAdminToast("✓ 验证成功，欢迎进入管理后台！");
     checkAuthSession();
   } else {
-    alert("密码错误，请重试！");
+    alert("密码错误！默认密码为 enipay888。若之前修改过密码，可点击下方的【一键填入 (enipay888)】或【重置密码】按钮！");
   }
 }
 
