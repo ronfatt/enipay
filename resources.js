@@ -6,6 +6,20 @@
 // Complete Local & Remote Resources Dataset
 const RESOURCES_DATA = [
   {
+    "id": "doc-community-ecosystem",
+    "category": "community",
+    "type": "PDF",
+    "title": "Epay社区补贴方案 (5 国语言 PDF)",
+    "subtitle": "社区布道体系、全球市场合规裂变、节点治理机制与早期红利全套 PDF",
+    "path": "./ENI 资料库2.0/4.EPAY 社区生态/Epay社区生态圈/Epay 社区生态圈 中文.pdf",
+    "badge": "5 语种补贴方案",
+    "badgeColor": "cyan",
+    "icon": "🌐",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "pdf"
+  },
+  {
     "id": "doc-bp-multilang",
     "category": "company",
     "type": "PDF",
@@ -903,10 +917,10 @@ function generateThemedDocCover(item) {
     microTag = "TOKENOMICS";
   } else if (item.id === "doc-community-ecosystem") {
     gradientClass = "bg-gradient-to-br from-[#06b6d4] via-[#10b981] to-[#3b82f6]";
-    enTitle = "EPAY GLOBAL COMMUNITY & ECOSYSTEM ROADMAP (5 LANGUAGES)";
-    zhTitle = "Epay 社区生态圈宣讲手册 · 5 国语言全套";
+    enTitle = "EPAY COMMUNITY SUBSIDY & INCENTIVE PROGRAM (5 LANGUAGES)";
+    zhTitle = "Epay 社区补贴方案 · 5 国语言全套";
     techFootnote = "Community Evangelism × Merchant Matrix × Node Governance";
-    microTag = "COMMUNITY ECO";
+    microTag = "COMMUNITY SUBSIDY";
   } else if (item.id === "doc-community-intro") {
     gradientClass = "bg-gradient-to-br from-[#10b981] via-[#06b6d4] to-[#0284c7]";
     enTitle = "EPAY COMMUNITY OFFICIAL PROFILE & OVERVIEW (5 LANGUAGES)";
@@ -1025,7 +1039,7 @@ const MULTI_LANG_REGISTRY = {
 
   // 4. EPAY 社区生态 (ENI 资料库2.0 专属多语 PDF)
   "doc-community-ecosystem": [
-    { lang: "zh", label: "🇨🇳 中文生态圈", url: "./ENI 资料库2.0/4.EPAY 社区生态/Epay社区生态圈/Epay 社区生态圈 中文.pdf" },
+    { lang: "zh", label: "🇨🇳 中文补贴方案", url: "./ENI 资料库2.0/4.EPAY 社区生态/Epay社区生态圈/Epay 社区生态圈 中文.pdf" },
     { lang: "en", label: "🇺🇸 English 英文版", url: "./ENI 资料库2.0/4.EPAY 社区生态/Epay社区生态圈/Epay 社区生态圈 英文.pdf" },
     { lang: "ja", label: "🇯🇵 日本語版", url: "./ENI 资料库2.0/4.EPAY 社区生态/Epay社区生态圈/Epay 社区生态圈 日文.pdf" },
     { lang: "ko", label: "🇰🇷 한국어판", url: "./ENI 资料库2.0/4.EPAY 社区生态/Epay社区生态圈/Epay 社区生态圈 韩文.pdf" },
