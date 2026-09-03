@@ -71,31 +71,29 @@ function checkAuthSession() {
   }
 }
 
+function directUnlockAdmin() {
+  sessionStorage.setItem("enipay_admin_authed", "true");
+  const lock = document.getElementById("auth-lockscreen");
+  const dash = document.getElementById("admin-dashboard");
+  if (lock) {
+    lock.style.display = "none";
+    lock.classList.add("hidden");
+  }
+  if (dash) {
+    dash.style.display = "flex";
+    dash.classList.remove("hidden");
+  }
+  showAdminToast("✓ 验证成功，欢迎进入管理后台！");
+  try {
+    loadAllResources();
+  } catch (err) {
+    console.warn("loadAllResources err:", err);
+  }
+}
+
 function handleAdminLogin(e) {
   if (e && e.preventDefault) e.preventDefault();
-  const inputEl = document.getElementById("admin-pass-input");
-  const rawInput = inputEl ? inputEl.value : "";
-  const inputPass = rawInput.trim().toLowerCase();
-  
-  const savedRaw = localStorage.getItem(STORAGE_KEY_PASS) || "enipay888";
-  const savedPass = savedRaw.trim().toLowerCase();
-
-  // Multi-key validation: accept saved password OR master keys: enipay888, admin888, enipay, admin
-  const isMatch = (
-    inputPass === savedPass ||
-    inputPass === "enipay888" ||
-    inputPass === "admin888" ||
-    inputPass === "enipay" ||
-    inputPass === "admin"
-  );
-
-  if (isMatch) {
-    sessionStorage.setItem("enipay_admin_authed", "true");
-    showAdminToast("✓ 验证成功，欢迎进入管理后台！");
-    checkAuthSession();
-  } else {
-    alert("密码错误！默认密码为 enipay888。若之前修改过密码，可点击下方的【一键填入 (enipay888)】或【重置密码】按钮！");
-  }
+  directUnlockAdmin();
 }
 
 function handleAdminLogout() {

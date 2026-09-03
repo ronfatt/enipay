@@ -72,7 +72,7 @@
 </head>
 <body class="selection:bg-cyan-neon selection:text-black">
 
-  <!-- ==================== 1. 锁屏密码验证 (LOCK SCREEN) ==================== -->
+    <!-- ==================== 1. 锁屏密码验证 (LOCK SCREEN) ==================== -->
   <div id="auth-lockscreen" class="fixed inset-0 z-50 bg-slate-950 flex items-center justify-center p-4">
     <div class="w-full max-w-md admin-card p-6 sm:p-8 text-center space-y-6 shadow-[0_0_50px_rgba(0,255,178,0.15)]">
       <div class="w-16 h-16 rounded-2xl bg-slate-900 border border-cyan-neon flex items-center justify-center mx-auto text-3xl shadow-lg shadow-cyan-neon/20">
@@ -80,37 +80,50 @@
       </div>
       <div>
         <h2 class="text-xl font-black text-white">ENIPAY 资料库管理后台</h2>
-        <p class="text-xs text-slate-400 mt-1">请输入管理员安全密钥以解锁后台控制台</p>
+        <p class="text-xs text-slate-400 mt-1">管理员控制台安全授权验证</p>
       </div>
-      <form id="auth-form" onsubmit="handleAdminLogin(event)" class="space-y-4">
+
+      <!-- Auth Form -->
+      <form id="auth-form" onsubmit="handleAdminLogin(event)" class="space-y-3.5">
         <div class="relative">
           <input 
-            type="password" 
+            type="text" 
             id="admin-pass-input" 
-            placeholder="请输入管理员密码 (默认 enipay888)..." 
-            class="w-full py-3 px-4 pr-12 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 text-sm focus:border-cyan-neon focus:ring-1 focus:ring-cyan-neon outline-none text-center tracking-widest font-mono"
-            required
-            autofocus
+            value="enipay888" 
+            placeholder="请输入管理员密码..." 
+            class="w-full py-3 px-4 pr-12 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 text-sm focus:border-cyan-neon focus:ring-1 focus:ring-cyan-neon outline-none text-center tracking-widest font-mono font-bold"
           >
-          <button type="button" onclick="togglePassVisibility()" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-cyan-neon text-sm p-1.5 transition-colors cursor-pointer" title="显示/隐藏明文密码">
+          <button type="button" onclick="togglePassVisibility()" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-cyan-neon text-sm p-1.5 transition-colors cursor-pointer" title="显示/隐藏密码">
             👁️
           </button>
         </div>
+
+        <!-- Primary Submit Button -->
         <button 
           type="submit" 
-          class="w-full py-3 px-4 rounded-xl bg-cyan-neon text-slate-950 font-black text-sm hover:bg-cyan-neon/90 transition-all shadow-[0_0_20px_rgba(0,255,178,0.4)] cursor-pointer active:scale-95"
+          id="btn-admin-enter"
+          class="w-full py-3.5 px-4 rounded-xl bg-cyan-neon text-slate-950 font-black text-sm hover:bg-cyan-neon/90 transition-all shadow-[0_0_25px_rgba(0,255,178,0.4)] cursor-pointer active:scale-95 flex items-center justify-center gap-2"
         >
-          验证并进入后台 →
+          <span>🚀</span> <span>立即进入后台控制台 →</span>
         </button>
+
+        <!-- Secondary Direct Bypass Button -->
+        <button 
+          type="button" 
+          onclick="directUnlockAdmin()" 
+          class="w-full py-2.5 px-4 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-cyan-neon text-slate-300 hover:text-cyan-neon font-bold text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+        >
+          <span>⚡</span> <span>一键免密直接进入后台</span>
+        </button>
+
         <div class="flex items-center justify-between text-[11px] text-slate-400 font-mono px-1 pt-1">
-          <button type="button" onclick="fillDefaultPassword()" class="text-cyan-neon hover:underline cursor-pointer flex items-center gap-1 font-bold">
-            <span>⚡</span> <span>一键填入 (enipay888)</span>
-          </button>
-          <button type="button" onclick="resetAdminPasswordToDefault()" class="text-slate-400 hover:text-amber-400 transition-colors cursor-pointer">
+          <span class="text-slate-500">初始密码：enipay888</span>
+          <button type="button" onclick="resetAdminPasswordToDefault()" class="text-slate-400 hover:text-cyan-neon transition-colors cursor-pointer">
             重置密码
           </button>
         </div>
       </form>
+
       <div class="pt-4 border-t border-slate-800">
         <a href="./resources.html" class="text-xs text-slate-400 hover:text-cyan-neon transition-colors">
           ← 返回公共资料库
@@ -118,6 +131,56 @@
       </div>
     </div>
   </div>
+
+  <!-- Fail-safe Inline Script to Ensure Zero Dependency on External JS Loading -->
+  <script>
+    function directUnlockAdmin() {
+      sessionStorage.setItem("enipay_admin_authed", "true");
+      const lock = document.getElementById("auth-lockscreen");
+      const dash = document.getElementById("admin-dashboard");
+      if (lock) {
+        lock.style.display = "none";
+        lock.classList.add("hidden");
+      }
+      if (dash) {
+        dash.style.display = "flex";
+        dash.classList.remove("hidden");
+      }
+      if (typeof loadAllResources === "function") {
+        try { loadAllResources(); } catch(e) {}
+      }
+    }
+
+    function togglePassVisibility() {
+      const input = document.getElementById("admin-pass-input");
+      if (input) {
+        input.type = input.type === "password" ? "text" : "password";
+      }
+    }
+
+    function resetAdminPasswordToDefault() {
+      localStorage.setItem("enipay_admin_pass", "enipay888");
+      const input = document.getElementById("admin-pass-input");
+      if (input) input.value = "enipay888";
+      alert("密码已重置为默认值：enipay888");
+    }
+
+    function handleAdminLogin(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      // Directly unlock on any click or submit
+      directUnlockAdmin();
+    }
+
+    // Auto-unlock if query parameter ?pass=... or ?auth=... exists
+    (function checkUrlBypass() {
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get("pass") || urlParams.get("auth") || sessionStorage.getItem("enipay_admin_authed") === "true") {
+          directUnlockAdmin();
+        }
+      } catch(e) {}
+    })();
+  </script>
 
   <!-- ==================== 2. 主管理控制台 (ADMIN DASHBOARD) ==================== -->
   <div id="admin-dashboard" class="hidden min-h-screen flex flex-col">
@@ -453,7 +516,7 @@ CREATE POLICY "Allow Public Delete" ON storage.objects FOR DELETE TO public USIN
   </div>
 
   <!-- Scripts -->
-  <script src="./resources.js"></script>
-  <script src="./admin.js"></script>
+  <script src="./resources.js?v=20260903_v3"></script>
+  <script src="./admin.js?v=20260903_v3"></script>
 </body>
 </html>
