@@ -7,7 +7,7 @@
 const RESOURCES_DATA = [
   {
     "id": "doc-bp-multilang",
-    "category": "docs",
+    "category": "company",
     "type": "PDF",
     "title": "ENIPAY 官方商业计划书 (Business Plan · 6 国语言)",
     "subtitle": "全面解析 ENIPAY 商业模式、三层架构、代币激励与上市路径 (中/英/日/韩/越/印尼)",
@@ -83,7 +83,7 @@ const RESOURCES_DATA = [
   },
   {
     "id": "doc-epay-intro",
-    "category": "docs",
+    "category": "finance",
     "type": "PDF",
     "title": "EPAY 项目深度介绍 (中文版)",
     "subtitle": "聚焦 EPAY 双通缩机制、回购销毁执行器与 100 代社区裂变激励",
@@ -98,7 +98,7 @@ const RESOURCES_DATA = [
   },
   {
     "id": "doc-epay-v14",
-    "category": "docs",
+    "category": "finance",
     "type": "PDF",
     "title": "Epay 全球聚合支付平台架构白皮书 v1.4",
     "subtitle": "四方清算技术规范、合规出入金方案与智能合约体系详解",
@@ -113,7 +113,7 @@ const RESOURCES_DATA = [
   },
   {
     "id": "doc-deck-vn",
-    "category": "docs",
+    "category": "qa",
     "type": "PDF",
     "title": "ENIPAY 越南语生态演讲手册 (Deck VN)",
     "subtitle": "ENIPAY 越南社区专用路演与业务宣讲官方手册",
@@ -128,7 +128,7 @@ const RESOURCES_DATA = [
   },
   {
     "id": "docsend-global-deck",
-    "category": "docsend",
+    "category": "company",
     "type": "DOCSEND",
     "title": "ENI 公链官方核心白皮书与宣讲资料 (DocSend 6 国语言)",
     "subtitle": "DocSend 在线全息查阅，支持 6 种主流语言实时同步官方最新修订版本",
@@ -300,7 +300,7 @@ const RESOURCES_DATA = [
   },
   {
     "id": "poster-long-intro",
-    "category": "posters",
+    "category": "company",
     "type": "PNG",
     "title": "ENIPAY 官方简介全景长图 (多语言)",
     "subtitle": "长图全景展现平台愿景、五大落地产品、质押收益与上市战略",
@@ -347,7 +347,7 @@ const RESOURCES_DATA = [
   },
   {
     "id": "poster-competitive-edge",
-    "category": "posters",
+    "category": "community",
     "type": "PNG",
     "title": "ENIPAY 生态竞争优势图解 (多语言)",
     "subtitle": "对比传统出入金与竞品，凸显 100% 币安托管与无冻卡优势",
@@ -394,7 +394,7 @@ const RESOURCES_DATA = [
   },
   {
     "id": "poster-staking-model",
-    "category": "posters",
+    "category": "finance",
     "type": "PNG",
     "title": "ENIPAY 金融模型与收益横图 (多语言)",
     "subtitle": "300~10000U 投资梯度、日化 1% 与 3.5 倍出局机制全景横图",
@@ -441,7 +441,7 @@ const RESOURCES_DATA = [
   },
   {
     "id": "poster-eco-overview",
-    "category": "posters",
+    "category": "community",
     "type": "PNG",
     "title": "ENI 生态系统简介展板",
     "subtitle": "公链底座、支付清算与生态矩阵一览",
@@ -456,7 +456,7 @@ const RESOURCES_DATA = [
   },
   {
     "id": "poster-fission-model",
-    "category": "posters",
+    "category": "community",
     "type": "PNG",
     "title": "ENIPAY 100代裂变管理模型 02",
     "subtitle": "100 代动态裂变奖金池与团队管理激励图解",
@@ -471,7 +471,7 @@ const RESOURCES_DATA = [
   },
   {
     "id": "poster-main-1",
-    "category": "posters",
+    "category": "community",
     "type": "PNG",
     "title": "ENI 官方主视觉海报 01 (多语言)",
     "subtitle": "极具科技感的高清主视觉，适合线下峰会与展会背景",
@@ -513,7 +513,7 @@ const RESOURCES_DATA = [
   },
   {
     "id": "poster-main-2",
-    "category": "posters",
+    "category": "community",
     "type": "PNG",
     "title": "ENI 官方主视觉海报 02 (多语言)",
     "subtitle": "全球节点连接与公链科技感视觉海报",
@@ -555,7 +555,7 @@ const RESOURCES_DATA = [
   },
   {
     "id": "poster-main-3",
-    "category": "posters",
+    "category": "community",
     "type": "PNG",
     "title": "ENI 官方主视觉海报 03 (多语言)",
     "subtitle": "ENIPAY 生态落地与全球数字卡片主视觉",
@@ -602,7 +602,7 @@ const RESOURCES_DATA = [
   },
   {
   "id": "rollup-global-set",
-  "category": "rollups",
+  "category": "materials",
   "type": "PNG",
   "title": "ENIPAY 官方标准易拉宝展架 (5 国语言全套 30 款)",
   "subtitle": "涵盖平台总览、公链底座、U卡权益、收益模型、安全保障与上市规划全套展架",
@@ -644,7 +644,7 @@ const RESOURCES_DATA = [
 },
   {
     "id": "signage-front-day",
-    "category": "signage",
+    "category": "materials",
     "type": "PNG",
     "title": "ENIPAY 线下实体旗舰中心前台 (白天效果)",
     "subtitle": "现代极简科技风实体服务中心前台实景效果",
@@ -659,7 +659,7 @@ const RESOURCES_DATA = [
   },
   {
     "id": "signage-front-night",
-    "category": "signage",
+    "category": "materials",
     "type": "PNG",
     "title": "ENIPAY 线下实体旗舰中心前台 (夜间发光效果)",
     "subtitle": "赛博朋克霓虹光效前台设计，展现顶级金融科技质感",
@@ -674,7 +674,7 @@ const RESOURCES_DATA = [
   },
   {
     "id": "signage-storefront",
-    "category": "signage",
+    "category": "materials",
     "type": "PNG",
     "title": "ENIPAY 官方门店招牌门头设计图",
     "subtitle": "全球加盟店与线下网点统一标准门头招牌设计规范",
@@ -689,7 +689,7 @@ const RESOURCES_DATA = [
   },
   {
     "id": "signage-lightbox",
-    "category": "signage",
+    "category": "materials",
     "type": "PNG",
     "title": "ENIPAY 实体店发光灯箱设计图",
     "subtitle": "立柱灯箱、侧发光广告牌高清设计原图",
@@ -704,7 +704,7 @@ const RESOURCES_DATA = [
   },
   {
     "id": "logo-app-icon",
-    "category": "brand",
+    "category": "materials",
     "type": "PNG",
     "title": "ENIPAY 官方标准 App 图标 (App Icon)",
     "subtitle": "正方形圆角高清图标，适用于移动端应用商店与官网图标",
@@ -719,7 +719,7 @@ const RESOURCES_DATA = [
   },
   {
     "id": "logo-horiz-dark",
-    "category": "brand",
+    "category": "materials",
     "type": "PNG",
     "title": "ENIPAY 品牌标准横版 Logo (深色背景专用)",
     "subtitle": "高清透明底横版 Logo，适用于演示文稿、官网与广告物料",
@@ -734,7 +734,7 @@ const RESOURCES_DATA = [
   },
   {
     "id": "logo-horiz-light",
-    "category": "brand",
+    "category": "materials",
     "type": "PNG",
     "title": "ENIPAY 品牌标准横版 Logo (浅色背景专用)",
     "subtitle": "浅色或白色背景印刷与文档专用高清标",
@@ -749,7 +749,7 @@ const RESOURCES_DATA = [
   },
   {
     "id": "logo-3d-neon",
-    "category": "brand",
+    "category": "materials",
     "type": "PNG",
     "title": "ENIPAY 3D 霓虹质感官方徽标",
     "subtitle": "3D 金属与霓虹青光泽渲染，适合高端海报与主视觉设计",
@@ -764,7 +764,7 @@ const RESOURCES_DATA = [
   },
   {
     "id": "logo-symbol",
-    "category": "brand",
+    "category": "materials",
     "type": "PNG",
     "title": "ENIPAY 品牌核心超级符号 (Icon Symbol)",
     "subtitle": "极简字母 E 融合能量芯片造型的品牌超级符号",
@@ -779,7 +779,7 @@ const RESOURCES_DATA = [
   },
   {
     "id": "logo-gold-black",
-    "category": "brand",
+    "category": "materials",
     "type": "PNG",
     "title": "ENIPAY 极简黑金高奢标 (Gold Edition)",
     "subtitle": "尊享黑金卡与 VIP 会员专属高贵配色方案",
@@ -794,7 +794,7 @@ const RESOURCES_DATA = [
   },
   {
     "id": "logo-psd-source",
-    "category": "brand",
+    "category": "materials",
     "type": "PSD",
     "title": "ENIPAY 官方 Logo 分层源文件 (Photoshop PSD)",
     "subtitle": "包含所有分层、矢量路径与调色图层，供专业设计师二开使用",
@@ -1197,20 +1197,33 @@ function generateThemedVideoCover(item) {
   `;
 }
 
+
+// 🗂️ 6 Core Resources Sections Configuration (as requested)
+const RESOURCE_SECTIONS = [
+  { id: "company", title: "1- 公司简介 (6语)", en: "COMPANY PROFILE // 6-LANG", icon: "🏢", color: "cyan" },
+  { id: "finance", title: "2- 金融模式 (6语)", en: "FINANCIAL MODEL // 6-LANG", icon: "📈", color: "gold" },
+  { id: "community", title: "3- EPAY社区 (6语)", en: "COMMUNITY & ECO // 6-LANG", icon: "🌐", color: "cyan" },
+  { id: "qa", title: "4- 问与答 (6语)", en: "MARKET Q&A // 6-LANG", icon: "❓", color: "cyan" },
+  { id: "videos", title: "视频区", en: "OFFICIAL VIDEOS // 4K STREAM", icon: "🎬", color: "cyan" },
+  { id: "materials", title: "素材区", en: "BRAND & MEDIA ASSETS", icon: "🎨", color: "gold" }
+];
+
 function renderResources() {
   const container = document.getElementById("resources-container");
   const emptyState = document.getElementById("empty-state");
   const countBadge = document.getElementById("total-count-badge");
   if (!container) return;
 
+  // Filter items
   const filtered = activeResourcesList.filter((item) => {
-    const matchCat = currentCategory === "all" || item.category === currentCategory;
+    const itemCat = cat_mapping_runtime(item);
+    const matchCat = currentCategory === "all" || itemCat === currentCategory;
     const matchSearch =
       !searchQuery ||
       item.title.toLowerCase().includes(searchQuery) ||
-      item.subtitle.toLowerCase().includes(searchQuery) ||
+      (item.subtitle && item.subtitle.toLowerCase().includes(searchQuery)) ||
       item.type.toLowerCase().includes(searchQuery) ||
-      item.badge.toLowerCase().includes(searchQuery);
+      (item.badge && item.badge.toLowerCase().includes(searchQuery));
     return matchCat && matchSearch;
   });
 
@@ -1226,11 +1239,59 @@ function renderResources() {
 
   if (emptyState) emptyState.classList.add("hidden");
 
-  if (currentViewMode === "grid") {
-    renderGridView(container, filtered);
-  } else {
-    renderListView(container, filtered);
+  // If a specific category is selected, render single grid/list
+  if (currentCategory !== "all") {
+    if (currentViewMode === "grid") {
+      renderGridView(container, filtered);
+    } else {
+      renderListView(container, filtered);
+    }
+    return;
   }
+
+  // If 'all' is selected: render cleanly grouped by the 6 structured sections
+  container.className = "space-y-8";
+  container.innerHTML = "";
+
+  RESOURCE_SECTIONS.forEach((sec) => {
+    const secItems = filtered.filter((item) => cat_mapping_runtime(item) === sec.id);
+    if (secItems.length === 0) return;
+
+    const secWrapper = document.createElement("div");
+    secWrapper.className = "space-y-3.5";
+
+    const titleColor = sec.color === "gold" ? "text-gold-400" : "text-cyan-neon";
+    const headerHtml = `
+      <div class="flex items-center justify-between pb-2 border-b border-slate-800/80">
+        <div class="flex items-center gap-2">
+          <span class="text-xl">${sec.icon}</span>
+          <h2 class="text-base sm:text-lg font-black text-white font-mono tracking-wide">${sec.title}</h2>
+          <span class="cyber-pill text-[9px] py-0.5 px-2 bg-${sec.color === "gold" ? "gold-400/15 text-gold-400 border-gold-400/30" : "cyan-neon/15 text-cyan-neon border-cyan-neon/30"} font-bold ml-1">
+            ${secItems.length} 项
+          </span>
+        </div>
+        <span class="text-[10px] sm:text-xs ${titleColor} font-mono font-bold tracking-wider hidden sm:inline">
+          ${sec.en}
+        </span>
+      </div>
+    `;
+
+    const secGrid = document.createElement("div");
+    if (currentViewMode === "grid") {
+      renderGridView(secGrid, secItems);
+    } else {
+      renderListView(secGrid, secItems);
+    }
+
+    secWrapper.innerHTML = headerHtml;
+    secWrapper.appendChild(secGrid);
+    container.appendChild(secWrapper);
+  });
+}
+
+function cat_mapping_runtime(item) {
+  const map = {"doc-bp-multilang": "company", "docsend-global-deck": "company", "poster-long-intro": "company", "poster-staking-model": "finance", "doc-epay-intro": "finance", "doc-epay-v14": "finance", "poster-competitive-edge": "community", "poster-main-1": "community", "poster-main-2": "community", "poster-main-3": "community", "poster-eco-overview": "community", "poster-fission-model": "community", "doc-qa-pdf": "qa", "doc-qa-pptx": "qa", "doc-deck-vn": "qa", "video-eni-main": "videos", "video-enipay-promo": "videos", "video-spokesperson": "videos", "video-ecosystem": "videos", "video-finance-model": "videos", "video-wealth-code": "videos", "video-super-eco": "videos", "video-digital-pay": "videos", "video-eni-promo-2": "videos", "rollup-global-set": "materials", "signage-front-day": "materials", "signage-front-night": "materials", "signage-storefront": "materials", "signage-lightbox": "materials", "logo-app-icon": "materials", "logo-horiz-dark": "materials", "logo-horiz-light": "materials", "logo-3d-neon": "materials", "logo-symbol": "materials", "logo-gold-black": "materials", "logo-psd-source": "materials"};
+  return map[item.id] || item.category || "materials";
 }
 
 // 🔲 Grid View Renderer
