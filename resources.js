@@ -17,6 +17,21 @@ function getHubI18n(key, fallback) {
 // Complete Local & Remote Resources Dataset
 const RESOURCES_DATA = [
   {
+    "id": "download-gdrive-pack",
+    "category": "materials",
+    "type": "ZIP/PSD",
+    "title": "ENIPAY 官方物料全套云盘 (Google Drive 完整包)",
+    "subtitle": "包含全套 PSD 分层原件、AI 矢量图、易拉宝、海报、Logo 高清源文件一键打包下载",
+    "path": "https://drive.google.com/drive/folders/1kKZ7zUJMaVTuZauQPnD53blCDASJQv64?usp=drive_link",
+    "size": "云端同步",
+    "badge": "云盘直达",
+    "badgeColor": "gold",
+    "icon": "☁️",
+    "canPreview": false,
+    "canDownload": true,
+    "previewType": "link"
+  },
+  {
     "id": "doc-community-ecosystem",
     "category": "community",
     "type": "PDF",
@@ -848,6 +863,12 @@ function generateThemedDocCover(item) {
     zhTitle = "EPAY 社区简介官方手册 · 5 国语言全套";
     techFootnote = "Payment Gateway Architecture × Global Consensus Playbook";
     microTag = "COMMUNITY GUIDE";
+  } else if (item.id === "download-gdrive-pack") {
+    gradientClass = "bg-gradient-to-br from-[#f59e0b] via-[#10b981] to-[#06b6d4]";
+    enTitle = "OFFICIAL GOOGLE DRIVE CLOUD ARCHIVE & BRAND ASSETS";
+    zhTitle = "ENIPAY 官方物料全套云盘 (Google Drive)";
+    techFootnote = "Photoshop PSD × AI Vector × Full Rollup & Poster Packs";
+    microTag = "GOOGLE DRIVE";
   } else if (item.id === "logo-brand-pack") {
     gradientClass = "bg-gradient-to-br from-[#eab308] via-[#00ffb2] to-[#0284c7]";
     enTitle = "ENIPAY OFFICIAL BRAND VI & LOGO MASTER PACK";
@@ -1172,14 +1193,10 @@ const RESOURCE_SECTIONS = [
 
 
 function handleGdriveClick(defaultUrl) {
-  if (!defaultUrl || defaultUrl.includes("your_link")) {
-    const userLink = prompt("【Google Drive 云盘下载】\n请确认或输入您的 Google Drive 云盘分享链接：", "https://drive.google.com");
-    if (userLink) {
-      window.open(userLink, "_blank");
-    }
-  } else {
-    window.open(defaultUrl, "_blank");
-  }
+  const gdriveUrl = (defaultUrl && defaultUrl.startsWith("http")) 
+    ? defaultUrl 
+    : "https://drive.google.com/drive/folders/1kKZ7zUJMaVTuZauQPnD53blCDASJQv64?usp=drive_link";
+  window.open(gdriveUrl, "_blank");
 }
 
 function renderResources() {
