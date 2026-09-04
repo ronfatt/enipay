@@ -438,7 +438,19 @@ function updatePresenterUI(slideNum) {
     notesContent.innerText = slideNotes[slideNum];
   }
   if (notesTitle) {
-    notesTitle.innerText = `SLIDE ${String(slideNum).padStart(2, '0')} 讲师提词稿`;
+      if (notesTitle) {
+    const curLang = localStorage.getItem('enipay_lang') || 'zh';
+    const notesTitleMap = {
+      zh: '讲师提词稿',
+      zht: '講師提詞稿',
+      en: 'Speaker Notes',
+      ja: 'スピーカーノート',
+      ko: '발표자 프롬프터 노트',
+      vi: 'Ghi chú diễn giả'
+    };
+    const titleSuffix = notesTitleMap[curLang] || 'Speaker Notes';
+    notesTitle.innerText = `SLIDE ${String(slideNum).padStart(2, '0')} ${titleSuffix}`;
+  }
   }
 
   // Trigger motion

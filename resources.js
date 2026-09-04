@@ -1,3 +1,14 @@
+// 🌐 Multilingual i18n Helper for Resources Hub
+function getHubI18n(key, fallback) {
+  try {
+    const lang = localStorage.getItem("enipay_lang") || "zh";
+    if (window.translations && window.translations[lang] && window.translations[lang][key]) {
+      return window.translations[lang][key];
+    }
+  } catch (e) {}
+  return fallback;
+}
+
 /**
  * ENIPAY Official Media & Resource Hub (资料库) Controller
  * Modern, Clean, Aligned Grid & List Views with Instant Search, Filter & Modals
@@ -687,96 +698,6 @@ const RESOURCES_DATA = [
     "previewType": "image"
   },
   {
-    "id": "logo-app-icon",
-    "category": "materials",
-    "type": "PNG",
-    "title": "ENIPAY 官方标准 App 图标 (App Icon)",
-    "subtitle": "正方形圆角高清图标，适用于移动端应用商店与官网图标",
-    "path": "./ENI资料库/ENIPAY Logo/IMG_1324.PNG",
-    "thumb": "./ENI资料库/ENIPAY Logo/IMG_1324.PNG",
-    "badge": "App Icon",
-    "badgeColor": "cyan",
-    "icon": "🎨",
-    "canPreview": true,
-    "canDownload": true,
-    "previewType": "image"
-  },
-  {
-    "id": "logo-horiz-dark",
-    "category": "materials",
-    "type": "PNG",
-    "title": "ENIPAY 品牌标准横版 Logo (深色背景专用)",
-    "subtitle": "高清透明底横版 Logo，适用于演示文稿、官网与广告物料",
-    "path": "./ENI资料库/ENIPAY Logo/IMG_1534.PNG",
-    "thumb": "./ENI资料库/ENIPAY Logo/IMG_1534.PNG",
-    "badge": "标准横版",
-    "badgeColor": "cyan",
-    "icon": "🎨",
-    "canPreview": true,
-    "canDownload": true,
-    "previewType": "image"
-  },
-  {
-    "id": "logo-horiz-light",
-    "category": "materials",
-    "type": "PNG",
-    "title": "ENIPAY 品牌标准横版 Logo (浅色背景专用)",
-    "subtitle": "浅色或白色背景印刷与文档专用高清标",
-    "path": "./ENI资料库/ENIPAY Logo/IMG_1535.PNG",
-    "thumb": "./ENI资料库/ENIPAY Logo/IMG_1535.PNG",
-    "badge": "浅底专用",
-    "badgeColor": "cyan",
-    "icon": "🎨",
-    "canPreview": true,
-    "canDownload": true,
-    "previewType": "image"
-  },
-  {
-    "id": "logo-3d-neon",
-    "category": "materials",
-    "type": "PNG",
-    "title": "ENIPAY 3D 霓虹质感官方徽标",
-    "subtitle": "3D 金属与霓虹青光泽渲染，适合高端海报与主视觉设计",
-    "path": "./ENI资料库/ENIPAY Logo/IMG_1536.PNG",
-    "thumb": "./ENI资料库/ENIPAY Logo/IMG_1536.PNG",
-    "badge": "3D 徽标",
-    "badgeColor": "gold",
-    "icon": "✨",
-    "canPreview": true,
-    "canDownload": true,
-    "previewType": "image"
-  },
-  {
-    "id": "logo-symbol",
-    "category": "materials",
-    "type": "PNG",
-    "title": "ENIPAY 品牌核心超级符号 (Icon Symbol)",
-    "subtitle": "极简字母 E 融合能量芯片造型的品牌超级符号",
-    "path": "./ENI资料库/ENIPAY Logo/IMG_1537.PNG",
-    "thumb": "./ENI资料库/ENIPAY Logo/IMG_1537.PNG",
-    "badge": "超级符号",
-    "badgeColor": "cyan",
-    "icon": "💠",
-    "canPreview": true,
-    "canDownload": true,
-    "previewType": "image"
-  },
-  {
-    "id": "logo-gold-black",
-    "category": "materials",
-    "type": "PNG",
-    "title": "ENIPAY 极简黑金高奢标 (Gold Edition)",
-    "subtitle": "尊享黑金卡与 VIP 会员专属高贵配色方案",
-    "path": "./ENI资料库/ENIPAY Logo/IMG_1538.PNG",
-    "thumb": "./ENI资料库/ENIPAY Logo/IMG_1538.PNG",
-    "badge": "黑金高奢",
-    "badgeColor": "gold",
-    "icon": "👑",
-    "canPreview": true,
-    "canDownload": true,
-    "previewType": "image"
-  },
-  {
     "id": "logo-psd-source",
     "category": "materials",
     "type": "PSD",
@@ -1407,40 +1328,40 @@ function renderGridView(container, items) {
         actionButtons = `
           <div class="w-full pt-2 border-t border-slate-800/80">
             <button onclick="handleGdriveClick('${item.path}')" class="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-gold-400/20 to-cyan-neon/20 hover:from-gold-400/30 hover:to-cyan-neon/30 text-white border border-gold-400/50 hover:border-cyan-neon text-xs font-bold flex items-center justify-center gap-2 transition-all shadow-md group/gd">
-              <span class="text-sm">📦</span> <span>进入 Google Drive 云盘下载 ↗</span>
+              <span class="text-sm">📦</span> <span>${getHubI18n("res_btn_cloud_download", "进入 Google Drive 云盘下载 ↗")}</span>
             </button>
             <div class="text-[10px] text-slate-400 text-center mt-1 font-mono">
-              支持下载全套 PSD / AI / ZIP 源文件
+              ${getHubI18n("res_gdrive_hint", "支持下载全套 PSD / AI / ZIP 源文件")}
             </div>
           </div>
         `;
       } else if (isDocSend) {
         actionButtons = `
           <a href="${item.path}" target="_blank" rel="noopener noreferrer" class="w-full py-2 px-3 rounded-xl bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-sm">
-            <span>🌐</span> 在线全息查阅 ↗
+            <span>🌐</span> ${getHubI18n("res_btn_online_view", "在线全息查阅 ↗")}
           </a>
         `;
       } else if (isVideo) {
         actionButtons = `
           <button onclick="openVideoModal('${item.path}', '${item.title}')" class="w-full py-2 px-3 rounded-xl bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-sm">
-            <span>▶️</span> 在线播放 (禁止下载)
+            <span>▶️</span> ${getHubI18n("res_btn_play", "播放")} (${getHubI18n("res_badge_online_only", "🔒 仅限在线观看")})
           </button>
         `;
       } else {
         let previewBtn = "";
         if (canPreview) {
           if (isPdf) {
-            previewBtn = `<a href="${item.path}" target="_blank" class="flex-1 py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 hover:border-cyan-bright/50 text-xs font-bold flex items-center justify-center gap-1 transition-all"><span>👁️</span> 浏览</a>`;
+            previewBtn = `<a href="${item.path}" target="_blank" class="flex-1 py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 hover:border-cyan-bright/50 text-xs font-bold flex items-center justify-center gap-1 transition-all"><span>👁️</span> ${getHubI18n("res_btn_preview", "浏览")}</a>`;
           } else if (isImage) {
-            previewBtn = `<button onclick="openImageLightbox(encodeURI('${item.path}'), '${item.title}')" class="flex-1 py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 hover:border-cyan-bright/50 text-xs font-bold flex items-center justify-center gap-1 transition-all"><span>👁️</span> 大图</button>`;
+            previewBtn = `<button onclick="openImageLightbox(encodeURI('${item.path}'), '${item.title}')" class="flex-1 py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 hover:border-cyan-bright/50 text-xs font-bold flex items-center justify-center gap-1 transition-all"><span>👁️</span> ${getHubI18n("res_btn_image", "大图")}</button>`;
           } else {
-            previewBtn = `<a href="${item.path}" target="_blank" class="flex-1 py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 hover:border-cyan-bright/50 text-xs font-bold flex items-center justify-center gap-1 transition-all"><span>👁️</span> 打开</a>`;
+            previewBtn = `<a href="${item.path}" target="_blank" class="flex-1 py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 hover:border-cyan-bright/50 text-xs font-bold flex items-center justify-center gap-1 transition-all"><span>👁️</span> ${getHubI18n("res_btn_preview", "浏览")}</a>`;
           }
         }
 
         let downloadBtn = "";
         if (canDownload) {
-          downloadBtn = `<a href="${item.path}" download class="flex-1 py-1.5 px-2.5 rounded-lg bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 text-xs font-bold flex items-center justify-center gap-1 transition-all"><span>⬇️</span> 下载</a>`;
+          downloadBtn = `<a href="${item.path}" download class="flex-1 py-1.5 px-2.5 rounded-lg bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 text-xs font-bold flex items-center justify-center gap-1 transition-all"><span>⬇️</span> ${getHubI18n("res_btn_download", "下载")}</a>`;
         }
 
         actionButtons = `
@@ -1549,30 +1470,30 @@ function renderListView(container, items) {
       } else if (isDocSend) {
         actionButtons = `
           <a href="${item.path}" target="_blank" rel="noopener noreferrer" class="py-1.5 px-3 rounded-lg bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap">
-            <span>🌐</span> 在线查阅 ↗
+            <span>🌐</span> ${getHubI18n("res_btn_online_view", "在线查阅 ↗")}
           </a>
         `;
       } else if (isVideo) {
         actionButtons = `
           <button onclick="openVideoModal('${item.path}', '${item.title}')" class="py-1.5 px-3 rounded-lg bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap">
-            <span>▶️</span> 在线播放
+            <span>▶️</span> ${getHubI18n("res_btn_play", "在线播放")}
           </button>
         `;
       } else {
         let previewBtn = "";
         if (canPreview) {
           if (isPdf) {
-            previewBtn = `<a href="${item.path}" target="_blank" class="py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap"><span>👁️</span> 浏览</a>`;
+            previewBtn = `<a href="${item.path}" target="_blank" class="py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap"><span>👁️</span> ${getHubI18n("res_btn_preview", "浏览")}</a>`;
           } else if (isImage) {
-            previewBtn = `<button onclick="openImageLightbox(encodeURI('${item.path}'), '${item.title}')" class="py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap"><span>👁️</span> 大图</button>`;
+            previewBtn = `<button onclick="openImageLightbox(encodeURI('${item.path}'), '${item.title}')" class="py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap"><span>👁️</span> ${getHubI18n("res_btn_image", "大图")}</button>`;
           } else {
-            previewBtn = `<a href="${item.path}" target="_blank" class="py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap"><span>👁️</span> 打开</a>`;
+            previewBtn = `<a href="${item.path}" target="_blank" class="py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap"><span>👁️</span> ${getHubI18n("res_btn_preview", "浏览")}</a>`;
           }
         }
 
         let downloadBtn = "";
         if (canDownload) {
-          downloadBtn = `<a href="${item.path}" download class="py-1.5 px-2.5 rounded-lg bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap"><span>⬇️</span> 下载</a>`;
+          downloadBtn = `<a href="${item.path}" download class="py-1.5 px-2.5 rounded-lg bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap"><span>⬇️</span> ${getHubI18n("res_btn_download", "下载")}</a>`;
         }
 
         actionButtons = `
@@ -1724,6 +1645,7 @@ function switchLanguage(lang) {
   } else if (window.i18n && window.i18n.setLanguage) {
     window.i18n.setLanguage(lang);
   }
+  renderResources();
 }
 
 // Global escape key handler to close modals
