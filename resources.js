@@ -108,20 +108,6 @@ const RESOURCES_DATA = [
     "previewType": "pdf"
   },
   {
-    "id": "doc-qa-pptx",
-    "category": "qa",
-    "type": "PPTX",
-    "title": "ENIPAY 市场问答宣讲幻灯片 (Q&A PPTX)",
-    "subtitle": "官方标准演讲幻灯片，适用于线下招商会、社区路演与团队布道",
-    "path": "./ENI资料库/ENIPAY 问与答/ENIPAY市场问答Q&A.pptx",
-    "size": "5.1 MB",
-    "badge": "招商演示",
-    "badgeColor": "cyan",
-    "icon": "📊",
-    "canPreview": false,
-    "canDownload": true
-  },
-  {
     "id": "doc-epay-intro",
     "category": "finance",
     "type": "PDF",
@@ -314,8 +300,8 @@ const RESOURCES_DATA = [
     "type": "PNG",
     "title": "ENIPAY 官方简介全景长图 (多语言)",
     "subtitle": "长图全景展现平台愿景、五大落地产品、质押收益与上市战略",
-    "path": "./ENI资料库/EPAY中文/ENIPAY 简介长图.png",
-    "thumb": "./ENI资料库/EPAY中文/ENIPAY 简介长图.png",
+    "path": "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 简介长图/ENIPAY 简介长图 中文.png",
+    "thumb": "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 简介长图/ENIPAY 简介长图 中文.png",
     "badge": "官方长图",
     "badgeColor": "cyan",
     "icon": "🖼️",
@@ -326,32 +312,32 @@ const RESOURCES_DATA = [
       {
         "lang": "zh",
         "label": "🇨🇳 中文长图",
-        "url": "./ENI资料库/EPAY中文/ENIPAY 简介长图.png"
+        "url": "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 简介长图/ENIPAY 简介长图 中文.png"
       },
       {
         "lang": "en",
         "label": "🇺🇸 English",
-        "url": "./ENI资料库/EPAY英文/ENIPAY introduction image.png"
+        "url": "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 简介长图/ENIPAY 简介长图 英文.png"
       },
       {
         "lang": "ja",
         "label": "🇯🇵 日本語",
-        "url": "./ENI资料库/EPAY日文/日文长图.jpg"
+        "url": "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 简介长图/ENIPAY 简介长图 日文.jpg"
       },
       {
         "lang": "ko",
         "label": "🇰🇷 한국어",
-        "url": "./ENI资料库/EPAY韩文/长图（韩文）.png"
+        "url": "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 简介长图/ENIPAY 简介长图 韩文.png"
       },
       {
         "lang": "vi",
         "label": "🇻🇳 Tiếng Việt",
-        "url": "./ENI资料库/EPAY越南/Hình ảnh giới thiệu ENIPAY.png"
+        "url": "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 简介长图/ENIPAY 简介长图 越南文.png"
       },
       {
         "lang": "id",
         "label": "🇮🇩 Indonesia",
-        "url": "./ENI资料库/EPAY印尼语/enipay_indonesian.png"
+        "url": "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 简介长图/ENIPAY 简介长图 印尼文.png"
       }
     ]
   },
@@ -361,8 +347,8 @@ const RESOURCES_DATA = [
     "type": "PNG",
     "title": "ENIPAY 生态竞争优势图解 (多语言)",
     "subtitle": "对比传统出入金与竞品，凸显 100% 币安托管与无冻卡优势",
-    "path": "./ENI资料库/EPAY中文/ENIPAY 生态竞争优势.PNG",
-    "thumb": "./ENI资料库/EPAY中文/ENIPAY 生态竞争优势.PNG",
+    "path": "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 生态竞争优势/ENIPAY 生态竞争优势 中文.PNG",
+    "thumb": "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 生态竞争优势/ENIPAY 生态竞争优势 中文.PNG",
     "badge": "竞争优势",
     "badgeColor": "gold",
     "icon": "🖼️",
@@ -373,32 +359,32 @@ const RESOURCES_DATA = [
       {
         "lang": "zh",
         "label": "🇨🇳 中文版",
-        "url": "./ENI资料库/EPAY中文/ENIPAY 生态竞争优势.PNG"
+        "url": "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 生态竞争优势/ENIPAY 生态竞争优势 中文.PNG"
       },
       {
         "lang": "en",
         "label": "🇺🇸 English",
-        "url": "./ENI资料库/EPAY英文/ENIPAY's competitive advantages.png"
+        "url": "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 生态竞争优势/ENIPAY 生态竞争优势 英文.png"
       },
       {
         "lang": "ja",
         "label": "🇯🇵 日本語",
-        "url": "./ENI资料库/EPAY日文/日文四大竞争优势.jpg"
+        "url": "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 生态竞争优势/ENIPAY 生态竞争优势 日文.jpg"
       },
       {
         "lang": "ko",
         "label": "🇰🇷 한국어",
-        "url": "./ENI资料库/EPAY韩文/ENI竞争优势（韩文）.png"
+        "url": "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 生态竞争优势/ENIPAY 生态竞争优势 韩文.png"
       },
       {
         "lang": "vi",
         "label": "🇻🇳 Tiếng Việt",
-        "url": "./ENI资料库/EPAY越南/Đặc điểm dự án ENIPAY.png"
+        "url": "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 生态竞争优势/ENIPAY 生态竞争优势 越南文.png"
       },
       {
         "lang": "id",
         "label": "🇮🇩 Indonesia",
-        "url": "./ENI资料库/EPAY印尼语/epaykeunggulan kompetitif.png"
+        "url": "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 生态竞争优势/ENIPAY 生态竞争优势 印尼文.png"
       }
     ]
   },
@@ -470,8 +456,8 @@ const RESOURCES_DATA = [
     "type": "PNG",
     "title": "ENIPAY 100代裂变管理模型 02",
     "subtitle": "100 代动态裂变奖金池与团队管理激励图解",
-    "path": "./ENI资料库/EPAY中文/NIPAY 质押模型 02.png",
-    "thumb": "./ENI资料库/EPAY中文/NIPAY 质押模型 02.png",
+    "path": "./ENI资料库/EPAY中文/ENIPAY 质押模型 02.png",
+    "thumb": "./ENI资料库/EPAY中文/ENIPAY 质押模型 02.png",
     "badge": "裂变模型",
     "badgeColor": "gold",
     "icon": "🖼️",
@@ -1281,7 +1267,7 @@ function renderResources() {
 }
 
 function cat_mapping_runtime(item) {
-  const map = {"docsend-global-deck": "whitepaper", "doc-bp-multilang": "company", "poster-long-intro": "company", "poster-staking-model": "model", "poster-fission-model": "model", "doc-community-ecosystem": "community", "doc-community-intro": "community", "poster-competitive-edge": "community", "doc-qa-pdf": "qa", "doc-qa-pptx": "qa", "download-gdrive-pack": "materials", "rollup-global-set": "materials", "poster-main-1": "materials", "poster-main-2": "materials", "poster-main-3": "materials", "signage-front-day": "materials", "logo-brand-pack": "materials", "logo-psd-source": "materials", "video-eni-main": "videos", "video-enipay-promo": "videos", "video-spokesperson": "videos", "video-ecosystem": "videos", "video-finance-model": "videos", "video-wealth-code": "videos", "video-super-eco": "videos", "video-digital-pay": "videos", "video-eni-promo-2": "videos"};
+  const map = {"docsend-global-deck": "whitepaper", "doc-bp-multilang": "company", "poster-long-intro": "company", "poster-staking-model": "model", "poster-fission-model": "model", "doc-community-ecosystem": "community", "doc-community-intro": "community", "poster-competitive-edge": "community", "doc-qa-pdf": "qa", "download-gdrive-pack": "materials", "rollup-global-set": "materials", "poster-main-1": "materials", "poster-main-2": "materials", "poster-main-3": "materials", "signage-front-day": "materials", "logo-brand-pack": "materials", "logo-psd-source": "materials", "video-eni-main": "videos", "video-enipay-promo": "videos", "video-spokesperson": "videos", "video-ecosystem": "videos", "video-finance-model": "videos", "video-wealth-code": "videos", "video-super-eco": "videos", "video-digital-pay": "videos", "video-eni-promo-2": "videos"};
   return map[item.id] || item.category || "materials";
 }
 
