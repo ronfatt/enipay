@@ -1,5 +1,4 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "headers": [
     {
@@ -16,24 +15,15 @@
       ]
     },
     {
-      "source": "/(.*\\.(?:pdf|PDF|mp4|MP4|webm|png|PNG|jpg|JPG|jpeg|JPEG|webp|svg|ico|psd|PSD|zip|ZIP|pptx|PPTX))",
+      "source": "/(.*\\.(pdf|mp4|webm|png|jpg|jpeg|webp|svg|ico|psd|zip|pptx))",
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=31536000, s-maxage=31536000, immutable"
+          "value": "public, max-age=31536000, immutable"
         },
         {
           "key": "Content-Disposition",
           "value": "inline"
-        }
-      ]
-    },
-    {
-      "source": "/(.*\\.(?:html|htm)|/)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
         }
       ]
     }
