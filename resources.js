@@ -718,12 +718,98 @@ const RESOURCES_DATA = [
 // Expose Default Dataset Globally
 window.RESOURCES_DATA = RESOURCES_DATA;
 
+// Purge obsolete legacy local caches to guarantee zero broken image paths
+try {
+  localStorage.removeItem("enipay_local_resources_db");
+  localStorage.removeItem("enipay_local_resources_db_v1");
+  localStorage.removeItem("enipay_local_resources_db_v2");
+  localStorage.removeItem("enipay_local_resources_db_v3");
+} catch (e) {}
+
 // App State
 let activeResourcesList = [...RESOURCES_DATA];
 let currentCategory = "all";
 let currentViewMode = "grid"; // 'grid' | 'list'
 let searchQuery = "";
 let secretClickCount = 0;
+
+// Escape quotes for safe HTML attribute inline scripting
+function escapeQuotes(str) {
+  if (!str) return "";
+  return String(str).replace(/'/g, "\\'").replace(/"/g, "&quot;");
+}
+
+// Global Image Error Fallback Handler - Guarantees NO ugly broken image icons (死图)
+function handleImageError(img, title, icon) {
+  if (!img) return;
+  img.onerror = null; // Prevent looping
+  const parent = img.parentElement;
+  if (parent) {
+    parent.classList.add("bg-gradient-to-br", "from-slate-900", "to-slate-950", "flex", "flex-col", "items-center", "justify-center", "p-3", "text-center");
+    img.style.display = "none";
+    // Check if fallback already appended
+    if (!parent.querySelector(".img-fallback-box")) {
+      const fallbackDiv = document.createElement("div");
+      fallbackDiv.className = "img-fallback-box flex flex-col items-center justify-center gap-1.5 w-full h-full";
+      fallbackDiv.innerHTML = `
+        <span class="text-3xl filter drop-shadow">${icon || '🖼️'}</span>
+        <span class="text-[11px] font-bold text-slate-300 line-clamp-1">${title || '资源物料'}</span>
+        <span class="text-[9px] font-mono text-cyan-neon border border-cyan-neon/30 bg-cyan-neon/10 px-2 py-0.5 rounded">高清物料 · 点击预览</span>
+      `;
+      parent.appendChild(fallbackDiv);
+    }
+  }
+}
+
+// ⬇️ High-Performance Direct Download Handler (Supports Blob download, Chinese filenames & mobile)
+async function downloadFileDirectly(url, filename) {
+  if (!url || url === "#") {
+    alert("该资源正在整理同步中，稍后开放下载！");
+    return;
+  }
+
+  // If cloud link (Google Drive, DocSend, etc.), open directly
+  if (url.startsWith("http://") || url.startsWith("https://")) {
+    window.open(url, "_blank");
+    return;
+  }
+
+  const encodedUrl = encodeURI(url);
+
+  try {
+    const response = await fetch(encodedUrl);
+    if (!response.ok) throw new Error("Network response was not ok: " + response.status);
+    const blob = await response.blob();
+    const blobUrl = window.URL.createObjectURL(blob);
+    const tempLink = document.createElement("a");
+    tempLink.style.display = "none";
+    tempLink.href = blobUrl;
+
+    // Detect file extension
+    const cleanUrl = url.split("?")[0].split("#")[0];
+    const extMatch = cleanUrl.match(/\\.([a-zA-Z0-9]+)$/);
+    const extension = extMatch ? extMatch[1] : "";
+    let finalName = filename || "ENIPAY-Resource";
+    if (extension && !finalName.toLowerCase().endsWith("." + extension.toLowerCase())) {
+      finalName += "." + extension;
+    }
+    tempLink.download = finalName;
+    document.body.appendChild(tempLink);
+    tempLink.click();
+    document.body.removeChild(tempLink);
+    setTimeout(() => window.URL.revokeObjectURL(blobUrl), 10000);
+  } catch (err) {
+    console.warn("Direct blob fetch download fallback to standard trigger:", err);
+    const fallbackLink = document.createElement("a");
+    fallbackLink.style.display = "none";
+    fallbackLink.href = encodedUrl;
+    fallbackLink.download = filename || "";
+    fallbackLink.target = "_blank";
+    document.body.appendChild(fallbackLink);
+    fallbackLink.click();
+    document.body.removeChild(fallbackLink);
+  }
+}
 
 // Initialize Page
 document.addEventListener("DOMContentLoaded", () => {
@@ -738,10 +824,46 @@ document.addEventListener("DOMContentLoaded", () => {
 const DEFAULT_SUPABASE_URL = "https://kvdaargyladksfytbjlf.supabase.co";
 const DEFAULT_SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt2ZGFhcmd5bGFka3NmeXRiamxmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgzMTE4MzksImV4cCI6MjEwMzg4NzgzOX0.7xCvOpNvQkdh7PkxnTdL4GxsbIuGbLpsjK6d9qEYYsc";
 
+// Authoritative Local Merger: guarantees remote Supabase or cache never overrides verified paths/thumbs
+function mergeWithAuthoritative(remoteList) {
+  if (!Array.isArray(remoteList) || remoteList.length === 0) return [...RESOURCES_DATA];
+  const localMap = new Map(RESOURCES_DATA.map((item) => [item.id, item]));
+
+  const merged = remoteList.map((remoteItem) => {
+    const local = localMap.get(remoteItem.id);
+    if (!local) return remoteItem; // Item added solely via admin panel
+    return {
+      ...remoteItem,
+      path: local.path, // Authoritative local path
+      thumb: local.thumb || local.path, // Authoritative local thumb
+      multiLangLinks: local.multiLangLinks || MULTI_LANG_REGISTRY[local.id] || remoteItem.multiLangLinks || remoteItem.multi_lang_links,
+      type: local.type || remoteItem.type,
+      category: local.category || remoteItem.category,
+      previewType: local.previewType || remoteItem.previewType,
+      canPreview: local.canPreview !== undefined ? local.canPreview : remoteItem.canPreview,
+      canDownload: local.canDownload !== undefined ? local.canDownload : remoteItem.canDownload,
+      badge: local.badge || remoteItem.badge,
+      badgeColor: local.badgeColor || remoteItem.badgeColor,
+      icon: local.icon || remoteItem.icon,
+      title: local.title || remoteItem.title,
+      subtitle: local.subtitle || remoteItem.subtitle
+    };
+  });
+
+  // Guarantee any item in RESOURCES_DATA missing in remote is appended
+  const remoteIds = new Set(merged.map((m) => m.id));
+  RESOURCES_DATA.forEach((item) => {
+    if (!remoteIds.has(item.id)) {
+      merged.push(item);
+    }
+  });
+
+  return merged;
+}
+
 async function fetchLiveResourcesFromSupabase() {
   const url = localStorage.getItem("enipay_supabase_url") || DEFAULT_SUPABASE_URL;
   const key = localStorage.getItem("enipay_supabase_key") || DEFAULT_SUPABASE_KEY;
-  const localCache = localStorage.getItem("enipay_local_resources_db");
 
   if (url && key && window.supabase) {
     try {
@@ -752,21 +874,22 @@ async function fetchLiveResourcesFromSupabase() {
         .order("created_at", { ascending: false });
 
       if (!error && data && data.length > 0) {
-        activeResourcesList = data;
-        localStorage.setItem("enipay_local_resources_db", JSON.stringify(data));
+        activeResourcesList = mergeWithAuthoritative(data);
+        localStorage.setItem("enipay_local_resources_db_v4", JSON.stringify(activeResourcesList));
         renderResources();
         return;
       }
     } catch (e) {
-      console.warn("Supabase fetch failed, falling back to local dataset", e);
+      console.warn("Supabase fetch failed, falling back to authoritative local dataset", e);
     }
   }
 
+  const localCache = localStorage.getItem("enipay_local_resources_db_v4");
   if (localCache) {
     try {
       const parsed = JSON.parse(localCache);
       if (Array.isArray(parsed) && parsed.length > 0) {
-        activeResourcesList = parsed;
+        activeResourcesList = mergeWithAuthoritative(parsed);
         renderResources();
         return;
       }
@@ -1286,11 +1409,16 @@ function renderGridView(container, items) {
       const canDownload = item.canDownload !== false && item.can_download !== false && !isVideo && !isDocSend;
       const badgeColor = item.badgeColor || item.badge_color || "cyan";
 
+      const safePath = encodeURI(item.path);
+      const safeThumb = encodeURI(item.thumb || item.path);
+      const safeTitle = escapeQuotes(item.title);
+      const safeIcon = escapeQuotes(item.icon || '🖼️');
+
       let mediaPreview = "";
       if (isImage || item.thumb) {
         mediaPreview = `
-          <div class="h-36 sm:h-40 w-full bg-slate-950/80 rounded-xl overflow-hidden flex items-center justify-center relative group cursor-pointer border border-slate-800/80 hover:border-cyan-neon/50 transition-all" onclick="openImageLightbox(encodeURI('${item.path}'), '${item.title}')">
-            <img src="${encodeURI(item.thumb || item.path)}" alt="${item.title}" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy">
+          <div class="h-36 sm:h-40 w-full bg-slate-950/80 rounded-xl overflow-hidden flex items-center justify-center relative group cursor-pointer border border-slate-800/80 hover:border-cyan-neon/50 transition-all" onclick="openImageLightbox('${safePath}', '${safeTitle}')">
+            <img src="${safeThumb}" alt="${safeTitle}" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy" onerror="handleImageError(this, '${safeTitle}', '${safeIcon}')">
             <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
               <span class="p-2 rounded-full bg-cyan-neon/20 border border-cyan-neon text-cyan-neon text-xs font-bold shadow-lg">🔍 点击查看大图</span>
             </div>
@@ -1312,11 +1440,13 @@ function renderGridView(container, items) {
             ${multiLinks
               .map((link) => {
                 const isPending = !link.url || link.url === "#";
+                const safeUrl = encodeURI(link.url);
+                const safeLinkTitle = escapeQuotes(`${item.title} - ${link.label}`);
                 const clickHandler = isPending
                   ? `onclick="alert('【温馨提示】该语言版本正在同步整理中，后续补齐后将立即开放下载！')"`
                   : isImg 
-                    ? `onclick="openImageLightbox(encodeURI('${link.url}'), '${item.title} - ${link.label}')"`
-                    : `onclick="window.open(encodeURI('${link.url}'), '_blank')"`;
+                    ? `onclick="openImageLightbox('${safeUrl}', '${safeLinkTitle}')"`
+                    : `onclick="window.open('${safeUrl}', '_blank')"`;
                 return `
                   <button type="button" ${clickHandler} class="py-2 px-2.5 rounded-xl bg-slate-950/70 hover:bg-cyan-neon/15 text-slate-300 hover:text-white border border-slate-800 hover:border-cyan-neon/60 text-[11px] font-semibold flex items-center justify-between transition-all group/btn shadow-sm text-left cursor-pointer">
                     <span class="truncate font-medium">${link.label}</span>
@@ -1340,13 +1470,13 @@ function renderGridView(container, items) {
         `;
       } else if (isDocSend) {
         actionButtons = `
-          <a href="${item.path}" target="_blank" rel="noopener noreferrer" class="w-full py-2 px-3 rounded-xl bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-sm">
+          <a href="${safePath}" target="_blank" rel="noopener noreferrer" class="w-full py-2 px-3 rounded-xl bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-sm">
             <span>🌐</span> ${getHubI18n("res_btn_online_view", "在线全息查阅 ↗")}
           </a>
         `;
       } else if (isVideo) {
         actionButtons = `
-          <button onclick="openVideoModal('${item.path}', '${item.title}')" class="w-full py-2 px-3 rounded-xl bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-sm">
+          <button onclick="openVideoModal('${safePath}', '${safeTitle}')" class="w-full py-2 px-3 rounded-xl bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-sm">
             <span>▶️</span> ${getHubI18n("res_btn_play", "播放")} (${getHubI18n("res_badge_online_only", "🔒 仅限在线观看")})
           </button>
         `;
@@ -1354,17 +1484,17 @@ function renderGridView(container, items) {
         let previewBtn = "";
         if (canPreview) {
           if (isPdf) {
-            previewBtn = `<a href="${item.path}" target="_blank" class="flex-1 py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 hover:border-cyan-bright/50 text-xs font-bold flex items-center justify-center gap-1 transition-all"><span>👁️</span> ${getHubI18n("res_btn_preview", "浏览")}</a>`;
+            previewBtn = `<a href="${safePath}" target="_blank" class="flex-1 py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 hover:border-cyan-bright/50 text-xs font-bold flex items-center justify-center gap-1 transition-all"><span>👁️</span> ${getHubI18n("res_btn_preview", "浏览")}</a>`;
           } else if (isImage) {
-            previewBtn = `<button onclick="openImageLightbox(encodeURI('${item.path}'), '${item.title}')" class="flex-1 py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 hover:border-cyan-bright/50 text-xs font-bold flex items-center justify-center gap-1 transition-all"><span>👁️</span> ${getHubI18n("res_btn_image", "大图")}</button>`;
+            previewBtn = `<button onclick="openImageLightbox('${safePath}', '${safeTitle}')" class="flex-1 py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 hover:border-cyan-bright/50 text-xs font-bold flex items-center justify-center gap-1 transition-all"><span>👁️</span> ${getHubI18n("res_btn_image", "大图")}</button>`;
           } else {
-            previewBtn = `<a href="${item.path}" target="_blank" class="flex-1 py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 hover:border-cyan-bright/50 text-xs font-bold flex items-center justify-center gap-1 transition-all"><span>👁️</span> ${getHubI18n("res_btn_preview", "浏览")}</a>`;
+            previewBtn = `<a href="${safePath}" target="_blank" class="flex-1 py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 hover:border-cyan-bright/50 text-xs font-bold flex items-center justify-center gap-1 transition-all"><span>👁️</span> ${getHubI18n("res_btn_preview", "浏览")}</a>`;
           }
         }
 
         let downloadBtn = "";
         if (canDownload) {
-          downloadBtn = `<a href="${item.path}" download class="flex-1 py-1.5 px-2.5 rounded-lg bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 text-xs font-bold flex items-center justify-center gap-1 transition-all"><span>⬇️</span> ${getHubI18n("res_btn_download", "下载")}</a>`;
+          downloadBtn = `<button type="button" onclick="downloadFileDirectly('${safePath}', '${safeTitle}')" class="flex-1 py-1.5 px-2.5 rounded-lg bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 text-xs font-bold flex items-center justify-center gap-1 transition-all cursor-pointer"><span>⬇️</span> ${getHubI18n("res_btn_download", "下载")}</button>`;
         }
 
         actionButtons = `
@@ -1421,23 +1551,27 @@ function renderListView(container, items) {
       const canDownload = item.canDownload !== false && item.can_download !== false && !isVideo && !isDocSend;
       const badgeColor = item.badgeColor || item.badge_color || "cyan";
 
+      const safePath = encodeURI(item.path);
+      const safeThumb = encodeURI(item.thumb || item.path);
+      const safeTitle = escapeQuotes(item.title);
+      const safeIcon = escapeQuotes(item.icon || '🖼️');
+
       // Small Thumb
       let thumbHtml = "";
       if (isImage || item.thumb) {
         thumbHtml = `
-          <div class="w-12 h-12 rounded-lg bg-slate-950 overflow-hidden flex items-center justify-center flex-shrink-0 border border-slate-800 cursor-pointer" onclick="openImageLightbox(encodeURI('${item.path}'), '${item.title}')">
-            <img src="${encodeURI(item.thumb || item.path)}" class="w-full h-full object-cover" loading="lazy">
+          <div class="w-12 h-12 rounded-lg bg-slate-950 overflow-hidden flex items-center justify-center flex-shrink-0 border border-slate-800 cursor-pointer" onclick="openImageLightbox('${safePath}', '${safeTitle}')">
+            <img src="${safeThumb}" class="w-full h-full object-cover" loading="lazy" onerror="handleImageError(this, '${safeTitle}', '${safeIcon}')">
           </div>
         `;
       } else if (isVideo) {
         thumbHtml = `
-          <div class="w-12 h-12 rounded-lg bg-slate-950 flex items-center justify-center text-cyan-neon text-lg border border-slate-800 flex-shrink-0 cursor-pointer" onclick="openVideoModal('${item.path}', '${item.title}')">
+          <div class="w-12 h-12 rounded-lg bg-slate-950 flex items-center justify-center text-cyan-neon text-lg border border-slate-800 flex-shrink-0 cursor-pointer" onclick="openVideoModal('${safePath}', '${safeTitle}')">
             ▶
           </div>
         `;
       } else {
-        const safeItemPath = item.path ? encodeURI(item.path) : "";
-        const clickAction = (isPdf || isDocSend) && safeItemPath ? `onclick="window.open('${safeItemPath}', '_blank')"` : "";
+        const clickAction = (isPdf || isDocSend) && safePath ? `onclick="window.open('${safePath}', '_blank')"` : "";
         thumbHtml = `
           <div class="w-12 h-12 rounded-lg bg-slate-950 flex items-center justify-center text-xl border border-slate-800 flex-shrink-0 cursor-pointer hover:border-cyan-neon" ${clickAction}>
             ${item.icon || '📄'}
@@ -1455,11 +1589,13 @@ function renderListView(container, items) {
             ${multiLinks
               .map((link) => {
                 const isPending = !link.url || link.url === "#";
+                const safeUrl = encodeURI(link.url);
+                const safeLinkTitle = escapeQuotes(`${item.title} - ${link.label}`);
                 const clickHandler = isPending
                   ? `onclick="alert('【温馨提示】该语言版本正在同步整理中，后续补齐后将立即开放下载！')"`
                   : isImg 
-                    ? `onclick="openImageLightbox(encodeURI('${link.url}'), '${item.title} - ${link.label}')"`
-                    : `onclick="window.open(encodeURI('${link.url}'), '_blank')"`;
+                    ? `onclick="openImageLightbox('${safeUrl}', '${safeLinkTitle}')"`
+                    : `onclick="window.open('${safeUrl}', '_blank')"`;
                 return `
                   <button type="button" ${clickHandler} class="py-1 px-2.5 rounded-lg bg-slate-950/70 hover:bg-cyan-neon/15 text-slate-300 hover:text-white border border-slate-800 hover:border-cyan-neon/60 text-[11px] font-semibold flex items-center gap-1.5 transition-all cursor-pointer">
                     <span>${link.label}</span>
@@ -1472,13 +1608,13 @@ function renderListView(container, items) {
         `;
       } else if (isDocSend) {
         actionButtons = `
-          <a href="${item.path}" target="_blank" rel="noopener noreferrer" class="py-1.5 px-3 rounded-lg bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap">
+          <a href="${safePath}" target="_blank" rel="noopener noreferrer" class="py-1.5 px-3 rounded-lg bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap">
             <span>🌐</span> ${getHubI18n("res_btn_online_view", "在线查阅 ↗")}
           </a>
         `;
       } else if (isVideo) {
         actionButtons = `
-          <button onclick="openVideoModal('${item.path}', '${item.title}')" class="py-1.5 px-3 rounded-lg bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap">
+          <button onclick="openVideoModal('${safePath}', '${safeTitle}')" class="py-1.5 px-3 rounded-lg bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap">
             <span>▶️</span> ${getHubI18n("res_btn_play", "在线播放")}
           </button>
         `;
@@ -1486,17 +1622,17 @@ function renderListView(container, items) {
         let previewBtn = "";
         if (canPreview) {
           if (isPdf) {
-            previewBtn = `<a href="${item.path}" target="_blank" class="py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap"><span>👁️</span> ${getHubI18n("res_btn_preview", "浏览")}</a>`;
+            previewBtn = `<a href="${safePath}" target="_blank" class="py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap"><span>👁️</span> ${getHubI18n("res_btn_preview", "浏览")}</a>`;
           } else if (isImage) {
-            previewBtn = `<button onclick="openImageLightbox(encodeURI('${item.path}'), '${item.title}')" class="py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap"><span>👁️</span> ${getHubI18n("res_btn_image", "大图")}</button>`;
+            previewBtn = `<button onclick="openImageLightbox('${safePath}', '${safeTitle}')" class="py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap"><span>👁️</span> ${getHubI18n("res_btn_image", "大图")}</button>`;
           } else {
-            previewBtn = `<a href="${item.path}" target="_blank" class="py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap"><span>👁️</span> ${getHubI18n("res_btn_preview", "浏览")}</a>`;
+            previewBtn = `<a href="${safePath}" target="_blank" class="py-1.5 px-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-cyan-bright border border-slate-700 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap"><span>👁️</span> ${getHubI18n("res_btn_preview", "浏览")}</a>`;
           }
         }
 
         let downloadBtn = "";
         if (canDownload) {
-          downloadBtn = `<a href="${item.path}" download class="py-1.5 px-2.5 rounded-lg bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap"><span>⬇️</span> ${getHubI18n("res_btn_download", "下载")}</a>`;
+          downloadBtn = `<button type="button" onclick="downloadFileDirectly('${safePath}', '${safeTitle}')" class="py-1.5 px-2.5 rounded-lg bg-cyan-neon/15 hover:bg-cyan-neon/25 text-cyan-neon border border-cyan-neon/40 text-xs font-bold flex items-center gap-1 transition-all whitespace-nowrap cursor-pointer"><span>⬇️</span> ${getHubI18n("res_btn_download", "下载")}</button>`;
         }
 
         actionButtons = `
@@ -1614,17 +1750,32 @@ function closeVideoModal() {
 }
 
 // 🖼️ Image Lightbox Modal
+let currentLightboxUrl = "";
+let currentLightboxTitle = "";
+
 function openImageLightbox(url, title) {
   const modal = document.getElementById("image-modal");
   const img = document.getElementById("modal-image");
   const titleEl = document.getElementById("image-modal-title");
   const downloadLink = document.getElementById("image-download-link");
 
+  currentLightboxUrl = url;
+  currentLightboxTitle = title || "ENIPAY-Material";
+
   if (titleEl) titleEl.innerText = title || "物料大图预览";
-  if (img) img.src = url;
+  if (img) {
+    img.src = url;
+    img.alt = title || "Preview";
+    img.onerror = function() {
+      img.onerror = null;
+      handleImageError(img, title, "🖼️");
+    };
+  }
   if (downloadLink) {
-    downloadLink.href = url;
-    downloadLink.download = title || "enipay-material.png";
+    downloadLink.onclick = (e) => {
+      e.preventDefault();
+      downloadFileDirectly(currentLightboxUrl, currentLightboxTitle);
+    };
   }
   if (modal) {
     modal.classList.remove("hidden");
