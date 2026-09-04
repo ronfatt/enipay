@@ -5,6 +5,7 @@ node_modules/
 .env
 *.psd
 *.PSD
+!ENI资料库/ENIPAY Logo/LOGO3.psd
 ENI资料库/视频_original_backup/
 ENI资料库/EPAY中文/中文易拉寶/PSD压缩/
 
