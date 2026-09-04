@@ -394,8 +394,8 @@ const RESOURCES_DATA = [
     "type": "PNG",
     "title": "ENIPAY 金融模型与收益横图 (多语言)",
     "subtitle": "300~10000U 投资梯度、日化 1% 与 3.5 倍出局机制全景横图",
-    "path": "./ENI资料库/EPAY中文/ENIPAY 质押模型 01.png",
-    "thumb": "./ENI资料库/EPAY中文/ENIPAY 质押模型 01.png",
+    "path": "./ENI 资料库2.0/3.ENIPAY金融模式图/ENIPAY 金融模型 中文.png",
+    "thumb": "./ENI 资料库2.0/3.ENIPAY金融模式图/ENIPAY 金融模型 中文.png",
     "badge": "金融模型",
     "badgeColor": "gold",
     "icon": "🖼️",
@@ -406,32 +406,32 @@ const RESOURCES_DATA = [
       {
         "lang": "zh",
         "label": "🇨🇳 中文横图",
-        "url": "./ENI资料库/EPAY中文/ENIPAY 质押模型 01.png"
+        "url": "./ENI 资料库2.0/3.ENIPAY金融模式图/ENIPAY 金融模型 中文.png"
       },
       {
         "lang": "en",
         "label": "🇺🇸 English",
-        "url": "./ENI资料库/EPAY英文/Introduction to ENIPAY Financial Model.png"
+        "url": "./ENI 资料库2.0/3.ENIPAY金融模式图/ENIPAY 金融模型 英文.png"
       },
       {
         "lang": "ja",
         "label": "🇯🇵 日本語",
-        "url": "./ENI资料库/EPAY日文/日文模式横图.jpg"
+        "url": "./ENI 资料库2.0/3.ENIPAY金融模式图/ENIPAY 金融模型 日文.jpg"
       },
       {
         "lang": "ko",
         "label": "🇰🇷 한국어",
-        "url": "./ENI资料库/EPAY韩文/模式横图（韩文）.png"
+        "url": "./ENI 资料库2.0/3.ENIPAY金融模式图/ENIPAY 金融模型 韩文.png"
       },
       {
         "lang": "vi",
         "label": "🇻🇳 Tiếng Việt",
-        "url": "./ENI资料库/EPAY越南/Giới thiệu về Mô hình Tài chính ENIPAY.png"
+        "url": "./ENI 资料库2.0/3.ENIPAY金融模式图/ENIPAY 金融模型 越南文.png"
       },
       {
         "lang": "id",
         "label": "🇮🇩 Indonesia",
-        "url": "./ENI资料库/EPAY印尼语/Bagan Horizontal Pola.png"
+        "url": "./ENI 资料库2.0/3.ENIPAY金融模式图/ENIPAY 金融模型 印尼文.png"
       }
     ]
   },
