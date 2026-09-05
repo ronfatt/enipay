@@ -718,6 +718,802 @@ const RESOURCES_DATA = [
 // Expose Default Dataset Globally
 window.RESOURCES_DATA = RESOURCES_DATA;
 
+const RESOURCES_I18N = {
+  "zh": {
+    "download-gdrive-pack": {
+      "title": "ENIPAY 官方物料全套云盘 (Google Drive 完整包)",
+      "subtitle": "包含全套 PSD 分层原件、AI 矢量图、易拉宝、海报、Logo 高清源文件一键打包下载",
+      "badge": "云盘直达"
+    },
+    "doc-community-ecosystem": {
+      "title": "Epay社区补贴方案 (5 国语言 PDF)",
+      "subtitle": "社区布道体系、全球市场合规裂变、节点治理机制与早期红利全套 PDF",
+      "badge": "5 语种补贴方案"
+    },
+    "doc-bp-multilang": {
+      "title": "ENIPAY 官方商业计划书 (Business Plan · 6 国语言)",
+      "subtitle": "包含愿景规划、三层技术架构、商业闭环与全球牌照全套 PDF",
+      "badge": "商业计划书"
+    },
+    "doc-qa-pdf": {
+      "title": "ENIPAY 市场常见问答手册 (Q&A Manual)",
+      "subtitle": "全面解答关于 ENI 公链底座、币安托管、U卡申请与收益模型等核心问题",
+      "badge": "市场答疑"
+    },
+    "doc-epay-intro": {
+      "title": "EPAY 项目深度介绍 (中文版)",
+      "subtitle": "聚焦 EPAY 双通缩机制、回购销毁执行器与 100 代社区裂变激励",
+      "badge": "项目介绍"
+    },
+    "docsend-global-deck": {
+      "title": "ENI 公链官方核心白皮书与宣讲资料 (DocSend 6 国语言)",
+      "subtitle": "实时云端同步，支持中/英/日/韩/越等多语言在线全息阅览，全球路演与机构对接推荐",
+      "badge": "6 语种支持"
+    },
+    "video-eni-main": {
+      "title": "ENI 公链官方品牌宣传大片",
+      "subtitle": "全景呈现 ENI 底层公链、模块化架构与全球节点部署",
+      "badge": "公链大片"
+    },
+    "video-enipay-promo": {
+      "title": "ENIPAY 全球支付聚合平台宣传短片",
+      "subtitle": "展现三色加密 U 卡、聚合支付网关与无感消费体验",
+      "badge": "平台短片"
+    },
+    "video-spokesperson": {
+      "title": "ENIPAY 品牌形象代言宣传短片",
+      "subtitle": "全球形象大使深度演绎 Web3 支付新生态与品牌愿景",
+      "badge": "形象代言"
+    },
+    "video-ecosystem": {
+      "title": "ENIPAY ECOSYSTEM 全球生态全景",
+      "subtitle": "深度梳理并购战略、实体落地、五年规划与纳斯达克上市路径",
+      "badge": "生态全景"
+    },
+    "video-finance-model": {
+      "title": "ENI MG 金融模型与通缩机制深度解读",
+      "subtitle": "节点挖矿、80% 黑洞销毁、回购通缩与市场加速器模型全景推演",
+      "badge": "金融模型"
+    },
+    "video-wealth-code": {
+      "title": "ENIPAY 财富密码与全球红利",
+      "subtitle": "解密蓝海市场千亿商机、节点分红机制与早期布道者收益管道",
+      "badge": "财富红利"
+    },
+    "video-super-eco": {
+      "title": "EPAY 超级生态落地演示",
+      "subtitle": "实体商家收单、线上网关对接与全球跨境出入金实景演示",
+      "badge": "超级生态"
+    },
+    "video-digital-pay": {
+      "title": "EPAY 数字支付与即时出入金",
+      "subtitle": "毫秒级链上清算、无冻卡风控体系与法币极速兑换实景",
+      "badge": "数字支付"
+    },
+    "video-eni-promo-2": {
+      "title": "ENI 公链全球节点与技术架构短片 02",
+      "subtitle": "超级节点分布、跨链清算网络与企业级 BaaS 服务深度拆解",
+      "badge": "节点技术"
+    },
+    "poster-long-intro": {
+      "title": "ENIPAY 官方简介全景长图 (多语言)",
+      "subtitle": "长图全景展现平台愿景、五大落地产品、质押收益与上市战略",
+      "badge": "官方长图"
+    },
+    "poster-competitive-edge": {
+      "title": "ENIPAY 生态竞争优势图解 (多语言)",
+      "subtitle": "对比传统出入金与竞品，凸显 100% 币安托管与无冻卡优势",
+      "badge": "竞争优势"
+    },
+    "poster-staking-model": {
+      "title": "ENIPAY 金融模型与收益横图 (多语言)",
+      "subtitle": "300~10000U 投资梯度、日化 1% 与 3.5 倍出局机制全景横图",
+      "badge": "金融模型"
+    },
+    "poster-eco-overview": {
+      "title": "ENI 生态系统简介展板",
+      "subtitle": "公链底座、支付清算与生态矩阵一览",
+      "badge": "生态展板"
+    },
+    "poster-fission-model": {
+      "title": "ENIPAY 100代裂变管理模型 02",
+      "subtitle": "100 代动态裂变奖金池与团队管理激励图解",
+      "badge": "裂变模型"
+    },
+    "poster-main-1": {
+      "title": "ENI 官方主视觉海报 01 (多语言)",
+      "subtitle": "极具科技感的高清主视觉，适合线下峰会与展会背景",
+      "badge": "主视觉 01"
+    },
+    "poster-main-2": {
+      "title": "ENI 官方主视觉海报 02 (多语言)",
+      "subtitle": "展示实体 U 卡权益、高额消费额度与全球 ATM 取现",
+      "badge": "主视觉 02"
+    },
+    "poster-main-3": {
+      "title": "ENI 官方主视觉海报 03 (多语言)",
+      "subtitle": "ENIPAY 生态落地与全球数字卡片主视觉",
+      "badge": "主视觉 03"
+    },
+    "rollup-global-set": {
+      "title": "ENIPAY 官方标准易拉宝展架 (5 国语言全套 30 款)",
+      "subtitle": "涵盖平台总览、公链底座、U卡权益、收益模型、安全保障与上市规划全套展架",
+      "badge": "5 国语言展架"
+    },
+    "signage-front-day": {
+      "title": "ENIPAY 线下实体旗舰中心前台 (白天效果)",
+      "subtitle": "现代极简科技风实体服务中心前台实景效果",
+      "badge": "白天实景"
+    },
+    "signage-front-night": {
+      "title": "ENIPAY 线下实体旗舰中心前台 (夜间发光效果)",
+      "subtitle": "赛博朋克霓虹光效前台设计，展现顶级金融科技质感",
+      "badge": "夜间光效"
+    },
+    "signage-storefront": {
+      "title": "ENIPAY 官方门店招牌门头设计图",
+      "subtitle": "全球加盟店与线下网点统一标准门头招牌设计规范",
+      "badge": "门头招牌"
+    },
+    "signage-lightbox": {
+      "title": "ENIPAY 实体店发光灯箱设计图",
+      "subtitle": "立柱灯箱、侧发光广告牌高清设计原图",
+      "badge": "发光灯箱"
+    },
+    "logo-psd-source": {
+      "title": "ENIPAY 官方 Logo 分层源文件 (Photoshop PSD)",
+      "subtitle": "包含所有分层、矢量路径与调色图层，供专业设计师二开使用",
+      "badge": "设计源件"
+    }
+  },
+  "en": {
+    "download-gdrive-pack": {
+      "title": "ENIPAY Official Complete Brand Asset Drive (Google Drive Master Pack)",
+      "subtitle": "Full package including layered PSD files, AI vector graphics, rollups, posters, and HD logo source kits",
+      "badge": "Cloud Drive"
+    },
+    "doc-community-ecosystem": {
+      "title": "Epay Community Subsidy & Incentive Program (5 Languages PDF)",
+      "subtitle": "Community evangelism matrix, compliant global fission, node governance, and early dividend guide",
+      "badge": "5-Lang Subsidy"
+    },
+    "doc-bp-multilang": {
+      "title": "ENIPAY Official Business Plan & Strategy (6 Languages)",
+      "subtitle": "Platform vision, three-tier architecture, commercial closed loop, and global financial licensing",
+      "badge": "Strategy BP"
+    },
+    "doc-qa-pdf": {
+      "title": "ENIPAY Market Frequently Asked Questions (Q&A Manual)",
+      "subtitle": "Comprehensive answers on ENI Chain, Binance Custody, Crypto U-Card, and yield models",
+      "badge": "Market Q&A"
+    },
+    "doc-epay-intro": {
+      "title": "EPAY Project In-Depth Presentation (Comprehensive Guide)",
+      "subtitle": "Highlighting EPAY dual-deflation, buyback-and-burn mechanism, and 100-tier community matrix",
+      "badge": "Project Guide"
+    },
+    "docsend-global-deck": {
+      "title": "ENI Chain Core Deck & Whitepaper (DocSend Live in 6 Languages)",
+      "subtitle": "Real-time cloud sync, supporting 6 languages for institutional roadshows and global partners",
+      "badge": "6 Languages"
+    },
+    "video-eni-main": {
+      "title": "ENI Chain Official Brand Cinematic Showcase (4K HD)",
+      "subtitle": "Panoramic showcase of ENI Layer-1 blockchain, modular architecture, and global validator nodes",
+      "badge": "Flagship 4K"
+    },
+    "video-enipay-promo": {
+      "title": "ENIPAY Global Payment Aggregator Promo Video",
+      "subtitle": "Showcasing Tri-Color Crypto U-Cards, aggregator payment gateways, and friction-free spending",
+      "badge": "Payment Hub"
+    },
+    "video-spokesperson": {
+      "title": "ENIPAY Official Brand Ambassador Showcase",
+      "subtitle": "Global brand ambassador demonstrates the Web3 digital payment ecosystem and platform vision",
+      "badge": "Ambassador"
+    },
+    "video-ecosystem": {
+      "title": "ENIPAY ECOSYSTEM Global Horizon & Roadmap",
+      "subtitle": "Strategic M&A, offline merchants, 5-year pipeline, and Nasdaq listing roadmap",
+      "badge": "Ecosystem"
+    },
+    "video-finance-model": {
+      "title": "ENI MG Financial Tokenomics & Deflation Breakdown",
+      "subtitle": "Node mining, 80% black hole burn, buyback deflation, and market accelerator mechanics",
+      "badge": "Tokenomics"
+    },
+    "video-wealth-code": {
+      "title": "ENIPAY Wealth Code & Early Participant Dividends",
+      "subtitle": "Unlocking trillion-dollar blue ocean opportunities, node revenue sharing, and evangelist dividends",
+      "badge": "Wealth Code"
+    },
+    "video-super-eco": {
+      "title": "EPAY Super Ecosystem Live Application Demo",
+      "subtitle": "Merchant point-of-sale, online gateway integration, and global cross-border settlement demo",
+      "badge": "Super Eco"
+    },
+    "video-digital-pay": {
+      "title": "EPAY Digital Payment & Instant On/Off-Ramp Demo",
+      "subtitle": "Millisecond on-chain settlement, zero-freeze risk control, and instant fiat conversion",
+      "badge": "Instant Pay"
+    },
+    "video-eni-promo-2": {
+      "title": "ENI Chain Global Nodes & Tech Architecture 02",
+      "subtitle": "Supernode topology, cross-chain clearing networks, and enterprise BaaS framework",
+      "badge": "Global Nodes"
+    },
+    "poster-long-intro": {
+      "title": "ENIPAY Official Panoramic Infographic (Multilingual)",
+      "subtitle": "Comprehensive infographic displaying vision, 5 core products, staking yields, and IPO roadmap",
+      "badge": "Infographic"
+    },
+    "poster-competitive-edge": {
+      "title": "ENIPAY Ecosystem Competitive Advantage (Multilingual)",
+      "subtitle": "Side-by-side comparison highlighting 100% Binance custody, zero-freeze cards, and instant ramps",
+      "badge": "Advantages"
+    },
+    "poster-staking-model": {
+      "title": "ENIPAY Staking Financial Model & Rewards Chart (Multilingual)",
+      "subtitle": "300~10,000 USDT staking tiers, 1% daily yield, and 3.5x cap exit mechanism",
+      "badge": "Staking Model"
+    },
+    "poster-eco-overview": {
+      "title": "ENI Ecosystem Overview Exhibition Board",
+      "subtitle": "Layer-1 blockchain base, payment clearing channels, and ecosystem matrix at a glance",
+      "badge": "Eco Board"
+    },
+    "poster-fission-model": {
+      "title": "ENIPAY 100-Tier Team Fission Model 02",
+      "subtitle": "100-tier dynamic bonus pool and global team leadership rewards chart",
+      "badge": "Fission Model"
+    },
+    "poster-main-1": {
+      "title": "ENI Official Key Visual Poster 01 (Multilingual)",
+      "subtitle": "Cyberpunk high-tech key visual, ideal for global offline summits and keynote backdrops",
+      "badge": "Key Visual 01"
+    },
+    "poster-main-2": {
+      "title": "ENI Official Key Visual Poster 02 (Multilingual)",
+      "subtitle": "Featuring Crypto U-Card benefits, high spending limits, and global ATM cash withdrawals",
+      "badge": "Key Visual 02"
+    },
+    "poster-main-3": {
+      "title": "ENI Official Key Visual Poster 03 (Multilingual)",
+      "subtitle": "ENIPAY real-world ecosystem utility and global digital card flagship visual",
+      "badge": "Key Visual 03"
+    },
+    "rollup-global-set": {
+      "title": "ENIPAY Official Roll-Up Banners (5 Languages · 30 Designs)",
+      "subtitle": "Covers platform overview, L1 blockchain, U-Card benefits, yield model, security, and IPO",
+      "badge": "5-Lang Banners"
+    },
+    "signage-front-day": {
+      "title": "ENIPAY Flagship Service Center Reception (Daylight View)",
+      "subtitle": "Modern minimalist high-tech offline service center reception design",
+      "badge": "Daylight"
+    },
+    "signage-front-night": {
+      "title": "ENIPAY Flagship Reception Counter (Illuminated Night View)",
+      "subtitle": "Cyberpunk neon glowing reception counter demonstrating premier fintech aesthetics",
+      "badge": "Night Glow"
+    },
+    "signage-storefront": {
+      "title": "ENIPAY Official Storefront Signage Specifications",
+      "subtitle": "Unified standard storefront branding design for global franchise stores and branches",
+      "badge": "Storefront"
+    },
+    "signage-lightbox": {
+      "title": "ENIPAY Retail Illuminated Lightbox Design",
+      "subtitle": "HD vector source design for vertical pillar lightboxes and edge-lit store signage",
+      "badge": "Lightbox"
+    },
+    "logo-psd-source": {
+      "title": "ENIPAY Official Layered Logo Source (Photoshop PSD)",
+      "subtitle": "Includes all layers, vector paths, and color adjustment layers for professional designers",
+      "badge": "PSD Source"
+    }
+  },
+  "ja": {
+    "download-gdrive-pack": {
+      "title": "ENIPAY 公式素材フルパッケージ (Google Drive 一括パック)",
+      "subtitle": "PSDレイヤー原画、AIベクター、ロールアップ、ポスター、高解像度Logoを一括ダウンロード",
+      "badge": "クラウド直行"
+    },
+    "doc-community-ecosystem": {
+      "title": "Epay コミュニティ助成金プラン (5言語対応 PDF)",
+      "subtitle": "コミュニティ推進体制、グローバル市場拡大、ノードガバナンス機構と初期ボーナス解説",
+      "badge": "5言語助成金"
+    },
+    "doc-bp-multilang": {
+      "title": "ENIPAY 公式事業計画書 (Business Plan · 6言語対応)",
+      "subtitle": "プラットフォーム構想、3層技術アーキテクチャ、ビジネスモデルと世界ライセンス一覧",
+      "badge": "事業計画書"
+    },
+    "doc-qa-pdf": {
+      "title": "ENIPAY 市場FAQハンドブック (Q&A Manual)",
+      "subtitle": "ENIパブリックチェーン、バイナンスカストディ、Uカード申請、収益モデルの疑問を網羅",
+      "badge": "市場Q&A"
+    },
+    "doc-epay-intro": {
+      "title": "EPAY プロジェクト詳細解説 (総合ガイド)",
+      "subtitle": "EPAY デュアルデフレ機構、買戻しバーン執行器と100世代コミュニティ報酬体系",
+      "badge": "プロジェクト解説"
+    },
+    "docsend-global-deck": {
+      "title": "ENI パブリックチェーン公式コア資料 (DocSend 6言語対応)",
+      "subtitle": "リアルタイムクラウド同期、世界ロードショーや機関投資家向け6言語オンライン閲覧",
+      "badge": "6言語対応"
+    },
+    "video-eni-main": {
+      "title": "ENI パブリックチェーン公式ブランドシネマティック映像",
+      "subtitle": "ENI 基盤チェーン、モジュラー構造とグローバルスーパーノード配備の全貌",
+      "badge": "ブランド大作"
+    },
+    "video-enipay-promo": {
+      "title": "ENIPAY グローバル決済統合プラットフォーム紹介映像",
+      "subtitle": "3色クリプトUカード、統合決済ゲートウェイ、シームレスな消費体験を披露",
+      "badge": "決済ハブ"
+    },
+    "video-spokesperson": {
+      "title": "ENIPAY ブランドアンバサダー公式プロモーション映像",
+      "subtitle": "グローバルアンバサダーが語るWeb3決済新エコシステムとブランドの未来構想",
+      "badge": "アンバサダー"
+    },
+    "video-ecosystem": {
+      "title": "ENIPAY ECOSYSTEM グローバルエコシステム全貌",
+      "subtitle": "M&A戦略、実店舗導入、5カ年計画およびナスダック上場ロードマップ",
+      "badge": "エコシステム"
+    },
+    "video-finance-model": {
+      "title": "ENI MG 金融モデルとデフレ機構の深層解説",
+      "subtitle": "ノードマイニング、80%ブラックホールバーン、買戻しデフレと市場加速モデル",
+      "badge": "金融モデル"
+    },
+    "video-wealth-code": {
+      "title": "ENIPAY 富のコードとグローバル配当の解説",
+      "subtitle": "ブルーオーシャン市場の商機、ノード配当システムと初期参加者の収益パイプライン",
+      "badge": "配当コード"
+    },
+    "video-super-eco": {
+      "title": "EPAY スーパーエコシステム実演デモ",
+      "subtitle": "加盟店POS決済、オンラインゲートウェイ統合、国際間クロスボーダー決済の実演",
+      "badge": "スーパーエコ"
+    },
+    "video-digital-pay": {
+      "title": "EPAY デジタル決済＆即時入出金デモ",
+      "subtitle": "ミリ秒単位のオンチェーン清算、凍結ゼロのリスク管理、法定通貨即時換金の体験",
+      "badge": "即時決済"
+    },
+    "video-eni-promo-2": {
+      "title": "ENI パブリックチェーン世界ノード＆技術アーキテクチャ 02",
+      "subtitle": "スーパーノード分散、クロスチェーン清算ネットワークとエンタープライズBaaS基盤",
+      "badge": "ノード技術"
+    },
+    "poster-long-intro": {
+      "title": "ENIPAY 公式パノラマ概要ロング画像 (多言語対応)",
+      "subtitle": "ビジョン、5大プロダクト、ステーキング利回り、上場戦略をロング画像でパノラマ解説",
+      "badge": "公式ロング図"
+    },
+    "poster-competitive-edge": {
+      "title": "ENIPAY エコシステム競争力比較チャート (多言語対応)",
+      "subtitle": "従来決済や他社との比較、バイナンス100%保管と凍結ゼロの圧倒的優位性を図解",
+      "badge": "競争優位性"
+    },
+    "poster-staking-model": {
+      "title": "ENIPAY 金融モデル＆利回り横型チャート (多言語対応)",
+      "subtitle": "300〜10,000 USDT投資ティア、日利1%と3.5倍上限エグジット機構の全体図",
+      "badge": "金融モデル"
+    },
+    "poster-eco-overview": {
+      "title": "ENI エコシステム概要展示パネル",
+      "subtitle": "パブリックチェーン基盤、決済清算ネットワーク、エコシステムマトリクス総覧",
+      "badge": "展示パネル"
+    },
+    "poster-fission-model": {
+      "title": "ENIPAY 100世代チームレバレッジモデル 02",
+      "subtitle": "100世代ダイナミックボーナスプールとチーム管理インセンティブ詳細図",
+      "badge": "レバレッジモデル"
+    },
+    "poster-main-1": {
+      "title": "ENI 公式キービジュアルポスター 01 (多言語対応)",
+      "subtitle": "サイバーパンク調の高精細キービジュアル、オフラインサミットや展示会背景に最適",
+      "badge": "キービジュアル 01"
+    },
+    "poster-main-2": {
+      "title": "ENI 公式キービジュアルポスター 02 (多言語対応)",
+      "subtitle": "実物Uカードの特典、高額利用枠、全世界ATM出金機能をアピールするデザイン",
+      "badge": "キービジュアル 02"
+    },
+    "poster-main-3": {
+      "title": "ENI 公式キービジュアルポスター 03 (多言語対応)",
+      "subtitle": "ENIPAY 実社会でのエコシステム実装とグローバルデジタルカードの主視覚",
+      "badge": "キービジュアル 03"
+    },
+    "rollup-global-set": {
+      "title": "ENIPAY 公式ロールアップバナー (5言語・全30モデル)",
+      "subtitle": "プラットフォーム概要、パブリックチェーン、Uカード特典、収益モデル、セキュリティ、上場計画",
+      "badge": "5言語バナー"
+    },
+    "signage-front-day": {
+      "title": "ENIPAY 実店舗旗艦センター受付 (昼間エフェクト)",
+      "subtitle": "モダンミニマリズム＆ハイテク空間のサービスセンター受付実景デザイン",
+      "badge": "昼間実景"
+    },
+    "signage-front-night": {
+      "title": "ENIPAY 実店舗旗艦センター受付 (夜間イルミネーション)",
+      "subtitle": "サイバーパンクのネオン発光デザイン、トップクラスのフィンテック高級感を演出",
+      "badge": "夜間光彩"
+    },
+    "signage-storefront": {
+      "title": "ENIPAY 公式店舗ファサード看板デザイン",
+      "subtitle": "世界フランチャイズ店および拠点向け統一規格ファサード看板デザイン仕様",
+      "badge": "店舗看板"
+    },
+    "signage-lightbox": {
+      "title": "ENIPAY 店舗用バックライト電飾看板デザイン",
+      "subtitle": "自立型ピラーサインおよびサイド発光電飾看板の高解像度デザイン仕様",
+      "badge": "電飾看板"
+    },
+    "logo-psd-source": {
+      "title": "ENIPAY 公式Logo レイヤー元ファイル (Photoshop PSD)",
+      "subtitle": "全レイヤー、ベクターパス、カラー調整レイヤーを含むデザイナー向け高画質PSD",
+      "badge": "PSD原画"
+    }
+  },
+  "ko": {
+    "download-gdrive-pack": {
+      "title": "ENIPAY 공식 홍보물 전체 패키지 (Google Drive 클라우드)",
+      "subtitle": "PSD 레이어 원본, AI 벡터, 배너, 포스터, HD 로고 원본 파일 일괄 다운로드",
+      "badge": "클라우드 바로가기"
+    },
+    "doc-community-ecosystem": {
+      "title": "Epay 커뮤니티 보조금 및 인센티브 플랜 (5개국어 PDF)",
+      "subtitle": "커뮤니티 전파 체계, 글로벌 시장 확장, 노드 거버넌스 및 초기 배당 완벽 가이드",
+      "badge": "5개국어 보조금"
+    },
+    "doc-bp-multilang": {
+      "title": "ENIPAY 공식 사업계획서 (Business Plan · 6개국어)",
+      "subtitle": "플랫폼 비전, 3계층 기술 아키텍처, 비즈니스 폐쇄 루프 및 글로벌 금융 라이선스",
+      "badge": "사업계획서 BP"
+    },
+    "doc-qa-pdf": {
+      "title": "ENIPAY 시장 핵심 질문과 답변 매뉴얼 (Q&A Manual)",
+      "subtitle": "ENI 메인넷 기반, 바이낸스 수탁, U-카드 발급 및 수익 모델에 대한 상세 해설",
+      "badge": "시장 Q&A"
+    },
+    "doc-epay-intro": {
+      "title": "EPAY 프로젝트 심층 분석 가이드 (종합 안내서)",
+      "subtitle": "EPAY 듀얼 디플레이션, 바이백 소각 메커니즘 및 100단계 커뮤니티 보상 체계 집중 조명",
+      "badge": "프로젝트 가이드"
+    },
+    "docsend-global-deck": {
+      "title": "ENI 메인넷 핵심 백서 및 피치덱 (DocSend 6개국어 지원)",
+      "subtitle": "실시간 클라우드 동기화, 글로벌 로드쇼 및 기관 제휴를 위한 6개국어 인터랙티브 리더",
+      "badge": "6개국어 지원"
+    },
+    "video-eni-main": {
+      "title": "ENI 메인넷 공식 브랜드 홍보 대작 영상 (4K HD)",
+      "subtitle": "ENI 레이어1 메인넷, 모듈형 아키텍처 및 글로벌 검증 노드 분산 배치의 전경",
+      "badge": "플래그십 4K"
+    },
+    "video-enipay-promo": {
+      "title": "ENIPAY 글로벌 결제 통합 플랫폼 프로모션 영상",
+      "subtitle": "3색 크립토 U-카드, 통합 결제 게이트웨이 및 무경계 결제 경험 소개",
+      "badge": "결제 허브"
+    },
+    "video-spokesperson": {
+      "title": "ENIPAY 공식 브랜드 앰버서더 홍보 영상",
+      "subtitle": "글로벌 앰버서더가 전하는 Web3 결제 생태계의 혁신과 미래 비전",
+      "badge": "브랜드 앰버서더"
+    },
+    "video-ecosystem": {
+      "title": "ENIPAY ECOSYSTEM 글로벌 생태계 전경 및 로드맵",
+      "subtitle": "글로벌 M&A 전략, 오프라인 가맹점 도입, 5개년 계획 및 나스닥 상장 로드맵",
+      "badge": "글로벌 생태계"
+    },
+    "video-finance-model": {
+      "title": "ENI MG 금융 모델 및 디플레이션 메커니즘 심층 분석",
+      "subtitle": "노드 채굴, 80% 블랙홀 소각, 바이백 디플레이션 및 시장 가속기 모델 분석",
+      "badge": "금융 모델"
+    },
+    "video-wealth-code": {
+      "title": "ENIPAY 부의 암호 및 글로벌 얼리버드 배당 가이드",
+      "subtitle": "조 단위 블루오션 기회, 노드 배당 메커니즘 및 초기 에반젤리스트 수익 파이프라인",
+      "badge": "부의 암호"
+    },
+    "video-super-eco": {
+      "title": "EPAY 슈퍼 생태계 실제 결제 시연 영상",
+      "subtitle": "오프라인 가맹점 POS 결제, 온라인 게이트웨이 연동 및 글로벌 크로스보더 정산 시연",
+      "badge": "슈퍼 생태계"
+    },
+    "video-digital-pay": {
+      "title": "EPAY 디지털 결제 및 즉각 온/오프램프 시연",
+      "subtitle": "밀리초 온체인 정산, 계좌동결 제로 리스크 관리 및 초고속 법정화폐 환전",
+      "badge": "즉시 결제"
+    },
+    "video-eni-promo-2": {
+      "title": "ENI 메인넷 글로벌 노드 및 기술 아키텍처 영상 02",
+      "subtitle": "슈퍼노드 토폴로지, 크로스체인 청산 네트워크 및 엔터프라이즈 BaaS 서비스 분석",
+      "badge": "노드 기술"
+    },
+    "poster-long-intro": {
+      "title": "ENIPAY 공식 소개 파노라마 인포그래픽 (다국어)",
+      "subtitle": "플랫폼 비전, 5대 핵심 제품, 스테이킹 수익률 및 상장 로드맵을 담은 파노라마 그래픽",
+      "badge": "공식 인포그래픽"
+    },
+    "poster-competitive-edge": {
+      "title": "ENIPAY 생태계 경쟁 우위 분석 차트 (다국어)",
+      "subtitle": "기존 출입금 및 타사 비교, 바이낸스 100% 수탁과 계좌동결 제로의 차별화된 경쟁력",
+      "badge": "경쟁 우위"
+    },
+    "poster-staking-model": {
+      "title": "ENIPAY 금융 모델 및 스테이킹 수익 차트 (다국어)",
+      "subtitle": "300~10,000 USDT 투자 티어, 일 1% 수익률 및 3.5배 캡 출구 메커니즘 가로 차트",
+      "badge": "금융 모델"
+    },
+    "poster-eco-overview": {
+      "title": "ENI 생태계 종합 개요 전시 보드",
+      "subtitle": "레이어1 메인넷 기반, 결제 청산 채널 및 생태계 매트릭스 한눈에 보기",
+      "badge": "생태계 보드"
+    },
+    "poster-fission-model": {
+      "title": "ENIPAY 100단계 팀 보너스 레버리지 모델 02",
+      "subtitle": "100단계 동적 보너스 풀과 글로벌 팀 리더십 인센티브 구조도",
+      "badge": "레버리지 모델"
+    },
+    "poster-main-1": {
+      "title": "ENI 공식 키 비주얼 포스터 01 (다국어)",
+      "subtitle": "사이버펑크 하이테크 키 비주얼, 글로벌 오프라인 컨퍼런스 및 배경막용 고해상도 디자인",
+      "badge": "키 비주얼 01"
+    },
+    "poster-main-2": {
+      "title": "ENI 공식 키 비주얼 포스터 02 (다국어)",
+      "subtitle": "실물 U-카드 혜택, 높은 한도 및 글로벌 ATM 현금 출금 기능 강조 포스터",
+      "badge": "키 비주얼 02"
+    },
+    "poster-main-3": {
+      "title": "ENI 공식 키 비주얼 포스터 03 (다국어)",
+      "subtitle": "ENIPAY 실생활 생태계 결제 활용 및 글로벌 디지털 카드 플래그십 비주얼",
+      "badge": "키 비주얼 03"
+    },
+    "rollup-global-set": {
+      "title": "ENIPAY 공식 표준 롤업 배너 (5개국어 · 총 30종 풀세트)",
+      "subtitle": "플랫폼 개요, 메인넷 기반, U-카드 혜택, 수익 모델, 보안성 및 상장 계획 총망라",
+      "badge": "5개국어 배너"
+    },
+    "signage-front-day": {
+      "title": "ENIPAY 오프라인 플래그십 센터 프론트 (주간 뷰)",
+      "subtitle": "모던 미니멀리즘 하이테크 스타일 오프라인 서비스 센터 프론트 실경 디자인",
+      "badge": "주간 실경"
+    },
+    "signage-front-night": {
+      "title": "ENIPAY 오프라인 플래그십 센터 프론트 (야간 네온 뷰)",
+      "subtitle": "사이버펑크 네온 라이팅 디자인으로 완성한 프리미엄 핀테크 감성 공간",
+      "badge": "야간 네온"
+    },
+    "signage-storefront": {
+      "title": "ENIPAY 공식 매장 파사드 간판 디자인 가이드",
+      "subtitle": "글로벌 프랜차이즈 가맹점 및 오프라인 지점을 위한 표준 간판 브랜딩 가이드",
+      "badge": "매장 간판"
+    },
+    "signage-lightbox": {
+      "title": "ENIPAY 매장용 백라이트 라이트박스 디자인",
+      "subtitle": "스탠딩 기둥형 라이트박스 및 측면 발광형 매장 간판 고해상도 디자인",
+      "badge": "라이트박스"
+    },
+    "logo-psd-source": {
+      "title": "ENIPAY 공식 로고 레이어 원본 파일 (Photoshop PSD)",
+      "subtitle": "전문 디자이너를 위한 모든 레이어, 벡터 패스 및 컬러 조정 레이어가 포함된 원본",
+      "badge": "PSD 원본"
+    }
+  },
+  "vi": {
+    "download-gdrive-pack": {
+      "title": "Kho tài nguyên hoàn chỉnh ENIPAY (Gói Google Drive)",
+      "subtitle": "Bao gồm tệp nguồn PSD nhiều lớp, vector AI, standee, poster và logo HD tải về trọn gói",
+      "badge": "Tải Cloud"
+    },
+    "doc-community-ecosystem": {
+      "title": "Chương trình trợ cấp cộng đồng Epay (PDF 5 ngôn ngữ)",
+      "subtitle": "Hệ thống phát triển cộng đồng, mở rộng toàn cầu, cơ chế quản trị node và lợi tức sớm",
+      "badge": "Trợ cấp 5 thứ tiếng"
+    },
+    "doc-bp-multilang": {
+      "title": "Kế hoạch kinh doanh chính thức ENIPAY (Business Plan · 6 ngôn ngữ)",
+      "subtitle": "Tầm nhìn chiến lược, kiến trúc công nghệ ba lớp, chu trình kinh doanh và giấy phép toàn cầu",
+      "badge": "Kế hoạch BP"
+    },
+    "doc-qa-pdf": {
+      "title": "Sổ tay hỏi đáp thị trường ENIPAY (Q&A Manual)",
+      "subtitle": "Giải đáp toàn diện về chuỗi ENI, lưu ký Binance, đăng ký Thẻ U và mô hình lợi nhuận",
+      "badge": "Hỏi đáp Q&A"
+    },
+    "doc-epay-intro": {
+      "title": "Giới thiệu chuyên sâu dự án EPAY (Bản tổng hợp)",
+      "subtitle": "Tập trung vào cơ chế giảm phát kép, mua lại đốt bỏ và mô hình thưởng cộng đồng 100 tầng",
+      "badge": "Giới thiệu dự án"
+    },
+    "docsend-global-deck": {
+      "title": "Tài liệu cốt lõi & Sách trắng chuỗi ENI (DocSend 6 ngôn ngữ)",
+      "subtitle": "Đồng bộ đám mây thời gian thực, hỗ trợ 6 thứ tiếng phục vụ roadshow và đối tác tổ chức",
+      "badge": "Hỗ trợ 6 thứ tiếng"
+    },
+    "video-eni-main": {
+      "title": "Phim điện ảnh giới thiệu thương hiệu chuỗi ENI (4K HD)",
+      "subtitle": "Toàn cảnh về chuỗi khối L1 ENI, kiến trúc mô-đun và phân bổ node toàn cầu",
+      "badge": "Phim bom tấn 4K"
+    },
+    "video-enipay-promo": {
+      "title": "Video quảng bá nền tảng thanh toán tổng hợp ENIPAY",
+      "subtitle": "Giới thiệu Thẻ U tiền mã hóa 3 màu, cổng thanh toán tổng hợp và chi tiêu liền mạch",
+      "badge": "Cổng thanh toán"
+    },
+    "video-spokesperson": {
+      "title": "Video đại sứ thương hiệu chính thức ENIPAY",
+      "subtitle": "Đại sứ toàn cầu chia sẻ về hệ sinh thái thanh toán Web3 và tầm nhìn tương lai",
+      "badge": "Đại sứ thương hiệu"
+    },
+    "video-ecosystem": {
+      "title": "Toàn cảnh hệ sinh thái toàn cầu ENIPAY ECOSYSTEM",
+      "subtitle": "Chiến lược M&A, ứng dụng thương mại, kế hoạch 5 năm và lộ trình niêm yết Nasdaq",
+      "badge": "Hệ sinh thái"
+    },
+    "video-finance-model": {
+      "title": "Phân tích chuyên sâu mô hình tài chính & cơ chế giảm phát ENI MG",
+      "subtitle": "Khai thác node, đốt 80% hố đen, mua lại giảm phát và cơ chế tăng tốc thị trường",
+      "badge": "Mô hình tài chính"
+    },
+    "video-wealth-code": {
+      "title": "Mã khóa tài chính & Lợi tức toàn cầu ENIPAY",
+      "subtitle": "Mở khóa cơ hội thị trường đại dương xanh, cổ tức node và dòng tiền sớm cho cộng đồng",
+      "badge": "Cổ tức toàn cầu"
+    },
+    "video-super-eco": {
+      "title": "Trình diễn ứng dụng thực tế siêu hệ sinh thái EPAY",
+      "subtitle": "Thanh toán POS thương gia, tích hợp cổng trực tuyến và quyết toán xuyên biên giới",
+      "badge": "Siêu hệ sinh thái"
+    },
+    "video-digital-pay": {
+      "title": "Thanh toán kỹ thuật số & Nạp rút tức thì EPAY",
+      "subtitle": "Quyết toán on-chain mili giây, kiểm soát rủi ro không khóa thẻ và đổi tiền pháp định tức thì",
+      "badge": "Thanh toán tức thì"
+    },
+    "video-eni-promo-2": {
+      "title": "Video kiến trúc kỹ thuật & Node toàn cầu chuỗi ENI 02",
+      "subtitle": "Cấu trúc siêu node, mạng quyết toán chuỗi chéo và dịch vụ BaaS doanh nghiệp",
+      "badge": "Kỹ thuật Node"
+    },
+    "poster-long-intro": {
+      "title": "Infographic toàn cảnh chính thức ENIPAY (Đa ngôn ngữ)",
+      "subtitle": "Hình ảnh toàn cảnh giới thiệu tầm nhìn, 5 sản phẩm cốt lõi, lợi tức staking và lộ trình IPO",
+      "badge": "Infographic"
+    },
+    "poster-competitive-edge": {
+      "title": "Biểu đồ lợi thế cạnh tranh hệ sinh thái ENIPAY (Đa ngôn ngữ)",
+      "subtitle": "So sánh trực quan làm nổi bật lưu ký Binance 100%, thẻ không bị đóng băng và nạp rút tức thì",
+      "badge": "Lợi thế cạnh tranh"
+    },
+    "poster-staking-model": {
+      "title": "Mô hình tài chính & Lợi nhuận staking ENIPAY (Đa ngôn ngữ)",
+      "subtitle": "Các bậc đầu tư 300~10.000 USDT, lợi nhuận 1%/ngày và cơ chế chốt lời tối đa 3.5x",
+      "badge": "Mô hình Staking"
+    },
+    "poster-eco-overview": {
+      "title": "Bảng trưng bày tổng quan hệ sinh thái ENI",
+      "subtitle": "Tổng hợp chuỗi L1 nền tảng, kênh thanh toán quyết toán và ma trận hệ sinh thái",
+      "badge": "Bảng tổng quan"
+    },
+    "poster-fission-model": {
+      "title": "Mô hình quản trị đội nhóm 100 tầng ENIPAY 02",
+      "subtitle": "Sơ đồ quỹ thưởng động 100 tầng và cơ chế đãi ngộ phát triển đội ngũ toàn cầu",
+      "badge": "Mô hình 100 tầng"
+    },
+    "poster-main-1": {
+      "title": "Poster hình ảnh chủ đạo chính thức ENI 01 (Đa ngôn ngữ)",
+      "subtitle": "Hình ảnh chủ đạo đậm chất công nghệ, thích hợp cho hội nghị và sự kiện triển lãm toàn cầu",
+      "badge": "Hình ảnh chính 01"
+    },
+    "poster-main-2": {
+      "title": "Poster hình ảnh chủ đạo chính thức ENI 02 (Đa ngôn ngữ)",
+      "subtitle": "Làm nổi bật quyền lợi Thẻ U vật lý, hạn mức cao và rút tiền mặt tại ATM toàn cầu",
+      "badge": "Hình ảnh chính 02"
+    },
+    "poster-main-3": {
+      "title": "Poster hình ảnh chủ đạo chính thức ENI 03 (Đa ngôn ngữ)",
+      "subtitle": "Ứng dụng thực tế hệ sinh thái ENIPAY và hình ảnh thẻ số toàn cầu",
+      "badge": "Hình ảnh chính 03"
+    },
+    "rollup-global-set": {
+      "title": "Standee cuốn tiêu chuẩn chính thức ENIPAY (5 ngôn ngữ · 30 mẫu)",
+      "subtitle": "Bao quát tổng quan nền tảng, chuỗi L1, quyền lợi Thẻ U, mô hình lợi nhuận, bảo mật và IPO",
+      "badge": "Standee 5 thứ tiếng"
+    },
+    "signage-front-day": {
+      "title": "Quầy lễ tân trung tâm thực tế ENIPAY (Hiệu ứng ban ngày)",
+      "subtitle": "Thiết kế quầy lễ tân trung tâm dịch vụ phong cách tối giản công nghệ cao",
+      "badge": "Ban ngày"
+    },
+    "signage-front-night": {
+      "title": "Quầy lễ tân trung tâm ENIPAY (Hiệu ứng ánh sáng ban đêm)",
+      "subtitle": "Thiết kế quầy lễ tân phát sáng phong cách cyberpunk thể hiện đẳng cấp fintech hàng đầu",
+      "badge": "Ban đêm"
+    },
+    "signage-storefront": {
+      "title": "Thiết kế bảng hiệu mặt tiền cửa hàng chính thức ENIPAY",
+      "subtitle": "Quy chuẩn thiết kế bảng hiệu mặt tiền tiêu chuẩn cho chuỗi cửa hàng nhượng quyền toàn cầu",
+      "badge": "Bảng hiệu"
+    },
+    "signage-lightbox": {
+      "title": "Thiết kế hộp đèn phát sáng cửa hàng ENIPAY",
+      "subtitle": "Bản vẽ thiết kế độ nét cao cho hộp đèn đứng và biển hiệu phát sáng hông",
+      "badge": "Hộp đèn"
+    },
+    "logo-psd-source": {
+      "title": "Tệp nguồn Logo phân lớp chính thức ENIPAY (Photoshop PSD)",
+      "subtitle": "Bao gồm tất cả các layer, đường dẫn vector và lớp màu dành cho nhà thiết kế chuyên nghiệp",
+      "badge": "Nguồn PSD"
+    }
+  }
+};
+
+function getResourceTitle(item) {
+  try {
+    const lang = localStorage.getItem("enipay_lang") || "zh";
+    if (RESOURCES_I18N[lang] && RESOURCES_I18N[lang][item.id] && RESOURCES_I18N[lang][item.id].title) {
+      return RESOURCES_I18N[lang][item.id].title;
+    }
+    if (RESOURCES_I18N.zh && RESOURCES_I18N.zh[item.id] && RESOURCES_I18N.zh[item.id].title) {
+      return RESOURCES_I18N.zh[item.id].title;
+    }
+  } catch (e) {}
+  return item.title || "";
+}
+
+function getResourceSubtitle(item) {
+  try {
+    const lang = localStorage.getItem("enipay_lang") || "zh";
+    if (RESOURCES_I18N[lang] && RESOURCES_I18N[lang][item.id] && RESOURCES_I18N[lang][item.id].subtitle) {
+      return RESOURCES_I18N[lang][item.id].subtitle;
+    }
+    if (RESOURCES_I18N.zh && RESOURCES_I18N.zh[item.id] && RESOURCES_I18N.zh[item.id].subtitle) {
+      return RESOURCES_I18N.zh[item.id].subtitle;
+    }
+  } catch (e) {}
+  return item.subtitle || "";
+}
+
+function getResourceBadge(item) {
+  try {
+    const lang = localStorage.getItem("enipay_lang") || "zh";
+    if (RESOURCES_I18N[lang] && RESOURCES_I18N[lang][item.id] && RESOURCES_I18N[lang][item.id].badge) {
+      return RESOURCES_I18N[lang][item.id].badge;
+    }
+    if (RESOURCES_I18N.zh && RESOURCES_I18N.zh[item.id] && RESOURCES_I18N.zh[item.id].badge) {
+      return RESOURCES_I18N.zh[item.id].badge;
+    }
+  } catch (e) {}
+  return item.badge || item.category || "";
+}
+
+function getResourceSize(item) {
+  if (!item.size) return "";
+  if (item.size === "云端同步") {
+    try {
+      const lang = localStorage.getItem("enipay_lang") || "zh";
+      const map = {
+        zh: "云端同步",
+        en: "Cloud Sync",
+        ja: "クラウド同期",
+        ko: "클라우드 동기화",
+        vi: "Đồng bộ Cloud"
+      };
+      return map[lang] || item.size;
+    } catch (e) {}
+  }
+  return item.size;
+}
+
+
 // Purge obsolete legacy local caches to guarantee zero broken image paths
 try {
   localStorage.removeItem("enipay_local_resources_db");
@@ -754,7 +1550,7 @@ function handleImageError(img, title, icon) {
       fallbackDiv.innerHTML = `
         <span class="text-3xl filter drop-shadow">${icon || '🖼️'}</span>
         <span class="text-[11px] font-bold text-slate-300 line-clamp-1">${title || '资源物料'}</span>
-        <span class="text-[9px] font-mono text-cyan-neon border border-cyan-neon/30 bg-cyan-neon/10 px-2 py-0.5 rounded">高清物料 · 点击预览</span>
+        <span class="text-[9px] font-mono text-cyan-neon border border-cyan-neon/30 bg-cyan-neon/10 px-2 py-0.5 rounded">${getHubI18n("res_fallback_preview_hint", "高清物料 · 点击预览")}</span>
       `;
       parent.appendChild(fallbackDiv);
     }
@@ -764,7 +1560,7 @@ function handleImageError(img, title, icon) {
 // ⬇️ High-Performance Direct Download Handler (Supports Blob download, Chinese filenames & mobile)
 async function downloadFileDirectly(url, filename) {
   if (!url || url === "#") {
-    alert("该资源正在整理同步中，稍后开放下载！");
+    alert(getHubI18n("res_download_pending_alert", "该资源正在整理同步中，稍后开放下载！"));
     return;
   }
 
@@ -926,7 +1722,7 @@ function generateThemedDocCover(item) {
   let gradientClass = "bg-gradient-to-br from-[#84cc16] via-[#00ffb2] to-[#00f2fe]";
   let textDark = "text-[#050811]";
   let enTitle = "A GLOBAL DIGITAL PAYMENT NETWORK FOR HUMANS AND AI AGENTS";
-  let zhTitle = "人类与 AI Agent 共用的全球数字支付网络";
+  let zhTitle = getResourceTitle(item);
   let techFootnote = "Traditional Finance × Blockchain Infrastructure × AI-Powered Payment Layer";
   let microTag = "OFFICIAL SPEC";
 
@@ -1181,7 +1977,7 @@ function generateThemedVideoCover(item) {
   let gradientClass = "bg-gradient-to-br from-[#064e3b] via-[#0f172a] to-[#083344]";
   let borderGlow = "border-cyan-neon/40 hover:border-cyan-neon";
   let enTitle = "OFFICIAL 4K HD PROMOTIONAL CINEMATIC";
-  let zhTitle = item.title || "官方高清宣传视频";
+  let zhTitle = getResourceTitle(item);
   let techFootnote = "ENIPAY Ultra-HD Streaming // Web FastStart";
   let microTag = "4K STREAM";
 
@@ -1254,7 +2050,7 @@ function generateThemedVideoCover(item) {
             ${microTag}
           </span>
           <span class="text-[8px] font-mono font-bold text-red-400 bg-red-500/15 px-1.5 py-0.5 rounded border border-red-500/25">
-            🔒 仅限在线观看
+            ${getHubI18n("res_badge_online_only", "🔒 仅限在线观看")}
           </span>
         </div>
       </div>
@@ -1318,17 +2114,24 @@ function renderResources() {
   const filtered = activeResourcesList.filter((item) => {
     const itemCat = cat_mapping_runtime(item);
     const matchCat = currentCategory === "all" || itemCat === currentCategory;
+    const locTitle = getResourceTitle(item).toLowerCase();
+    const locSub = getResourceSubtitle(item).toLowerCase();
+    const locBadge = getResourceBadge(item).toLowerCase();
     const matchSearch =
       !searchQuery ||
       item.title.toLowerCase().includes(searchQuery) ||
+      locTitle.includes(searchQuery) ||
       (item.subtitle && item.subtitle.toLowerCase().includes(searchQuery)) ||
+      locSub.includes(searchQuery) ||
       item.type.toLowerCase().includes(searchQuery) ||
-      (item.badge && item.badge.toLowerCase().includes(searchQuery));
+      (item.badge && item.badge.toLowerCase().includes(searchQuery)) ||
+      locBadge.includes(searchQuery);
     return matchCat && matchSearch;
   });
 
   if (countBadge) {
-    countBadge.innerText = `${filtered.length} 项资源`;
+    const totalBadgeTpl = getHubI18n("res_total_badge", "共 {count} 项官方资料已收录");
+    countBadge.innerText = totalBadgeTpl.replace("{count}", filtered.length);
   }
 
   if (filtered.length === 0) {
@@ -1361,13 +2164,15 @@ function renderResources() {
     secWrapper.className = "space-y-3.5";
 
     const titleColor = sec.color === "gold" ? "text-gold-400" : "text-cyan-neon";
+    const secTitle = getHubI18n("res_tab_" + sec.id, sec.title);
+    const secCountText = getHubI18n("res_items_count", "{count} 项").replace("{count}", secItems.length);
     const headerHtml = `
       <div class="flex items-center justify-between pb-2 border-b border-slate-800/80">
         <div class="flex items-center gap-2">
           <span class="text-xl">${sec.icon}</span>
-          <h2 class="text-base sm:text-lg font-black text-white font-mono tracking-wide">${sec.title}</h2>
+          <h2 class="text-base sm:text-lg font-black text-white font-mono tracking-wide">${secTitle}</h2>
           <span class="cyber-pill text-[9px] py-0.5 px-2 bg-${sec.color === "gold" ? "gold-400/15 text-gold-400 border-gold-400/30" : "cyan-neon/15 text-cyan-neon border-cyan-neon/30"} font-bold ml-1">
-            ${secItems.length} 项
+            ${secCountText}
           </span>
         </div>
         <span class="text-[10px] sm:text-xs ${titleColor} font-mono font-bold tracking-wider hidden sm:inline">
@@ -1390,7 +2195,7 @@ function renderResources() {
 }
 
 function cat_mapping_runtime(item) {
-  const map = {"docsend-global-deck": "whitepaper", "doc-bp-multilang": "company", "poster-long-intro": "company", "poster-staking-model": "model", "poster-fission-model": "model", "doc-community-ecosystem": "community", "doc-community-intro": "community", "poster-competitive-edge": "community", "doc-qa-pdf": "qa", "download-gdrive-pack": "materials", "rollup-global-set": "materials", "poster-main-1": "materials", "poster-main-2": "materials", "poster-main-3": "materials", "signage-front-day": "materials", "logo-brand-pack": "materials", "logo-psd-source": "materials", "video-eni-main": "videos", "video-enipay-promo": "videos", "video-spokesperson": "videos", "video-ecosystem": "videos", "video-finance-model": "videos", "video-wealth-code": "videos", "video-super-eco": "videos", "video-digital-pay": "videos", "video-eni-promo-2": "videos"};
+  const map = {"docsend-global-deck": "whitepaper", "doc-bp-multilang": "company", "poster-long-intro": "company", "poster-staking-model": "model", "poster-fission-model": "model", "doc-epay-intro": "model", "doc-community-ecosystem": "community", "doc-community-intro": "community", "poster-competitive-edge": "community", "poster-eco-overview": "community", "doc-qa-pdf": "qa", "download-gdrive-pack": "materials", "rollup-global-set": "materials", "poster-main-1": "materials", "poster-main-2": "materials", "poster-main-3": "materials", "signage-front-day": "materials", "signage-front-night": "materials", "signage-storefront": "materials", "signage-lightbox": "materials", "logo-brand-pack": "materials", "logo-psd-source": "materials", "video-eni-main": "videos", "video-enipay-promo": "videos", "video-spokesperson": "videos", "video-ecosystem": "videos", "video-finance-model": "videos", "video-wealth-code": "videos", "video-super-eco": "videos", "video-digital-pay": "videos", "video-eni-promo-2": "videos"};
   return map[item.id] || item.category || "materials";
 }
 
@@ -1409,9 +2214,13 @@ function renderGridView(container, items) {
       const canDownload = item.canDownload !== false && item.can_download !== false && !isVideo && !isDocSend;
       const badgeColor = item.badgeColor || item.badge_color || "cyan";
 
+      const itemTitle = getResourceTitle(item);
+      const itemSubtitle = getResourceSubtitle(item);
+      const itemBadge = getResourceBadge(item);
       const safePath = encodeURI(item.path);
       const safeThumb = encodeURI(item.thumb || item.path);
-      const safeTitle = escapeQuotes(item.title);
+      const safeTitle = escapeQuotes(itemTitle);
+      const safeSubtitle = escapeQuotes(itemSubtitle);
       const safeIcon = escapeQuotes(item.icon || '🖼️');
 
       let mediaPreview = "";
@@ -1420,7 +2229,7 @@ function renderGridView(container, items) {
           <div class="h-36 sm:h-40 w-full bg-slate-950/80 rounded-xl overflow-hidden flex items-center justify-center relative group cursor-pointer border border-slate-800/80 hover:border-cyan-neon/50 transition-all" onclick="openImageLightbox('${safePath}', '${safeTitle}')">
             <img src="${safeThumb}" alt="${safeTitle}" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy" onerror="handleImageError(this, '${safeTitle}', '${safeIcon}')">
             <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
-              <span class="p-2 rounded-full bg-cyan-neon/20 border border-cyan-neon text-cyan-neon text-xs font-bold shadow-lg">🔍 点击查看大图</span>
+              <span class="p-2 rounded-full bg-cyan-neon/20 border border-cyan-neon text-cyan-neon text-xs font-bold shadow-lg">${getHubI18n("res_click_to_zoom", "🔍 点击查看大图")}</span>
             </div>
           </div>
         `;
@@ -1443,7 +2252,7 @@ function renderGridView(container, items) {
                 const safeUrl = encodeURI(link.url);
                 const safeLinkTitle = escapeQuotes(`${item.title} - ${link.label}`);
                 const clickHandler = isPending
-                  ? `onclick="alert('【温馨提示】该语言版本正在同步整理中，后续补齐后将立即开放下载！')"`
+                  ? `onclick="alert('${escapeQuotes(getHubI18n("res_lang_pending_alert", "【温馨提示】该语言版本正在同步整理中，后续补齐后将立即开放下载！"))}')"`
                   : isImg 
                     ? `onclick="openImageLightbox('${safeUrl}', '${safeLinkTitle}')"`
                     : `onclick="window.open('${safeUrl}', '_blank')"`;
@@ -1510,7 +2319,7 @@ function renderGridView(container, items) {
           <div>
             <div class="flex items-center justify-between gap-2 mb-2.5">
               <span class="cyber-pill text-[9px] py-0.5 px-2 bg-${badgeColor === "gold" ? "gold-400/15 text-gold-400 border-gold-400/30" : badgeColor === "blue" ? "blue-500/15 text-blue-400 border-blue-500/30" : "cyan-neon/15 text-cyan-neon border-cyan-neon/30"} font-bold">
-                ${item.badge || item.category}
+                ${itemBadge}
               </span>
               <span class="text-[10px] font-mono text-slate-400 font-bold">${item.type}</span>
             </div>
@@ -1518,11 +2327,11 @@ function renderGridView(container, items) {
             ${mediaPreview}
 
             <div class="mt-3">
-              <h3 class="text-sm font-bold text-white leading-snug line-clamp-2 group-hover:text-cyan-neon transition-colors" title="${item.title}">
-                ${item.title}
+              <h3 class="text-sm font-bold text-white leading-snug line-clamp-2 group-hover:text-cyan-neon transition-colors" title="${safeTitle}">
+                ${itemTitle}
               </h3>
-              <p class="text-[11px] text-slate-400 mt-1 line-clamp-2 leading-relaxed" title="${item.subtitle || ''}">
-                ${item.subtitle || ''}
+              <p class="text-[11px] text-slate-400 mt-1 line-clamp-2 leading-relaxed" title="${safeSubtitle}">
+                ${itemSubtitle}
               </p>
             </div>
           </div>
@@ -1551,9 +2360,14 @@ function renderListView(container, items) {
       const canDownload = item.canDownload !== false && item.can_download !== false && !isVideo && !isDocSend;
       const badgeColor = item.badgeColor || item.badge_color || "cyan";
 
+      const itemTitle = getResourceTitle(item);
+      const itemSubtitle = getResourceSubtitle(item);
+      const itemBadge = getResourceBadge(item);
+      const itemSize = getResourceSize(item);
       const safePath = encodeURI(item.path);
       const safeThumb = encodeURI(item.thumb || item.path);
-      const safeTitle = escapeQuotes(item.title);
+      const safeTitle = escapeQuotes(itemTitle);
+      const safeSubtitle = escapeQuotes(itemSubtitle);
       const safeIcon = escapeQuotes(item.icon || '🖼️');
 
       // Small Thumb
@@ -1592,7 +2406,7 @@ function renderListView(container, items) {
                 const safeUrl = encodeURI(link.url);
                 const safeLinkTitle = escapeQuotes(`${item.title} - ${link.label}`);
                 const clickHandler = isPending
-                  ? `onclick="alert('【温馨提示】该语言版本正在同步整理中，后续补齐后将立即开放下载！')"`
+                  ? `onclick="alert('${escapeQuotes(getHubI18n("res_lang_pending_alert", "【温馨提示】该语言版本正在同步整理中，后续补齐后将立即开放下载！"))}')"`
                   : isImg 
                     ? `onclick="openImageLightbox('${safeUrl}', '${safeLinkTitle}')"`
                     : `onclick="window.open('${safeUrl}', '_blank')"`;
@@ -1653,14 +2467,14 @@ function renderListView(container, items) {
                   ${item.badge || item.category}
                 </span>
                 <span class="text-[10px] font-mono text-slate-400">${item.type}</span>
-                ${item.size ? `<span class="text-[10px] text-slate-500 font-mono">· ${item.size}</span>` : ""}
-                ${isVideo ? `<span class="text-[9px] text-red-400/80 font-mono">· 仅限在线播放</span>` : ""}
+                ${itemSize ? `<span class="text-[10px] text-slate-500 font-mono">· ${itemSize}</span>` : ""}
+                ${isVideo ? `<span class="text-[9px] text-red-400/80 font-mono">· ${getHubI18n("res_badge_online_only", "仅限在线播放")}</span>` : ""}
               </div>
-              <h3 class="text-xs sm:text-sm font-bold text-white truncate" title="${item.title}">
-                ${item.title}
+              <h3 class="text-xs sm:text-sm font-bold text-white truncate" title="${safeTitle}">
+                ${itemTitle}
               </h3>
               <p class="text-[11px] text-slate-400 truncate hidden sm:block">
-                ${item.subtitle || ''}
+                ${itemSubtitle}
               </p>
             </div>
           </div>
