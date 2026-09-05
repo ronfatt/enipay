@@ -1,9 +1,10 @@
 // 🌐 Multilingual i18n Helper for Resources Hub
 function getHubI18n(key, fallback) {
   try {
-    const lang = localStorage.getItem("enipay_lang") || "zh";
-    if (window.translations && window.translations[lang] && window.translations[lang][key]) {
-      return window.translations[lang][key];
+    const lang = localStorage.getItem("enipay_lang") || (window.i18n ? window.i18n.currentLang : "zh");
+    const dict = (window.translations && window.translations[lang]) || (window.translations && window.translations.zh);
+    if (dict && dict[key] !== undefined) {
+      return dict[key];
     }
   } catch (e) {}
   return fallback;
@@ -1620,6 +1621,12 @@ document.addEventListener("DOMContentLoaded", () => {
 const DEFAULT_SUPABASE_URL = "https://kvdaargyladksfytbjlf.supabase.co";
 const DEFAULT_SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt2ZGFhcmd5bGFka3NmeXRiamxmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgzMTE4MzksImV4cCI6MjEwMzg4NzgzOX0.7xCvOpNvQkdh7PkxnTdL4GxsbIuGbLpsjK6d9qEYYsc";
 
+function isImagePath(url) {
+  if (!url || typeof url !== "string") return false;
+  const clean = url.split("?")[0].toLowerCase();
+  return clean.endsWith(".png") || clean.endsWith(".jpg") || clean.endsWith(".jpeg") || clean.endsWith(".webp") || clean.endsWith(".svg") || clean.endsWith(".gif");
+}
+
 // Authoritative Local Merger: guarantees remote Supabase or cache never overrides verified paths/thumbs
 function mergeWithAuthoritative(remoteList) {
   if (!Array.isArray(remoteList) || remoteList.length === 0) return [...RESOURCES_DATA];
@@ -1631,7 +1638,7 @@ function mergeWithAuthoritative(remoteList) {
     return {
       ...remoteItem,
       path: local.path, // Authoritative local path
-      thumb: local.thumb || local.path, // Authoritative local thumb
+      thumb: local.thumb || (isImagePath(local.path) ? local.path : ""), // Authoritative local thumb (only if image)
       multiLangLinks: local.multiLangLinks || MULTI_LANG_REGISTRY[local.id] || remoteItem.multiLangLinks || remoteItem.multi_lang_links,
       type: local.type || remoteItem.type,
       category: local.category || remoteItem.category,
@@ -1721,82 +1728,37 @@ function handleSecretAdminTrigger() {
 function generateThemedDocCover(item) {
   let gradientClass = "bg-gradient-to-br from-[#84cc16] via-[#00ffb2] to-[#00f2fe]";
   let textDark = "text-[#050811]";
-  let enTitle = "A GLOBAL DIGITAL PAYMENT NETWORK FOR HUMANS AND AI AGENTS";
-  let zhTitle = getResourceTitle(item);
-  let techFootnote = "Traditional Finance × Blockchain Infrastructure × AI-Powered Payment Layer";
-  let microTag = "OFFICIAL SPEC";
+  let localizedTitle = getResourceTitle(item);
+  let localizedSubtitle = getResourceSubtitle(item);
+  let microTag = item.type || "DOC";
 
   if (item.id === "rollup-global-set" || item.category === "rollups") {
     gradientClass = "bg-gradient-to-br from-[#00ffb2] via-[#22d3ee] to-[#3b82f6]";
-    enTitle = "ENIPAY OFFICIAL ROLL-UP BANNERS (5 LANGUAGES)";
-    zhTitle = "ENIPAY 官方标准易拉宝展架 · 5 国语言全套";
-    techFootnote = "Conferences × Roadshows × Multi-Language Rollups";
     microTag = "ROLLUP BANNERS";
   } else if (item.id === "docsend-global-deck" || item.category === "docsend") {
     gradientClass = "bg-gradient-to-br from-[#00ffb2] via-[#00f2fe] to-[#3b82f6]";
-    enTitle = "ENI CHAIN OFFICIAL GLOBAL CORE DECK (6 LANGUAGES)";
-    zhTitle = "ENI 公链官方核心资料 · 6 语种在线全息阅览";
-    techFootnote = "DocSend Live Sync × Multi-Language Global Reader";
     microTag = "6 LANGUAGES";
-  } else if (item.id === "doc-bp-pdf") {
+  } else if (item.id === "doc-bp-pdf" || item.id === "doc-bp-multilang") {
     gradientClass = "bg-gradient-to-br from-[#84cc16] via-[#00ffb2] to-[#00f2fe]";
-    enTitle = "ENIPAY OFFICIAL BUSINESS PLAN & STRATEGY";
-    zhTitle = "ENIPAY 官方商业计划书 (Business Plan)";
-    techFootnote = "Business Model × Tri-Layer Architecture × Token Incentive";
     microTag = "STRATEGY BP";
   } else if (item.id === "doc-qa-pdf" || item.id === "doc-qa-pptx") {
     gradientClass = "bg-gradient-to-br from-[#00f2fe] via-[#00ffb2] to-[#22c55e]";
-    enTitle = "ENIPAY MARKET QUESTIONS & ANSWERS MANUAL";
-    zhTitle = "ENIPAY 市场常见问答手册 (Q&A)";
-    techFootnote = "ENI Chain Base × Binance Custody × Crypto U-Card";
     microTag = item.type === "PPTX" ? "KEYNOTE DECK" : "MARKET FAQ";
   } else if (item.id === "doc-epay-intro") {
     gradientClass = "bg-gradient-to-br from-[#a3e635] via-[#10b981] to-[#06b6d4]";
-    enTitle = "EPAY TOKENOMICS & DEFLATIONARY ACCELERATOR";
-    zhTitle = "EPAY 项目深度介绍 (中文版)";
-    techFootnote = "80% Black Hole × 5% Mandatory Buyback × 100-Tier Matrix";
     microTag = "TOKENOMICS";
   } else if (item.id === "doc-community-ecosystem") {
     gradientClass = "bg-gradient-to-br from-[#06b6d4] via-[#10b981] to-[#3b82f6]";
-    enTitle = "EPAY COMMUNITY SUBSIDY & INCENTIVE PROGRAM (5 LANGUAGES)";
-    zhTitle = "Epay 社区补贴方案 · 5 国语言全套";
-    techFootnote = "Community Evangelism × Merchant Matrix × Node Governance";
     microTag = "COMMUNITY SUBSIDY";
   } else if (item.id === "doc-community-intro") {
     gradientClass = "bg-gradient-to-br from-[#10b981] via-[#06b6d4] to-[#0284c7]";
-    enTitle = "EPAY COMMUNITY OFFICIAL PROFILE & OVERVIEW (5 LANGUAGES)";
-    zhTitle = "EPAY 社区简介官方手册 · 5 国语言全套";
-    techFootnote = "Payment Gateway Architecture × Global Consensus Playbook";
     microTag = "COMMUNITY GUIDE";
   } else if (item.id === "download-gdrive-pack") {
     gradientClass = "bg-gradient-to-br from-[#f59e0b] via-[#10b981] to-[#06b6d4]";
-    enTitle = "OFFICIAL GOOGLE DRIVE CLOUD ARCHIVE & BRAND ASSETS";
-    zhTitle = "ENIPAY 官方物料全套云盘 (Google Drive)";
-    techFootnote = "Photoshop PSD × AI Vector × Full Rollup & Poster Packs";
     microTag = "GOOGLE DRIVE";
   } else if (item.id === "logo-brand-pack") {
     gradientClass = "bg-gradient-to-br from-[#eab308] via-[#00ffb2] to-[#0284c7]";
-    enTitle = "ENIPAY OFFICIAL BRAND VI & LOGO MASTER PACK";
-    zhTitle = "ENIPAY 官方品牌 Logo 与超级符号图包";
-    techFootnote = "Vector Icons × App Icons × 300DPI Print & Web Standards";
     microTag = "BRAND VI";
-  } else if (item.id === "doc-epay-v14") {
-    gradientClass = "bg-gradient-to-br from-[#00ffb2] via-[#00c8ff] to-[#3b82f6]";
-    enTitle = "GLOBAL PAYMENT AGGREGATION PROTOCOL v1.4";
-    zhTitle = "Epay 全球聚合支付平台架构白皮书 v1.4";
-    techFootnote = "Four-Party Clearing × Smart Contracts × On-Off Ramp Rails";
-    microTag = "WHITEPAPER";
-  } else if (item.id === "doc-amend-pdf") {
-    gradientClass = "bg-gradient-to-br from-[#38bdf8] via-[#00ffb2] to-[#84cc16]";
-    enTitle = "GLOBAL FINANCIAL LICENSES & COMPLIANCE";
-    zhTitle = "ENIPAY 生态规划与合规补充说明";
-    techFootnote = "Global M&A × Multi-Jurisdiction Compliance × Risk Protocol";
-    microTag = "COMPLIANCE";
-  } else if (item.title) {
-    zhTitle = item.title;
-    enTitle = item.subtitle ? item.subtitle.toUpperCase() : "ENIPAY OFFICIAL VERIFIED RESOURCE";
-    techFootnote = "Traditional Finance × Blockchain Infrastructure × AI Payment Layer";
-    microTag = item.type || "DOC";
   }
 
   const safePath = item.path ? encodeURI(item.path) : "";
@@ -1810,7 +1772,7 @@ function generateThemedDocCover(item) {
       <div class="flex items-center justify-between z-10">
         <div class="flex items-center gap-1.5 font-mono font-black ${textDark} text-[11px] tracking-wider">
           <span class="w-4 h-4 bg-[#050811] text-[#00ffb2] rounded flex items-center justify-center text-[10px] font-bold">E</span>
-          <span>ENI\PAY</span>
+          <span>ENI\\PAY</span>
         </div>
         <span class="text-[8px] font-mono font-bold ${textDark} bg-black/10 px-1.5 py-0.5 rounded border border-black/15 uppercase">
           ${microTag}
@@ -1820,17 +1782,17 @@ function generateThemedDocCover(item) {
       <!-- Center Headline -->
       <div class="z-10 my-auto text-center px-1">
         <div class="text-[10px] sm:text-[11px] font-black ${textDark} tracking-tight leading-snug uppercase font-mono mb-0.5 line-clamp-2">
-          ${enTitle}
+          ${localizedSubtitle}
         </div>
         <div class="text-xs sm:text-[13px] font-extrabold ${textDark} leading-tight drop-shadow-sm line-clamp-1">
-          ${zhTitle}
+          ${localizedTitle}
         </div>
       </div>
 
       <!-- Bottom Footnote -->
       <div class="z-10 text-center border-t border-black/15 pt-1">
         <div class="text-[8px] font-mono font-semibold ${textDark}/85 truncate">
-          ${techFootnote}
+          ENIPAY GLOBAL VERIFIED RESOURCE ARCHIVE
         </div>
       </div>
 
@@ -1971,74 +1933,130 @@ function getResourceMultiLinks(item) {
   return null;
 }
 
+// Localized Link Labels Helper for multiLangLinks (covers 5 languages + special packages)
+function getLocalizedLinkLabel(item, link) {
+  const currentLang = localStorage.getItem("enipay_lang") || "zh";
+
+  const SPECIAL_LABELS = {
+    "signage-front-day": {
+      zh: { zh: "☀️ 白天前台", en: "🌙 晚上发光前台", ja: "🏢 官方门头店招", ko: "💡 实体发光灯箱" },
+      en: { zh: "☀️ Day Front Desk", en: "🌙 Night Glow Desk", ja: "🏢 Storefront Sign", ko: "💡 Lightbox Sign" },
+      ja: { zh: "☀️ 昼間受付カウンター", en: "🌙 夜間発光カウンター", ja: "🏢 店舗看板", ko: "💡 発光ライトボックス" },
+      ko: { zh: "☀️ 주간 프론트 데스크", en: "🌙 야간 발광 프론트", ja: "🏢 매장 전면 간판", ko: "💡 조명 라이트박스" },
+      vi: { zh: "☀️ Quầy ban ngày", en: "🌙 Quầy phát sáng đêm", ja: "🏢 Biển hiệu cửa hàng", ko: "💡 Hộp đèn chiếu sáng" }
+    },
+    "logo-brand-pack": {
+      zh: { zh: "🎨 ENIPAY Logo", en: "💎 Epay Logo 系列", ja: "🌐 ENI 主网 Logo", ko: "📱 App Icon 图标" },
+      en: { zh: "🎨 ENIPAY Logo", en: "💎 Epay Logo Pack", ja: "🌐 ENI Mainnet Logo", ko: "📱 App Icons" },
+      ja: { zh: "🎨 ENIPAY Logo", en: "💎 Epay ロゴシリーズ", ja: "🌐 ENI メインネット Logo", ko: "📱 App アイコン" },
+      ko: { zh: "🎨 ENIPAY 로고", en: "💎 Epay 로고 시리즈", ja: "🌐 ENI 메인넷 로고", ko: "📱 App 아이콘" },
+      vi: { zh: "🎨 Logo ENIPAY", en: "💎 Bộ Logo Epay", ja: "🌐 Logo Mạng ENI", ko: "📱 Icon Ứng dụng" }
+    }
+  };
+
+  if (SPECIAL_LABELS[item.id] && SPECIAL_LABELS[item.id][currentLang] && SPECIAL_LABELS[item.id][currentLang][link.lang]) {
+    return SPECIAL_LABELS[item.id][currentLang][link.lang];
+  }
+
+  const STANDARD_LANG_LABELS = {
+    zh: {
+      zh: "🇨🇳 简体中文版",
+      zht: "🇭🇰 繁体中文版",
+      en: "🇺🇸 英文版 (English)",
+      ko: "🇰🇷 韩文版 (한국어)",
+      vi: "🇻🇳 越南文版 (Tiếng Việt)",
+      ja: "🇯🇵 日文版 (日本語)",
+      id: "🇮🇩 印尼文版 (Indonesia)"
+    },
+    en: {
+      zh: "🇨🇳 Simplified Chinese",
+      zht: "🇭🇰 Traditional Chinese",
+      en: "🇺🇸 English Edition",
+      ko: "🇰🇷 Korean (한국어)",
+      vi: "🇻🇳 Vietnamese (Tiếng Việt)",
+      ja: "🇯🇵 Japanese (日本語)",
+      id: "🇮🇩 Indonesian (Indonesia)"
+    },
+    ja: {
+      zh: "🇨🇳 簡体字中国語版",
+      zht: "🇭🇰 繁体字中国語版",
+      en: "🇺🇸 英語版 (English)",
+      ko: "🇰🇷 韓国語版 (한국어)",
+      vi: "🇻🇳 ベトナム語版 (Tiếng Việt)",
+      ja: "🇯🇵 日本語版",
+      id: "🇮🇩 インドネシア語版"
+    },
+    ko: {
+      zh: "🇨🇳 간체 중국어판",
+      zht: "🇭🇰 번체 중국어판",
+      en: "🇺🇸 영어판 (English)",
+      ko: "🇰🇷 한국어판",
+      vi: "🇻🇳 베트남어판 (Tiếng Việt)",
+      ja: "🇯🇵 일본어판 (日本語)",
+      id: "🇮🇩 인도네시아어판"
+    },
+    vi: {
+      zh: "🇨🇳 Tiếng Trung giản thể",
+      zht: "🇭🇰 Tiếng Trung phồn thể",
+      en: "🇺🇸 Bản tiếng Anh (English)",
+      ko: "🇰🇷 Bản tiếng Hàn (한국어)",
+      vi: "🇻🇳 Bản Tiếng Việt",
+      ja: "🇯🇵 Bản tiếng Nhật (日本語)",
+      id: "🇮🇩 Bản tiếng Indonesia"
+    }
+  };
+
+  if (STANDARD_LANG_LABELS[currentLang] && STANDARD_LANG_LABELS[currentLang][link.lang]) {
+    return STANDARD_LANG_LABELS[currentLang][link.lang];
+  }
+
+  return link.label || link.lang;
+}
+
+
 
 // 🎬 Generate High-Tech Themed Cyan/Neon Video Cover Banners
 function generateThemedVideoCover(item) {
   let gradientClass = "bg-gradient-to-br from-[#064e3b] via-[#0f172a] to-[#083344]";
   let borderGlow = "border-cyan-neon/40 hover:border-cyan-neon";
-  let enTitle = "OFFICIAL 4K HD PROMOTIONAL CINEMATIC";
-  let zhTitle = getResourceTitle(item);
-  let techFootnote = "ENIPAY Ultra-HD Streaming // Web FastStart";
+  let localizedTitle = getResourceTitle(item);
+  let localizedSubtitle = getResourceSubtitle(item);
   let microTag = "4K STREAM";
 
   if (item.id === "video-eni-main") {
     gradientClass = "bg-gradient-to-br from-[#042f2e] via-[#0f172a] to-[#022c22]";
-    enTitle = "ENI CHAIN GLOBAL OFFICIAL CINEMATIC DECK";
-    zhTitle = "ENI 公链官方品牌宣传大片";
-    techFootnote = "Modular L1 Architecture × NTT Partnership × Tokyo HQ";
     microTag = "FLAGSHIP";
   } else if (item.id === "video-enipay-promo") {
     gradientClass = "bg-gradient-to-br from-[#064e3b] via-[#022c22] to-[#083344]";
-    enTitle = "ENIPAY GLOBAL DIGITAL PAYMENT NETWORK";
-    zhTitle = "ENIPAY 全球支付聚合平台宣传短片";
-    techFootnote = "Tri-Color Crypto U-Card × QR Code Rails × AI Card";
     microTag = "PAYMENT HUB";
   } else if (item.id === "video-spokesperson") {
     gradientClass = "bg-gradient-to-br from-[#713f12] via-[#0f172a] to-[#1e1b4b]";
-    enTitle = "OFFICIAL BRAND AMBASSADOR SHOWCASE";
-    zhTitle = "ENIPAY 品牌形象代言宣传短片";
-    techFootnote = "Global Community Evangelism × Influencer Matrix";
     microTag = "AMBASSADOR";
   } else if (item.id === "video-ecosystem") {
     gradientClass = "bg-gradient-to-br from-[#083344] via-[#0f172a] to-[#022c22]";
-    enTitle = "ENIPAY GLOBAL ECOSYSTEM & FIVE-YEAR ROADMAP";
-    zhTitle = "ENIPAY ECOSYSTEM 全球生态全景";
-    techFootnote = "Global M&A × Nasdaq Listing Roadmap × Trillion Pipeline";
     microTag = "ECOSYSTEM";
   } else if (item.id === "video-finance-model") {
     gradientClass = "bg-gradient-to-br from-[#713f12] via-[#0f172a] to-[#064e3b]";
-    enTitle = "ENI MG FINANCIAL TOKENOMICS & DEFLATION";
-    zhTitle = "ENI MG 金融模型与通缩机制深度解读";
-    techFootnote = "Node Mining × 80% Black Hole × Market Acceleration";
     microTag = "TOKENOMICS";
   } else if (item.id === "video-wealth-code") {
     gradientClass = "bg-gradient-to-br from-[#854d0e] via-[#0f172a] to-[#042f2e]";
-    enTitle = "ENIPAY WEALTH CODE & EARLY PARTICIPANT DIVIDENDS";
-    zhTitle = "ENIPAY 财富密码与全球红利";
-    techFootnote = "Web3 Blue Ocean Market × Continuous Cashflow Pipeline";
     microTag = "WEALTH MATRIX";
   } else if (item.id === "video-super-eco") {
     gradientClass = "bg-gradient-to-br from-[#064e3b] via-[#0f172a] to-[#0c4a6e]";
-    enTitle = "EPAY SUPER ECOSYSTEM LIVE APPLICATION";
-    zhTitle = "EPAY 超级生态落地演示";
-    techFootnote = "Merchant Settlement × On-Off Ramp × Instant Liquidity";
     microTag = "SUPER ECO";
   } else if (item.id === "video-digital-pay") {
     gradientClass = "bg-gradient-to-br from-[#0284c7] via-[#0f172a] to-[#059669]";
-    enTitle = "EPAY DIGITAL INSTANT SETTLEMENT & ZERO-FREEZE";
-    zhTitle = "EPAY 数字支付与即时出入金";
-    techFootnote = "Zero-Freeze Risk Control × Binance Custody × Swift Rails";
     microTag = "INSTANT PAY";
   } else if (item.id === "video-eni-promo-2") {
     gradientClass = "bg-gradient-to-br from-[#0f766e] via-[#0f172a] to-[#1e1b4b]";
-    enTitle = "ENI CHAIN GLOBAL NODES & CROSS-CHAIN RAILS";
-    zhTitle = "ENI 公链全球节点与技术架构短片 02";
-    techFootnote = "Supernode Distribution × Cross-Chain Interoperability";
     microTag = "GLOBAL NODES";
   }
 
+  const safePath = encodeURI(item.path);
+  const safeTitle = escapeQuotes(localizedTitle);
+
   return `
-    <div class="h-36 sm:h-40 w-full ${gradientClass} rounded-xl p-3 flex flex-col justify-between relative overflow-hidden shadow-lg cursor-pointer border ${borderGlow} transition-all group/vcover hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,255,178,0.3)] select-none" onclick="openVideoModal('${item.path}', '${item.title}')">
+    <div class="h-36 sm:h-40 w-full ${gradientClass} rounded-xl p-3 flex flex-col justify-between relative overflow-hidden shadow-lg cursor-pointer border ${borderGlow} transition-all group/vcover hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(0,255,178,0.3)] select-none" onclick="openVideoModal('${safePath}', '${safeTitle}')">
       <!-- Top Row -->
       <div class="flex items-center justify-between z-10">
         <div class="flex items-center gap-1.5 font-mono font-black text-cyan-neon text-[11px] tracking-wider">
@@ -2049,37 +2067,35 @@ function generateThemedVideoCover(item) {
           <span class="text-[8px] font-mono font-bold text-cyan-neon bg-cyan-neon/15 px-1.5 py-0.5 rounded border border-cyan-neon/30 uppercase tracking-wide">
             ${microTag}
           </span>
-          <span class="text-[8px] font-mono font-bold text-red-400 bg-red-500/15 px-1.5 py-0.5 rounded border border-red-500/25">
-            ${getHubI18n("res_badge_online_only", "🔒 仅限在线观看")}
+          <span class="text-[8px] font-mono font-bold text-red-400 bg-red-500/15 px-1.5 py-0.5 rounded border border-red-500/30">
+            ${getHubI18n("res_btn_play", "播放")}
           </span>
         </div>
       </div>
 
-      <!-- Center Floating Glowing Play Button & Title -->
-      <div class="z-10 my-auto text-center px-1 flex flex-col items-center">
-        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-cyan-neon/20 border border-cyan-neon flex items-center justify-center text-cyan-neon text-lg sm:text-xl shadow-[0_0_20px_rgba(0,255,178,0.4)] group-hover/vcover:scale-110 group-hover/vcover:bg-cyan-neon group-hover/vcover:text-slate-950 transition-all duration-300 mb-1">
-          ▶
-        </div>
-        <div class="text-[10px] sm:text-[11px] font-black text-cyan-bright tracking-tight leading-snug uppercase font-mono line-clamp-1">
-          ${enTitle}
+      <!-- Center Video Play Icon + Title -->
+      <div class="z-10 my-auto text-center px-1">
+        <div class="w-10 h-10 mx-auto mb-1.5 rounded-full bg-cyan-neon/20 border border-cyan-neon/60 flex items-center justify-center text-cyan-neon group-hover/vcover:scale-110 group-hover/vcover:bg-cyan-neon group-hover/vcover:text-slate-950 transition-all shadow-[0_0_15px_rgba(0,255,178,0.3)]">
+          <span class="text-base ml-0.5">▶</span>
         </div>
         <div class="text-xs sm:text-[13px] font-extrabold text-white leading-tight drop-shadow line-clamp-1">
-          ${zhTitle}
+          ${localizedTitle}
+        </div>
+        <div class="text-[9px] text-slate-300 font-mono line-clamp-1 mt-0.5">
+          ${localizedSubtitle}
         </div>
       </div>
 
       <!-- Bottom Tech Footnote -->
-      <div class="z-10 text-center border-t border-slate-700/60 pt-1">
-        <div class="text-[8px] font-mono font-semibold text-slate-300/90 truncate">
-          ${techFootnote}
+      <div class="z-10 text-center border-t border-slate-800/80 pt-1">
+        <div class="text-[8px] font-mono text-cyan-neon/80 truncate">
+          ENIPAY ULTRA-HD STREAMING // FASTSTART
         </div>
       </div>
 
-      <!-- High Tech Background Visuals & Grid & Neon Waves -->
-      <div class="absolute -right-8 -top-8 w-28 h-28 bg-cyan-neon/15 rounded-full blur-xl pointer-events-none group-hover/vcover:scale-125 transition-transform"></div>
-      <div class="absolute -left-8 -bottom-8 w-28 h-28 bg-emerald-500/15 rounded-full blur-xl pointer-events-none"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/30 pointer-events-none"></div>
-      <div class="absolute inset-0 bg-[radial-gradient(#00ffb2_1px,transparent_1px)] [background-size:16px_16px] opacity-10 pointer-events-none"></div>
+      <!-- Video Scanner Line & Glow Effects -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
+      <div class="absolute inset-0 bg-cyan-neon/5 opacity-0 group-hover/vcover:opacity-100 transition-opacity pointer-events-none"></div>
     </div>
   `;
 }
@@ -2165,6 +2181,7 @@ function renderResources() {
 
     const titleColor = sec.color === "gold" ? "text-gold-400" : "text-cyan-neon";
     const secTitle = getHubI18n("res_tab_" + sec.id, sec.title);
+    const secSub = getHubI18n("res_sec_sub_" + sec.id, sec.en);
     const secCountText = getHubI18n("res_items_count", "{count} 项").replace("{count}", secItems.length);
     const headerHtml = `
       <div class="flex items-center justify-between pb-2 border-b border-slate-800/80">
@@ -2176,7 +2193,7 @@ function renderResources() {
           </span>
         </div>
         <span class="text-[10px] sm:text-xs ${titleColor} font-mono font-bold tracking-wider hidden sm:inline">
-          ${sec.en}
+          ${secSub}
         </span>
       </div>
     `;
@@ -2223,8 +2240,9 @@ function renderGridView(container, items) {
       const safeSubtitle = escapeQuotes(itemSubtitle);
       const safeIcon = escapeQuotes(item.icon || '🖼️');
 
+      const hasValidThumb = item.thumb && isImagePath(item.thumb);
       let mediaPreview = "";
-      if (isImage || item.thumb) {
+      if (isImage || hasValidThumb) {
         mediaPreview = `
           <div class="h-36 sm:h-40 w-full bg-slate-950/80 rounded-xl overflow-hidden flex items-center justify-center relative group cursor-pointer border border-slate-800/80 hover:border-cyan-neon/50 transition-all" onclick="openImageLightbox('${safePath}', '${safeTitle}')">
             <img src="${safeThumb}" alt="${safeTitle}" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-300" loading="lazy" onerror="handleImageError(this, '${safeTitle}', '${safeIcon}')">
@@ -2250,7 +2268,8 @@ function renderGridView(container, items) {
               .map((link) => {
                 const isPending = !link.url || link.url === "#";
                 const safeUrl = encodeURI(link.url);
-                const safeLinkTitle = escapeQuotes(`${item.title} - ${link.label}`);
+                const displayLabel = getLocalizedLinkLabel(item, link);
+                const safeLinkTitle = escapeQuotes(`${itemTitle} - ${displayLabel}`);
                 const clickHandler = isPending
                   ? `onclick="alert('${escapeQuotes(getHubI18n("res_lang_pending_alert", "【温馨提示】该语言版本正在同步整理中，后续补齐后将立即开放下载！"))}')"`
                   : isImg 
@@ -2258,7 +2277,7 @@ function renderGridView(container, items) {
                     : `onclick="window.open('${safeUrl}', '_blank')"`;
                 return `
                   <button type="button" ${clickHandler} class="py-2 px-2.5 rounded-xl bg-slate-950/70 hover:bg-cyan-neon/15 text-slate-300 hover:text-white border border-slate-800 hover:border-cyan-neon/60 text-[11px] font-semibold flex items-center justify-between transition-all group/btn shadow-sm text-left cursor-pointer">
-                    <span class="truncate font-medium">${link.label}</span>
+                    <span class="truncate font-medium">${displayLabel}</span>
                     <span class="text-[10px] text-cyan-neon group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform flex-shrink-0 ml-1">↗</span>
                   </button>
                 `;
@@ -2404,7 +2423,8 @@ function renderListView(container, items) {
               .map((link) => {
                 const isPending = !link.url || link.url === "#";
                 const safeUrl = encodeURI(link.url);
-                const safeLinkTitle = escapeQuotes(`${item.title} - ${link.label}`);
+                const displayLabel = getLocalizedLinkLabel(item, link);
+                const safeLinkTitle = escapeQuotes(`${itemTitle} - ${displayLabel}`);
                 const clickHandler = isPending
                   ? `onclick="alert('${escapeQuotes(getHubI18n("res_lang_pending_alert", "【温馨提示】该语言版本正在同步整理中，后续补齐后将立即开放下载！"))}')"`
                   : isImg 
@@ -2412,7 +2432,7 @@ function renderListView(container, items) {
                     : `onclick="window.open('${safeUrl}', '_blank')"`;
                 return `
                   <button type="button" ${clickHandler} class="py-1 px-2.5 rounded-lg bg-slate-950/70 hover:bg-cyan-neon/15 text-slate-300 hover:text-white border border-slate-800 hover:border-cyan-neon/60 text-[11px] font-semibold flex items-center gap-1.5 transition-all cursor-pointer">
-                    <span>${link.label}</span>
+                    <span>${displayLabel}</span>
                     <span class="text-[10px] text-cyan-neon">↗</span>
                   </button>
                 `;
@@ -2464,7 +2484,7 @@ function renderListView(container, items) {
             <div class="min-w-0 flex-1">
               <div class="flex items-center gap-2 mb-0.5 flex-wrap">
                 <span class="cyber-pill text-[9px] py-0.2 px-1.5 bg-${badgeColor === "gold" ? "gold-400/15 text-gold-400 border-gold-400/30" : "cyan-neon/15 text-cyan-neon border-cyan-neon/30"} font-bold">
-                  ${item.badge || item.category}
+                  ${itemBadge}
                 </span>
                 <span class="text-[10px] font-mono text-slate-400">${item.type}</span>
                 ${itemSize ? `<span class="text-[10px] text-slate-500 font-mono">· ${itemSize}</span>` : ""}
@@ -2605,13 +2625,16 @@ function closeImageLightbox() {
   }
 }
 
+// Export renderResources to window so i18nManager can trigger re-renders
+window.renderResources = renderResources;
+
 // Language Switcher Helper
 function switchLanguage(lang) {
   localStorage.setItem("enipay_lang", lang);
-  if (window.setAppLanguage) {
-    window.setAppLanguage(lang);
-  } else if (window.i18n && window.i18n.setLanguage) {
+  if (window.i18n && window.i18n.setLanguage) {
     window.i18n.setLanguage(lang);
+  } else if (window.setAppLanguage) {
+    window.setAppLanguage(lang);
   }
   renderResources();
 }
@@ -2629,8 +2652,8 @@ window.addEventListener("load", () => {
   const savedLang = localStorage.getItem("enipay_lang") || "zh";
   const select = document.getElementById("hub-lang-select");
   if (select) select.value = savedLang;
-  if (window.setAppLanguage) {
-    window.setAppLanguage(savedLang);
+  if (window.i18n && window.i18n.setLanguage) {
+    window.i18n.setLanguage(savedLang);
   }
 });
 

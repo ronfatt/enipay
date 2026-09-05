@@ -49,6 +49,14 @@ const translations = {
     res_footer_tag: "⚡ ENIPAY Web3 支付生态 · 官方全息资料库 ⚡",
     res_footer_copyright: "© 2026 ENIPAY Global. 版权所有。",
 
+        res_sec_sub_whitepaper: "ENI 核心白皮书 & 全球讲义",
+    res_sec_sub_company: "商业计划书 & 企业介绍",
+    res_sec_sub_model: "质押模型与裂变机制",
+    res_sec_sub_community: "生态全景与全球社区",
+    res_sec_sub_qa: "常见问题解答手册",
+    res_sec_sub_materials: "品牌素材、易拉宝、海报与云盘",
+    res_sec_sub_videos: "官方 4K 宣传与生态视频",
+
     badge_alliance_prog: "联盟计划",
     badge_cpn: "CPN 清算网",
     badge_100_backed: "100% 储备金担保",
@@ -555,6 +563,14 @@ const translations = {
     res_fallback_preview_hint: "HD Asset · Click to Preview",
     res_footer_tag: "⚡ ENIPAY Web3 Payment Ecosystem · Official Resource Hub ⚡",
     res_footer_copyright: "© 2026 ENIPAY Global. All Rights Reserved.",
+
+        res_sec_sub_whitepaper: "ENI WHITEPAPER & GLOBAL DECK",
+    res_sec_sub_company: "BUSINESS PLAN & INTRODUCTION",
+    res_sec_sub_model: "STAKING & FISSION TOKENOMICS",
+    res_sec_sub_community: "ECOSYSTEM & GLOBAL COMMUNITY",
+    res_sec_sub_qa: "FREQUENTLY ASKED QUESTIONS",
+    res_sec_sub_materials: "BRAND ASSETS, ROLLUPS, POSTERS & CLOUD DRIVE",
+    res_sec_sub_videos: "OFFICIAL PROMOTIONAL VIDEOS",
 
     badge_alliance_prog: "ALLIANCE PROGRAM",
     badge_cpn: "CPN",
@@ -1076,6 +1092,14 @@ const translations = {
     res_footer_tag: "⚡ ENIPAY Web3 決済エコシステム · 公式リソースハブ ⚡",
     res_footer_copyright: "© 2026 ENIPAY Global. All Rights Reserved.",
 
+        res_sec_sub_whitepaper: "ENI 公式白書＆グローバル資料",
+    res_sec_sub_company: "事業計画書＆企業紹介",
+    res_sec_sub_model: "ステーキング＆トークノミクス",
+    res_sec_sub_community: "エコシステム＆グローバルコミュニティ",
+    res_sec_sub_qa: "よくあるご質問 (Q&A)",
+    res_sec_sub_materials: "ブランド素材・ロールアップ・ポスター・クラウド",
+    res_sec_sub_videos: "公式プロモーション動画＆映像",
+
     badge_alliance_prog: "アライアンス計画",
     badge_cpn: "CPN 決済網",
     badge_100_backed: "100% 準備金担保",
@@ -1585,6 +1609,14 @@ const translations = {
     res_fallback_preview_hint: "HD 자료 · 클릭하여 미리보기",
     res_footer_tag: "⚡ ENIPAY Web3 결제 생태계 · 공식 리소스 허브 ⚡",
     res_footer_copyright: "© 2026 ENIPAY Global. All Rights Reserved.",
+
+        res_sec_sub_whitepaper: "ENI 핵심 백서 및 글로벌 피치덱",
+    res_sec_sub_company: "사업계획서 및 기업 소개",
+    res_sec_sub_model: "스테이킹 및 토크노믹스 모델",
+    res_sec_sub_community: "생태계 및 글로벌 커뮤니티",
+    res_sec_sub_qa: "자주 묻는 질문 (Q&A)",
+    res_sec_sub_materials: "브랜드 에셋, 배너, 포스터 및 클라우드",
+    res_sec_sub_videos: "공식 4K 홍보 및 생태계 영상",
 
     badge_alliance_prog: "제휴 프로그램",
     badge_cpn: "CPN 네트워크",
@@ -2097,6 +2129,14 @@ const translations = {
     res_fallback_preview_hint: "Tài liệu HD · Nhấp để xem trước",
     res_footer_tag: "⚡ Hệ sinh thái thanh toán Web3 ENIPAY · Kho tài nguyên chính thức ⚡",
     res_footer_copyright: "© 2026 ENIPAY Global. Bảo lưu mọi quyền.",
+
+        res_sec_sub_whitepaper: "SÁCH TRẮNG ENI & TÀI LIỆU TOÀN CẦU",
+    res_sec_sub_company: "KẾ HOẠCH KINH DOANH & GIỚI THIỆU",
+    res_sec_sub_model: "MÔ HÌNH STAKING & KINH TẾ TOKEN",
+    res_sec_sub_community: "HỆ SINH THÁI & CỘNG ĐỒNG TOÀN CẦU",
+    res_sec_sub_qa: "CÂU HỎI THƯỜNG GẶP (Q&A)",
+    res_sec_sub_materials: "TÀI NGUYÊN THƯƠNG HIỆU, BANNER & CLOUD",
+    res_sec_sub_videos: "VIDEO QUẢNG BÁ CHÍNH THỨC 4K",
 
     badge_alliance_prog: "CHƯƠNG TRÌNH LIÊN MINH",
     badge_cpn: "MẠNG CPN",
@@ -2634,8 +2674,11 @@ class I18nManager {
   }
 }
 
+// Global Export and Automatic Initializer
+window.translations = translations;
 const i18n = new I18nManager();
 window.i18n = i18n;
+
 window.setAppLanguage = function(lang, e) {
   if (e) {
     e.stopPropagation();
@@ -2645,3 +2688,22 @@ window.setAppLanguage = function(lang, e) {
   if (menu) menu.classList.remove('show');
   i18n.setLanguage(lang);
 };
+
+// Auto sync select dropdown in resources hub
+const origApply = i18n.applyLanguage.bind(i18n);
+i18n.applyLanguage = function(lang) {
+  origApply(lang);
+  const hubSelect = document.getElementById('hub-lang-select');
+  if (hubSelect && hubSelect.value !== lang) {
+    hubSelect.value = lang;
+  }
+};
+
+// Immediate or DOMContentLoaded auto-init for all pages
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    try { i18n.init(); } catch(e) {}
+  });
+} else {
+  try { i18n.init(); } catch(e) {}
+}
