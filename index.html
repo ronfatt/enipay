@@ -1627,15 +1627,24 @@
                 </div>
               </div>
 
-              <!-- Input 2: Daily Profit Rate -->
+              <!-- Input 2: Expected EPI Daily Growth Rate (User Adjustable) -->
               <div class="mb-4">
                 <div class="flex items-center justify-between mb-1.5">
-                  <label for="epi-calc-rate" class="text-xs font-bold text-slate-200" data-i18n="calc_input_profit_rate">每日日化收益率 (%)</label>
-                  <span class="text-[11px] font-mono text-cyan-bright">固定本金不复利</span>
+                  <label for="epi-calc-growth" class="text-xs font-bold text-slate-200" data-i18n="calc_input_growth_rate">EPI 每日预期涨幅 (%)</label>
+                  <span class="text-[11px] font-mono text-cyan-bright" data-i18n="calc_growth_helper">可自定义预期涨幅</span>
                 </div>
                 <div class="relative rounded-lg shadow-sm">
-                  <input type="number" id="epi-calc-rate" min="0.1" max="10" step="0.1" value="1.0" class="w-full rounded-lg bg-slate-950 border border-slate-700 px-3.5 py-2.5 text-base sm:text-lg font-mono font-bold text-white focus:outline-none focus:border-cyan-neon focus:ring-1 focus:ring-cyan-neon pr-12 transition-colors" placeholder="1.0">
+                  <input type="number" id="epi-calc-growth" min="0" max="50" step="0.1" value="1.0" class="w-full rounded-lg bg-slate-950 border border-slate-700 px-3.5 py-2.5 text-base sm:text-lg font-mono font-bold text-cyan-neon focus:outline-none focus:border-cyan-neon focus:ring-1 focus:ring-cyan-neon pr-12 transition-colors" placeholder="1.0">
                   <span class="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-bold font-mono text-slate-400">%</span>
+                </div>
+                <!-- Quick Growth Chips -->
+                <div class="flex flex-wrap gap-1.5 mt-2">
+                  <button type="button" onclick="setQuickGrowth(0.5)" class="px-2 py-1 text-[11px] font-mono rounded bg-slate-900 border border-slate-700 hover:border-cyan-neon text-slate-300 hover:text-cyan-neon transition-colors cursor-pointer">+0.5%</button>
+                  <button type="button" onclick="setQuickGrowth(1.0)" class="px-2 py-1 text-[11px] font-mono rounded bg-cyan-neon/15 border border-cyan-neon/40 text-cyan-neon font-bold transition-colors cursor-pointer">+1.0% (基准)</button>
+                  <button type="button" onclick="setQuickGrowth(1.5)" class="px-2 py-1 text-[11px] font-mono rounded bg-slate-900 border border-slate-700 hover:border-cyan-neon text-slate-300 hover:text-cyan-neon transition-colors cursor-pointer">+1.5%</button>
+                  <button type="button" onclick="setQuickGrowth(2.0)" class="px-2 py-1 text-[11px] font-mono rounded bg-slate-900 border border-slate-700 hover:border-cyan-neon text-slate-300 hover:text-cyan-neon transition-colors cursor-pointer">+2.0%</button>
+                  <button type="button" onclick="setQuickGrowth(3.0)" class="px-2 py-1 text-[11px] font-mono rounded bg-slate-900 border border-slate-700 hover:border-cyan-neon text-slate-300 hover:text-cyan-neon transition-colors cursor-pointer">+3.0%</button>
+                  <button type="button" onclick="setQuickGrowth(5.0)" class="px-2 py-1 text-[11px] font-mono rounded bg-slate-900 border border-slate-700 hover:border-cyan-neon text-slate-300 hover:text-cyan-neon transition-colors cursor-pointer">+5.0%</button>
                 </div>
               </div>
 
@@ -1670,12 +1679,16 @@
               </div>
               <div class="space-y-2 text-xs">
                 <div class="flex items-center justify-between">
+                  <span class="text-slate-400" data-i18n="calc_fixed_profit_lbl">每日质押日化收益率 (固定单利)</span>
+                  <span class="font-mono font-bold text-cyan-neon bg-cyan-neon/10 px-2 py-0.5 rounded border border-cyan-neon/30">1.0% 固定</span>
+                </div>
+                <div class="flex items-center justify-between">
                   <span class="text-slate-400" data-i18n="calc_fixed_alloc_lbl">每日收益自动转购 EPI 比例</span>
                   <span class="font-mono font-bold text-gold-400 bg-gold-400/10 px-2 py-0.5 rounded border border-gold-400/30">90% 固定</span>
                 </div>
                 <div class="flex items-center justify-between">
-                  <span class="text-slate-400" data-i18n="calc_fixed_growth_lbl">EPI 每日预期涨幅 (复合估算)</span>
-                  <span class="font-mono font-bold text-cyan-neon bg-cyan-neon/10 px-2 py-0.5 rounded border border-cyan-neon/30">+1.0% / 天</span>
+                  <span class="text-slate-400" data-i18n="calc_fixed_cash_lbl">每日留存现金 USDT 比例</span>
+                  <span class="font-mono font-bold text-slate-300 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">10% 固定</span>
                 </div>
               </div>
             </div>
@@ -1708,7 +1721,7 @@
               <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
                 <div class="text-[10px] text-slate-400 font-medium" data-i18n="calc_final_price_lbl">到期预期 EPI 单价</div>
                 <div id="epi-res-final-price" class="text-base sm:text-lg font-black font-mono text-cyan-bright mt-1">$0.1375</div>
-                <div class="text-[9px] text-slate-500 font-mono">+1%/日复合</div>
+                <div id="epi-res-final-price-sub" class="text-[9px] text-slate-500 font-mono">+1.0%/日复合</div>
               </div>
             </div>
 

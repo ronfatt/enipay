@@ -10,7 +10,8 @@
 // 1. CONSTANTS & PARAMETERS
 // ==========================================
 const EPI_ALLOCATION = 0.90; // Fixed 90%
-const EPI_DAILY_GROWTH = 0.01; // Fixed 1% per day
+const FIXED_DAILY_PROFIT_RATE = 1.0; // Fixed 1.0% per day (non-compounding)
+const DEFAULT_EPI_DAILY_GROWTH = 1.0; // Default 1.0% per day (user-adjustable)
 const HOLDING_PERIODS = [7, 15, 30, 60, 90, 180, 365];
 
 // Canonical Token & On-Chain Addresses on ENI Chain
@@ -21,7 +22,8 @@ const ENI_RPC_URL = "https://rpc.eniac.network";
 // State
 const calculatorState = {
   investmentAmount: 300,
-  dailyProfitRate: 1.0, // percentage (1.0%)
+  dailyProfitRate: 1.0, // Fixed at 1.0%
+  epiDailyGrowth: 1.0, // percentage (default 1.0%, user adjustable)
   holdingPeriod: 30, // days
   currentPrice: 0.103, // fallback initial price
   priceLoaded: false,
@@ -126,18 +128,20 @@ async function getCurrentEpiPrice() {
 // ==========================================
 /**
  * Daily profit calculated from ORIGINAL investment amount (does NOT compound).
+ * Daily profit rate is fixed at 1.0% per day.
  */
-function calculateDailyProfit(investmentAmount, dailyProfitRate) {
+function calculateDailyProfit(investmentAmount, dailyProfitRate = FIXED_DAILY_PROFIT_RATE) {
   const rate = Number(dailyProfitRate) / 100;
   return Number(investmentAmount) * rate;
 }
 
 /**
  * Expected EPI Price on Day N: P0 * (1 + g)^(N - 1)
+ * dailyGrowthRate is in decimal (e.g. 0.01 for 1% daily growth)
  */
-function calculateEpiPrice(currentPrice, day) {
+function calculateEpiPrice(currentPrice, day, dailyGrowthRate = 0.01) {
   if (day <= 1) return Number(currentPrice);
-  return Number(currentPrice) * Math.pow(1 + EPI_DAILY_GROWTH, day - 1);
+  return Number(currentPrice) * Math.pow(1 + Number(dailyGrowthRate), day - 1);
 }
 
 /**
@@ -157,12 +161,24 @@ function calculateDailyEpiTokens(dailyEpiUsdt, epiPrice) {
 
 /**
  * Full simulation projection over holdingPeriod
+ * @param {number} investmentAmount - Investment in USDT
+ * @param {number} dailyProfitRate - Daily profit percentage (fixed at 1.0%)
+ * @param {number} holdingPeriod - Days
+ * @param {number} currentEpiPrice - Live price in USDT
+ * @param {number} epiDailyGrowth - User-adjustable percentage (e.g. 1.0 for 1.0%)
  */
-function calculateProjection(investmentAmount, dailyProfitRate, holdingPeriod, currentEpiPrice) {
+function calculateProjection(
+  investmentAmount,
+  dailyProfitRate = FIXED_DAILY_PROFIT_RATE,
+  holdingPeriod = 30,
+  currentEpiPrice = 0.103,
+  epiDailyGrowth = DEFAULT_EPI_DAILY_GROWTH
+) {
   const inv = Math.max(0, Number(investmentAmount) || 0);
-  const pRate = Math.max(0, Number(dailyProfitRate) || 0);
+  const pRate = Number(dailyProfitRate) || FIXED_DAILY_PROFIT_RATE;
   const days = Math.max(1, parseInt(holdingPeriod, 10) || 30);
   const p0 = Math.max(0.000001, Number(currentEpiPrice) || 0.103);
+  const growthRate = Math.max(0, Number(epiDailyGrowth) || 0) / 100; // e.g. 1.0 -> 0.01
 
   const dailyProfit = calculateDailyProfit(inv, pRate);
   const dailyEpiUsdt = calculateDailyEpiPurchase(dailyProfit, EPI_ALLOCATION);
@@ -172,7 +188,7 @@ function calculateProjection(investmentAmount, dailyProfitRate, holdingPeriod, c
   const dailyBreakdown = [];
 
   for (let i = 1; i <= days; i++) {
-    const dayPrice = calculateEpiPrice(p0, i);
+    const dayPrice = calculateEpiPrice(p0, i, growthRate);
     const epiPurchased = calculateDailyEpiTokens(dailyEpiUsdt, dayPrice);
     cumulativeEpi += epiPurchased;
     const dayValue = cumulativeEpi * dayPrice;
@@ -189,7 +205,7 @@ function calculateProjection(investmentAmount, dailyProfitRate, holdingPeriod, c
     });
   }
 
-  const finalEpiPrice = calculateEpiPrice(p0, days);
+  const finalEpiPrice = calculateEpiPrice(p0, days, growthRate);
   const finalEpiValue = cumulativeEpi * finalEpiPrice;
   const totalRetainedCash = dailyRetainedUsdt * days;
   const totalEarnedValue = finalEpiValue + totalRetainedCash;
@@ -198,6 +214,7 @@ function calculateProjection(investmentAmount, dailyProfitRate, holdingPeriod, c
   return {
     investmentAmount: inv,
     dailyProfitRate: pRate,
+    epiDailyGrowth: Number(epiDailyGrowth),
     holdingPeriod: days,
     currentPrice: p0,
     dailyProfit: dailyProfit,
@@ -309,18 +326,20 @@ async function refreshEpiPrice() {
 
 function updateCalculatorUI() {
   const invInput = document.getElementById("epi-calc-inv");
-  const rateInput = document.getElementById("epi-calc-rate");
+  const growthInput = document.getElementById("epi-calc-growth");
   const periodSelect = document.getElementById("epi-calc-period");
 
   if (invInput) calculatorState.investmentAmount = parseFloat(invInput.value) || 0;
-  if (rateInput) calculatorState.dailyProfitRate = parseFloat(rateInput.value) || 0;
+  if (growthInput) calculatorState.epiDailyGrowth = parseFloat(growthInput.value) >= 0 ? parseFloat(growthInput.value) : 0;
   if (periodSelect) calculatorState.holdingPeriod = parseInt(periodSelect.value, 10) || 30;
+  calculatorState.dailyProfitRate = FIXED_DAILY_PROFIT_RATE;
 
   const projection = calculateProjection(
     calculatorState.investmentAmount,
     calculatorState.dailyProfitRate,
     calculatorState.holdingPeriod,
-    calculatorState.currentPrice
+    calculatorState.currentPrice,
+    calculatorState.epiDailyGrowth
   );
 
   // 1. Update Results Cards
@@ -328,6 +347,7 @@ function updateCalculatorUI() {
   const elDailyPurchase = document.getElementById("epi-res-daily-purchase");
   const elTotalEpi = document.getElementById("epi-res-total-epi");
   const elFinalPrice = document.getElementById("epi-res-final-price");
+  const elFinalPriceSub = document.getElementById("epi-res-final-price-sub");
   const elFinalValue = document.getElementById("epi-res-final-value");
   const elTotalProfit = document.getElementById("epi-res-total-profit");
   const elRetainedCash = document.getElementById("epi-res-retained-cash");
@@ -336,6 +356,7 @@ function updateCalculatorUI() {
   if (elDailyPurchase) elDailyPurchase.innerText = formatUsdt(projection.dailyEpiUsdt) + " USDT";
   if (elTotalEpi) elTotalEpi.innerText = formatEpiAmount(projection.totalEpi) + " EPI";
   if (elFinalPrice) elFinalPrice.innerText = formatEpiPrice(projection.finalEpiPrice);
+  if (elFinalPriceSub) elFinalPriceSub.innerText = `+${calculatorState.epiDailyGrowth}%/日复合`;
   if (elFinalValue) elFinalValue.innerText = formatUsdt(projection.finalEpiValue);
   if (elRetainedCash) elRetainedCash.innerText = formatUsdt(projection.totalRetainedCash);
 
@@ -555,6 +576,15 @@ function setQuickAmount(amount) {
   }
 }
 
+// Preset Quick Growth Buttons
+function setQuickGrowth(growthRate) {
+  const growthInput = document.getElementById("epi-calc-growth");
+  if (growthInput) {
+    growthInput.value = growthRate;
+    updateCalculatorUI();
+  }
+}
+
 // Smooth Jump from Slide 10 or Nav Header to Calculator
 function jumpToCalculator(e) {
   if (e) {
@@ -573,14 +603,14 @@ if (typeof document !== "undefined") {
   document.addEventListener("DOMContentLoaded", () => {
     // Input event listeners for real-time recalculation
     const invInput = document.getElementById("epi-calc-inv");
-    const rateInput = document.getElementById("epi-calc-rate");
+    const growthInput = document.getElementById("epi-calc-growth");
     const periodSelect = document.getElementById("epi-calc-period");
 
     if (invInput) {
       invInput.addEventListener("input", updateCalculatorUI);
     }
-    if (rateInput) {
-      rateInput.addEventListener("input", updateCalculatorUI);
+    if (growthInput) {
+      growthInput.addEventListener("input", updateCalculatorUI);
     }
     if (periodSelect) {
       periodSelect.addEventListener("change", updateCalculatorUI);
@@ -595,7 +625,8 @@ if (typeof document !== "undefined") {
           calculatorState.investmentAmount,
           calculatorState.dailyProfitRate,
           calculatorState.holdingPeriod,
-          calculatorState.currentPrice
+          calculatorState.currentPrice,
+          calculatorState.epiDailyGrowth
         );
         renderEpiChart(projection);
       }, 150);
@@ -616,6 +647,7 @@ if (typeof window !== "undefined") {
   window.refreshEpiPrice = refreshEpiPrice;
   window.toggleDailyBreakdown = toggleDailyBreakdown;
   window.setQuickAmount = setQuickAmount;
+  window.setQuickGrowth = setQuickGrowth;
   window.jumpToCalculator = jumpToCalculator;
   window.updateCalculatorUI = updateCalculatorUI;
 }
@@ -623,7 +655,8 @@ if (typeof window !== "undefined") {
 if (typeof module !== "undefined" && module.exports) {
   module.exports = {
     EPI_ALLOCATION,
-    EPI_DAILY_GROWTH,
+    FIXED_DAILY_PROFIT_RATE,
+    DEFAULT_EPI_DAILY_GROWTH,
     getCurrentEpiPrice,
     calculateDailyProfit,
     calculateEpiPrice,
