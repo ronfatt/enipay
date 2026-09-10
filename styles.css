@@ -908,3 +908,49 @@ body {
   }
 }
 
+/* ==================== EPI Calculator Section & Stage ==================== */
+.calculator-section {
+  min-height: 100vh !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow-y: visible !important;
+  padding: 85px 4vw 60px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  scroll-snap-align: start;
+}
+
+.calculator-stage {
+  width: min(1360px, 94vw);
+  max-width: 1360px;
+  height: auto !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  position: relative;
+  z-index: 10;
+  margin: 0 auto;
+  padding: 28px 32px;
+  background: rgba(10, 16, 28, 0.82);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(0, 255, 178, 0.25);
+  border-radius: 24px;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85), 0 0 35px rgba(0, 255, 178, 0.08);
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .calculator-section {
+    padding: 72px 14px 90px !important;
+    min-height: auto !important;
+  }
+  .calculator-stage {
+    width: 100% !important;
+    padding: 20px 14px !important;
+    border-radius: 18px;
+  }
+}
+
+

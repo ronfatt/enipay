@@ -63,6 +63,13 @@
             <span class="text-[9px]">↗</span>
           </a>
         </div>
+        <!-- EPI Calculator Shortcut Button -->
+        <div id="calculator-btn-slot" class="inline-flex items-center flex-shrink-0">
+          <a href="#epi-calculator" onclick="jumpToCalculator(event)" class="badge-chamfer py-0.5 px-2 text-[10px] sm:text-xs bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border border-amber-500/40 flex items-center gap-1 transition-all shadow-sm whitespace-nowrap flex-shrink-0 cursor-pointer" title="EPI 收益与增值预测计算器">
+            <span>🧮</span>
+            <span class="font-bold" data-i18n="calc_nav_btn">收益测算</span>
+          </a>
+        </div>
       </div>
       <div class="text-[10px] text-slate-400 font-mono tracking-wider hidden md:block" data-i18n="hud_sub">ENI CHAIN × BINANCE CUSTODY × AI AGENT</div>
     </div>
@@ -1539,6 +1546,252 @@
           </div>
         </div>
 
+        <!-- CTA Jump to Calculator -->
+        <div class="mt-3 text-center" data-motion data-delay="6">
+          <a href="#epi-calculator" onclick="jumpToCalculator(event)" class="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-gradient-to-r from-amber-500/20 via-cyan-neon/20 to-amber-500/20 hover:from-amber-500/30 hover:via-cyan-neon/30 hover:to-amber-500/30 border border-amber-400/50 text-white font-bold text-xs sm:text-sm tracking-wide shadow-lg shadow-amber-500/10 transition-all transform hover:scale-[1.02] cursor-pointer">
+            <span>🧮</span>
+            <span data-i18n="s8_cta_calc_btn">立即测算 EPI 收益与增值预测 →</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== EPI EARNINGS & GROWTH CALCULATOR ==================== -->
+    <section id="epi-calculator" class="slide-section calculator-section">
+      <div class="calculator-stage">
+        
+        <!-- Header & Live On-Chain Price Bar -->
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between pb-4 mb-5 border-b border-slate-800 gap-3">
+          <div>
+            <div class="cyber-pill mb-2"><span class="cyber-bullet"></span><span data-i18n="calc_badge">EPI 增值计算器 // SIMULATOR</span></div>
+            <h2 class="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight flex items-center gap-2">
+              <span class="text-gradient-hero" data-i18n="calc_title">EPI 收益与增值预测计算器</span>
+              <span class="text-xs font-mono px-2 py-0.5 rounded bg-cyan-neon/15 border border-cyan-neon/40 text-cyan-neon font-bold">MVP v2.8</span>
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-400 mt-1" data-i18n="calc_subtitle">模拟每日质押收益转换为 EPI 代币并随时间复利增值的预期资产收益</p>
+          </div>
+
+          <!-- Live On-Chain EPI Price Widget -->
+          <div class="flex items-center gap-3 bg-slate-950/90 border border-slate-800 rounded-xl p-2.5 px-3.5 shadow-lg flex-shrink-0">
+            <div class="flex flex-col">
+              <div class="flex items-center gap-2 text-[10px] text-slate-400 font-mono">
+                <span data-i18n="calc_live_price_title">EPI 实时币价</span>
+                <span id="epi-price-status-badge" class="inline-flex items-center gap-1 font-semibold">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span class="text-emerald-400" data-i18n="calc_live_label">链上实时</span>
+                </span>
+              </div>
+              <div class="flex items-baseline gap-1.5 mt-0.5">
+                <span id="epi-live-price-val" class="text-lg sm:text-xl font-black font-mono text-cyan-neon tracking-tight">$0.1030 USDT</span>
+                <span class="text-[10px] font-mono text-slate-500">DEX</span>
+              </div>
+              <div id="epi-price-updated-time" class="text-[9px] font-mono text-slate-500 mt-0.5">更新中...</div>
+            </div>
+            <button id="epi-price-refresh-btn" onclick="refreshEpiPrice()" title="刷新实时币价" class="p-2 rounded-lg bg-slate-900 border border-slate-700 hover:border-cyan-neon text-cyan-bright transition-all cursor-pointer flex items-center justify-center">
+              🔄
+            </button>
+          </div>
+        </div>
+
+        <!-- Main 2-Column Interactive Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-5">
+          
+          <!-- LEFT COLUMN: User Inputs & Fixed Assumptions (5 cols) -->
+          <div class="lg:col-span-5 space-y-4">
+            
+            <!-- Controls Card -->
+            <div class="octane-glass-panel p-4 sm:p-5">
+              <div class="text-xs font-mono font-bold text-cyan-neon mb-3.5 uppercase tracking-wider flex items-center justify-between">
+                <span>⚙️ 预测参数设置</span>
+                <span class="text-[10px] text-slate-400 font-normal">INPUTS</span>
+              </div>
+
+              <!-- Input 1: Investment Amount -->
+              <div class="mb-4">
+                <label for="epi-calc-inv" class="block text-xs font-bold text-slate-200 mb-1.5" data-i18n="calc_input_investment">
+                  质押本金 (USDT)
+                </label>
+                <div class="relative rounded-lg shadow-sm">
+                  <input type="number" id="epi-calc-inv" min="10" step="50" value="300" class="w-full rounded-lg bg-slate-950 border border-slate-700 px-3.5 py-2.5 text-base sm:text-lg font-mono font-bold text-white focus:outline-none focus:border-cyan-neon focus:ring-1 focus:ring-cyan-neon pr-16 transition-colors" placeholder="300">
+                  <span class="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-bold font-mono text-slate-400">USDT</span>
+                </div>
+                <!-- Quick Amount Chips -->
+                <div class="flex flex-wrap gap-1.5 mt-2">
+                  <button type="button" onclick="setQuickAmount(300)" class="px-2 py-1 text-[11px] font-mono rounded bg-slate-900 border border-slate-700 hover:border-cyan-neon text-slate-300 hover:text-cyan-neon transition-colors cursor-pointer">300 U</button>
+                  <button type="button" onclick="setQuickAmount(500)" class="px-2 py-1 text-[11px] font-mono rounded bg-slate-900 border border-slate-700 hover:border-cyan-neon text-slate-300 hover:text-cyan-neon transition-colors cursor-pointer">500 U</button>
+                  <button type="button" onclick="setQuickAmount(1000)" class="px-2 py-1 text-[11px] font-mono rounded bg-slate-900 border border-slate-700 hover:border-cyan-neon text-slate-300 hover:text-cyan-neon transition-colors cursor-pointer">1,000 U</button>
+                  <button type="button" onclick="setQuickAmount(3000)" class="px-2 py-1 text-[11px] font-mono rounded bg-slate-900 border border-slate-700 hover:border-cyan-neon text-slate-300 hover:text-cyan-neon transition-colors cursor-pointer">3,000 U</button>
+                  <button type="button" onclick="setQuickAmount(5000)" class="px-2 py-1 text-[11px] font-mono rounded bg-slate-900 border border-slate-700 hover:border-cyan-neon text-slate-300 hover:text-cyan-neon transition-colors cursor-pointer">5,000 U</button>
+                  <button type="button" onclick="setQuickAmount(10000)" class="px-2 py-1 text-[11px] font-mono rounded bg-slate-900 border border-slate-700 hover:border-cyan-neon text-slate-300 hover:text-cyan-neon transition-colors cursor-pointer">10,000 U</button>
+                </div>
+              </div>
+
+              <!-- Input 2: Daily Profit Rate -->
+              <div class="mb-4">
+                <div class="flex items-center justify-between mb-1.5">
+                  <label for="epi-calc-rate" class="text-xs font-bold text-slate-200" data-i18n="calc_input_profit_rate">每日日化收益率 (%)</label>
+                  <span class="text-[11px] font-mono text-cyan-bright">固定本金不复利</span>
+                </div>
+                <div class="relative rounded-lg shadow-sm">
+                  <input type="number" id="epi-calc-rate" min="0.1" max="10" step="0.1" value="1.0" class="w-full rounded-lg bg-slate-950 border border-slate-700 px-3.5 py-2.5 text-base sm:text-lg font-mono font-bold text-white focus:outline-none focus:border-cyan-neon focus:ring-1 focus:ring-cyan-neon pr-12 transition-colors" placeholder="1.0">
+                  <span class="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-bold font-mono text-slate-400">%</span>
+                </div>
+              </div>
+
+              <!-- Input 3: Holding Period -->
+              <div>
+                <label for="epi-calc-period" class="block text-xs font-bold text-slate-200 mb-1.5" data-i18n="calc_input_holding_period">持有周期 (Holding Period)</label>
+                <div class="relative">
+                  <select id="epi-calc-period" class="w-full rounded-lg bg-slate-950 border border-slate-700 px-3.5 py-2.5 text-sm sm:text-base font-mono font-bold text-white focus:outline-none focus:border-cyan-neon focus:ring-1 focus:ring-cyan-neon appearance-none cursor-pointer">
+                    <option value="7">7 天 (7 Days)</option>
+                    <option value="15">15 天 (15 Days)</option>
+                    <option value="30" selected>30 天 (30 Days - 默认)</option>
+                    <option value="60">60 天 (60 Days)</option>
+                    <option value="90">90 天 (90 Days - 季度)</option>
+                    <option value="180">180 天 (180 Days - 半年)</option>
+                    <option value="365">365 天 (365 Days - 全年)</option>
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3.5 text-slate-400">
+                    ▼
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fixed Assumptions (NON-EDITABLE) Badge Box -->
+            <div class="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800">
+              <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-800">
+                <span class="text-[11px] font-mono font-bold text-slate-300 flex items-center gap-1.5">
+                  <span>🔒</span>
+                  <span data-i18n="calc_fixed_assumptions">固定系统参数 (FIXED ASSUMPTIONS)</span>
+                </span>
+                <span class="badge-chamfer py-0.5 px-2 text-[9px] bg-slate-900 text-slate-400 border border-slate-700" data-i18n="calc_fixed_badge">固定锁定</span>
+              </div>
+              <div class="space-y-2 text-xs">
+                <div class="flex items-center justify-between">
+                  <span class="text-slate-400" data-i18n="calc_fixed_alloc_lbl">每日收益自动转购 EPI 比例</span>
+                  <span class="font-mono font-bold text-gold-400 bg-gold-400/10 px-2 py-0.5 rounded border border-gold-400/30">90% 固定</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-slate-400" data-i18n="calc_fixed_growth_lbl">EPI 每日预期涨幅 (复合估算)</span>
+                  <span class="font-mono font-bold text-cyan-neon bg-cyan-neon/10 px-2 py-0.5 rounded border border-cyan-neon/30">+1.0% / 天</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT COLUMN: Projection Results & Interactive Chart (7 cols) -->
+          <div class="lg:col-span-7 space-y-4">
+            
+            <!-- Results Cards Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+              <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+                <div class="text-[10px] text-slate-400 font-medium" data-i18n="calc_daily_profit_lbl">每日产生收益</div>
+                <div id="epi-res-daily-profit" class="text-base sm:text-lg font-black font-mono text-white mt-1">3.00 USDT</div>
+                <div class="text-[9px] text-slate-500 font-mono">100% 收益</div>
+              </div>
+
+              <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+                <div class="text-[10px] text-slate-400 font-medium" data-i18n="calc_daily_purchase_lbl">每日购入 EPI 额度 (90%)</div>
+                <div id="epi-res-daily-purchase" class="text-base sm:text-lg font-black font-mono text-gold-400 mt-1">2.70 USDT</div>
+                <div class="text-[9px] text-slate-500 font-mono">转购 EPI</div>
+              </div>
+
+              <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+                <div class="text-[10px] text-slate-400 font-medium" data-i18n="calc_total_epi_lbl">累计持有 EPI 数量</div>
+                <div id="epi-res-total-epi" class="text-base sm:text-lg font-black font-mono text-cyan-neon mt-1">683.28 EPI</div>
+                <div class="text-[9px] text-slate-500 font-mono">总代币数</div>
+              </div>
+
+              <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
+                <div class="text-[10px] text-slate-400 font-medium" data-i18n="calc_final_price_lbl">到期预期 EPI 单价</div>
+                <div id="epi-res-final-price" class="text-base sm:text-lg font-black font-mono text-cyan-bright mt-1">$0.1375</div>
+                <div class="text-[9px] text-slate-500 font-mono">+1%/日复合</div>
+              </div>
+            </div>
+
+            <!-- Featured Highlight Valuation Card -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-slate-950 via-slate-900 to-cyan-950/30 border-2 border-cyan-neon/40 shadow-xl shadow-cyan-neon/5">
+              <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-cyan-neon animate-pulse"></span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-300" data-i18n="calc_final_value_lbl">EPI 持仓预估总价值</span>
+                  </div>
+                  <div id="epi-res-final-value" class="text-2xl sm:text-4xl font-black font-mono text-cyan-neon mt-1 tracking-tight">
+                    $93.92 USDT
+                  </div>
+                </div>
+
+                <div class="flex flex-row sm:flex-col items-start sm:items-end justify-between w-full sm:w-auto pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-800 gap-1">
+                  <div class="text-[11px] text-slate-400">
+                    <span data-i18n="calc_retained_cash_lbl">10% 留存现金总计</span>:
+                    <span id="epi-res-retained-cash" class="font-mono font-bold text-white ml-1">9.00 USDT</span>
+                  </div>
+                  <div class="text-[11px] text-slate-400 flex items-center gap-1">
+                    <span data-i18n="calc_total_profit_lbl">预估净增值收益 (对比本金)</span>:
+                    <span id="epi-res-total-profit" class="font-mono font-bold text-slate-300 ml-1">-197.08 USDT</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive SVG Trend Chart -->
+            <div class="octane-glass-panel p-4">
+              <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center gap-2">
+                  <span class="text-xs font-mono font-bold text-cyan-neon" data-i18n="calc_chart_title">EPI 资产累积与价格增值曲线</span>
+                </div>
+                <span class="text-[10px] font-mono text-slate-400" data-i18n="calc_chart_y_label">预期持仓价值 (USDT)</span>
+              </div>
+              <div id="epi-chart-container" class="w-full h-[220px] relative">
+                <!-- Dynamic SVG Chart injected here -->
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Expandable Daily Breakdown Table Section -->
+        <div class="mb-5">
+          <button id="epi-calc-table-toggle-btn" type="button" onclick="toggleDailyBreakdown()" class="w-full py-2.5 px-4 rounded-xl bg-slate-900/90 hover:bg-slate-850 border border-slate-700 hover:border-cyan-neon/50 text-xs sm:text-sm font-bold text-cyan-bright transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm">
+            <span>▼</span>
+            <span data-i18n="calc_table_toggle_open">查看完整每日计算明细 (1 ~ 365天)</span>
+          </button>
+
+          <div id="epi-calc-table-wrapper" class="hidden mt-3 rounded-xl border border-slate-800 bg-slate-950/90 overflow-hidden shadow-xl transition-all">
+            <div class="max-h-[360px] overflow-y-auto">
+              <table class="w-full text-left text-xs">
+                <thead class="sticky top-0 bg-slate-900 border-b border-slate-800 text-[10px] font-mono uppercase text-slate-400">
+                  <tr>
+                    <th class="py-2.5 px-3 text-left" data-i18n="calc_th_day">周期</th>
+                    <th class="py-2.5 px-3 text-right" data-i18n="calc_th_price">EPI 预期价格</th>
+                    <th class="py-2.5 px-3 text-right" data-i18n="calc_th_profit">当日收益</th>
+                    <th class="py-2.5 px-3 text-right" data-i18n="calc_th_alloc">EPI 额度 (90%)</th>
+                    <th class="py-2.5 px-3 text-right" data-i18n="calc_th_purchased">当日购得</th>
+                    <th class="py-2.5 px-3 text-right" data-i18n="calc_th_total_epi">累计持币</th>
+                    <th class="py-2.5 px-3 text-right" data-i18n="calc_th_total_val">累计总估值</th>
+                  </tr>
+                </thead>
+                <tbody id="epi-calc-table-body" class="divide-y divide-slate-800/40 font-mono">
+                  <!-- Injected via JavaScript -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mandatory Financial Disclaimer -->
+        <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 flex items-start gap-2.5">
+          <div class="text-amber-400 text-sm flex-shrink-0 mt-0.5">⚠️</div>
+          <p class="text-[11px] text-slate-400 leading-relaxed" data-i18n="calc_disclaimer">
+            仅供预测参考。EPI 价格预期每日 1% 增长为数学模拟假设，实际市场价格受链上流动性与市场供需波动影响，可能与模拟结果存在差异。本计算器不构成任何投资收益承诺或保本保证。
+          </p>
+        </div>
+
       </div>
     </section>
 
@@ -1986,5 +2239,6 @@
   <!-- Global Application Scripts -->
   <script src="./i18n.js?v=2.8"></script>
   <script src="./app.js?v=2.8"></script>
+  <script src="./epi-calculator.js?v=2.8"></script>
 </body>
 </html>
