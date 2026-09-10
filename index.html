@@ -1586,7 +1586,7 @@
                 <span id="epi-live-price-val" class="text-lg sm:text-xl font-black font-mono text-cyan-neon tracking-tight">$0.1030 USDT</span>
                 <span class="text-[10px] font-mono text-slate-500">DEX</span>
               </div>
-              <div id="epi-price-updated-time" class="text-[9px] font-mono text-slate-500 mt-0.5">更新中...</div>
+              <div id="epi-price-updated-time" class="text-[9px] font-mono text-slate-500 mt-0.5" data-i18n="calc_updating">更新中...</div>
             </div>
             <button id="epi-price-refresh-btn" onclick="refreshEpiPrice()" title="刷新实时币价" class="p-2 rounded-lg bg-slate-900 border border-slate-700 hover:border-cyan-neon text-cyan-bright transition-all cursor-pointer flex items-center justify-center">
               🔄
@@ -1603,7 +1603,7 @@
             <!-- Controls Card -->
             <div class="octane-glass-panel p-4 sm:p-5">
               <div class="text-xs font-mono font-bold text-cyan-neon mb-3.5 uppercase tracking-wider flex items-center justify-between">
-                <span>⚙️ 预测参数设置</span>
+                <span data-i18n="calc_inputs_title">⚙️ 预测参数设置</span>
                 <span class="text-[10px] text-slate-400 font-normal">INPUTS</span>
               </div>
 
@@ -1640,7 +1640,7 @@
                 <!-- Quick Growth Chips -->
                 <div class="flex flex-wrap gap-1.5 mt-2">
                   <button type="button" onclick="setQuickGrowth(0.5)" class="px-2 py-1 text-[11px] font-mono rounded bg-slate-900 border border-slate-700 hover:border-cyan-neon text-slate-300 hover:text-cyan-neon transition-colors cursor-pointer">+0.5%</button>
-                  <button type="button" onclick="setQuickGrowth(1.0)" class="px-2 py-1 text-[11px] font-mono rounded bg-cyan-neon/15 border border-cyan-neon/40 text-cyan-neon font-bold transition-colors cursor-pointer">+1.0% (基准)</button>
+                  <button type="button" onclick="setQuickGrowth(1.0)" class="px-2 py-1 text-[11px] font-mono rounded bg-cyan-neon/15 border border-cyan-neon/40 text-cyan-neon font-bold transition-colors cursor-pointer" data-i18n="calc_chip_base">+1.0% (基准)</button>
                   <button type="button" onclick="setQuickGrowth(1.5)" class="px-2 py-1 text-[11px] font-mono rounded bg-slate-900 border border-slate-700 hover:border-cyan-neon text-slate-300 hover:text-cyan-neon transition-colors cursor-pointer">+1.5%</button>
                   <button type="button" onclick="setQuickGrowth(2.0)" class="px-2 py-1 text-[11px] font-mono rounded bg-slate-900 border border-slate-700 hover:border-cyan-neon text-slate-300 hover:text-cyan-neon transition-colors cursor-pointer">+2.0%</button>
                   <button type="button" onclick="setQuickGrowth(3.0)" class="px-2 py-1 text-[11px] font-mono rounded bg-slate-900 border border-slate-700 hover:border-cyan-neon text-slate-300 hover:text-cyan-neon transition-colors cursor-pointer">+3.0%</button>
@@ -1653,13 +1653,13 @@
                 <label for="epi-calc-period" class="block text-xs font-bold text-slate-200 mb-1.5" data-i18n="calc_input_holding_period">持有周期 (Holding Period)</label>
                 <div class="relative">
                   <select id="epi-calc-period" class="w-full rounded-lg bg-slate-950 border border-slate-700 px-3.5 py-2.5 text-sm sm:text-base font-mono font-bold text-white focus:outline-none focus:border-cyan-neon focus:ring-1 focus:ring-cyan-neon appearance-none cursor-pointer">
-                    <option value="7">7 天 (7 Days)</option>
-                    <option value="15">15 天 (15 Days)</option>
-                    <option value="30" selected>30 天 (30 Days - 默认)</option>
-                    <option value="60">60 天 (60 Days)</option>
-                    <option value="90">90 天 (90 Days - 季度)</option>
-                    <option value="180">180 天 (180 Days - 半年)</option>
-                    <option value="365">365 天 (365 Days - 全年)</option>
+                    <option value="7" data-i18n="calc_opt_7d">7 天 (7 Days)</option>
+                    <option value="15" data-i18n="calc_opt_15d">15 天 (15 Days)</option>
+                    <option value="30" selected data-i18n="calc_opt_30d">30 天 (30 Days - 默认)</option>
+                    <option value="60" data-i18n="calc_opt_60d">60 天 (60 Days)</option>
+                    <option value="90" data-i18n="calc_opt_90d">90 天 (90 Days - 季度)</option>
+                    <option value="180" data-i18n="calc_opt_180d">180 天 (180 Days - 半年)</option>
+                    <option value="365" data-i18n="calc_opt_365d">365 天 (365 Days - 全年)</option>
                   </select>
                   <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3.5 text-slate-400">
                     ▼
@@ -1680,15 +1680,15 @@
               <div class="space-y-2 text-xs">
                 <div class="flex items-center justify-between">
                   <span class="text-slate-400" data-i18n="calc_fixed_profit_lbl">每日质押日化收益率 (固定单利)</span>
-                  <span class="font-mono font-bold text-cyan-neon bg-cyan-neon/10 px-2 py-0.5 rounded border border-cyan-neon/30">1.0% 固定</span>
+                  <span class="font-mono font-bold text-cyan-neon bg-cyan-neon/10 px-2 py-0.5 rounded border border-cyan-neon/30">1.0% <span data-i18n="calc_fixed_tag">固定</span></span>
                 </div>
                 <div class="flex items-center justify-between">
                   <span class="text-slate-400" data-i18n="calc_fixed_alloc_lbl">每日收益自动转购 EPI 比例</span>
-                  <span class="font-mono font-bold text-gold-400 bg-gold-400/10 px-2 py-0.5 rounded border border-gold-400/30">90% 固定</span>
+                  <span class="font-mono font-bold text-gold-400 bg-gold-400/10 px-2 py-0.5 rounded border border-gold-400/30">90% <span data-i18n="calc_fixed_tag">固定</span></span>
                 </div>
                 <div class="flex items-center justify-between">
                   <span class="text-slate-400" data-i18n="calc_fixed_cash_lbl">每日留存现金 USDT 比例</span>
-                  <span class="font-mono font-bold text-slate-300 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">10% 固定</span>
+                  <span class="font-mono font-bold text-slate-300 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">10% <span data-i18n="calc_fixed_tag">固定</span></span>
                 </div>
               </div>
             </div>
@@ -1703,19 +1703,19 @@
               <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
                 <div class="text-[10px] text-slate-400 font-medium" data-i18n="calc_daily_profit_lbl">每日产生收益</div>
                 <div id="epi-res-daily-profit" class="text-base sm:text-lg font-black font-mono text-white mt-1">3.00 USDT</div>
-                <div class="text-[9px] text-slate-500 font-mono">100% 收益</div>
+                <div class="text-[9px] text-slate-500 font-mono" data-i18n="calc_sub_daily_profit">100% 产生收益</div>
               </div>
 
               <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
                 <div class="text-[10px] text-slate-400 font-medium" data-i18n="calc_daily_purchase_lbl">每日购入 EPI 额度 (90%)</div>
                 <div id="epi-res-daily-purchase" class="text-base sm:text-lg font-black font-mono text-gold-400 mt-1">2.70 USDT</div>
-                <div class="text-[9px] text-slate-500 font-mono">转购 EPI</div>
+                <div class="text-[9px] text-slate-500 font-mono" data-i18n="calc_sub_purchase">转购 EPI</div>
               </div>
 
               <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
                 <div class="text-[10px] text-slate-400 font-medium" data-i18n="calc_total_epi_lbl">累计持有 EPI 数量</div>
                 <div id="epi-res-total-epi" class="text-base sm:text-lg font-black font-mono text-cyan-neon mt-1">683.28 EPI</div>
-                <div class="text-[9px] text-slate-500 font-mono">总代币数</div>
+                <div class="text-[9px] text-slate-500 font-mono" data-i18n="calc_sub_total_epi">总代币数</div>
               </div>
 
               <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
@@ -1771,8 +1771,7 @@
         <!-- Expandable Daily Breakdown Table Section -->
         <div class="mb-5">
           <button id="epi-calc-table-toggle-btn" type="button" onclick="toggleDailyBreakdown()" class="w-full py-2.5 px-4 rounded-xl bg-slate-900/90 hover:bg-slate-850 border border-slate-700 hover:border-cyan-neon/50 text-xs sm:text-sm font-bold text-cyan-bright transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm">
-            <span>▼</span>
-            <span data-i18n="calc_table_toggle_open">查看完整每日计算明细 (1 ~ 365天)</span>
+            <span id="epi-calc-toggle-text" data-i18n="calc_table_toggle_open">▼ 查看完整每日计算明细 (1 ~ 365天)</span>
           </button>
 
           <div id="epi-calc-table-wrapper" class="hidden mt-3 rounded-xl border border-slate-800 bg-slate-950/90 overflow-hidden shadow-xl transition-all">

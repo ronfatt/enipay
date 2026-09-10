@@ -324,6 +324,15 @@ async function refreshEpiPrice() {
   }
 }
 
+function getCompoundedSubText(growthRate) {
+  const curLang = localStorage.getItem("enipay_lang") || (window.i18n ? window.i18n.currentLang : "zh");
+  if (curLang === "en") return `+${growthRate}%/day (compounded)`;
+  if (curLang === "ja") return `+${growthRate}%/日 (複利)`;
+  if (curLang === "ko") return `+${growthRate}%/일 (복리)`;
+  if (curLang === "vi") return `+${growthRate}%/ngày (ghép)`;
+  return `+${growthRate}%/日复合`;
+}
+
 function updateCalculatorUI() {
   const invInput = document.getElementById("epi-calc-inv");
   const growthInput = document.getElementById("epi-calc-growth");
@@ -356,7 +365,7 @@ function updateCalculatorUI() {
   if (elDailyPurchase) elDailyPurchase.innerText = formatUsdt(projection.dailyEpiUsdt) + " USDT";
   if (elTotalEpi) elTotalEpi.innerText = formatEpiAmount(projection.totalEpi) + " EPI";
   if (elFinalPrice) elFinalPrice.innerText = formatEpiPrice(projection.finalEpiPrice);
-  if (elFinalPriceSub) elFinalPriceSub.innerText = `+${calculatorState.epiDailyGrowth}%/日复合`;
+  if (elFinalPriceSub) elFinalPriceSub.innerText = getCompoundedSubText(calculatorState.epiDailyGrowth);
   if (elFinalValue) elFinalValue.innerText = formatUsdt(projection.finalEpiValue);
   if (elRetainedCash) elRetainedCash.innerText = formatUsdt(projection.totalRetainedCash);
 
@@ -367,6 +376,16 @@ function updateCalculatorUI() {
       elTotalProfit.className = "text-sm sm:text-base font-bold font-mono text-emerald-400";
     } else {
       elTotalProfit.className = "text-sm sm:text-base font-bold font-mono text-red-400";
+    }
+  }
+
+  // Update table toggle button text based on current language
+  const toggleBtn = document.getElementById("epi-calc-table-toggle-btn");
+  if (toggleBtn) {
+    if (calculatorState.tableExpanded) {
+      toggleBtn.innerHTML = `<span id="epi-calc-toggle-text">${getI18nText("calc_table_toggle_close", "▲ 收起每日明细数据")}</span>`;
+    } else {
+      toggleBtn.innerHTML = `<span id="epi-calc-toggle-text">${getI18nText("calc_table_toggle_open", "▼ 查看完整每日计算明细 (1 ~ 365天)")}</span>`;
     }
   }
 
@@ -555,15 +574,15 @@ function renderBreakdownTable(projection) {
 function toggleDailyBreakdown() {
   const tableWrap = document.getElementById("epi-calc-table-wrapper");
   const toggleBtn = document.getElementById("epi-calc-table-toggle-btn");
-  if (!tableWrap) return;
+  if (!tableWrap || !toggleBtn) return;
 
   calculatorState.tableExpanded = !calculatorState.tableExpanded;
   if (calculatorState.tableExpanded) {
     tableWrap.classList.remove("hidden");
-    if (toggleBtn) toggleBtn.innerHTML = `<span>▲</span> <span>${getI18nText("calc_table_toggle_close", "收起每日明细数据")}</span>`;
+    toggleBtn.innerHTML = `<span id="epi-calc-toggle-text">${getI18nText("calc_table_toggle_close", "▲ 收起每日明细数据")}</span>`;
   } else {
     tableWrap.classList.add("hidden");
-    if (toggleBtn) toggleBtn.innerHTML = `<span>▼</span> <span>${getI18nText("calc_table_toggle_open", "查看完整每日计算明细 (1 ~ 365天)")}</span>`;
+    toggleBtn.innerHTML = `<span id="epi-calc-toggle-text">${getI18nText("calc_table_toggle_open", "▼ 查看完整每日计算明细 (1 ~ 365天)")}</span>`;
   }
 }
 
