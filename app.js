@@ -495,28 +495,41 @@ function setup3DCardTilt() {
   });
 }
 
-// Mobile Touch Swipe Gesture Support (Horizontal Only - Never hijack vertical scrolling)
+// Mobile Touch Swipe Gesture Support (Horizontal Only - Never hijack vertical scrolling or interactive sections)
 function setupMobileTouchSwipe() {
   let touchStartX = 0;
   let touchStartY = 0;
-  let touchEndX = 0;
-  let touchEndY = 0;
+  let touchTarget = null;
 
   window.addEventListener('touchstart', (e) => {
+    if (!e.changedTouches || !e.changedTouches[0]) return;
     touchStartX = e.changedTouches[0].screenX;
     touchStartY = e.changedTouches[0].screenY;
+    touchTarget = e.target;
   }, { passive: true });
 
   window.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    touchEndY = e.changedTouches[0].screenY;
+    if (!e.changedTouches || !e.changedTouches[0]) return;
+    const touchEndX = e.changedTouches[0].screenX;
+    const touchEndY = e.changedTouches[0].screenY;
     
+    // Completely exempt calculator section, breakdown tables, charts, drawers, and form controls from slide swipe hijacking
+    const isExempt = (el) => {
+      return !!(el && el.closest && el.closest(
+        '#epi-calculator, .calculator-section, #epi-calc-table-wrapper, .table-scrollbar, table, #epi-chart-container, input, select, button, a, .notes-drawer, .lang-dropdown-menu'
+      ));
+    };
+
+    if (isExempt(touchTarget) || isExempt(e.target)) {
+      return;
+    }
+
     const diffX = touchStartX - touchEndX;
     const diffY = touchStartY - touchEndY;
 
-    // Only trigger slide jump on explicit HORIZONTAL swipe (Left/Right)
-    // Never hijack vertical scrolling so user can freely scroll up and down
-    if (Math.abs(diffX) > 65 && Math.abs(diffX) > Math.abs(diffY) * 2) {
+    // Only trigger slide jump on explicit, intentional HORIZONTAL slide presentation swipes
+    // Require substantial distance (100px) and strict horizontal dominance (3.5x vertical)
+    if (Math.abs(diffX) > 100 && Math.abs(diffX) > Math.abs(diffY) * 3.5) {
       if (diffX > 0) {
         // Swiped Left -> Next Slide
         goToSlide(state.currentSlide + 1);
@@ -526,6 +539,14 @@ function setupMobileTouchSwipe() {
       }
     }
   }, { passive: true });
+
+  // Explicit touch isolation on table wrapper
+  const tableWrapper = document.getElementById('epi-calc-table-wrapper');
+  if (tableWrapper) {
+    tableWrapper.addEventListener('touchstart', (e) => e.stopPropagation(), { passive: true });
+    tableWrapper.addEventListener('touchmove', (e) => e.stopPropagation(), { passive: true });
+    tableWrapper.addEventListener('touchend', (e) => e.stopPropagation(), { passive: true });
+  }
 }
 
 // Interactive 9x6 Calculator on Slide 11

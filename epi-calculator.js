@@ -260,7 +260,7 @@ function formatEpiAmount(num) {
 function getI18nText(key, fallback) {
   try {
     const lang = localStorage.getItem("enipay_lang") || (window.i18n ? window.i18n.currentLang : "zh");
-    if (window.translations && window.translations[lang] && window.translations[lang][key]) {
+    if (window.translations && window.translations[lang] && window.translations[lang][key] !== undefined && window.translations[lang][key] !== null) {
       return window.translations[lang][key];
     }
   } catch (e) {}
@@ -545,12 +545,12 @@ function setupChartHover(container, data, getX, getY, chartW, chartH, padding) {
 // 7. DAILY BREAKDOWN TABLE RENDERING
 // ==========================================
 function formatBreakdownDay(day) {
-  const prefix = (getI18nText("calc_day_prefix", "第") || "").trim();
-  const suffix = (getI18nText("calc_day_suffix", "天") || "").trim();
-  if (!prefix && suffix) return `${day}${suffix}`;
-  if (prefix && suffix) return `${prefix} ${day} ${suffix}`;
-  if (prefix && !suffix) return `${prefix} ${day}`;
-  return `Day ${day}`;
+  const lang = localStorage.getItem("enipay_lang") || (window.i18n ? window.i18n.currentLang : "zh");
+  if (lang === 'en') return `Day ${day}`;
+  if (lang === 'ko') return `${day}일차`;
+  if (lang === 'vi') return `Ngày ${day}`;
+  if (lang === 'ja') return `第 ${day} 日`;
+  return `第 ${day} 天`;
 }
 
 function renderBreakdownTable(projection) {

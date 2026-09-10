@@ -53,6 +53,8 @@
 /* Calculator Table Scrollbar */
 .table-scrollbar {
   -webkit-overflow-scrolling: touch;
+  touch-action: pan-x pan-y;
+  overscroll-behavior: contain;
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 255, 178, 0.35) rgba(3, 7, 18, 0.95);
 }
@@ -972,6 +974,7 @@ body {
   .calculator-section {
     padding: 72px 14px 90px !important;
     min-height: auto !important;
+    scroll-snap-align: none !important;
   }
   .calculator-stage {
     width: 100% !important;
