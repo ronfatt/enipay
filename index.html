@@ -1896,12 +1896,12 @@
                   </div>
                 </div>
 
-                <div class="flex flex-row sm:flex-col items-start sm:items-end justify-between w-full sm:w-auto pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-800 gap-1">
-                  <div class="text-[11px] text-slate-400">
+                <div class="flex flex-col items-start sm:items-end justify-center w-full sm:w-auto pt-2.5 sm:pt-0 border-t sm:border-t-0 border-slate-800 gap-1.5">
+                  <div class="text-[11px] text-slate-400 flex items-center justify-between w-full sm:w-auto gap-2">
                     <span data-i18n="calc_retained_cash_lbl">10% ENI / EPAY 累计</span>:
                     <span id="epi-res-retained-cash" class="font-mono font-bold text-white ml-1">9.00 USDT</span>
                   </div>
-                  <div class="text-[11px] text-slate-400 flex items-center gap-1">
+                  <div class="text-[11px] text-slate-400 flex items-center justify-between w-full sm:w-auto gap-2">
                     <span data-i18n="calc_total_profit_lbl">预估净增值收益 (对比本金)</span>:
                     <span id="epi-res-total-profit" class="font-mono font-bold text-slate-300 ml-1">-197.08 USDT</span>
                   </div>
@@ -1933,17 +1933,26 @@
           </button>
 
           <div id="epi-calc-table-wrapper" class="hidden mt-3 rounded-xl border border-slate-800 bg-slate-950/90 overflow-hidden shadow-xl transition-all">
-            <div class="max-h-[360px] overflow-y-auto">
-              <table class="w-full text-left text-xs">
-                <thead class="sticky top-0 bg-slate-900 border-b border-slate-800 text-[10px] font-mono uppercase text-slate-400">
+            <!-- Mobile Horizontal Swipe Hint Bar -->
+            <div class="flex items-center justify-between px-3 py-1.5 bg-slate-900/90 border-b border-slate-800 text-[10px] font-mono text-cyan-bright/90 sm:hidden">
+              <span class="flex items-center gap-1.5">
+                <span>⇄</span>
+                <span data-i18n="calc_table_scroll_hint">可左右滑动查看全部 7 列数据</span>
+              </span>
+              <span class="text-slate-500 font-bold">1 ~ 365 DAYS</span>
+            </div>
+
+            <div class="max-h-[360px] overflow-x-auto overflow-y-auto table-scrollbar overscroll-contain">
+              <table class="w-full min-w-[620px] text-left text-xs border-collapse">
+                <thead class="sticky top-0 bg-slate-900/95 backdrop-blur border-b border-slate-800 text-[10px] font-mono uppercase text-slate-400 z-10">
                   <tr>
-                    <th class="py-2.5 px-3 text-left" data-i18n="calc_th_day">周期</th>
-                    <th class="py-2.5 px-3 text-right" data-i18n="calc_th_price">EPI 预期价格</th>
-                    <th class="py-2.5 px-3 text-right" data-i18n="calc_th_profit">当日收益</th>
-                    <th class="py-2.5 px-3 text-right" data-i18n="calc_th_alloc">EPI 额度 (90%)</th>
-                    <th class="py-2.5 px-3 text-right" data-i18n="calc_th_purchased">当日购得</th>
-                    <th class="py-2.5 px-3 text-right" data-i18n="calc_th_total_epi">累计持币</th>
-                    <th class="py-2.5 px-3 text-right" data-i18n="calc_th_total_val">累计总估值</th>
+                    <th class="py-2.5 px-3 text-left whitespace-nowrap" data-i18n="calc_th_day">周期</th>
+                    <th class="py-2.5 px-3 text-right whitespace-nowrap" data-i18n="calc_th_price">EPI 预期价格</th>
+                    <th class="py-2.5 px-3 text-right whitespace-nowrap" data-i18n="calc_th_profit">当日收益</th>
+                    <th class="py-2.5 px-3 text-right whitespace-nowrap" data-i18n="calc_th_alloc">EPI 额度 (90%)</th>
+                    <th class="py-2.5 px-3 text-right whitespace-nowrap" data-i18n="calc_th_purchased">当日购得</th>
+                    <th class="py-2.5 px-3 text-right whitespace-nowrap" data-i18n="calc_th_total_epi">累计持币</th>
+                    <th class="py-2.5 px-3 text-right whitespace-nowrap" data-i18n="calc_th_total_val">累计总估值</th>
                   </tr>
                 </thead>
                 <tbody id="epi-calc-table-body" class="divide-y divide-slate-800/40 font-mono">

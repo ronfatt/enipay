@@ -27,6 +27,49 @@
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   -webkit-tap-highlight-color: transparent;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 255, 178, 0.3) #030712;
+}
+
+/* Universal Clean Modern Scrollbars for Mobile & Desktop */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #030712;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 178, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 178, 0.6);
+}
+::-webkit-scrollbar-corner {
+  background: #030712;
+}
+
+/* Calculator Table Scrollbar */
+.table-scrollbar {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 255, 178, 0.35) rgba(3, 7, 18, 0.95);
+}
+.table-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.table-scrollbar::-webkit-scrollbar-track {
+  background: rgba(3, 7, 18, 0.95);
+  border-radius: 4px;
+}
+.table-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 178, 0.35);
+  border-radius: 4px;
+}
+.table-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 178, 0.65);
 }
 
 html, body {
@@ -889,22 +932,6 @@ body {
   /* Desktop Presentation Keynote Crisp Typography */
   .section-headline {
     letter-spacing: -0.02em;
-  }
-
-  /* Smooth Custom Scrollbar for Desktop */
-  ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-  }
-  ::-webkit-scrollbar-track {
-    background: #030712;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: rgba(0, 255, 178, 0.25);
-    border-radius: 4px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 255, 178, 0.55);
   }
 }
 

@@ -544,6 +544,15 @@ function setupChartHover(container, data, getX, getY, chartW, chartH, padding) {
 // ==========================================
 // 7. DAILY BREAKDOWN TABLE RENDERING
 // ==========================================
+function formatBreakdownDay(day) {
+  const prefix = (getI18nText("calc_day_prefix", "第") || "").trim();
+  const suffix = (getI18nText("calc_day_suffix", "天") || "").trim();
+  if (!prefix && suffix) return `${day}${suffix}`;
+  if (prefix && suffix) return `${prefix} ${day} ${suffix}`;
+  if (prefix && !suffix) return `${prefix} ${day}`;
+  return `Day ${day}`;
+}
+
 function renderBreakdownTable(projection) {
   const tbody = document.getElementById("epi-calc-table-body");
   if (!tbody) return;
@@ -558,13 +567,13 @@ function renderBreakdownTable(projection) {
 
       return `
         <tr class="border-b border-slate-800/60 transition-colors ${rowClass}">
-          <td class="py-2 px-3 font-mono text-xs text-left">${getI18nText("calc_day_prefix", "第")} ${d.day} ${getI18nText("calc_day_suffix", "天")}</td>
-          <td class="py-2 px-3 font-mono text-xs text-right text-cyan-bright font-semibold">${formatEpiPrice(d.price)}</td>
-          <td class="py-2 px-3 font-mono text-xs text-right text-slate-300">${formatUsdt(d.dailyProfit)}</td>
-          <td class="py-2 px-3 font-mono text-xs text-right text-gold-400">${formatUsdt(d.dailyEpiUsdt)}</td>
-          <td class="py-2 px-3 font-mono text-xs text-right text-cyan-neon font-semibold">${formatEpiAmount(d.epiPurchased)}</td>
-          <td class="py-2 px-3 font-mono text-xs text-right font-bold text-white">${formatEpiAmount(d.totalEpi)}</td>
-          <td class="py-2 px-3 font-mono text-xs text-right font-bold text-emerald-400">${formatUsdt(d.totalEpiValue)}</td>
+          <td class="py-2.5 px-3 font-mono text-xs text-left whitespace-nowrap text-slate-200">${formatBreakdownDay(d.day)}</td>
+          <td class="py-2.5 px-3 font-mono text-xs text-right text-cyan-bright font-semibold whitespace-nowrap">${formatEpiPrice(d.price)}</td>
+          <td class="py-2.5 px-3 font-mono text-xs text-right text-slate-300 whitespace-nowrap">${formatUsdt(d.dailyProfit)}</td>
+          <td class="py-2.5 px-3 font-mono text-xs text-right text-gold-400 whitespace-nowrap">${formatUsdt(d.dailyEpiUsdt)}</td>
+          <td class="py-2.5 px-3 font-mono text-xs text-right text-cyan-neon font-semibold whitespace-nowrap">${formatEpiAmount(d.epiPurchased)}</td>
+          <td class="py-2.5 px-3 font-mono text-xs text-right font-bold text-white whitespace-nowrap">${formatEpiAmount(d.totalEpi)}</td>
+          <td class="py-2.5 px-3 font-mono text-xs text-right font-bold text-emerald-400 whitespace-nowrap">${formatUsdt(d.totalEpiValue)}</td>
         </tr>
       `;
     })
