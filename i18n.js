@@ -488,6 +488,21 @@ const translations = {
     s9_r8_val: "<span>21-30 代</span><span class=\"font-black\">2%</span>",
     s9_r9_lbl: "直推 9 人 (直通车)",
     s9_r9_val: "<span>31-100 代</span><span class=\"font-black\">0.5%</span>",
+    calc_per_day: "U / 日",
+    calc_tier_prefix: "第 ",
+    calc_tier_suffix: " 代：",
+    calc_users_suffix: " 人",
+    calc_sub_growth_default: "+1.0%/日复合",
+    page_title: "Enipay 全球数字支付聚合平台 —— Web3 支付生态与代币激励计划",
+    nav_res_title: "官方媒体与资源中心",
+    nav_calc_title: "EPI 收益与增值预测计算器",
+    nav_sound_title: "切换声音反馈",
+    calc_refresh_title: "刷新实时币价",
+    dock_top_title: "回到顶部",
+    dock_res_title: "官方资料库",
+    dock_app_title: "下载客户端",
+    dock_chain_title: "ENI 公链官网",
+    dock_x_title: "官方 Twitter / X",
 
     s10_tag: "TOKENOMICS // 012",
     s10_epi_yield_banner: "EPI 质押收益：每 4 小时 0.25%，日化最高 1.5%",
@@ -545,6 +560,7 @@ const translations = {
     s11_contract_lbl: "EPAY 代币合约地址:",
     s11_burn_lbl: "EPAY 销毁钱包 (死亡黑洞):",
     s11_verify_burn_btn: "核验 ↗",
+    s11_url_lbl: "ENIPAY 官方网址:",
     s11_site_title: "ENIPAY 官方网站 ↗",
     s11_x_title: "ENIPAY 官方推特 / X ↗",
     s11_guide_title: "ENIPAY 产品指南 (App) ↗",
@@ -1084,6 +1100,17 @@ const translations = {
     calc_tier_prefix: "Tier ",
     calc_tier_suffix: ": ",
     calc_users_suffix: " Users",
+    calc_sub_growth_default: "+1.0%/day (compounded)",
+    page_title: "Enipay Global Digital Payment Aggregation Platform — Web3 Payment Ecosystem & Token Incentive Plan",
+    nav_res_title: "Official Media & Resources Hub",
+    nav_calc_title: "EPI Earnings & Growth Calculator",
+    nav_sound_title: "Toggle Sound Feedback",
+    calc_refresh_title: "Refresh Live Price",
+    dock_top_title: "Back to Top",
+    dock_res_title: "Official Resources",
+    dock_app_title: "Download App",
+    dock_chain_title: "ENI Chain Website",
+    dock_x_title: "Official Twitter / X",
 
     s10_tag: "TOKENOMICS // 012",
     s10_epi_yield_banner: "EPI Staking Yield: 0.25% every 4 hours, up to 1.5% daily",
@@ -1687,6 +1714,17 @@ const translations = {
     calc_tier_prefix: "第",
     calc_tier_suffix: "世代: ",
     calc_users_suffix: "人",
+    calc_sub_growth_default: "+1.0%/日 (複利)",
+    page_title: "Enipay グローバルデジタル決済アグリゲーションプラットフォーム —— Web3 決済エコシステムとトークンインセンティブ計画",
+    nav_res_title: "公式メディア＆リソースセンター",
+    nav_calc_title: "EPI 収益・価値シミュレーター",
+    nav_sound_title: "サウンド効果の切り替え",
+    calc_refresh_title: "リアルタイム価格を更新",
+    dock_top_title: "トップへ戻る",
+    dock_res_title: "公式リソースハブ",
+    dock_app_title: "アプリをダウンロード",
+    dock_chain_title: "ENI チェーン公式サイト",
+    dock_x_title: "公式 Twitter / X",
 
     s10_tag: "TOKENOMICS // 012",
     s10_epi_yield_banner: "EPI ステーキング利回り：4時間毎に0.25%、日次最大1.5%",
@@ -2292,6 +2330,17 @@ const translations = {
     calc_tier_prefix: "",
     calc_tier_suffix: "대: ",
     calc_users_suffix: "명",
+    calc_sub_growth_default: "+1.0%/일 (복리)",
+    page_title: "Enipay 글로벌 디지털 결제 애그리게이션 플랫폼 —— Web3 결제 생태계 및 토큰 인센티브 계획",
+    nav_res_title: "공식 미디어 및 리소스 센터",
+    nav_calc_title: "EPI 수익 및 가치 시뮬레이터",
+    nav_sound_title: "사운드 피드백 전환",
+    calc_refresh_title: "실시간 가격 새로고침",
+    dock_top_title: "맨 위로",
+    dock_res_title: "공식 리소스 허브",
+    dock_app_title: "앱 다운로드",
+    dock_chain_title: "ENI 체인 공식 사이트",
+    dock_x_title: "공식 Twitter / X",
 
     s10_tag: "TOKENOMICS // 012",
     s10_epi_yield_banner: "EPI 스테이킹 수익: 4시간마다 0.25%, 일 최대 1.5%",
@@ -2895,6 +2944,17 @@ const translations = {
     calc_tier_prefix: "Tầng ",
     calc_tier_suffix: ": ",
     calc_users_suffix: " Người",
+    calc_sub_growth_default: "+1.0%/ngày (ghép)",
+    page_title: "Enipay Nền tảng Tổng hợp Thanh toán Kỹ thuật số Toàn cầu —— Hệ sinh thái Thanh toán Web3 & Kế hoạch Khuyến khích Token",
+    nav_res_title: "Trung tâm Truyền thông & Tài liệu Chính thức",
+    nav_calc_title: "Máy tính Dự đoán Lợi nhuận & Giá trị EPI",
+    nav_sound_title: "Bật/Tắt âm thanh",
+    calc_refresh_title: "Làm mới giá trực tiếp",
+    dock_top_title: "Về đầu trang",
+    dock_res_title: "Tài liệu chính thức",
+    dock_app_title: "Tải ứng dụng",
+    dock_chain_title: "Trang chủ ENI Chain",
+    dock_x_title: "Twitter / X Chính thức",
 
     s10_tag: "TOKENOMICS // 012",
     s10_epi_yield_banner: "Lợi nhuận staking EPI: 0.25% mỗi 4 giờ, tối đa 1.5%/ngày",
@@ -3040,28 +3100,49 @@ class I18nManager {
   applyLanguage(lang) {
     const dict = translations[lang] || translations.zh;
 
-    // Update all elements with data-i18n
+    // 1. Update HTML document lang attribute
+    if (document.documentElement) {
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
+    }
+
+    // 2. Update page title in browser tab
+    if (dict.page_title) {
+      document.title = dict.page_title;
+    }
+
+    // 3. Update all elements with data-i18n (with robust fallback to zh)
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
-      if (dict[key]) {
-        el.innerHTML = dict[key];
+      const val = dict[key] !== undefined ? dict[key] : (translations.zh && translations.zh[key]);
+      if (val !== undefined) {
+        el.innerHTML = val;
       }
     });
 
-    // Update input placeholders with data-i18n-ph
+    // 4. Update input placeholders with data-i18n-ph
     document.querySelectorAll('[data-i18n-ph]').forEach(el => {
       const key = el.getAttribute('data-i18n-ph');
-      if (dict[key]) {
-        el.placeholder = dict[key];
+      const val = dict[key] !== undefined ? dict[key] : (translations.zh && translations.zh[key]);
+      if (val !== undefined) {
+        el.placeholder = val;
       }
     });
 
-    // Re-render resources hub if active
+    // 5. Update tooltips with data-i18n-title
+    document.querySelectorAll('[data-i18n-title]').forEach(el => {
+      const key = el.getAttribute('data-i18n-title');
+      const val = dict[key] !== undefined ? dict[key] : (translations.zh && translations.zh[key]);
+      if (val !== undefined) {
+        el.title = val;
+      }
+    });
+
+    // 6. Re-render resources hub if active
     if (typeof window.renderResources === 'function') {
       try { window.renderResources(); } catch(e) {}
     }
 
-    // Update active state in language selectors
+    // 7. Update active state in language selectors
     document.querySelectorAll('.lang-select-option').forEach(opt => {
       if (opt.getAttribute('data-lang') === lang) {
         opt.classList.add('active-lang');
@@ -3070,18 +3151,32 @@ class I18nManager {
       }
     });
 
-    // Update lang label on top bar
+    // 8. Update lang label on top bar
     const currentLangLabel = document.getElementById('current-lang-text');
     if (currentLangLabel) {
       currentLangLabel.innerText = dict.lang_name;
     }
 
-    // Trigger audio chime
+    // 9. Sync presenter notes title if visible
+    const notesTitle = document.getElementById('notes-slide-title');
+    if (notesTitle && window.state && window.state.currentSlide) {
+      const notesTitleMap = {
+        zh: '讲师提词稿',
+        en: 'Speaker Notes',
+        ja: 'スピーカーノート',
+        ko: '발표자 프롬프터 노트',
+        vi: 'Ghi chú diễn giả'
+      };
+      const titleSuffix = notesTitleMap[lang] || 'Speaker Notes';
+      notesTitle.innerText = `SLIDE ${String(window.state.currentSlide).padStart(2, '0')} ${titleSuffix}`;
+    }
+
+    // 10. Trigger audio chime
     if (window.audio && !window.audio.muted) {
       window.audio.playChime();
     }
 
-    // Update calculator labels if exists
+    // 11. Update calculator labels if exists
     if (typeof window.recalculateTeamEarnings === 'function') {
       window.recalculateTeamEarnings();
     }

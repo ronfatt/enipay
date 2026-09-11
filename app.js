@@ -627,7 +627,9 @@ function copyAddress(text, btnElement) {
     audio.playChime();
     if (navigator.vibrate) navigator.vibrate(50);
     const original = btnElement.innerHTML;
-    btnElement.innerHTML = `<span>✓ 已复制</span>`;
+    const curLang = localStorage.getItem('enipay_lang') || (window.i18n && window.i18n.currentLang) || 'zh';
+    const dict = (window.translations && window.translations[curLang]) || {};
+    btnElement.innerHTML = `<span>${dict.copied_btn || '✓ 已复制'}</span>`;
     setTimeout(() => {
       btnElement.innerHTML = original;
     }, 2000);
