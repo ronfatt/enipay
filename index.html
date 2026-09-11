@@ -1503,7 +1503,6 @@
           <div class="octane-card-hud p-5 text-center border-cyan-neon/60 bg-cyan-neon/10 flex flex-col justify-between" data-motion data-delay="3">
             <div class="cyber-pill text-[10px] py-0.5 px-2.5 mb-1"><span class="cyber-bullet"></span><span data-i18n="badge_daily_roi">每日日化</span></div>
             <div class="text-2xl lg:text-4xl font-black text-cyan-neon font-mono my-2" data-i18n="s8_t2_val">0.8% ~ 1.2%</div>
-            <div class="text-xs text-cyan-neon font-bold" data-i18n="s8_t2_desc">内测阶段固定每日 1.0%</div>
           </div>
 
           <div class="octane-card-hud p-5 text-center flex flex-col justify-between" data-motion data-delay="4">
@@ -1812,6 +1811,7 @@
                     <option value="90" data-i18n="calc_opt_90d">90 天 (90 Days - 季度)</option>
                     <option value="180" data-i18n="calc_opt_180d">180 天 (180 Days - 半年)</option>
                     <option value="365" data-i18n="calc_opt_365d">365 天 (365 Days - 全年)</option>
+                    <option value="438" data-i18n="calc_opt_438d">438 天 (438 Days - 3.5倍封顶出局)</option>
                   </select>
                   <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3.5 text-slate-400">
                     ▼
@@ -1832,7 +1832,7 @@
               <div class="space-y-2 text-xs">
                 <div class="flex items-center justify-between">
                   <span class="text-slate-400" data-i18n="calc_fixed_profit_lbl">每日质押日化收益率 (固定单利)</span>
-                  <span class="font-mono font-bold text-cyan-neon bg-cyan-neon/10 px-2 py-0.5 rounded border border-cyan-neon/30">1.0% <span data-i18n="calc_fixed_tag">固定</span></span>
+                  <span class="font-mono font-bold text-cyan-neon bg-cyan-neon/10 px-2 py-0.5 rounded border border-cyan-neon/30">0.8% <span data-i18n="calc_fixed_tag">固定</span></span>
                 </div>
                 <div class="flex items-center justify-between">
                   <span class="text-slate-400" data-i18n="calc_fixed_alloc_lbl">每日收益自动转购 EPI 比例</span>
@@ -1854,13 +1854,13 @@
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
               <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
                 <div class="text-[10px] text-slate-400 font-medium" data-i18n="calc_daily_profit_lbl">每日产生收益</div>
-                <div id="epi-res-daily-profit" class="text-base sm:text-lg font-black font-mono text-white mt-1">3.00 USDT</div>
+                <div id="epi-res-daily-profit" class="text-base sm:text-lg font-black font-mono text-white mt-1">2.40 USDT</div>
                 <div class="text-[9px] text-slate-500 font-mono" data-i18n="calc_sub_daily_profit">100% 产生收益</div>
               </div>
 
               <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
                 <div class="text-[10px] text-slate-400 font-medium" data-i18n="calc_daily_purchase_lbl">每日购入 EPI 额度 (90%)</div>
-                <div id="epi-res-daily-purchase" class="text-base sm:text-lg font-black font-mono text-gold-400 mt-1">2.70 USDT</div>
+                <div id="epi-res-daily-purchase" class="text-base sm:text-lg font-black font-mono text-gold-400 mt-1">2.16 USDT</div>
                 <div class="text-[9px] text-slate-500 font-mono" data-i18n="calc_sub_purchase">转购 EPI</div>
               </div>
 

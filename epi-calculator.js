@@ -10,9 +10,9 @@
 // 1. CONSTANTS & PARAMETERS
 // ==========================================
 const EPI_ALLOCATION = 0.90; // Fixed 90%
-const FIXED_DAILY_PROFIT_RATE = 1.0; // Fixed 1.0% per day (non-compounding)
+const FIXED_DAILY_PROFIT_RATE = 0.8; // Fixed 0.8% per day (non-compounding)
 const DEFAULT_EPI_DAILY_GROWTH = 1.0; // Default 1.0% per day (user-adjustable)
-const HOLDING_PERIODS = [7, 15, 30, 60, 90, 180, 365];
+const HOLDING_PERIODS = [7, 15, 30, 60, 90, 180, 365, 438];
 
 // Canonical Token & On-Chain Addresses on ENI Chain
 const EPI_CONTRACT_ADDRESS = "0x3230a5d7A96225c0ab89Ff0f654dBAFc52DcE1a7";
@@ -22,7 +22,7 @@ const ENI_RPC_URL = "https://rpc.eniac.network";
 // State
 const calculatorState = {
   investmentAmount: 300,
-  dailyProfitRate: 1.0, // Fixed at 1.0%
+  dailyProfitRate: 0.8, // Fixed at 0.8%
   epiDailyGrowth: 1.0, // percentage (default 1.0%, user adjustable)
   holdingPeriod: 30, // days
   currentPrice: 0.103, // fallback initial price
@@ -578,7 +578,7 @@ function renderBreakdownTable(projection) {
   const data = projection.dailyBreakdown;
   tbody.innerHTML = data
     .map(d => {
-      const isMilestone = [1, 7, 15, 30, 60, 90, 180, 365].includes(d.day);
+      const isMilestone = [1, 7, 15, 30, 60, 90, 180, 365, 438].includes(d.day);
       const rowClass = isMilestone
         ? "bg-slate-900/90 font-medium text-white border-l-2 border-l-cyan-neon"
         : "text-slate-300 hover:bg-slate-900/50";
