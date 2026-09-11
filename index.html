@@ -1904,18 +1904,17 @@
                   <span id="epi-res-retained-cash" class="font-mono font-bold text-white whitespace-nowrap text-right">$9.00</span>
                 </div>
 
-                <!-- Row 2: Appreciation vs Base (Split into 2 lines for large numbers) -->
-                <div class="flex flex-col gap-1 w-full pt-1.5 border-t border-slate-800/50">
-                  <div class="text-[11px] sm:text-xs text-slate-400 flex items-center justify-between">
-                    <span class="flex items-center gap-1 flex-wrap">
-                      <span data-i18n="calc_appreciation_prefix">比原收益</span>
-                      <span class="font-mono text-slate-300 font-semibold">(<span id="epi-res-orig-profit">$81.00 USDT</span>)</span>
-                      <span data-i18n="calc_appreciation_suffix">增值</span>
-                      <span class="text-slate-400">:</span>
-                    </span>
-                  </div>
-                  <div class="text-right">
-                    <span id="epi-res-total-profit" class="font-mono font-bold text-emerald-400 text-sm sm:text-base tracking-tight">+$12.92 USDT (+15.95%)</span>
+                <!-- Row 2: Appreciation vs Base (% stacked under amount) -->
+                <div class="text-[11px] sm:text-xs text-slate-400 flex items-center justify-between w-full">
+                  <span class="flex items-center gap-1 whitespace-nowrap">
+                    <span data-i18n="calc_appreciation_prefix">比原收益</span>
+                    <span class="font-mono text-slate-300 font-semibold">(<span id="epi-res-orig-profit">$81.00 USDT</span>)</span>
+                    <span data-i18n="calc_appreciation_suffix">增值</span>
+                    <span class="text-slate-400">:</span>
+                  </span>
+                  <div class="flex flex-col items-end text-right pl-1 whitespace-nowrap font-mono">
+                    <span id="epi-res-total-profit" class="font-bold text-emerald-400 text-xs sm:text-sm leading-tight">+$12.92 USDT</span>
+                    <span id="epi-res-profit-pct" class="text-[10px] sm:text-xs text-emerald-400 font-semibold leading-tight">(+15.95%)</span>
                   </div>
                 </div>
               </div>

@@ -385,15 +385,27 @@ function updateCalculatorUI() {
     elOrigProfit.innerText = formatUsdt(projection.originalEpiEarnings) + " USDT";
   }
 
+  const elProfitPct = document.getElementById("epi-res-profit-pct");
+
   if (elTotalProfit) {
     const isPositive = projection.appreciation >= 0;
     const prefix = isPositive ? "+" : "";
-    const pctPrefix = isPositive ? "+" : "";
-    elTotalProfit.innerText = `${prefix}${formatUsdt(projection.appreciation)} USDT (${pctPrefix}${projection.appreciationPct.toFixed(2)}%)`;
+    elTotalProfit.innerText = `${prefix}${formatUsdt(projection.appreciation)} USDT`;
     if (isPositive) {
-      elTotalProfit.className = "font-mono font-bold text-emerald-400 text-sm sm:text-base tracking-tight";
+      elTotalProfit.className = "font-bold text-emerald-400 text-xs sm:text-sm leading-tight";
     } else {
-      elTotalProfit.className = "font-mono font-bold text-red-400 text-sm sm:text-base tracking-tight";
+      elTotalProfit.className = "font-bold text-red-400 text-xs sm:text-sm leading-tight";
+    }
+  }
+
+  if (elProfitPct) {
+    const isPositive = projection.appreciation >= 0;
+    const pctPrefix = isPositive ? "+" : "";
+    elProfitPct.innerText = `(${pctPrefix}${projection.appreciationPct.toFixed(2)}%)`;
+    if (isPositive) {
+      elProfitPct.className = "text-[10px] sm:text-xs text-emerald-400 font-semibold leading-tight";
+    } else {
+      elProfitPct.className = "text-[10px] sm:text-xs text-red-400 font-semibold leading-tight";
     }
   }
 
