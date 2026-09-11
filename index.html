@@ -1879,30 +1879,40 @@
 
             <!-- Featured Highlight Valuation Card -->
             <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-slate-950 via-slate-900 to-cyan-950/30 border-2 border-cyan-neon/40 shadow-xl shadow-cyan-neon/5">
-              <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-                <div>
-                  <div class="flex items-center gap-2">
-                    <span class="w-2.5 h-2.5 rounded-full bg-cyan-neon animate-pulse"></span>
-                    <span class="text-xs font-bold uppercase tracking-wider text-slate-300" data-i18n="calc_final_value_lbl">EPI 持仓预估总价值</span>
-                  </div>
-                  <div id="epi-res-final-value" class="text-2xl sm:text-4xl font-black font-mono text-cyan-neon mt-1 tracking-tight">
-                    $93.92 USDT
-                  </div>
+              <!-- Top: Main Title & Big Valuation Value -->
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-cyan-neon animate-pulse"></span>
+                  <span class="text-xs font-bold uppercase tracking-wider text-slate-300" data-i18n="calc_final_value_lbl">EPI 持仓预估总价值</span>
+                </div>
+                <div id="epi-res-final-value" class="text-3xl sm:text-4xl font-black font-mono text-cyan-neon mt-1 tracking-tight">
+                  $93.92
+                </div>
+              </div>
+
+              <!-- Divider Line matching Image 1 -->
+              <div class="border-t border-slate-800/80 my-3 sm:my-3.5"></div>
+
+              <!-- Bottom Details: 2 Full-Width Clean Rows -->
+              <div class="flex flex-col gap-2 w-full">
+                <!-- Row 1: 10% ENI/EPAY -->
+                <div class="text-[10px] min-[360px]:text-[11px] sm:text-xs text-slate-400 flex items-center justify-between w-full">
+                  <span class="flex items-center gap-1 whitespace-nowrap">
+                    <span data-i18n="calc_retained_cash_lbl">10% ENI / EPAY 累计</span>
+                    <span class="text-slate-400">:</span>
+                  </span>
+                  <span id="epi-res-retained-cash" class="font-mono font-bold text-white whitespace-nowrap text-right">$9.00</span>
                 </div>
 
-                <div class="flex flex-col items-start sm:items-end justify-center w-full sm:w-auto pt-2.5 sm:pt-0 border-t sm:border-t-0 border-slate-800 gap-1.5">
-                  <div class="text-[11px] text-slate-400 flex items-center justify-between w-full sm:w-auto gap-2">
-                    <span data-i18n="calc_retained_cash_lbl">10% ENI / EPAY 累计</span>:
-                    <span id="epi-res-retained-cash" class="font-mono font-bold text-white ml-1">9.00 USDT</span>
-                  </div>
-                  <div class="text-[11px] text-slate-400 flex flex-wrap sm:flex-nowrap items-center justify-between w-full sm:w-auto gap-2">
-                    <span class="inline-flex items-center gap-1 flex-wrap">
-                      <span data-i18n="calc_appreciation_prefix">比原收益</span>
-                      <span class="font-mono text-slate-300 font-semibold">(<span id="epi-res-orig-profit">$81.00 USDT</span>)</span>
-                      <span data-i18n="calc_appreciation_suffix">增值</span>:
-                    </span>
-                    <span id="epi-res-total-profit" class="font-mono font-bold text-emerald-400 ml-1">+$12.92 USDT (+15.95%)</span>
-                  </div>
+                <!-- Row 2: Appreciation vs Base -->
+                <div class="text-[10px] min-[360px]:text-[11px] sm:text-xs text-slate-400 flex items-center justify-between w-full">
+                  <span class="flex items-center gap-1 whitespace-nowrap">
+                    <span data-i18n="calc_appreciation_prefix">比原收益</span>
+                    <span class="font-mono text-slate-300 font-semibold">(<span id="epi-res-orig-profit">$81.00 USDT</span>)</span>
+                    <span data-i18n="calc_appreciation_suffix">增值</span>
+                    <span class="text-slate-400">:</span>
+                  </span>
+                  <span id="epi-res-total-profit" class="font-mono font-bold text-emerald-400 whitespace-nowrap text-right pl-1">+$12.92 USDT (+15.95%)</span>
                 </div>
               </div>
             </div>
