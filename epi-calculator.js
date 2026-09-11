@@ -209,6 +209,9 @@ function calculateProjection(
   const finalEpiValue = cumulativeEpi * finalEpiPrice;
   const totalRetainedCash = dailyRetainedUsdt * days;
   const totalEarnedValue = finalEpiValue + totalRetainedCash;
+  const originalEpiEarnings = dailyEpiUsdt * days;
+  const appreciation = finalEpiValue - originalEpiEarnings;
+  const appreciationPct = originalEpiEarnings > 0 ? (appreciation / originalEpiEarnings) * 100 : 0;
   const netGain = totalEarnedValue - inv;
 
   return {
@@ -225,6 +228,9 @@ function calculateProjection(
     finalEpiValue: finalEpiValue,
     totalRetainedCash: totalRetainedCash,
     totalEarnedValue: totalEarnedValue,
+    originalEpiEarnings: originalEpiEarnings,
+    appreciation: appreciation,
+    appreciationPct: appreciationPct,
     netGain: netGain,
     dailyBreakdown: dailyBreakdown
   };
@@ -369,13 +375,20 @@ function updateCalculatorUI() {
   if (elFinalValue) elFinalValue.innerText = formatUsdt(projection.finalEpiValue);
   if (elRetainedCash) elRetainedCash.innerText = formatUsdt(projection.totalRetainedCash);
 
+  const elOrigProfit = document.getElementById("epi-res-orig-profit");
+  if (elOrigProfit) {
+    elOrigProfit.innerText = formatUsdt(projection.originalEpiEarnings) + " USDT";
+  }
+
   if (elTotalProfit) {
-    const prefix = projection.netGain >= 0 ? "+" : "";
-    elTotalProfit.innerText = `${prefix}${formatUsdt(projection.netGain)}`;
-    if (projection.netGain >= 0) {
-      elTotalProfit.className = "text-sm sm:text-base font-bold font-mono text-emerald-400";
+    const isPositive = projection.appreciation >= 0;
+    const prefix = isPositive ? "+" : "";
+    const pctPrefix = isPositive ? "+" : "";
+    elTotalProfit.innerText = `${prefix}${formatUsdt(projection.appreciation)} USDT (${pctPrefix}${projection.appreciationPct.toFixed(2)}%)`;
+    if (isPositive) {
+      elTotalProfit.className = "text-xs sm:text-sm font-bold font-mono text-emerald-400 ml-1";
     } else {
-      elTotalProfit.className = "text-sm sm:text-base font-bold font-mono text-red-400";
+      elTotalProfit.className = "text-xs sm:text-sm font-bold font-mono text-red-400 ml-1";
     }
   }
 

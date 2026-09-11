@@ -1895,9 +1895,13 @@
                     <span data-i18n="calc_retained_cash_lbl">10% ENI / EPAY 累计</span>:
                     <span id="epi-res-retained-cash" class="font-mono font-bold text-white ml-1">9.00 USDT</span>
                   </div>
-                  <div class="text-[11px] text-slate-400 flex items-center justify-between w-full sm:w-auto gap-2">
-                    <span data-i18n="calc_total_profit_lbl">预估净增值收益 (对比本金)</span>:
-                    <span id="epi-res-total-profit" class="font-mono font-bold text-slate-300 ml-1">-197.08 USDT</span>
+                  <div class="text-[11px] text-slate-400 flex flex-wrap sm:flex-nowrap items-center justify-between w-full sm:w-auto gap-2">
+                    <span class="inline-flex items-center gap-1 flex-wrap">
+                      <span data-i18n="calc_appreciation_prefix">比原收益</span>
+                      <span class="font-mono text-slate-300 font-semibold">(<span id="epi-res-orig-profit">$81.00 USDT</span>)</span>
+                      <span data-i18n="calc_appreciation_suffix">增值</span>:
+                    </span>
+                    <span id="epi-res-total-profit" class="font-mono font-bold text-emerald-400 ml-1">+$12.92 USDT (+15.95%)</span>
                   </div>
                 </div>
               </div>
