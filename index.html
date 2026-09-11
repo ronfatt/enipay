@@ -1983,30 +1983,17 @@
           <div>
             <div class="flex items-center gap-2 mb-1.5 flex-wrap">
               <div class="cyber-pill"><span class="cyber-bullet"></span><span data-i18n="s10_tag">TOKENOMICS // 012</span></div>
-              <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-400/40 text-emerald-300 font-bold text-[11px] sm:text-xs shadow-sm">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span data-i18n="s10_epi_yield_banner">EPI 质押收益：每 4 小时 0.25%，日化最高 1.5%</span>
-              </div>
             </div>
             <h2 class="section-headline" data-i18n="s10_title">
-              代币经济学 与 双代币<span class="text-gradient-hero">“通缩增长”财富飞轮</span>
+              代币经济学 与 三代币<span class="text-gradient-hero">“价值协同”财富飞轮</span>
             </h2>
-            <p class="section-subtitle" data-i18n="s10_subtitle">EPI 单向流通单边上涨 + EPAY 80% 黑洞永久销毁 + 提现 5% 强制回购销毁</p>
-          </div>
-          <div class="flex items-center gap-2 text-xs font-mono flex-wrap mt-2 md:mt-0">
-            <span class="text-slate-400 font-bold" data-i18n="s10_burn_lbl">实时已销毁:</span>
-            <span id="live-burned-epay" class="text-gold-400 font-bold bg-slate-900 px-3 py-1 rounded-lg border border-gold-400/40 text-xs sm:text-sm font-mono">72,060,367 EPAY</span>
-            <a href="https://m.ave.ai/check/0x3c3f92085d368c638aa95b9f8c203ea9a5cd3830-eni?type=token" target="_blank" rel="noopener noreferrer" class="py-1 px-2.5 rounded-lg bg-gold-400/15 hover:bg-gold-400/25 border border-gold-400/50 hover:border-gold-400 text-gold-400 text-xs font-bold transition-all flex items-center gap-1 shadow-sm group" title="在 AVE.ai 查看 EPAY 实时行情与持币详情">
-              <span>📊</span>
-              <span class="font-mono text-[11px]">AVE.ai</span>
-              <span class="text-[10px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
-            </a>
+            <p class="section-subtitle" data-i18n="s10_subtitle">EPI 生态代币单边上涨 + ENI 公链主币价值锚定 + EPAY 80% 黑洞极致通缩</p>
           </div>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 flex-1 items-stretch">
           
-          <!-- Card 1: EPI 1B Ecosystem Token & Unidirectional Rise (4 cols) -->
+          <!-- Card 1: EPI 1B Ecosystem Token & Unidirectional Rise (Left) -->
           <div class="octane-glass-panel p-4 sm:p-5 flex flex-col justify-between border-emerald-500/40 bg-gradient-to-b from-slate-950 via-slate-900 to-emerald-950/20 shadow-lg shadow-emerald-500/5" data-motion="left" data-delay="2">
             <div>
               <div class="flex items-center justify-between pb-2 mb-3 border-b border-slate-800">
@@ -2014,6 +2001,15 @@
                   <span>🪙</span> EPI 生态代币 (总量 10 亿枚)
                 </span>
                 <span class="cyber-pill text-[9px] py-0.5 px-2 bg-emerald-500/15 text-emerald-300 border border-emerald-400/40" data-i18n="s10_epi_card_badge">单向流通 · 单边上涨</span>
+              </div>
+
+              <!-- ① EPI 质押收益 Banner (Moved from Top Bar) -->
+              <div class="mb-3 p-2 rounded-xl bg-emerald-500/10 border border-emerald-400/30 flex items-center justify-between gap-2 shadow-sm">
+                <div class="flex items-center gap-1.5 text-[11px] sm:text-xs text-emerald-300 font-bold">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0"></span>
+                  <span data-i18n="s10_epi_yield_banner">EPI 质押收益：每 4 小时 0.25%，日化最高 1.5%</span>
+                </div>
+                <span class="text-[9px] font-mono font-bold text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-500/40 flex-shrink-0">STAKING</span>
               </div>
 
               <!-- Brief Intro with 3D Coin Graphic -->
@@ -2059,97 +2055,164 @@
             </div>
           </div>
 
-          <!-- Card 2: EPAY 100M Total Token Allocation -->
-          <div class="octane-glass-panel p-4 sm:p-5 flex flex-col justify-between" data-motion="up" data-delay="3">
+          <!-- Card 2: ENI Native Token Issuance Mechanism (Center) -->
+          <div class="octane-glass-panel p-4 sm:p-5 flex flex-col justify-between border-cyan-neon/40 bg-gradient-to-b from-slate-950 via-slate-900 to-cyan-950/20 shadow-lg shadow-cyan-neon/5" data-motion="up" data-delay="3">
             <div>
               <div class="flex items-center justify-between pb-2 mb-3 border-b border-slate-800">
-                <span class="text-xs font-mono font-bold text-cyan-neon uppercase tracking-wider" data-i18n="s10_dist_title">EPAY 代币分配 (总量 1 亿枚)</span>
-                <span class="cyber-pill text-[9px] py-0.5 px-2 bg-cyan-neon/10 text-cyan-neon" data-i18n="badge_fixed_100m">恒定 1 亿总量</span>
+                <span class="text-xs font-mono font-bold text-cyan-neon uppercase tracking-wider flex items-center gap-1.5" data-i18n="s10_eni_card_title">
+                  <span>💎</span> ENI 代币发行机制 (公链主币)
+                </span>
+                <span class="cyber-pill text-[9px] py-0.5 px-2 bg-cyan-neon/15 text-cyan-bright border border-cyan-neon/40" data-i18n="s10_eni_card_badge">公链主币 · 算力挖矿</span>
               </div>
-              
-              <!-- Allocation Progress Bars -->
-              <div class="space-y-2.5 text-xs font-mono">
-                <div>
-                  <div class="flex justify-between mb-1">
-                    <span class="text-gold-400 font-bold" data-i18n="s10_d1">80% 流动性池 (DEX) - 永久黑洞</span>
-                    <span class="text-gold-400 font-bold">80,000,000</span>
-                  </div>
-                  <div class="w-full bg-slate-900 rounded-full h-2 overflow-hidden border border-slate-700">
-                    <div class="bg-gold-400 h-full rounded-full" style="width: 80%"></div>
+
+              <!-- Price & Total Supply HUD Stats -->
+              <div class="grid grid-cols-2 gap-2 mb-3">
+                <div class="p-2 sm:p-2.5 rounded-xl bg-slate-950/80 border border-slate-800 flex flex-col justify-center">
+                  <div class="text-[10px] font-mono text-slate-400 uppercase" data-i18n="s10_eni_price_lbl">发行价</div>
+                  <div class="text-sm sm:text-base font-black font-mono text-cyan-neon flex items-baseline gap-1" data-i18n="s10_eni_price_val">
+                    <span>20</span><span class="text-xs text-slate-300 font-normal">USDT</span>
                   </div>
                 </div>
-
-                <div>
-                  <div class="flex justify-between mb-1">
-                    <span class="text-cyan-neon font-bold" data-i18n="s10_d2">10% 社区建设奖励</span>
-                    <span class="text-cyan-neon font-bold">10,000,000</span>
-                  </div>
-                  <div class="w-full bg-slate-900 rounded-full h-2 overflow-hidden border border-slate-700">
-                    <div class="bg-cyan-neon h-full rounded-full" style="width: 10%"></div>
+                <div class="p-2 sm:p-2.5 rounded-xl bg-slate-950/80 border border-slate-800 flex flex-col justify-center">
+                  <div class="text-[10px] font-mono text-slate-400 uppercase" data-i18n="s10_eni_supply_lbl">发行总量</div>
+                  <div class="text-sm sm:text-base font-black font-mono text-cyan-bright flex items-baseline gap-1" data-i18n="s10_eni_supply_val">
+                    <span>10 亿</span><span class="text-[10px] text-slate-400 font-normal">ENI</span>
                   </div>
                 </div>
+              </div>
 
-                <div>
-                  <div class="flex justify-between mb-1">
-                    <span class="text-cyan-bright font-bold" data-i18n="s10_d3">5% 入金空投</span>
-                    <span class="text-cyan-bright font-bold">5,000,000</span>
-                  </div>
-                  <div class="w-full bg-slate-900 rounded-full h-2 overflow-hidden border border-slate-700">
-                    <div class="bg-cyan-bright h-full rounded-full" style="width: 5%"></div>
-                  </div>
+              <!-- Brief Intro with Logo Graphic -->
+              <div class="flex items-center gap-3 mb-3 bg-slate-950/70 p-2.5 rounded-xl border border-slate-800">
+                <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-slate-900/90 border border-cyan-neon/40 flex items-center justify-center p-1.5 flex-shrink-0 shadow-lg shadow-cyan-neon/20">
+                  <img src="./assets/eni-logo.png" alt="ENI Logo" class="w-full h-full object-contain">
                 </div>
+                <p class="text-[11px] text-slate-300 leading-relaxed" data-i18n="s10_eni_desc">
+                  ENI 为高性能公链原生底层代币，承担生态结算与 Gas 核心枢纽，预计 2026 下半年上线 45 家主流大所。
+                </p>
+              </div>
 
-                <div>
-                  <div class="flex justify-between mb-1">
-                    <span class="text-slate-400 font-bold" data-i18n="s10_d4">5% 基金会储备</span>
-                    <span class="text-slate-400 font-bold">5,000,000</span>
+              <!-- Distribution Structure Progress Bars -->
+              <div class="mb-2">
+                <div class="text-[11px] font-mono font-bold text-slate-400 uppercase mb-2 flex items-center gap-1" data-i18n="s10_eni_dist_title">
+                  <span>📊</span> 分配结构
+                </div>
+                <div class="space-y-2 text-xs font-mono">
+                  <div>
+                    <div class="flex justify-between mb-1">
+                      <span class="text-slate-300 font-bold" data-i18n="s10_eni_d1">5% 市场营销</span>
+                      <span class="text-slate-300 font-bold">50,000,000</span>
+                    </div>
+                    <div class="w-full bg-slate-900 rounded-full h-2 overflow-hidden border border-slate-700">
+                      <div class="bg-cyan-bright h-full rounded-full" style="width: 5%"></div>
+                    </div>
                   </div>
-                  <div class="w-full bg-slate-900 rounded-full h-2 overflow-hidden border border-slate-700">
-                    <div class="bg-slate-500 h-full rounded-full" style="width: 5%"></div>
+
+                  <div>
+                    <div class="flex justify-between mb-1">
+                      <span class="text-cyan-neon font-bold" data-i18n="s10_eni_d2">95% 挖矿产出</span>
+                      <span class="text-cyan-neon font-bold">950,000,000</span>
+                    </div>
+                    <div class="w-full bg-slate-900 rounded-full h-2 overflow-hidden border border-slate-700">
+                      <div class="bg-gradient-to-r from-cyan-neon to-cyan-bright h-full rounded-full" style="width: 95%"></div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800 text-[11px] text-slate-300 mt-3 leading-relaxed" data-i18n="s10_fair_launch_tip">
-              💡 <strong>公平发行无预留：</strong>80% 初始流动性直接永久打入死亡黑洞，杜绝任何项目方抛压，打造最强共识 Web3 支付代币。
+            <!-- Consensus & Value Driver Tip -->
+            <div class="p-2.5 rounded-xl bg-cyan-950/40 border border-cyan-neon/30 text-[11px] text-cyan-200 mt-3 leading-relaxed flex items-center gap-1.5 shadow-sm" data-i18n="s10_eni_tip">
+              <span>⚡</span> <span data-i18n="s10_eni_tip_text">95% 由算力挖矿产出，公平分配铸就公链底层价值基石</span>
             </div>
           </div>
 
-          <!-- Card 3: EPAY Deflation Blackhole & DEX Trade Hub -->
-          <div class="octane-card-hud p-4 sm:p-5 flex flex-col justify-between" data-motion="right" data-delay="4">
+          <!-- Card 3: EPAY 100M Deflation & Burn Engine (Right) -->
+          <div class="octane-glass-panel p-4 sm:p-5 flex flex-col justify-between border-gold-400/40 bg-gradient-to-b from-slate-950 via-slate-900 to-amber-950/20 shadow-lg shadow-gold-400/5" data-motion="right" data-delay="4">
             <div>
               <div class="flex items-center justify-between pb-2 mb-3 border-b border-slate-800">
-                <span class="text-xs font-mono font-bold text-white uppercase tracking-wider" data-i18n="s10_burn_engine_title">🔥 EPAY 极致通缩与销毁引擎</span>
-                <span class="cyber-pill text-[9px] py-0.5 px-2 bg-gold-400/20 text-gold-400 border-gold-400/30">BURN ENGINE</span>
+                <span class="text-xs font-mono font-bold text-gold-400 uppercase tracking-wider flex items-center gap-1.5" data-i18n="s10_dist_title">
+                  <span>🔥</span> EPAY 代币分配与通缩 (总量 1 亿)
+                </span>
+                <span class="cyber-pill text-[9px] py-0.5 px-2 bg-gold-400/15 text-gold-300 border border-gold-400/40" data-i18n="badge_fixed_100m">恒定 1 亿总量</span>
+              </div>
+
+              <!-- ② 实时已销毁 Banner (Moved from Top Bar) -->
+              <div class="mb-3 p-2 rounded-xl bg-gold-500/10 border border-gold-400/30 flex items-center justify-between gap-2 shadow-sm">
+                <div class="flex items-center gap-1.5 text-xs font-mono">
+                  <span class="text-slate-400 font-bold text-[11px]" data-i18n="s10_burn_lbl">实时已销毁:</span>
+                  <span id="live-burned-epay" class="text-gold-400 font-bold bg-slate-900 px-2 py-0.5 rounded border border-gold-400/40 text-xs font-mono">72,060,392 EPAY</span>
+                </div>
+                <a href="https://m.ave.ai/check/0x3c3f92085d368c638aa95b9f8c203ea9a5cd3830-eni?type=token" target="_blank" rel="noopener noreferrer" class="py-1 px-2 rounded-lg bg-gold-400/15 hover:bg-gold-400/25 border border-gold-400/50 hover:border-gold-400 text-gold-400 text-[11px] font-bold transition-all flex items-center gap-1 shadow-sm group" title="在 AVE.ai 查看 EPAY 实时行情与持币详情">
+                  <span>📊</span>
+                  <span class="font-mono text-[10px]">AVE.ai</span>
+                  <span class="text-[9px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+                </a>
               </div>
 
               <!-- Black Hole Address Box -->
-              <div class="mb-2.5">
-                <div class="text-[11px] text-slate-400 mb-1" data-i18n="s10_blackhole_lbl">🔥 EPAY 销毁死亡黑洞地址：</div>
-                <div class="flex items-center justify-between bg-slate-950 p-2 rounded-xl border border-slate-800 text-xs font-mono text-gold-400">
-                  <span class="truncate max-w-[170px] sm:max-w-none text-[11px]">0x0000...dEaD</span>
-                  <a href="https://scan.eniac.network/address/0x8B5D6877E000332de0E46FFC4D0a111400c5f21c?tab=token_transfers" target="_blank" rel="noopener noreferrer" class="badge-chamfer text-[10px] py-0.5 px-2 text-cyan-neon border-cyan-neon/50 hover:border-cyan-neon" data-i18n="s10_verify_burn_btn">链上核验 ↗</a>
+              <div class="mb-2.5 p-2 bg-slate-950/70 rounded-xl border border-slate-800 flex items-center justify-between text-xs font-mono">
+                <div class="flex items-center gap-1 text-[11px] text-slate-300">
+                  <span class="text-gold-400">🔥</span>
+                  <span class="text-slate-400" data-i18n="s10_blackhole_lbl">黑洞地址:</span>
+                  <span class="text-gold-400 font-mono">0x000...dEaD</span>
                 </div>
+                <a href="https://scan.eniac.network/address/0x8B5D6877E000332de0E46FFC4D0a111400c5f21c?tab=token_transfers" target="_blank" rel="noopener noreferrer" class="badge-chamfer text-[10px] py-0.5 px-2 text-cyan-neon border-cyan-neon/50 hover:border-cyan-neon" data-i18n="s10_verify_burn_btn">链上核验 ↗</a>
               </div>
 
-              <!-- Key Mechanism Cards -->
-              <div class="grid grid-cols-2 gap-2 my-2.5 text-xs font-mono">
-                <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
-                  <div class="text-gold-400 font-bold mb-0.5 text-[11px]" data-i18n="s10_burn_b1_title">🔥 80% 初始黑洞</div>
-                  <div class="text-[10px] text-slate-400 leading-relaxed" data-i18n="s10_burn_b1_desc">80,000,000 枚 EPAY 永久锁入黑洞不可逆销毁。</div>
+              <!-- Allocation Progress Bars -->
+              <div class="mb-2">
+                <div class="text-[11px] font-mono font-bold text-slate-400 uppercase mb-2 flex items-center gap-1" data-i18n="s10_epay_dist_title">
+                  <span>📊</span> 分配结构
                 </div>
-                <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
-                  <div class="text-cyan-neon font-bold mb-0.5 text-[11px]" data-i18n="s10_burn_b2_title">⚡ 5% 强制回购</div>
-                  <div class="text-[10px] text-slate-400 leading-relaxed" data-i18n="s10_burn_b2_desc">全网提现 5% 手续费在 DEX 自动市价买入销毁。</div>
+                <div class="space-y-1.5 text-xs font-mono">
+                  <div>
+                    <div class="flex justify-between mb-0.5">
+                      <span class="text-gold-400 font-bold text-[11px]" data-i18n="s10_d1">80% DEX流动池 (永久黑洞)</span>
+                      <span class="text-gold-400 font-bold text-[11px]">80,000,000</span>
+                    </div>
+                    <div class="w-full bg-slate-900 rounded-full h-1.5 overflow-hidden border border-slate-700">
+                      <div class="bg-gold-400 h-full rounded-full" style="width: 80%"></div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between mb-0.5">
+                      <span class="text-cyan-neon font-bold text-[11px]" data-i18n="s10_d2">10% 社区建设奖励</span>
+                      <span class="text-cyan-neon font-bold text-[11px]">10,000,000</span>
+                    </div>
+                    <div class="w-full bg-slate-900 rounded-full h-1.5 overflow-hidden border border-slate-700">
+                      <div class="bg-cyan-neon h-full rounded-full" style="width: 10%"></div>
+                    </div>
+                  </div>
+
+                  <div class="grid grid-cols-2 gap-2 pt-0.5">
+                    <div>
+                      <div class="flex justify-between mb-0.5 text-[10px]">
+                        <span class="text-cyan-bright" data-i18n="s10_d3">5% 入金空投</span>
+                        <span class="text-cyan-bright">5M</span>
+                      </div>
+                      <div class="w-full bg-slate-900 rounded-full h-1.5 overflow-hidden border border-slate-700">
+                        <div class="bg-cyan-bright h-full rounded-full" style="width: 50%"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="flex justify-between mb-0.5 text-[10px]">
+                        <span class="text-slate-400" data-i18n="s10_d4">5% 基金储备</span>
+                        <span class="text-slate-400">5M</span>
+                      </div>
+                      <div class="w-full bg-slate-900 rounded-full h-1.5 overflow-hidden border border-slate-700">
+                        <div class="bg-slate-500 h-full rounded-full" style="width: 50%"></div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
             <!-- GeckoTerminal Live Chart Action -->
-            <div class="pt-2.5 border-t border-slate-800">
-              <a href="https://www.geckoterminal.com/eni/pools/0x5035cbd92456cc02b39bc326a2b20e50a90d73c9" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-cyan-neon/20 via-gold-400/20 to-cyan-bright/20 border border-cyan-neon hover:border-gold-400 text-white font-bold text-xs sm:text-sm text-center flex items-center justify-center gap-2 hover:bg-slate-900 transition-all shadow-[0_0_20px_rgba(0,255,204,0.2)] group">
-                <span class="text-base">🦎</span>
+            <div class="pt-2 border-t border-slate-800 mt-2">
+              <a href="https://www.geckoterminal.com/eni/pools/0x5035cbd92456cc02b39bc326a2b20e50a90d73c9" target="_blank" rel="noopener noreferrer" class="w-full py-2 rounded-xl bg-gradient-to-r from-cyan-neon/20 via-gold-400/20 to-cyan-bright/20 border border-cyan-neon hover:border-gold-400 text-white font-bold text-xs text-center flex items-center justify-center gap-1.5 hover:bg-slate-900 transition-all shadow-[0_0_15px_rgba(0,255,204,0.15)] group">
+                <span class="text-sm">🦎</span>
                 <span class="text-gradient-hero group-hover:text-gold-400 font-bold" data-i18n="s10_gecko_chart_btn">GeckoTerminal 实时行情图表 ↗</span>
               </a>
             </div>
