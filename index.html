@@ -2011,13 +2011,37 @@
                 <span class="cyber-pill text-[9px] py-0.5 px-2 bg-emerald-500/15 text-emerald-300 border border-emerald-400/40" data-i18n="s10_epi_card_badge">单向流通 · 单边上涨</span>
               </div>
 
-              <!-- ① EPI 质押收益 Banner (Moved from Top Bar) -->
-              <div class="mb-3 p-2 rounded-xl bg-emerald-500/10 border border-emerald-400/30 flex items-center justify-between gap-2 shadow-sm">
-                <div class="flex items-center gap-1.5 text-[11px] sm:text-xs text-emerald-300 font-bold">
-                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0"></span>
-                  <span data-i18n="s10_epi_yield_banner">EPI 质押收益：每 4 小时 0.25%，日化最高 1.5%</span>
+              <!-- ① EPI 质押（存款利息） Box -->
+              <div class="mb-3 p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-400/30 flex flex-col gap-2 shadow-sm">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-1.5 text-xs text-emerald-300 font-bold">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0"></span>
+                    <span data-i18n="s10_epi_stk_title">EPI质押（存款利息）</span>
+                  </div>
+                  <span class="text-[9px] font-mono font-bold text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-500/40 flex-shrink-0">STAKING</span>
                 </div>
-                <span class="text-[9px] font-mono font-bold text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-500/40 flex-shrink-0">STAKING</span>
+
+                <!-- 3 Staking Tiers -->
+                <div class="grid grid-cols-3 gap-1.5 text-center font-mono">
+                  <div class="p-1.5 rounded-lg bg-slate-950/80 border border-emerald-500/20 flex flex-col items-center justify-center">
+                    <div class="text-[10px] text-slate-400 font-medium" data-i18n="s10_epi_stk_7d_lbl">7天</div>
+                    <div class="text-[11px] sm:text-xs font-bold text-emerald-400" data-i18n="s10_epi_stk_7d_val">日化 0.8%</div>
+                  </div>
+                  <div class="p-1.5 rounded-lg bg-slate-950/80 border border-cyan-neon/40 bg-cyan-neon/5 flex flex-col items-center justify-center">
+                    <div class="text-[10px] text-slate-400 font-medium" data-i18n="s10_epi_stk_30d_lbl">30天</div>
+                    <div class="text-[11px] sm:text-xs font-bold text-cyan-neon" data-i18n="s10_epi_stk_30d_val">日化 1%</div>
+                  </div>
+                  <div class="p-1.5 rounded-lg bg-slate-950/80 border border-gold-400/40 bg-gold-400/5 flex flex-col items-center justify-center">
+                    <div class="text-[10px] text-slate-400 font-medium" data-i18n="s10_epi_stk_90d_lbl">90天</div>
+                    <div class="text-[11px] sm:text-xs font-bold text-gold-400" data-i18n="s10_epi_stk_90d_val">日化 1.5%</div>
+                  </div>
+                </div>
+
+                <!-- Auto-return footnote -->
+                <div class="text-[10px] text-emerald-300/85 flex items-center gap-1 justify-center pt-1 border-t border-emerald-500/20">
+                  <span class="text-[11px]">🔄</span>
+                  <span data-i18n="s10_epi_stk_return">质押到期自动返回余额</span>
+                </div>
               </div>
 
               <!-- Brief Intro with 3D Coin Graphic -->
