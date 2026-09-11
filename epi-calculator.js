@@ -391,9 +391,9 @@ function updateCalculatorUI() {
     const pctPrefix = isPositive ? "+" : "";
     elTotalProfit.innerText = `${prefix}${formatUsdt(projection.appreciation)} USDT (${pctPrefix}${projection.appreciationPct.toFixed(2)}%)`;
     if (isPositive) {
-      elTotalProfit.className = "text-[10px] min-[360px]:text-[11px] sm:text-xs font-bold font-mono text-emerald-400 whitespace-nowrap text-right pl-1";
+      elTotalProfit.className = "font-mono font-bold text-emerald-400 text-sm sm:text-base tracking-tight";
     } else {
-      elTotalProfit.className = "text-[10px] min-[360px]:text-[11px] sm:text-xs font-bold font-mono text-red-400 whitespace-nowrap text-right pl-1";
+      elTotalProfit.className = "font-mono font-bold text-red-400 text-sm sm:text-base tracking-tight";
     }
   }
 
