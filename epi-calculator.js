@@ -300,6 +300,11 @@ async function refreshEpiPrice() {
       priceDisplay.classList.add("text-cyan-neon");
     }
 
+    const s10EpiLivePrice = document.getElementById("s10-epi-live-price");
+    if (s10EpiLivePrice) {
+      s10EpiLivePrice.innerText = formatEpiPrice(res.price);
+    }
+
     if (timeDisplay) {
       const timeStr = res.timestamp.toLocaleTimeString("en-US", { hour12: false });
       timeDisplay.innerText = `${getI18nText("calc_updated_at", "更新于")}: ${timeStr}`;
