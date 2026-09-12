@@ -296,6 +296,34 @@ const RESOURCES_DATA = [
     "previewType": "video"
   },
   {
+    "id": "video-withdraw-jp",
+    "category": "videos",
+    "type": "MP4",
+    "title": "ENIPAY 提现与交易操作教程 (日文版)",
+    "subtitle": "详细演示法币及数字资产提现、交易对兑换与极速到账操作流程",
+    "path": "./ENI资料库/视频/提现交易教程_日文.mp4",
+    "badge": "日文教程",
+    "badgeColor": "cyan",
+    "icon": "🎬",
+    "canPreview": true,
+    "canDownload": false,
+    "previewType": "video"
+  },
+  {
+    "id": "video-withdraw-kr",
+    "category": "videos",
+    "type": "MP4",
+    "title": "ENIPAY 提现与交易操作教程 (韩文版)",
+    "subtitle": "详细演示法币及数字资产提现、交易对兑换与极速到账操作流程",
+    "path": "./ENI资料库/视频/提现交易教程_韩文.mp4",
+    "badge": "韩文教程",
+    "badgeColor": "cyan",
+    "icon": "🎬",
+    "canPreview": true,
+    "canDownload": false,
+    "previewType": "video"
+  },
+  {
     "id": "poster-long-intro",
     "category": "company",
     "type": "PNG",
@@ -796,6 +824,16 @@ const RESOURCES_I18N = {
       "subtitle": "超级节点分布、跨链清算网络与企业级 BaaS 服务深度拆解",
       "badge": "节点技术"
     },
+    "video-withdraw-jp": {
+      "title": "ENIPAY 提现与交易操作教程 (日文版)",
+      "subtitle": "详细演示法币及数字资产提现、交易对兑换与极速到账操作流程",
+      "badge": "日文教程"
+    },
+    "video-withdraw-kr": {
+      "title": "ENIPAY 提现与交易操作教程 (韩文版)",
+      "subtitle": "详细演示法币及数字资产提现、交易对兑换与极速到账操作流程",
+      "badge": "韩文教程"
+    },
     "poster-long-intro": {
       "title": "ENIPAY 官方简介全景长图 (多语言)",
       "subtitle": "长图全景展现平台愿景、五大落地产品、质押收益与上市战略",
@@ -942,6 +980,16 @@ const RESOURCES_I18N = {
       "title": "ENI Chain Global Nodes & Tech Architecture 02",
       "subtitle": "Supernode topology, cross-chain clearing networks, and enterprise BaaS framework",
       "badge": "Global Nodes"
+    },
+    "video-withdraw-jp": {
+      "title": "ENIPAY Withdrawal & Trading Tutorial (Japanese)",
+      "subtitle": "Step-by-step guide for fiat & crypto withdrawals, trading pairs, and instant settlement",
+      "badge": "JP Tutorial"
+    },
+    "video-withdraw-kr": {
+      "title": "ENIPAY Withdrawal & Trading Tutorial (Korean)",
+      "subtitle": "Step-by-step guide for fiat & crypto withdrawals, trading pairs, and instant settlement",
+      "badge": "KR Tutorial"
     },
     "poster-long-intro": {
       "title": "ENIPAY Official Panoramic Infographic (Multilingual)",
@@ -1090,6 +1138,16 @@ const RESOURCES_I18N = {
       "subtitle": "スーパーノード分散、クロスチェーン清算ネットワークとエンタープライズBaaS基盤",
       "badge": "ノード技術"
     },
+    "video-withdraw-jp": {
+      "title": "ENIPAY 出金・取引操作チュートリアル (日本語版)",
+      "subtitle": "法定通貨および暗号資産の出金、取引ペアの交換と即時着金プロセスの詳細実演",
+      "badge": "日本語チュートリアル"
+    },
+    "video-withdraw-kr": {
+      "title": "ENIPAY 出金・取引操作チュートリアル (韓国語版)",
+      "subtitle": "法定通貨および暗号資産の出金、取引ペアの交換と即時着金プロセスの詳細実演",
+      "badge": "韓国語チュートリアル"
+    },
     "poster-long-intro": {
       "title": "ENIPAY 公式パノラマ概要ロング画像 (多言語対応)",
       "subtitle": "ビジョン、5大プロダクト、ステーキング利回り、上場戦略をロング画像でパノラマ解説",
@@ -1237,6 +1295,16 @@ const RESOURCES_I18N = {
       "subtitle": "슈퍼노드 토폴로지, 크로스체인 청산 네트워크 및 엔터프라이즈 BaaS 서비스 분석",
       "badge": "노드 기술"
     },
+    "video-withdraw-jp": {
+      "title": "ENIPAY 출금 및 거래 튜토리얼 (일본어 버전)",
+      "subtitle": "법정화폐 및 디지털 자산 출금, 거래 페어 교환 및 초고속 입금 프로세스 상세 시연",
+      "badge": "일본어 튜토리얼"
+    },
+    "video-withdraw-kr": {
+      "title": "ENIPAY 출금 및 거래 튜토리얼 (한국어 버전)",
+      "subtitle": "법정화폐 및 디지털 자산 출금, 거래 페어 교환 및 초고속 입금 프로세스 상세 시연",
+      "badge": "한국어 튜토리얼"
+    },
     "poster-long-intro": {
       "title": "ENIPAY 공식 소개 파노라마 인포그래픽 (다국어)",
       "subtitle": "플랫폼 비전, 5대 핵심 제품, 스테이킹 수익률 및 상장 로드맵을 담은 파노라마 그래픽",
@@ -1383,6 +1451,16 @@ const RESOURCES_I18N = {
       "title": "Video kiến trúc kỹ thuật & Node toàn cầu chuỗi ENI 02",
       "subtitle": "Cấu trúc siêu node, mạng quyết toán chuỗi chéo và dịch vụ BaaS doanh nghiệp",
       "badge": "Kỹ thuật Node"
+    },
+    "video-withdraw-jp": {
+      "title": "Hướng dẫn rút tiền & giao dịch ENIPAY (Bản tiếng Nhật)",
+      "subtitle": "Trình diễn chi tiết quy trình rút tiền pháp định & tài sản kỹ thuật số, quy đổi cặp giao dịch và nhận tiền tức thì",
+      "badge": "Hướng dẫn tiếng Nhật"
+    },
+    "video-withdraw-kr": {
+      "title": "Hướng dẫn rút tiền & giao dịch ENIPAY (Bản tiếng Hàn)",
+      "subtitle": "Trình diễn chi tiết quy trình rút tiền pháp định & tài sản kỹ thuật số, quy đổi cặp giao dịch và nhận tiền tức thì",
+      "badge": "Hướng dẫn tiếng Hàn"
     },
     "poster-long-intro": {
       "title": "Infographic toàn cảnh chính thức ENIPAY (Đa ngôn ngữ)",
@@ -2050,6 +2128,12 @@ function generateThemedVideoCover(item) {
   } else if (item.id === "video-eni-promo-2") {
     gradientClass = "bg-gradient-to-br from-[#0f766e] via-[#0f172a] to-[#1e1b4b]";
     microTag = "GLOBAL NODES";
+  } else if (item.id === "video-withdraw-jp") {
+    gradientClass = "bg-gradient-to-br from-[#1e1b4b] via-[#0f172a] to-[#042f2e]";
+    microTag = "JP TUTORIAL";
+  } else if (item.id === "video-withdraw-kr") {
+    gradientClass = "bg-gradient-to-br from-[#312e81] via-[#0f172a] to-[#064e3b]";
+    microTag = "KR TUTORIAL";
   }
 
   const safePath = encodeURI(item.path);
@@ -2212,7 +2296,7 @@ function renderResources() {
 }
 
 function cat_mapping_runtime(item) {
-  const map = {"docsend-global-deck": "whitepaper", "doc-bp-multilang": "company", "poster-long-intro": "company", "poster-staking-model": "model", "poster-fission-model": "model", "doc-epay-intro": "model", "doc-community-ecosystem": "community", "doc-community-intro": "community", "poster-competitive-edge": "community", "poster-eco-overview": "community", "doc-qa-pdf": "qa", "download-gdrive-pack": "materials", "rollup-global-set": "materials", "poster-main-1": "materials", "poster-main-2": "materials", "poster-main-3": "materials", "signage-front-day": "materials", "signage-front-night": "materials", "signage-storefront": "materials", "signage-lightbox": "materials", "logo-brand-pack": "materials", "logo-psd-source": "materials", "video-eni-main": "videos", "video-enipay-promo": "videos", "video-spokesperson": "videos", "video-ecosystem": "videos", "video-finance-model": "videos", "video-wealth-code": "videos", "video-super-eco": "videos", "video-digital-pay": "videos", "video-eni-promo-2": "videos"};
+  const map = {"docsend-global-deck": "whitepaper", "doc-bp-multilang": "company", "poster-long-intro": "company", "poster-staking-model": "model", "poster-fission-model": "model", "doc-epay-intro": "model", "doc-community-ecosystem": "community", "doc-community-intro": "community", "poster-competitive-edge": "community", "poster-eco-overview": "community", "doc-qa-pdf": "qa", "download-gdrive-pack": "materials", "rollup-global-set": "materials", "poster-main-1": "materials", "poster-main-2": "materials", "poster-main-3": "materials", "signage-front-day": "materials", "signage-front-night": "materials", "signage-storefront": "materials", "signage-lightbox": "materials", "logo-brand-pack": "materials", "logo-psd-source": "materials", "video-eni-main": "videos", "video-enipay-promo": "videos", "video-spokesperson": "videos", "video-ecosystem": "videos", "video-finance-model": "videos", "video-wealth-code": "videos", "video-super-eco": "videos", "video-digital-pay": "videos", "video-eni-promo-2": "videos", "video-withdraw-jp": "videos", "video-withdraw-kr": "videos"};
   return map[item.id] || item.category || "materials";
 }
 
