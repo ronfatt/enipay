@@ -324,53 +324,6 @@ const RESOURCES_DATA = [
     "previewType": "video"
   },
   {
-    "id": "poster-long-intro",
-    "category": "company",
-    "type": "PNG",
-    "title": "ENIPAY 官方简介全景长图 (多语言)",
-    "subtitle": "长图全景展现平台愿景、五大落地产品、质押收益与上市战略",
-    "path": "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 简介长图/ENIPAY 简介长图 中文.png",
-    "thumb": "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 简介长图/ENIPAY 简介长图 中文.png",
-    "badge": "官方长图",
-    "badgeColor": "cyan",
-    "icon": "🖼️",
-    "canPreview": true,
-    "canDownload": true,
-    "previewType": "image",
-    "multiLangLinks": [
-      {
-        "lang": "zh",
-        "label": "🇨🇳 中文长图",
-        "url": "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 简介长图/ENIPAY 简介长图 中文.png"
-      },
-      {
-        "lang": "en",
-        "label": "🇺🇸 English",
-        "url": "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 简介长图/ENIPAY 简介长图 英文.png"
-      },
-      {
-        "lang": "ja",
-        "label": "🇯🇵 日本語",
-        "url": "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 简介长图/ENIPAY 简介长图 日文.jpg"
-      },
-      {
-        "lang": "ko",
-        "label": "🇰🇷 한국어",
-        "url": "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 简介长图/ENIPAY 简介长图 韩文.png"
-      },
-      {
-        "lang": "vi",
-        "label": "🇻🇳 Tiếng Việt",
-        "url": "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 简介长图/ENIPAY 简介长图 越南文.png"
-      },
-      {
-        "lang": "id",
-        "label": "🇮🇩 Indonesia",
-        "url": "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 简介长图/ENIPAY 简介长图 印尼文.png"
-      }
-    ]
-  },
-  {
     "id": "poster-competitive-edge",
     "category": "community",
     "type": "PNG",
@@ -474,21 +427,6 @@ const RESOURCES_DATA = [
     "thumb": "./ENI资料库/EPAY中文/ENI 生态简介.png",
     "badge": "生态展板",
     "badgeColor": "cyan",
-    "icon": "🖼️",
-    "canPreview": true,
-    "canDownload": true,
-    "previewType": "image"
-  },
-  {
-    "id": "poster-fission-model",
-    "category": "community",
-    "type": "PNG",
-    "title": "ENIPAY 100代裂变管理模型 02",
-    "subtitle": "100 代动态裂变奖金池与团队管理激励图解",
-    "path": "./ENI资料库/EPAY中文/ENIPAY 质押模型 02.png",
-    "thumb": "./ENI资料库/EPAY中文/ENIPAY 质押模型 02.png",
-    "badge": "裂变模型",
-    "badgeColor": "gold",
     "icon": "🖼️",
     "canPreview": true,
     "canDownload": true,
@@ -834,11 +772,6 @@ const RESOURCES_I18N = {
       "subtitle": "详细演示法币及数字资产提现、交易对兑换与极速到账操作流程",
       "badge": "韩文教程"
     },
-    "poster-long-intro": {
-      "title": "ENIPAY 官方简介全景长图 (多语言)",
-      "subtitle": "长图全景展现平台愿景、五大落地产品、质押收益与上市战略",
-      "badge": "官方长图"
-    },
     "poster-competitive-edge": {
       "title": "ENIPAY 生态竞争优势图解 (多语言)",
       "subtitle": "对比传统出入金与竞品，凸显 100% 币安托管与无冻卡优势",
@@ -853,11 +786,6 @@ const RESOURCES_I18N = {
       "title": "ENI 生态系统简介展板",
       "subtitle": "公链底座、支付清算与生态矩阵一览",
       "badge": "生态展板"
-    },
-    "poster-fission-model": {
-      "title": "ENIPAY 100代裂变管理模型 02",
-      "subtitle": "100 代动态裂变奖金池与团队管理激励图解",
-      "badge": "裂变模型"
     },
     "poster-main-1": {
       "title": "ENI 官方主视觉海报 01 (多语言)",
@@ -991,11 +919,6 @@ const RESOURCES_I18N = {
       "subtitle": "Step-by-step guide for fiat & crypto withdrawals, trading pairs, and instant settlement",
       "badge": "KR Tutorial"
     },
-    "poster-long-intro": {
-      "title": "ENIPAY Official Panoramic Infographic (Multilingual)",
-      "subtitle": "Comprehensive infographic displaying vision, 5 core products, staking yields, and IPO roadmap",
-      "badge": "Infographic"
-    },
     "poster-competitive-edge": {
       "title": "ENIPAY Ecosystem Competitive Advantage (Multilingual)",
       "subtitle": "Side-by-side comparison highlighting 100% Binance custody, zero-freeze cards, and instant ramps",
@@ -1010,11 +933,6 @@ const RESOURCES_I18N = {
       "title": "ENI Ecosystem Overview Exhibition Board",
       "subtitle": "Layer-1 blockchain base, payment clearing channels, and ecosystem matrix at a glance",
       "badge": "Eco Board"
-    },
-    "poster-fission-model": {
-      "title": "ENIPAY 100-Tier Team Fission Model 02",
-      "subtitle": "100-tier dynamic bonus pool and global team leadership rewards chart",
-      "badge": "Fission Model"
     },
     "poster-main-1": {
       "title": "ENI Official Key Visual Poster 01 (Multilingual)",
@@ -1148,11 +1066,6 @@ const RESOURCES_I18N = {
       "subtitle": "法定通貨および暗号資産の出金、取引ペアの交換と即時着金プロセスの詳細実演",
       "badge": "韓国語チュートリアル"
     },
-    "poster-long-intro": {
-      "title": "ENIPAY 公式パノラマ概要ロング画像 (多言語対応)",
-      "subtitle": "ビジョン、5大プロダクト、ステーキング利回り、上場戦略をロング画像でパノラマ解説",
-      "badge": "公式ロング図"
-    },
     "poster-competitive-edge": {
       "title": "ENIPAY エコシステム競争力比較チャート (多言語対応)",
       "subtitle": "従来決済や他社との比較、バイナンス100%保管と凍結ゼロの圧倒的優位性を図解",
@@ -1167,11 +1080,6 @@ const RESOURCES_I18N = {
       "title": "ENI エコシステム概要展示パネル",
       "subtitle": "パブリックチェーン基盤、決済清算ネットワーク、エコシステムマトリクス総覧",
       "badge": "展示パネル"
-    },
-    "poster-fission-model": {
-      "title": "ENIPAY 100世代チームレバレッジモデル 02",
-      "subtitle": "100世代ダイナミックボーナスプールとチーム管理インセンティブ詳細図",
-      "badge": "レバレッジモデル"
     },
     "poster-main-1": {
       "title": "ENI 公式キービジュアルポスター 01 (多言語対応)",
@@ -1305,11 +1213,6 @@ const RESOURCES_I18N = {
       "subtitle": "법정화폐 및 디지털 자산 출금, 거래 페어 교환 및 초고속 입금 프로세스 상세 시연",
       "badge": "한국어 튜토리얼"
     },
-    "poster-long-intro": {
-      "title": "ENIPAY 공식 소개 파노라마 인포그래픽 (다국어)",
-      "subtitle": "플랫폼 비전, 5대 핵심 제품, 스테이킹 수익률 및 상장 로드맵을 담은 파노라마 그래픽",
-      "badge": "공식 인포그래픽"
-    },
     "poster-competitive-edge": {
       "title": "ENIPAY 생태계 경쟁 우위 분석 차트 (다국어)",
       "subtitle": "기존 출입금 및 타사 비교, 바이낸스 100% 수탁과 계좌동결 제로의 차별화된 경쟁력",
@@ -1324,11 +1227,6 @@ const RESOURCES_I18N = {
       "title": "ENI 생태계 종합 개요 전시 보드",
       "subtitle": "레이어1 메인넷 기반, 결제 청산 채널 및 생태계 매트릭스 한눈에 보기",
       "badge": "생태계 보드"
-    },
-    "poster-fission-model": {
-      "title": "ENIPAY 100단계 팀 보너스 레버리지 모델 02",
-      "subtitle": "100단계 동적 보너스 풀과 글로벌 팀 리더십 인센티브 구조도",
-      "badge": "레버리지 모델"
     },
     "poster-main-1": {
       "title": "ENI 공식 키 비주얼 포스터 01 (다국어)",
@@ -1462,11 +1360,6 @@ const RESOURCES_I18N = {
       "subtitle": "Trình diễn chi tiết quy trình rút tiền pháp định & tài sản kỹ thuật số, quy đổi cặp giao dịch và nhận tiền tức thì",
       "badge": "Hướng dẫn tiếng Hàn"
     },
-    "poster-long-intro": {
-      "title": "Infographic toàn cảnh chính thức ENIPAY (Đa ngôn ngữ)",
-      "subtitle": "Hình ảnh toàn cảnh giới thiệu tầm nhìn, 5 sản phẩm cốt lõi, lợi tức staking và lộ trình IPO",
-      "badge": "Infographic"
-    },
     "poster-competitive-edge": {
       "title": "Biểu đồ lợi thế cạnh tranh hệ sinh thái ENIPAY (Đa ngôn ngữ)",
       "subtitle": "So sánh trực quan làm nổi bật lưu ký Binance 100%, thẻ không bị đóng băng và nạp rút tức thì",
@@ -1481,11 +1374,6 @@ const RESOURCES_I18N = {
       "title": "Bảng trưng bày tổng quan hệ sinh thái ENI",
       "subtitle": "Tổng hợp chuỗi L1 nền tảng, kênh thanh toán quyết toán và ma trận hệ sinh thái",
       "badge": "Bảng tổng quan"
-    },
-    "poster-fission-model": {
-      "title": "Mô hình quản trị đội nhóm 100 tầng ENIPAY 02",
-      "subtitle": "Sơ đồ quỹ thưởng động 100 tầng và cơ chế đãi ngộ phát triển đội ngũ toàn cầu",
-      "badge": "Mô hình 100 tầng"
     },
     "poster-main-1": {
       "title": "Poster hình ảnh chủ đạo chính thức ENI 01 (Đa ngôn ngữ)",
@@ -1905,14 +1793,6 @@ const MULTI_LANG_REGISTRY = {
     { lang: "vi", label: "🇻🇳 Tiếng Việt 越南版", url: "./ENI 资料库2.0/2.ENI公司简介PDF/ENIPAY 商业计划书/ENIPAY商业计划书 越南文.pdf" },
     { lang: "id", label: "🇮🇩 Indonesia 印尼版", url: "./ENI 资料库2.0/2.ENI公司简介PDF/ENIPAY 商业计划书/ENIPAY商业计划书 印尼文.pdf" }
   ],
-  "poster-long-intro": [
-    { lang: "zh", label: "🇨🇳 中文长图", url: "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 简介长图/ENIPAY 简介长图 中文.png" },
-    { lang: "en", label: "🇺🇸 English 英文长图", url: "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 简介长图/ENIPAY 简介长图 英文.png" },
-    { lang: "ja", label: "🇯🇵 日本語长图", url: "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 简介长图/ENIPAY 简介长图 日文.jpg" },
-    { lang: "ko", label: "🇰🇷 한국어长图", url: "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 简介长图/ENIPAY 简介长图 韩文.png" },
-    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南长图", url: "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 简介长图/ENIPAY 简介长图 越南文.png" },
-    { lang: "id", label: "🇮🇩 Indonesia 印尼长图", url: "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 简介长图/ENIPAY 简介长图 印尼文.png" }
-  ],
 
   // 3. ENIPAY金融模式图 (ENI 资料库2.0 完整 6 语)
   "poster-staking-model": [
@@ -2296,7 +2176,7 @@ function renderResources() {
 }
 
 function cat_mapping_runtime(item) {
-  const map = {"docsend-global-deck": "whitepaper", "doc-bp-multilang": "company", "poster-long-intro": "company", "poster-staking-model": "model", "poster-fission-model": "model", "doc-epay-intro": "model", "doc-community-ecosystem": "community", "doc-community-intro": "community", "poster-competitive-edge": "community", "poster-eco-overview": "community", "doc-qa-pdf": "qa", "download-gdrive-pack": "materials", "rollup-global-set": "materials", "poster-main-1": "materials", "poster-main-2": "materials", "poster-main-3": "materials", "signage-front-day": "materials", "signage-front-night": "materials", "signage-storefront": "materials", "signage-lightbox": "materials", "logo-brand-pack": "materials", "logo-psd-source": "materials", "video-eni-main": "videos", "video-enipay-promo": "videos", "video-spokesperson": "videos", "video-ecosystem": "videos", "video-finance-model": "videos", "video-wealth-code": "videos", "video-super-eco": "videos", "video-digital-pay": "videos", "video-eni-promo-2": "videos", "video-withdraw-jp": "videos", "video-withdraw-kr": "videos"};
+  const map = {"docsend-global-deck": "whitepaper", "doc-bp-multilang": "company", "poster-staking-model": "model", "doc-epay-intro": "model", "doc-community-ecosystem": "community", "doc-community-intro": "community", "poster-competitive-edge": "community", "poster-eco-overview": "community", "doc-qa-pdf": "qa", "download-gdrive-pack": "materials", "rollup-global-set": "materials", "poster-main-1": "materials", "poster-main-2": "materials", "poster-main-3": "materials", "signage-front-day": "materials", "signage-front-night": "materials", "signage-storefront": "materials", "signage-lightbox": "materials", "logo-brand-pack": "materials", "logo-psd-source": "materials", "video-eni-main": "videos", "video-enipay-promo": "videos", "video-spokesperson": "videos", "video-ecosystem": "videos", "video-finance-model": "videos", "video-wealth-code": "videos", "video-super-eco": "videos", "video-digital-pay": "videos", "video-eni-promo-2": "videos", "video-withdraw-jp": "videos", "video-withdraw-kr": "videos"};
   return map[item.id] || item.category || "materials";
 }
 
