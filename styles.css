@@ -983,4 +983,21 @@ body {
   }
 }
 
+/* Slide 12 (Tokenomics) Desktop Ergonomics: Guarantees quote and tracking actions never clip */
+@media (min-width: 769px) {
+  #slide-12 {
+    height: auto !important;
+    min-height: 100vh !important;
+    max-height: none !important;
+    overflow-y: visible !important;
+  }
+  #slide-12 .slide-stage-16-9 {
+    height: auto !important;
+    min-height: min(calc(100vh - 100px), 787.5px) !important;
+    max-height: none !important;
+    aspect-ratio: auto !important;
+  }
+}
+
+
 
