@@ -390,8 +390,8 @@ const RESOURCES_DATA = [
     "type": "PNG",
     "title": "ENIPAY 金融模型与收益横图 (多语言)",
     "subtitle": "300~10000U 投资梯度、日化 1% 与 3.5 倍出局机制全景横图",
-    "path": "./ENI 资料库2.0/3.ENIPAY金融模式图/ENIPAY 金融模型 中文.png",
-    "thumb": "./ENI 资料库2.0/3.ENIPAY金融模式图/ENIPAY 金融模型 中文.png",
+    "path": "./ENI 资料库2.0/3.ENIPAY金融模式图/模式横图新 中文.png",
+    "thumb": "./ENI 资料库2.0/3.ENIPAY金融模式图/模式横图新 中文.png",
     "badge": "金融模型",
     "badgeColor": "gold",
     "icon": "🖼️",
@@ -402,32 +402,32 @@ const RESOURCES_DATA = [
       {
         "lang": "zh",
         "label": "🇨🇳 中文横图",
-        "url": "./ENI 资料库2.0/3.ENIPAY金融模式图/ENIPAY 金融模型 中文.png"
+        "url": "./ENI 资料库2.0/3.ENIPAY金融模式图/模式横图新 中文.png"
       },
       {
         "lang": "en",
         "label": "🇺🇸 English",
-        "url": "./ENI 资料库2.0/3.ENIPAY金融模式图/ENIPAY 金融模型 英文.png"
-      },
-      {
-        "lang": "ja",
-        "label": "🇯🇵 日本語",
-        "url": "./ENI 资料库2.0/3.ENIPAY金融模式图/ENIPAY 金融模型 日文.jpg"
-      },
-      {
-        "lang": "ko",
-        "label": "🇰🇷 한국어",
-        "url": "./ENI 资料库2.0/3.ENIPAY金融模式图/ENIPAY 金融模型 韩文.png"
+        "url": "./ENI 资料库2.0/3.ENIPAY金融模式图/模式横图新 英文.png"
       },
       {
         "lang": "vi",
         "label": "🇻🇳 Tiếng Việt",
-        "url": "./ENI 资料库2.0/3.ENIPAY金融模式图/ENIPAY 金融模型 越南文.png"
+        "url": "./ENI 资料库2.0/3.ENIPAY金融模式图/模式横图新 越文.png"
+      },
+      {
+        "lang": "ja",
+        "label": "🇯🇵 日本語",
+        "url": "#"
+      },
+      {
+        "lang": "ko",
+        "label": "🇰🇷 한국어",
+        "url": "#"
       },
       {
         "lang": "id",
         "label": "🇮🇩 Indonesia",
-        "url": "./ENI 资料库2.0/3.ENIPAY金融模式图/ENIPAY 金融模型 印尼文.png"
+        "url": "#"
       }
     ]
   },
@@ -1739,12 +1739,12 @@ const MULTI_LANG_REGISTRY = {
 
   // 3. ENIPAY金融模式图 (ENI 资料库2.0 完整 6 语)
   "poster-staking-model": [
-    { lang: "zh", label: "🇨🇳 中文横图", url: "./ENI 资料库2.0/3.ENIPAY金融模式图/ENIPAY 金融模型 中文.png" },
-    { lang: "en", label: "🇺🇸 English 英文横图", url: "./ENI 资料库2.0/3.ENIPAY金融模式图/ENIPAY 金融模型 英文.png" },
-    { lang: "ja", label: "🇯🇵 日本語横图", url: "./ENI 资料库2.0/3.ENIPAY金融模式图/ENIPAY 金融模型 日文.jpg" },
-    { lang: "ko", label: "🇰🇷 한국어横图", url: "./ENI 资料库2.0/3.ENIPAY金融模式图/ENIPAY 金融模型 韩文.png" },
-    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南横图", url: "./ENI 资料库2.0/3.ENIPAY金融模式图/ENIPAY 金融模型 越南文.png" },
-    { lang: "id", label: "🇮🇩 Indonesia 印尼横图", url: "./ENI 资料库2.0/3.ENIPAY金融模式图/ENIPAY 金融模型 印尼文.png" }
+    { lang: "zh", label: "🇨🇳 中文横图", url: "./ENI 资料库2.0/3.ENIPAY金融模式图/模式横图新 中文.png" },
+    { lang: "en", label: "🇺🇸 English 英文横图", url: "./ENI 资料库2.0/3.ENIPAY金融模式图/模式横图新 英文.png" },
+    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南横图", url: "./ENI 资料库2.0/3.ENIPAY金融模式图/模式横图新 越文.png" },
+    { lang: "ja", label: "🇯🇵 日本語横图", url: "#" },
+    { lang: "ko", label: "🇰🇷 한국어横图", url: "#" },
+    { lang: "id", label: "🇮🇩 Indonesia 印尼横图", url: "#" }
   ],
 
   // 4. EPAY 社区生态 (ENI 资料库2.0 专属多语 PDF)
