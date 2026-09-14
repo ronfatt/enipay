@@ -449,7 +449,8 @@ const translations = {
     s7_p5_desc: "汇聚数百万持卡人流量与数百亿真实交易流水，全速推进纳斯达克 / 港交所 IPO 上市！",
     s7_p5_status: "● 冲刺目标: NASDAQ",
     s7_p5_val_sub: "$50B+ 估值",
-    s7_contract_title: "官方 5 亿美金专项增长与上市储备合约 (BSC)",
+    s7_wallet_badge: "钱包地址",
+    s7_contract_title: "官方 5 亿美金专项增长与上市储备钱包 (BSC)",
     s7_refill: "🔄 智能合约自动 Refill 机制：当第一期补贴资金消耗至 500 万 USDT 以下时，合约自动触发注入第二期 3,000 万 USDT，确保持续为全球市场裂变输送源源不断的动能！",
 
     // Slide 10: 8 静态收益
@@ -1069,7 +1070,8 @@ const translations = {
     s7_p5_desc: "Aggregating millions of cardholders and tens of billions in volume to sprint for a $50B+ IPO unicorn listing!",
     s7_p5_status: "● Sprint Target: NASDAQ",
     s7_p5_val_sub: "$50B+ Valuation",
-    s7_contract_title: "Official $500M Growth & IPO Reserve Contract (BSC)",
+    s7_wallet_badge: "WALLET ADDRESS",
+    s7_contract_title: "Official $500M Growth & IPO Reserve Wallet (BSC)",
     s7_refill: "🔄 Smart Contract Auto-Refill: When phase subsidies drop below $5M USDT, the smart contract automatically refills Phase 2 ($30M USDT), ensuring endless momentum!",
 
     s8_tag: "STAKING PLAN // 010",
@@ -1697,7 +1699,8 @@ const translations = {
     s7_p5_desc: "数百万人のユーザーと数百億ドルの実流通を集約し、評価額500億ドル規模のユニコーン上場へ！",
     s7_p5_status: "● 目標: NASDAQ",
     s7_p5_val_sub: "$50B+ 評価額",
-    s7_contract_title: "公式5億ドル成長＆上場準備契約 (BSC)",
+    s7_wallet_badge: "ウォレットアドレス",
+    s7_contract_title: "公式5億ドル成長＆上場準備ウォレット (BSC)",
     s7_refill: "🔄 自動 Refill 機構：還元資金が500万USDTを下回ると、自動で第2期の3,000万USDTが注入され、拡大を継続！",
 
     s8_tag: "STAKING PLAN // 010",
@@ -2327,7 +2330,8 @@ const translations = {
     s7_p5_desc: "수백만 카드 유저와 수백억 달러 실거래 데이터를 결합하여 500억 달러 가치의 유니콘 상장 완주!",
     s7_p5_status: "● 목표: NASDAQ",
     s7_p5_val_sub: "$50B+ 기업가치",
-    s7_contract_title: "공식 5억 달러 성장 및 상장 준비 계약 (BSC)",
+    s7_wallet_badge: "지갑 주소",
+    s7_contract_title: "공식 5억 달러 성장 및 상장 준비 지갑 (BSC)",
     s7_refill: "🔄 스마트 계약 자동 Refill: 보조금이 500만 USDT 미만으로 소진 시, 계약이 자동으로 2단계 3,000만 USDT를 주입하여 지속 확장!",
 
     s8_tag: "STAKING PLAN // 010",
@@ -2955,7 +2959,8 @@ const translations = {
     s7_p5_desc: "Hội tụ hàng triệu người dùng thẻ và hàng chục tỷ dòng tiền thực tế để bứt phá IPO định giá 50+ Tỷ $!",
     s7_p5_status: "● Mục tiêu: NASDAQ",
     s7_p5_val_sub: "Định giá $50B+",
-    s7_contract_title: "Hợp đồng dự trữ tăng trưởng & IPO 500M$ (BSC)",
+    s7_wallet_badge: "ĐỊA CHỈ VÍ",
+    s7_contract_title: "Ví dự trữ tăng trưởng & IPO 500M$ (BSC)",
     s7_refill: "🔄 Cơ chế Auto-Refill: Khi quỹ tiêu hao dưới 5 triệu USDT, hợp đồng tự động bơm tiếp giai đoạn 2 (30 triệu USDT) duy trì đà tăng trưởng!",
 
     s8_tag: "STAKING PLAN // 010",
