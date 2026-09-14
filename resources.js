@@ -295,6 +295,49 @@ const RESOURCES_DATA = [
     "previewType": "video"
   },
   {
+    "id": "doc-epay-super-eco",
+    "category": "community",
+    "type": "PDF",
+    "title": "EPAY 超级生态模型深度解读 (5 国语言 PDF)",
+    "subtitle": "传统金融 × 链上基础设施 × AI 时代支付基础与双引擎机制全景解析",
+    "path": "./ENI 资料库2.0/4.EPAY 社区生态/EPAY超级生态模型解读/EPAY超级生态模型解读 中文.pdf",
+    "thumb": "",
+    "size": "2.0 MB",
+    "badge": "生态模型解读",
+    "badgeColor": "cyan",
+    "icon": "🌐",
+    "canPreview": true,
+    "canDownload": true,
+    "previewType": "pdf",
+    "multiLangLinks": [
+      {
+        "lang": "zh",
+        "label": "🇨🇳 中文版",
+        "url": "./ENI 资料库2.0/4.EPAY 社区生态/EPAY超级生态模型解读/EPAY超级生态模型解读 中文.pdf"
+      },
+      {
+        "lang": "en",
+        "label": "🇺🇸 English",
+        "url": "./ENI 资料库2.0/4.EPAY 社区生态/EPAY超级生态模型解读/EPAY超级生态模型解读 英文.pdf"
+      },
+      {
+        "lang": "ja",
+        "label": "🇯🇵 日本語",
+        "url": "./ENI 资料库2.0/4.EPAY 社区生态/EPAY超级生态模型解读/EPAY超级生态模型解读 日文.pdf"
+      },
+      {
+        "lang": "ko",
+        "label": "🇰🇷 한국어",
+        "url": "./ENI 资料库2.0/4.EPAY 社区生态/EPAY超级生态模型解读/EPAY超级生态模型解读 韩文.pdf"
+      },
+      {
+        "lang": "vi",
+        "label": "🇻🇳 Tiếng Việt",
+        "url": "./ENI 资料库2.0/4.EPAY 社区生态/EPAY超级生态模型解读/EPAY超级生态模型解读 越南.pdf"
+      }
+    ]
+  },
+  {
     "id": "poster-competitive-edge",
     "category": "community",
     "type": "PNG",
@@ -718,6 +761,11 @@ const RESOURCES_I18N = {
       "subtitle": "详细演示法币及数字资产提现、交易对兑换与极速到账操作流程",
       "badge": "韩文教程"
     },
+    "doc-epay-super-eco": {
+      "title": "EPAY 超级生态模型深度解读 (5 国语言 PDF)",
+      "subtitle": "传统金融 × 链上基础设施 × AI 时代支付基础与双引擎机制全景解析",
+      "badge": "生态模型解读"
+    },
     "poster-competitive-edge": {
       "title": "ENIPAY 生态竞争优势图解 (多语言)",
       "subtitle": "对比传统出入金与竞品，凸显 100% 币安托管与无冻卡优势",
@@ -849,6 +897,11 @@ const RESOURCES_I18N = {
       "title": "ENIPAY Withdrawal & Trading Tutorial (Korean)",
       "subtitle": "Step-by-step guide for fiat & crypto withdrawals, trading pairs, and instant settlement",
       "badge": "KR Tutorial"
+    },
+    "doc-epay-super-eco": {
+      "title": "EPAY Super Crypto Ecosystem Model Breakdown (5 Languages PDF)",
+      "subtitle": "Traditional Finance × On-chain Infrastructure × AI Era Payment Infrastructure",
+      "badge": "Super Eco Guide"
     },
     "poster-competitive-edge": {
       "title": "ENIPAY Ecosystem Competitive Advantage (Multilingual)",
@@ -982,6 +1035,11 @@ const RESOURCES_I18N = {
       "subtitle": "法定通貨および暗号資産の出金、取引ペアの交換と即時着金プロセスの詳細実演",
       "badge": "韓国語チュートリアル"
     },
+    "doc-epay-super-eco": {
+      "title": "EPAY スーパー暗号資産エコシステムモデル詳細解説 (5言語対応 PDF)",
+      "subtitle": "伝統金融 × オンチェーンインフラ × AI時代の決済基盤＆デュアルエンジン全景",
+      "badge": "エコシステム解説"
+    },
     "poster-competitive-edge": {
       "title": "ENIPAY エコシステム競争力比較チャート (多言語対応)",
       "subtitle": "従来決済や他社との比較、バイナンス100%保管と凍結ゼロの圧倒的優位性を図解",
@@ -1114,6 +1172,11 @@ const RESOURCES_I18N = {
       "subtitle": "법정화폐 및 디지털 자산 출금, 거래 페어 교환 및 초고속 입금 프로세스 상세 시연",
       "badge": "한국어 튜토리얼"
     },
+    "doc-epay-super-eco": {
+      "title": "EPAY 슈퍼 암호화 생태계 모델 심층 분석 (5개국어 PDF)",
+      "subtitle": "전통 금융 × 온체인 인프라 × AI 시대 결제 기반 및 듀얼 엔진 구조",
+      "badge": "생태계 모델 분석"
+    },
     "poster-competitive-edge": {
       "title": "ENIPAY 생태계 경쟁 우위 분석 차트 (다국어)",
       "subtitle": "기존 출입금 및 타사 비교, 바이낸스 100% 수탁과 계좌동결 제로의 차별화된 경쟁력",
@@ -1245,6 +1308,11 @@ const RESOURCES_I18N = {
       "title": "Hướng dẫn rút tiền & giao dịch ENIPAY (Bản tiếng Hàn)",
       "subtitle": "Trình diễn chi tiết quy trình rút tiền pháp định & tài sản kỹ thuật số, quy đổi cặp giao dịch và nhận tiền tức thì",
       "badge": "Hướng dẫn tiếng Hàn"
+    },
+    "doc-epay-super-eco": {
+      "title": "Giải thích chuyên sâu mô hình siêu hệ sinh thái EPAY (PDF 5 ngôn ngữ)",
+      "subtitle": "Tài chính truyền thống × Cơ sở hạ tầng On-chain × Nền tảng thanh toán kỷ nguyên AI",
+      "badge": "Giải thích mô hình"
     },
     "poster-competitive-edge": {
       "title": "Biểu đồ lợi thế cạnh tranh hệ sinh thái ENIPAY (Đa ngôn ngữ)",
@@ -1591,9 +1659,9 @@ function generateThemedDocCover(item) {
   } else if (item.id === "doc-qa-pdf" || item.id === "doc-qa-pptx") {
     gradientClass = "bg-gradient-to-br from-[#00f2fe] via-[#00ffb2] to-[#22c55e]";
     microTag = item.type === "PPTX" ? "KEYNOTE DECK" : "MARKET FAQ";
-  } else if (item.id === "doc-community-intro") {
+  } else if (item.id === "doc-epay-super-eco" || item.id === "doc-community-intro") {
     gradientClass = "bg-gradient-to-br from-[#10b981] via-[#06b6d4] to-[#0284c7]";
-    microTag = "COMMUNITY GUIDE";
+    microTag = "SUPER ECO MODEL";
   } else if (item.id === "download-gdrive-pack") {
     gradientClass = "bg-gradient-to-br from-[#f59e0b] via-[#10b981] to-[#06b6d4]";
     microTag = "GOOGLE DRIVE";
@@ -1680,12 +1748,12 @@ const MULTI_LANG_REGISTRY = {
   ],
 
   // 4. EPAY 社区生态 (ENI 资料库2.0 专属多语 PDF)
-  "doc-community-intro": [
-    { lang: "zh", label: "🇨🇳 中文简介", url: "./ENI 资料库2.0/4.EPAY 社区生态/Epay 社区简介/EPAY 社区简介 中文.pdf" },
-    { lang: "en", label: "🇺🇸 English 英文版", url: "./ENI 资料库2.0/4.EPAY 社区生态/Epay 社区简介/EPAY 社区简介 英文.pdf" },
-    { lang: "ja", label: "🇯🇵 日本語版", url: "./ENI 资料库2.0/4.EPAY 社区生态/Epay 社区简介/EPAY 社区简介 英文.pdf" },
-    { lang: "ko", label: "🇰🇷 한국어판", url: "./ENI 资料库2.0/4.EPAY 社区生态/Epay 社区简介/EPAY 社区简介 韩文.pdf" },
-    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南版", url: "./ENI 资料库2.0/4.EPAY 社区生态/Epay 社区简介/EPAY 社区简介 越南.pdf" }
+  "doc-epay-super-eco": [
+    { lang: "zh", label: "🇨🇳 中文版", url: "./ENI 资料库2.0/4.EPAY 社区生态/EPAY超级生态模型解读/EPAY超级生态模型解读 中文.pdf" },
+    { lang: "en", label: "🇺🇸 English 英文版", url: "./ENI 资料库2.0/4.EPAY 社区生态/EPAY超级生态模型解读/EPAY超级生态模型解读 英文.pdf" },
+    { lang: "ja", label: "🇯🇵 日本語版", url: "./ENI 资料库2.0/4.EPAY 社区生态/EPAY超级生态模型解读/EPAY超级生态模型解读 日文.pdf" },
+    { lang: "ko", label: "🇰🇷 한국어판", url: "./ENI 资料库2.0/4.EPAY 社区生态/EPAY超级生态模型解读/EPAY超级生态模型解读 韩文.pdf" },
+    { lang: "vi", label: "🇻🇳 Tiếng Việt 越南版", url: "./ENI 资料库2.0/4.EPAY 社区生态/EPAY超级生态模型解读/EPAY超级生态模型解读 越南.pdf" }
   ],
   "poster-competitive-edge": [
     { lang: "zh", label: "🇨🇳 中文版", url: "./ENI 资料库2.0/6.素材&云盘下载/ENIPAY 生态竞争优势/ENIPAY 生态竞争优势 中文.PNG" },
@@ -2044,7 +2112,7 @@ function renderResources() {
 }
 
 function cat_mapping_runtime(item) {
-  const map = {"docsend-global-deck": "whitepaper", "doc-bp-multilang": "company", "poster-staking-model": "model", "doc-community-intro": "community", "poster-competitive-edge": "community", "doc-qa-pdf": "qa", "download-gdrive-pack": "materials", "rollup-global-set": "materials", "poster-main-1": "materials", "poster-main-2": "materials", "poster-main-3": "materials", "signage-front-day": "materials", "signage-front-night": "materials", "signage-storefront": "materials", "signage-lightbox": "materials", "logo-brand-pack": "materials", "logo-psd-source": "materials", "video-eni-main": "videos", "video-enipay-promo": "videos", "video-spokesperson": "videos", "video-ecosystem": "videos", "video-finance-model": "videos", "video-wealth-code": "videos", "video-super-eco": "videos", "video-digital-pay": "videos", "video-eni-promo-2": "videos", "video-withdraw-jp": "videos", "video-withdraw-kr": "videos"};
+  const map = {"docsend-global-deck": "whitepaper", "doc-bp-multilang": "company", "poster-staking-model": "model", "doc-community-intro": "community", "doc-epay-super-eco": "community", "poster-competitive-edge": "community", "doc-qa-pdf": "qa", "download-gdrive-pack": "materials", "rollup-global-set": "materials", "poster-main-1": "materials", "poster-main-2": "materials", "poster-main-3": "materials", "signage-front-day": "materials", "signage-front-night": "materials", "signage-storefront": "materials", "signage-lightbox": "materials", "logo-brand-pack": "materials", "logo-psd-source": "materials", "video-eni-main": "videos", "video-enipay-promo": "videos", "video-spokesperson": "videos", "video-ecosystem": "videos", "video-finance-model": "videos", "video-wealth-code": "videos", "video-super-eco": "videos", "video-digital-pay": "videos", "video-eni-promo-2": "videos", "video-withdraw-jp": "videos", "video-withdraw-kr": "videos"};
   return map[item.id] || item.category || "materials";
 }
 
