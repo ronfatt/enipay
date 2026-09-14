@@ -33,20 +33,6 @@ const RESOURCES_DATA = [
     "previewType": "link"
   },
   {
-    "id": "doc-community-ecosystem",
-    "category": "community",
-    "type": "PDF",
-    "title": "Epay社区补贴方案 (5 国语言 PDF)",
-    "subtitle": "社区布道体系、全球市场合规裂变、节点治理机制与早期红利全套 PDF",
-    "path": "./ENI 资料库2.0/4.EPAY 社区生态/Epay社区生态圈/Epay 社区生态圈 中文.pdf",
-    "badge": "5 语种补贴方案",
-    "badgeColor": "cyan",
-    "icon": "🌐",
-    "canPreview": true,
-    "canDownload": true,
-    "previewType": "pdf"
-  },
-  {
     "id": "doc-bp-multilang",
     "category": "company",
     "type": "PDF",
@@ -403,21 +389,6 @@ const RESOURCES_DATA = [
     ]
   },
   {
-    "id": "poster-eco-overview",
-    "category": "community",
-    "type": "PNG",
-    "title": "ENI 生态系统简介展板",
-    "subtitle": "公链底座、支付清算与生态矩阵一览",
-    "path": "./ENI资料库/EPAY中文/ENI 生态简介.png",
-    "thumb": "./ENI资料库/EPAY中文/ENI 生态简介.png",
-    "badge": "生态展板",
-    "badgeColor": "cyan",
-    "icon": "🖼️",
-    "canPreview": true,
-    "canDownload": true,
-    "previewType": "image"
-  },
-  {
     "id": "poster-main-1",
     "category": "community",
     "type": "PNG",
@@ -677,11 +648,6 @@ const RESOURCES_I18N = {
       "subtitle": "包含全套 PSD 分层原件、AI 矢量图、易拉宝、海报、Logo 高清源文件一键打包下载",
       "badge": "云盘直达"
     },
-    "doc-community-ecosystem": {
-      "title": "Epay社区补贴方案 (5 国语言 PDF)",
-      "subtitle": "社区布道体系、全球市场合规裂变、节点治理机制与早期红利全套 PDF",
-      "badge": "5 语种补贴方案"
-    },
     "doc-bp-multilang": {
       "title": "ENIPAY 官方商业计划书 (Business Plan · 6 国语言)",
       "subtitle": "包含愿景规划、三层技术架构、商业闭环与全球牌照全套 PDF",
@@ -762,11 +728,6 @@ const RESOURCES_I18N = {
       "subtitle": "300~10000U 投资梯度、日化 1% 与 3.5 倍出局机制全景横图",
       "badge": "金融模型"
     },
-    "poster-eco-overview": {
-      "title": "ENI 生态系统简介展板",
-      "subtitle": "公链底座、支付清算与生态矩阵一览",
-      "badge": "生态展板"
-    },
     "poster-main-1": {
       "title": "ENI 官方主视觉海报 01 (多语言)",
       "subtitle": "极具科技感的高清主视觉，适合线下峰会与展会背景",
@@ -818,11 +779,6 @@ const RESOURCES_I18N = {
       "title": "ENIPAY Official Complete Brand Asset Drive (Google Drive Master Pack)",
       "subtitle": "Full package including layered PSD files, AI vector graphics, rollups, posters, and HD logo source kits",
       "badge": "Cloud Drive"
-    },
-    "doc-community-ecosystem": {
-      "title": "Epay Community Subsidy & Incentive Program (5 Languages PDF)",
-      "subtitle": "Community evangelism matrix, compliant global fission, node governance, and early dividend guide",
-      "badge": "5-Lang Subsidy"
     },
     "doc-bp-multilang": {
       "title": "ENIPAY Official Business Plan & Strategy (6 Languages)",
@@ -904,11 +860,6 @@ const RESOURCES_I18N = {
       "subtitle": "300~10,000 USDT staking tiers, 1% daily yield, and 3.5x cap exit mechanism",
       "badge": "Staking Model"
     },
-    "poster-eco-overview": {
-      "title": "ENI Ecosystem Overview Exhibition Board",
-      "subtitle": "Layer-1 blockchain base, payment clearing channels, and ecosystem matrix at a glance",
-      "badge": "Eco Board"
-    },
     "poster-main-1": {
       "title": "ENI Official Key Visual Poster 01 (Multilingual)",
       "subtitle": "Cyberpunk high-tech key visual, ideal for global offline summits and keynote backdrops",
@@ -960,11 +911,6 @@ const RESOURCES_I18N = {
       "title": "ENIPAY 公式素材フルパッケージ (Google Drive 一括パック)",
       "subtitle": "PSDレイヤー原画、AIベクター、ロールアップ、ポスター、高解像度Logoを一括ダウンロード",
       "badge": "クラウド直行"
-    },
-    "doc-community-ecosystem": {
-      "title": "Epay コミュニティ助成金プラン (5言語対応 PDF)",
-      "subtitle": "コミュニティ推進体制、グローバル市場拡大、ノードガバナンス機構と初期ボーナス解説",
-      "badge": "5言語助成金"
     },
     "doc-bp-multilang": {
       "title": "ENIPAY 公式事業計画書 (Business Plan · 6言語対応)",
@@ -1046,11 +992,6 @@ const RESOURCES_I18N = {
       "subtitle": "300〜10,000 USDT投資ティア、日利1%と3.5倍上限エグジット機構の全体図",
       "badge": "金融モデル"
     },
-    "poster-eco-overview": {
-      "title": "ENI エコシステム概要展示パネル",
-      "subtitle": "パブリックチェーン基盤、決済清算ネットワーク、エコシステムマトリクス総覧",
-      "badge": "展示パネル"
-    },
     "poster-main-1": {
       "title": "ENI 公式キービジュアルポスター 01 (多言語対応)",
       "subtitle": "サイバーパンク調の高精細キービジュアル、オフラインサミットや展示会背景に最適",
@@ -1102,11 +1043,6 @@ const RESOURCES_I18N = {
       "title": "ENIPAY 공식 홍보물 전체 패키지 (Google Drive 클라우드)",
       "subtitle": "PSD 레이어 원본, AI 벡터, 배너, 포스터, HD 로고 원본 파일 일괄 다운로드",
       "badge": "클라우드 바로가기"
-    },
-    "doc-community-ecosystem": {
-      "title": "Epay 커뮤니티 보조금 및 인센티브 플랜 (5개국어 PDF)",
-      "subtitle": "커뮤니티 전파 체계, 글로벌 시장 확장, 노드 거버넌스 및 초기 배당 완벽 가이드",
-      "badge": "5개국어 보조금"
     },
     "doc-bp-multilang": {
       "title": "ENIPAY 공식 사업계획서 (Business Plan · 6개국어)",
@@ -1188,11 +1124,6 @@ const RESOURCES_I18N = {
       "subtitle": "300~10,000 USDT 투자 티어, 일 1% 수익률 및 3.5배 캡 출구 메커니즘 가로 차트",
       "badge": "금융 모델"
     },
-    "poster-eco-overview": {
-      "title": "ENI 생태계 종합 개요 전시 보드",
-      "subtitle": "레이어1 메인넷 기반, 결제 청산 채널 및 생태계 매트릭스 한눈에 보기",
-      "badge": "생태계 보드"
-    },
     "poster-main-1": {
       "title": "ENI 공식 키 비주얼 포스터 01 (다국어)",
       "subtitle": "사이버펑크 하이테크 키 비주얼, 글로벌 오프라인 컨퍼런스 및 배경막용 고해상도 디자인",
@@ -1244,11 +1175,6 @@ const RESOURCES_I18N = {
       "title": "Kho tài nguyên hoàn chỉnh ENIPAY (Gói Google Drive)",
       "subtitle": "Bao gồm tệp nguồn PSD nhiều lớp, vector AI, standee, poster và logo HD tải về trọn gói",
       "badge": "Tải Cloud"
-    },
-    "doc-community-ecosystem": {
-      "title": "Chương trình trợ cấp cộng đồng Epay (PDF 5 ngôn ngữ)",
-      "subtitle": "Hệ thống phát triển cộng đồng, mở rộng toàn cầu, cơ chế quản trị node và lợi tức sớm",
-      "badge": "Trợ cấp 5 thứ tiếng"
     },
     "doc-bp-multilang": {
       "title": "Kế hoạch kinh doanh chính thức ENIPAY (Business Plan · 6 ngôn ngữ)",
@@ -1329,11 +1255,6 @@ const RESOURCES_I18N = {
       "title": "Mô hình tài chính & Lợi nhuận staking ENIPAY (Đa ngôn ngữ)",
       "subtitle": "Các bậc đầu tư 300~10.000 USDT, lợi nhuận 1%/ngày và cơ chế chốt lời tối đa 3.5x",
       "badge": "Mô hình Staking"
-    },
-    "poster-eco-overview": {
-      "title": "Bảng trưng bày tổng quan hệ sinh thái ENI",
-      "subtitle": "Tổng hợp chuỗi L1 nền tảng, kênh thanh toán quyết toán và ma trận hệ sinh thái",
-      "badge": "Bảng tổng quan"
     },
     "poster-main-1": {
       "title": "Poster hình ảnh chủ đạo chính thức ENI 01 (Đa ngôn ngữ)",
@@ -1670,9 +1591,6 @@ function generateThemedDocCover(item) {
   } else if (item.id === "doc-qa-pdf" || item.id === "doc-qa-pptx") {
     gradientClass = "bg-gradient-to-br from-[#00f2fe] via-[#00ffb2] to-[#22c55e]";
     microTag = item.type === "PPTX" ? "KEYNOTE DECK" : "MARKET FAQ";
-  } else if (item.id === "doc-community-ecosystem") {
-    gradientClass = "bg-gradient-to-br from-[#06b6d4] via-[#10b981] to-[#3b82f6]";
-    microTag = "COMMUNITY SUBSIDY";
   } else if (item.id === "doc-community-intro") {
     gradientClass = "bg-gradient-to-br from-[#10b981] via-[#06b6d4] to-[#0284c7]";
     microTag = "COMMUNITY GUIDE";
@@ -1762,13 +1680,6 @@ const MULTI_LANG_REGISTRY = {
   ],
 
   // 4. EPAY 社区生态 (ENI 资料库2.0 专属多语 PDF)
-  "doc-community-ecosystem": [
-    { lang: "zh", label: "🇨🇳 中文补贴方案", url: "./ENI 资料库2.0/4.EPAY 社区生态/Epay社区生态圈/Epay 社区生态圈 中文.pdf" },
-    { lang: "en", label: "🇺🇸 English 英文版", url: "./ENI 资料库2.0/4.EPAY 社区生态/Epay社区生态圈/Epay 社区生态圈 英文.pdf" },
-    { lang: "ja", label: "🇯🇵 日本語版", url: "./ENI 资料库2.0/4.EPAY 社区生态/Epay社区生态圈/Epay 社区生态圈 日文.pdf" },
-    { lang: "ko", label: "🇰🇷 한국어판", url: "./ENI 资料库2.0/4.EPAY 社区生态/Epay社区生态圈/Epay 社区生态圈 韩文.pdf" },
-    { lang: "vi", label: "🇻🇳 Tiếng Việt 越文版", url: "./ENI 资料库2.0/4.EPAY 社区生态/Epay社区生态圈/Epay 社区生态圈 越文.pdf" }
-  ],
   "doc-community-intro": [
     { lang: "zh", label: "🇨🇳 中文简介", url: "./ENI 资料库2.0/4.EPAY 社区生态/Epay 社区简介/EPAY 社区简介 中文.pdf" },
     { lang: "en", label: "🇺🇸 English 英文版", url: "./ENI 资料库2.0/4.EPAY 社区生态/Epay 社区简介/EPAY 社区简介 英文.pdf" },
@@ -2133,7 +2044,7 @@ function renderResources() {
 }
 
 function cat_mapping_runtime(item) {
-  const map = {"docsend-global-deck": "whitepaper", "doc-bp-multilang": "company", "poster-staking-model": "model", "doc-community-ecosystem": "community", "doc-community-intro": "community", "poster-competitive-edge": "community", "poster-eco-overview": "community", "doc-qa-pdf": "qa", "download-gdrive-pack": "materials", "rollup-global-set": "materials", "poster-main-1": "materials", "poster-main-2": "materials", "poster-main-3": "materials", "signage-front-day": "materials", "signage-front-night": "materials", "signage-storefront": "materials", "signage-lightbox": "materials", "logo-brand-pack": "materials", "logo-psd-source": "materials", "video-eni-main": "videos", "video-enipay-promo": "videos", "video-spokesperson": "videos", "video-ecosystem": "videos", "video-finance-model": "videos", "video-wealth-code": "videos", "video-super-eco": "videos", "video-digital-pay": "videos", "video-eni-promo-2": "videos", "video-withdraw-jp": "videos", "video-withdraw-kr": "videos"};
+  const map = {"docsend-global-deck": "whitepaper", "doc-bp-multilang": "company", "poster-staking-model": "model", "doc-community-intro": "community", "poster-competitive-edge": "community", "doc-qa-pdf": "qa", "download-gdrive-pack": "materials", "rollup-global-set": "materials", "poster-main-1": "materials", "poster-main-2": "materials", "poster-main-3": "materials", "signage-front-day": "materials", "signage-front-night": "materials", "signage-storefront": "materials", "signage-lightbox": "materials", "logo-brand-pack": "materials", "logo-psd-source": "materials", "video-eni-main": "videos", "video-enipay-promo": "videos", "video-spokesperson": "videos", "video-ecosystem": "videos", "video-finance-model": "videos", "video-wealth-code": "videos", "video-super-eco": "videos", "video-digital-pay": "videos", "video-eni-promo-2": "videos", "video-withdraw-jp": "videos", "video-withdraw-kr": "videos"};
   return map[item.id] || item.category || "materials";
 }
 
