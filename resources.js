@@ -109,21 +109,6 @@ const RESOURCES_DATA = [
     "previewType": "pdf"
   },
   {
-    "id": "doc-epay-intro",
-    "category": "finance",
-    "type": "PDF",
-    "title": "EPAY 项目深度介绍 (中文版)",
-    "subtitle": "聚焦 EPAY 双通缩机制、回购销毁执行器与 100 代社区裂变激励",
-    "path": "./EPAY 项目介绍 中文.pdf",
-    "size": "4.7 MB",
-    "badge": "项目介绍",
-    "badgeColor": "gold",
-    "icon": "📘",
-    "canPreview": true,
-    "canDownload": true,
-    "previewType": "pdf"
-  },
-  {
     "id": "docsend-global-deck",
     "category": "company",
     "type": "DOCSEND",
@@ -707,11 +692,6 @@ const RESOURCES_I18N = {
       "subtitle": "全面解答关于 ENI 公链底座、币安托管、U卡申请与收益模型等核心问题",
       "badge": "市场答疑"
     },
-    "doc-epay-intro": {
-      "title": "EPAY 项目深度介绍 (中文版)",
-      "subtitle": "聚焦 EPAY 双通缩机制、回购销毁执行器与 100 代社区裂变激励",
-      "badge": "项目介绍"
-    },
     "docsend-global-deck": {
       "title": "ENI 公链官方核心白皮书与宣讲资料 (DocSend 6 国语言)",
       "subtitle": "实时云端同步，支持中/英/日/韩/越等多语言在线全息阅览，全球路演与机构对接推荐",
@@ -853,11 +833,6 @@ const RESOURCES_I18N = {
       "title": "ENIPAY Market Frequently Asked Questions (Q&A Manual)",
       "subtitle": "Comprehensive answers on ENI Chain, Binance Custody, Crypto U-Card, and yield models",
       "badge": "Market Q&A"
-    },
-    "doc-epay-intro": {
-      "title": "EPAY Project In-Depth Presentation (Comprehensive Guide)",
-      "subtitle": "Highlighting EPAY dual-deflation, buyback-and-burn mechanism, and 100-tier community matrix",
-      "badge": "Project Guide"
     },
     "docsend-global-deck": {
       "title": "ENI Chain Core Deck & Whitepaper (DocSend Live in 6 Languages)",
@@ -1001,11 +976,6 @@ const RESOURCES_I18N = {
       "subtitle": "ENIパブリックチェーン、バイナンスカストディ、Uカード申請、収益モデルの疑問を網羅",
       "badge": "市場Q&A"
     },
-    "doc-epay-intro": {
-      "title": "EPAY プロジェクト詳細解説 (総合ガイド)",
-      "subtitle": "EPAY デュアルデフレ機構、買戻しバーン執行器と100世代コミュニティ報酬体系",
-      "badge": "プロジェクト解説"
-    },
     "docsend-global-deck": {
       "title": "ENI パブリックチェーン公式コア資料 (DocSend 6言語対応)",
       "subtitle": "リアルタイムクラウド同期、世界ロードショーや機関投資家向け6言語オンライン閲覧",
@@ -1148,11 +1118,6 @@ const RESOURCES_I18N = {
       "subtitle": "ENI 메인넷 기반, 바이낸스 수탁, U-카드 발급 및 수익 모델에 대한 상세 해설",
       "badge": "시장 Q&A"
     },
-    "doc-epay-intro": {
-      "title": "EPAY 프로젝트 심층 분석 가이드 (종합 안내서)",
-      "subtitle": "EPAY 듀얼 디플레이션, 바이백 소각 메커니즘 및 100단계 커뮤니티 보상 체계 집중 조명",
-      "badge": "프로젝트 가이드"
-    },
     "docsend-global-deck": {
       "title": "ENI 메인넷 핵심 백서 및 피치덱 (DocSend 6개국어 지원)",
       "subtitle": "실시간 클라우드 동기화, 글로벌 로드쇼 및 기관 제휴를 위한 6개국어 인터랙티브 리더",
@@ -1294,11 +1259,6 @@ const RESOURCES_I18N = {
       "title": "Sổ tay hỏi đáp thị trường ENIPAY (Q&A Manual)",
       "subtitle": "Giải đáp toàn diện về chuỗi ENI, lưu ký Binance, đăng ký Thẻ U và mô hình lợi nhuận",
       "badge": "Hỏi đáp Q&A"
-    },
-    "doc-epay-intro": {
-      "title": "Giới thiệu chuyên sâu dự án EPAY (Bản tổng hợp)",
-      "subtitle": "Tập trung vào cơ chế giảm phát kép, mua lại đốt bỏ và mô hình thưởng cộng đồng 100 tầng",
-      "badge": "Giới thiệu dự án"
     },
     "docsend-global-deck": {
       "title": "Tài liệu cốt lõi & Sách trắng chuỗi ENI (DocSend 6 ngôn ngữ)",
@@ -1710,9 +1670,6 @@ function generateThemedDocCover(item) {
   } else if (item.id === "doc-qa-pdf" || item.id === "doc-qa-pptx") {
     gradientClass = "bg-gradient-to-br from-[#00f2fe] via-[#00ffb2] to-[#22c55e]";
     microTag = item.type === "PPTX" ? "KEYNOTE DECK" : "MARKET FAQ";
-  } else if (item.id === "doc-epay-intro") {
-    gradientClass = "bg-gradient-to-br from-[#a3e635] via-[#10b981] to-[#06b6d4]";
-    microTag = "TOKENOMICS";
   } else if (item.id === "doc-community-ecosystem") {
     gradientClass = "bg-gradient-to-br from-[#06b6d4] via-[#10b981] to-[#3b82f6]";
     microTag = "COMMUNITY SUBSIDY";
@@ -2176,7 +2133,7 @@ function renderResources() {
 }
 
 function cat_mapping_runtime(item) {
-  const map = {"docsend-global-deck": "whitepaper", "doc-bp-multilang": "company", "poster-staking-model": "model", "doc-epay-intro": "model", "doc-community-ecosystem": "community", "doc-community-intro": "community", "poster-competitive-edge": "community", "poster-eco-overview": "community", "doc-qa-pdf": "qa", "download-gdrive-pack": "materials", "rollup-global-set": "materials", "poster-main-1": "materials", "poster-main-2": "materials", "poster-main-3": "materials", "signage-front-day": "materials", "signage-front-night": "materials", "signage-storefront": "materials", "signage-lightbox": "materials", "logo-brand-pack": "materials", "logo-psd-source": "materials", "video-eni-main": "videos", "video-enipay-promo": "videos", "video-spokesperson": "videos", "video-ecosystem": "videos", "video-finance-model": "videos", "video-wealth-code": "videos", "video-super-eco": "videos", "video-digital-pay": "videos", "video-eni-promo-2": "videos", "video-withdraw-jp": "videos", "video-withdraw-kr": "videos"};
+  const map = {"docsend-global-deck": "whitepaper", "doc-bp-multilang": "company", "poster-staking-model": "model", "doc-community-ecosystem": "community", "doc-community-intro": "community", "poster-competitive-edge": "community", "poster-eco-overview": "community", "doc-qa-pdf": "qa", "download-gdrive-pack": "materials", "rollup-global-set": "materials", "poster-main-1": "materials", "poster-main-2": "materials", "poster-main-3": "materials", "signage-front-day": "materials", "signage-front-night": "materials", "signage-storefront": "materials", "signage-lightbox": "materials", "logo-brand-pack": "materials", "logo-psd-source": "materials", "video-eni-main": "videos", "video-enipay-promo": "videos", "video-spokesperson": "videos", "video-ecosystem": "videos", "video-finance-model": "videos", "video-wealth-code": "videos", "video-super-eco": "videos", "video-digital-pay": "videos", "video-eni-promo-2": "videos", "video-withdraw-jp": "videos", "video-withdraw-kr": "videos"};
   return map[item.id] || item.category || "materials";
 }
 
