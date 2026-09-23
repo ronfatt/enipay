@@ -9,8 +9,8 @@
 // ==========================================
 // 1. CONSTANTS & PARAMETERS
 // ==========================================
-const EPI_ALLOCATION = 0.90; // Fixed 90%
-const FIXED_DAILY_PROFIT_RATE = 0.8; // Fixed 0.8% per day (non-compounding)
+const EPI_ALLOCATION = 1.00; // Fixed 100%
+const FIXED_DAILY_PROFIT_RATE = 1.0; // Fixed 1.0% per day (non-compounding)
 const DEFAULT_EPI_DAILY_GROWTH = 1.0; // Default 1.0% per day (user-adjustable)
 const HOLDING_PERIODS = [7, 15, 30, 60, 90, 180, 365, 438];
 
@@ -22,7 +22,7 @@ const ENI_RPC_URL = "https://rpc.eniac.network";
 // State
 const calculatorState = {
   investmentAmount: 300,
-  dailyProfitRate: 0.8, // Fixed at 0.8%
+  dailyProfitRate: 1.0, // Fixed at 1.0%
   epiDailyGrowth: 1.0, // percentage (default 1.0%, user adjustable)
   holdingPeriod: 30, // days
   currentPrice: 0.103, // fallback initial price
@@ -145,7 +145,7 @@ function calculateEpiPrice(currentPrice, day, dailyGrowthRate = 0.01) {
 }
 
 /**
- * Daily USDT used to purchase EPI: Daily Profit * 90%
+ * Daily USDT used to purchase EPI: Daily Profit * 100%
  */
 function calculateDailyEpiPurchase(dailyProfit, allocation = EPI_ALLOCATION) {
   return Number(dailyProfit) * Number(allocation);

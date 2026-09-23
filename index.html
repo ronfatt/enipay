@@ -1501,7 +1501,7 @@
 
           <div class="octane-card-hud p-5 text-center border-cyan-neon/60 bg-cyan-neon/10 flex flex-col justify-between" data-motion data-delay="3">
             <div class="cyber-pill text-[10px] py-0.5 px-2.5 mb-1"><span class="cyber-bullet"></span><span data-i18n="badge_daily_roi">每日日化</span></div>
-            <div class="text-2xl lg:text-4xl font-black text-cyan-neon font-mono my-2" data-i18n="s8_t2_val">0.8% ~ 1.2%</div>
+            <div class="text-2xl lg:text-4xl font-black text-cyan-neon font-mono my-2" data-i18n="s8_t2_val">1% ~ 5%</div>
           </div>
 
           <div class="octane-card-hud p-5 text-center flex flex-col justify-between" data-motion data-delay="4">
@@ -1664,8 +1664,8 @@
                 <div class="grid grid-cols-3 gap-2 text-center mb-2.5">
                   <div class="p-2 rounded-lg bg-slate-950 border border-slate-700">
                     <div class="text-xl sm:text-2xl font-black text-cyan-neon font-mono">90%</div>
-                    <div class="text-[11px] text-white font-bold mt-0.5" data-i18n="s10_col1_lbl">EPI 提现</div>
-                    <div class="text-[9px] text-slate-400" data-i18n="s10_col1_sub">EPI 代币灵活兑现</div>
+                    <div class="text-[11px] text-white font-bold mt-0.5" data-i18n="s10_col1_lbl">USDT 提现</div>
+                    <div class="text-[9px] text-slate-400" data-i18n="s10_col1_sub">USDT 灵活兑现</div>
                   </div>
 
                   <div class="p-2 rounded-lg bg-slate-950 border border-cyan-bright/50">
@@ -1830,15 +1830,11 @@
               <div class="space-y-2 text-xs">
                 <div class="flex items-center justify-between">
                   <span class="text-slate-400" data-i18n="calc_fixed_profit_lbl">每日质押日化收益率 (固定单利)</span>
-                  <span class="font-mono font-bold text-cyan-neon bg-cyan-neon/10 px-2 py-0.5 rounded border border-cyan-neon/30">0.8% <span data-i18n="calc_fixed_tag">固定</span></span>
+                  <span class="font-mono font-bold text-cyan-neon bg-cyan-neon/10 px-2 py-0.5 rounded border border-cyan-neon/30">1.0% <span data-i18n="calc_fixed_tag">固定</span></span>
                 </div>
                 <div class="flex items-center justify-between">
                   <span class="text-slate-400" data-i18n="calc_fixed_alloc_lbl">每日收益自动转购 EPI 比例</span>
-                  <span class="font-mono font-bold text-gold-400 bg-gold-400/10 px-2 py-0.5 rounded border border-gold-400/30">90% <span data-i18n="calc_fixed_tag">固定</span></span>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-slate-400" data-i18n="calc_fixed_cash_lbl">每日留存 ENI / EPAY 比例</span>
-                  <span class="font-mono font-bold text-slate-300 bg-slate-800 px-2 py-0.5 rounded border border-slate-700">10% <span data-i18n="calc_fixed_tag">固定</span></span>
+                  <span class="font-mono font-bold text-gold-400 bg-gold-400/10 px-2 py-0.5 rounded border border-gold-400/30">100% <span data-i18n="calc_fixed_tag">固定</span></span>
                 </div>
               </div>
             </div>
@@ -1857,8 +1853,8 @@
               </div>
 
               <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
-                <div class="text-[10px] text-slate-400 font-medium" data-i18n="calc_daily_purchase_lbl">每日购入 EPI 额度 (90%)</div>
-                <div id="epi-res-daily-purchase" class="text-base sm:text-lg font-black font-mono text-gold-400 mt-1">2.16 USDT</div>
+                <div class="text-[10px] text-slate-400 font-medium" data-i18n="calc_daily_purchase_lbl">每日购入 EPI 额度 (100%)</div>
+                <div id="epi-res-daily-purchase" class="text-base sm:text-lg font-black font-mono text-gold-400 mt-1">3.00 USDT</div>
                 <div class="text-[9px] text-slate-500 font-mono" data-i18n="calc_sub_purchase">转购 EPI</div>
               </div>
 
@@ -1893,20 +1889,11 @@
 
               <!-- Bottom Details: Multi-row Clean Layout -->
               <div class="flex flex-col gap-2 w-full">
-                <!-- Row 1: 10% ENI/EPAY -->
-                <div class="text-[11px] sm:text-xs text-slate-400 flex items-center justify-between w-full">
-                  <span class="flex items-center gap-1 whitespace-nowrap">
-                    <span data-i18n="calc_retained_cash_lbl">10% ENI / EPAY 累计</span>
-                    <span class="text-slate-400">:</span>
-                  </span>
-                  <span id="epi-res-retained-cash" class="font-mono font-bold text-white whitespace-nowrap text-right">$9.00</span>
-                </div>
-
-                <!-- Row 2: Appreciation vs Base (% stacked under amount) -->
+                <!-- Appreciation vs Base (% stacked under amount) -->
                 <div class="text-[11px] sm:text-xs text-slate-400 flex items-center justify-between w-full">
                   <span class="flex items-center gap-1 whitespace-nowrap">
                     <span data-i18n="calc_appreciation_prefix">比原收益</span>
-                    <span class="font-mono text-slate-300 font-semibold">(<span id="epi-res-orig-profit">$81.00 USDT</span>)</span>
+                    <span class="font-mono text-slate-300 font-semibold">(<span id="epi-res-orig-profit">$90.00 USDT</span>)</span>
                     <span data-i18n="calc_appreciation_suffix">增值</span>
                     <span class="text-slate-400">:</span>
                   </span>
@@ -1958,7 +1945,7 @@
                     <th class="py-2.5 px-3 text-left whitespace-nowrap" data-i18n="calc_th_day">周期</th>
                     <th class="py-2.5 px-3 text-right whitespace-nowrap" data-i18n="calc_th_price">EPI 预期价格</th>
                     <th class="py-2.5 px-3 text-right whitespace-nowrap" data-i18n="calc_th_profit">当日收益</th>
-                    <th class="py-2.5 px-3 text-right whitespace-nowrap" data-i18n="calc_th_alloc">EPI 额度 (90%)</th>
+                    <th class="py-2.5 px-3 text-right whitespace-nowrap" data-i18n="calc_th_alloc">EPI 额度 (100%)</th>
                     <th class="py-2.5 px-3 text-right whitespace-nowrap" data-i18n="calc_th_purchased">当日购得</th>
                     <th class="py-2.5 px-3 text-right whitespace-nowrap" data-i18n="calc_th_total_epi">累计持币</th>
                     <th class="py-2.5 px-3 text-right whitespace-nowrap" data-i18n="calc_th_total_val">累计总估值</th>
